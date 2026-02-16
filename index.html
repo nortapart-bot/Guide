@@ -47,4 +47,281 @@
         .hero-title .gold{color:var(--gold);display:block}
         .hero-subtitle{font-size:clamp(14px,2.5vw,17px);color:var(--text-secondary);line-height:1.7;max-width:540px;margin:24px auto 40px}
         .scroll-btn{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:14px 32px;border:1px solid rgba(201,168,76,.3);border-radius:40px;transition:all .3s;cursor:pointer;background:none;font-family:inherit}
-        .scroll-btn:hover{background:var(--gold);color:var(--dark);border-color<span class="cursor">█</span>
+        .scroll-btn:hover{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+        .scroll-arrow{display:inline-block;animation:bounce 2s infinite}
+        @keyframes bounce{0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(6px)}60%{transform:translateY(3px)}}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+        /* SPORT */
+        .slide-sport{background:linear-gradient(180deg,var(--dark) 0%,#0a0f1a 50%,var(--dark) 100%);padding:80px 24px}
+        .sport-container{max-width:1000px;width:100%;display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+        .sport-visual{position:relative;min-height:400px;overflow:hidden;background:linear-gradient(135deg,#0d1a2d,#1a2a42);display:flex;align-items:center;justify-content:center}
+        .sport-visual-inner{text-align:center;padding:40px;position:relative;z-index:1}
+        .sport-visual .big-emoji{font-size:80px;margin-bottom:16px;display:block}
+        .sport-visual .vs-text{font-size:clamp(40px,6vw,64px);font-weight:900;letter-spacing:-2px;color:rgba(255,255,255,.1)}
+        .sport-visual::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(201,168,76,.06);top:50%;left:50%;transform:translate(-50%,-50%)}
+        .sport-info{background:var(--dark-card);padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+        .sport-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+        .sport-label::before{content:'';width:32px;height:2px;background:var(--gold)}
+        .sport-title{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.15;margin-bottom:8px}
+        .sport-vs{color:var(--text-secondary);font-size:.6em}
+        .sport-meta{display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+        .sport-meta-item{font-size:13px;color:var(--text-secondary)}
+        .sport-desc{font-size:14px;line-height:1.7;color:var(--text-secondary);margin-bottom:28px}
+        .btns{display:flex;gap:12px;flex-wrap:wrap}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:12px;font-family:inherit;font-size:13px;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none;white-space:nowrap}
+        .btn-p{background:var(--gold);color:var(--dark)}
+        .btn-p:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+        .btn-o{background:transparent;color:var(--text-primary);border:1px solid rgba(255,255,255,.2)}
+        .btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+        @media(max-width:768px){.sport-container{grid-template-columns:1fr;border-radius:16px}.sport-visual{min-height:220px}.sport-info{padding:28px 24px}}
+
+        /* GASTRO */
+        .slide-gastro{background:var(--dark);padding:80px 24px 100px}
+        .gw{max-width:1100px;width:100%;margin:0 auto}
+        .sh{text-align:center;margin-bottom:20px}
+        .sl{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+        .sl::before,.sl::after{content:'';width:32px;height:1px;background:var(--gold)}
+        .st{font-size:clamp(30px,5vw,50px);font-weight:800;line-height:1.15;margin-bottom:16px}
+        .ss{font-size:15px;color:var(--text-secondary);max-width:500px;margin:0 auto}
+
+        .gtip{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.05));border:1px solid rgba(201,168,76,.2);border-radius:14px;padding:18px 24px;margin-bottom:44px;display:flex;align-items:center;gap:14px;max-width:600px;margin-left:auto;margin-right:auto}
+        .gtip-i{font-size:26px;flex-shrink:0}
+        .gtip-t{font-size:13px;line-height:1.6;color:var(--gold-light)}
+        .gtip-t strong{color:var(--gold)}
+
+        /* Restaurant cards */
+        .rc{background:var(--dark-card);border-radius:18px;overflow:hidden;margin-bottom:24px;transition:all .4s;border:1px solid rgba(255,255,255,.04)}
+        .rc:hover{border-color:rgba(201,168,76,.15);transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,.4)}
+        .ri{display:grid;grid-template-columns:280px 1fr}
+        .rim{position:relative;overflow:hidden;min-height:260px;display:flex;align-items:center;justify-content:center}
+        .rim .rn{position:absolute;top:14px;left:14px;width:38px;height:38px;background:var(--gold);color:var(--dark);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;z-index:2}
+        .rim .food-icon{font-size:60px;opacity:.5}
+        .rct{padding:28px;display:flex;flex-direction:column;justify-content:center}
+        .rname{font-size:22px;font-weight:800;margin-bottom:3px}
+        .rtag{color:var(--gold);font-size:13px;font-weight:600;font-style:italic;margin-bottom:10px}
+        .rloc{font-size:12px;color:var(--text-secondary);margin-bottom:14px}
+        .rwhy{font-size:13px;line-height:1.7;color:var(--text-secondary);margin-bottom:6px}
+        .rord{font-size:13px;line-height:1.7;color:rgba(255,255,255,.7);margin-bottom:18px}
+        .rord strong{color:var(--gold-light)}
+        .ra{display:flex;gap:10px;flex-wrap:wrap}
+        .btn-s{padding:10px 18px;font-size:12px;border-radius:10px}
+
+        /* card colors */
+        .rc-1 .rim{background:linear-gradient(135deg,#2a1f0f,#1a1510)}
+        .rc-2 .rim{background:linear-gradient(135deg,#1a1520,#120f18)}
+        .rc-3 .rim{background:linear-gradient(135deg,#1f1a0a,#1a150d)}
+        .rc-4 .rim{background:linear-gradient(135deg,#0f1a1a,#0d1515)}
+        .rc-5 .rim{background:linear-gradient(135deg,#1a1508,#15120a)}
+
+        @media(max-width:840px){.ri{grid-template-columns:1fr}.rim{min-height:140px;max-height:160px}.rct{padding:22px}}
+
+        /* OFFER */
+        .slide-offer{background:linear-gradient(180deg,var(--dark) 0%,#0f0a1a 50%,var(--dark) 100%);padding:80px 24px}
+        .oc{max-width:1000px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5);border:1px solid rgba(201,168,76,.1)}
+        .ocl{background:var(--dark-card);padding:50px 44px;display:flex;flex-direction:column;justify-content:center}
+        .ocr{position:relative;overflow:hidden;min-height:400px;background:linear-gradient(135deg,#1a0d20,#120a18);display:flex;align-items:center;justify-content:center}
+        .ocr .big-emoji{font-size:100px;opacity:.4}
+        .ocr::before{content:'';position:absolute;width:250px;height:250px;border-radius:50%;background:rgba(201,168,76,.05);top:50%;left:50%;transform:translate(-50%,-50%)}
+        .ol{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+        .ol::before{content:'';width:32px;height:2px;background:var(--gold)}
+        .ott{font-size:clamp(26px,4vw,38px);font-weight:800;line-height:1.2;margin-bottom:18px}
+        .otx{font-size:14px;line-height:1.8;color:var(--text-secondary);margin-bottom:28px}
+        .otx em{color:var(--gold-light);font-style:normal;font-weight:600}
+        @media(max-width:768px){.oc{grid-template-columns:1fr;border-radius:16px}.ocl{padding:32px 24px;order:2}.ocr{min-height:200px;order:1}}
+
+        /* FOOTER */
+        .footer{background:var(--dark-card);border-top:1px solid rgba(255,255,255,.05);padding:36px 24px;text-align:center}
+        .footer-logo{font-size:22px;font-weight:800;color:var(--gold);margin-bottom:10px}
+        .footer-text{font-size:12px;color:var(--text-secondary);line-height:1.6}
+
+        /* REVEAL */
+        .rv{opacity:0;transform:translateY(35px);transition:all .7s cubic-bezier(.25,.46,.45,.94)}
+        .rv.vis{opacity:1;transform:translateY(0)}
+        .rvd1{transition-delay:.1s}.rvd2{transition-delay:.15s}.rvd3{transition-delay:.2s}.rvd4{transition-delay:.25s}.rvd5{transition-delay:.3s}
+
+        ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--dark)}::-webkit-scrollbar-thumb{background:rgba(201,168,76,.3);border-radius:3px}
+    </style>
+</head>
+<body>
+
+<nav class="nav-dots">
+    <div class="nav-dot active" data-slide="0"><span class="tp">Главная</span></div>
+    <div class="nav-dot" data-slide="1"><span class="tp">Спорт</span></div>
+    <div class="nav-dot" data-slide="2"><span class="tp">Гастро</span></div>
+    <div class="nav-dot" data-slide="3"><span class="tp">Оффер</span></div>
+</nav>
+
+<!-- ===== SLIDE 1: HERO ===== -->
+<section class="slide slide-hero" id="slide-0">
+    <div class="hero-deco">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+    </div>
+    <div class="hero-lines"><div class="l1"></div><div class="l2"></div><div class="l3"></div><div class="l4"></div></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-badge">Nort Weekend Guide</div>
+        <h1 class="hero-title hf">Мужской уикенд<span class="gold">в Нижнем Новгороде</span></h1>
+        <p class="hero-subtitle">Собрали для вас лучшие локации города в пешей доступности. Спорт, мясо, крафт и перезагрузка — всё для идеального выходного.</p>
+        <a href="#slide-1" class="scroll-btn">Начать маршрут <span class="scroll-arrow">↓</span></a>
+    </div>
+</section>
+
+<!-- ===== SLIDE 2: SPORT ===== -->
+<section class="slide slide-sport" id="slide-1">
+    <div class="sport-container rv">
+        <div class="sport-visual">
+            <div class="sport-visual-inner">
+                <span class="big-emoji">🏒</span>
+                <div class="vs-text">VS</div>
+            </div>
+        </div>
+        <div class="sport-info">
+            <div class="sport-label">Главное событие</div>
+            <h2 class="sport-title hf">Торпедо<br><span class="sport-vs">vs</span><br>Динамо-Минск</h2>
+            <div class="sport-meta">
+                <span class="sport-meta-item">📅 23 февраля</span>
+                <span class="sport-meta-item">🕐 17:00</span>
+                <span class="sport-meta-item">📍 КРК Нагорный</span>
+            </div>
+            <p class="sport-desc">Легендарный нижегородский лёд. Если нет билетов — пишите в поддержку бота, мы подскажем, в каких барах самая крутая атмосфера для просмотра.</p>
+            <div class="btns">
+                <a href="https://hctorpedo.ru/tickets/" target="_blank" rel="noopener" class="btn btn-p">🎫 Купить билеты</a>
+                <a href="#slide-2" class="btn btn-o">🍺 Смотреть в баре</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SLIDE 3: GASTRO ===== -->
+<section class="slide slide-gastro" id="slide-2" style="align-items:flex-start">
+    <div class="gw">
+        <div class="sh rv">
+            <div class="sl">Гастро-маршрут</div>
+            <h2 class="st hf">Где поесть<br>брутально</h2>
+            <p class="ss">Мясо, огонь, крафт — маршрут для настоящих</p>
+        </div>
+        <div class="gtip rv rvd1">
+            <span class="gtip-i">💡</span>
+            <p class="gtip-t"><strong>Совет от Nort:</strong> Забронируйте столик заранее — в праздничные выходные лучшие места разбирают быстро.</p>
+        </div>
+
+        <!-- 1 -->
+        <div class="rc rc-1 rv rvd1">
+            <div class="ri">
+                <div class="rim">
+                    <div class="rn">1</div>
+                    <span class="food-icon">🥩</span>
+                </div>
+                <div class="rct">
+                    <h3 class="rname hf">Steak-House KM</h3>
+                    <div class="rtag">«Стейки в 0 минутах от кровати»</div>
+                    <div class="rloc">📍 Прямо в вашем здании — ул. М. Горького, 23А</div>
+                    <p class="rwhy">Идеальный вариант для тех, кто не хочет никуда ехать. Мясо на живом огне. Кожа, дерево, приглушённый свет.</p>
+                    <p class="rord"><strong>Что заказывать:</strong> Стейк Рибай или сочные свиные рёбрышки</p>
+                    <div class="ra">
+                        <a href="https://steakhousekm.ru/" target="_blank" rel="noopener" class="btn btn-p btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.316739,43.997385&rtt=auto" target="_blank" rel="noopener" class="btn btn-o btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="rc rc-2 rv rvd2">
+            <div class="ri">
+                <div class="rim">
+                    <div class="rn">2</div>
+                    <span class="food-icon">🔥</span>
+                </div>
+                <div class="rct">
+                    <h3 class="rname hf">Mitrich Steakhouse</h3>
+                    <div class="rtag">«Мясной премиум»</div>
+                    <div class="rloc">📍 ул. Ковалихинская, 8 · ~7 мин на такси</div>
+                    <p class="rwhy">Первый и самый статусный стейк-хаус города. «Дорого и качественно». Интерьер сдержанный и очень мужской.</p>
+                    <p class="rord"><strong>Что заказывать:</strong> Стейк «Нью-Йорк» или тартар из говядины</p>
+                    <div class="ra">
+                        <a href="https://mitrichsteakhouse.ru/" target="_blank" rel="noopener" class="btn btn-p btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.313053,43.990509&rtt=auto" target="_blank" rel="noopener" class="btn btn-o btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="rc rc-3 rv rvd3">
+            <div class="ri">
+                <div class="rim">
+                    <div class="rn">3</div>
+                    <span class="food-icon">🍖</span>
+                </div>
+                <div class="rct">
+                    <h3 class="rname hf">Dodici Grill</h3>
+                    <div class="rtag">«Дым и огонь»</div>
+                    <div class="rloc">📍 ул. Октябрьская, 12 · ~15 мин пешком</div>
+                    <p class="rwhy">В центре зала — открытый гриль и дровяной смокер. Запах костра и вид готовящегося мяса создают ту самую атмосферу.</p>
+                    <p class="rord"><strong>Что заказывать:</strong> Брискет из мраморной говядины — томят 12 часов</p>
+                    <div class="ra">
+                        <a href="https://dodici-grill.ru/" target="_blank" rel="noopener" class="btn btn-p btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.318776,43.992442&rtt=auto" target="_blank" rel="noopener" class="btn btn-o btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="rc rc-4 rv rvd4">
+            <div class="ri">
+                <div class="rim">
+                    <div class="rn">4</div>
+                    <span class="food-icon">🦌</span>
+                </div>
+                <div class="rct">
+                    <h3 class="rname hf">Ресторан «Экспедиция»</h3>
+                    <div class="rtag">«Для охотников и искателей»</div>
+                    <div class="rloc">📍 ул. Рождественская, 1 · ~10 мин на такси</div>
+                    <p class="rwhy">База полярников. Дерево, металл, карта мира и вертолёт в натуральную величину. Кухня северная, честная, мужская.</p>
+                    <p class="rord"><strong>Что заказывать:</strong> Строганину из северных рыб, мясо оленя или косули</p>
+                    <div class="ra">
+                        <a href="http://expedition-nn.ru/" target="_blank" rel="noopener" class="btn btn-p btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.328180,43.976988&rtt=auto" target="_blank" rel="noopener" class="btn btn-o btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="rc rc-5 rv rvd5">
+            <div class="ri">
+                <div class="rim">
+                    <div class="rn">5</div>
+                    <span class="food-icon">🍺</span>
+                </div>
+                <div class="rct">
+                    <h3 class="rname hf">Горьковская пивоварня</h3>
+                    <div class="rtag">«Локальный крафт»</div>
+                    <div class="rloc">📍 ул. Рождественская, 29</div>
+                    <p class="rwhy">Гастропаб при собственной пивоварне. Шумно, драйвово, спорт на экранах. Идеально для просмотра хоккея.</p>
+                    <p class="rord"><strong>Что заказывать:</strong> Локальный IPA и фирменные закуски к пиву</p>
+                    <div class="ra">
+                        <a href="https://gorkovskaya.ru/" target="_blank" rel="noopener" class="btn btn-p btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.326909,43.979918&rtt=auto" target="_blank" rel="noopener" class="btn btn-o btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SLIDE 4: OFFER ===== -->
+<section class="slide slide-offer" id="slide-3">
+    <div class="oc rv">
+        <div class="ocl">
+            <div class="ol">Перезагрузка</div>
+            <h2 class="ott hf">Твой спец.<br>оффер</h2>
+            <p class="otx">
+                После активного дня — время восстановиться. Попробуйте что-то новое — <em>пробная тренировка по боксу</em>.
+                <br><br>
+                Даже одна тренировка в <em>Академии бокса</em> да
