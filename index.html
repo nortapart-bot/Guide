@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мужской уикенд в Нижнем Новгороде</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -10,57 +10,52 @@
         body{
             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
             background:#0D0D0D;color:#fff;line-height:1.6;
-            -webkit-text-size-adjust:100%;
         }
-
-        /* ===== ПЕРЕМЕННЫЕ ===== */
         :root{
             --gold:#C9A84C;
             --gold-l:#E8D48B;
             --bg:#0D0D0D;
             --card:#1A1A1A;
-            --gray:#AAAAAA;
+            --gray:#AAA;
         }
-
         a{color:inherit;text-decoration:none}
+        img{display:block;width:100%;height:100%;object-fit:cover}
 
-        /* ===== HERO ===== */
+        /* ============================================
+           HERO
+           ============================================ */
         .hero{
             min-height:100vh;min-height:100dvh;
             display:flex;flex-direction:column;
             align-items:center;justify-content:center;
             text-align:center;padding:60px 24px 40px;
-            background:linear-gradient(160deg,#0a0a14,#12101f 50%,#1a1028);
             position:relative;overflow:hidden;
+            background:#0a0a14;
         }
-        .hero::before{
-            content:'';position:absolute;
-            width:500px;height:500px;border-radius:50%;
-            background:radial-gradient(circle,rgba(201,168,76,.08),transparent 70%);
-            top:-150px;right:-150px;
+        .hero-img{
+            position:absolute;inset:0;z-index:0;
+            opacity:.3;
         }
-        .hero::after{
-            content:'';position:absolute;
-            width:350px;height:350px;border-radius:50%;
-            background:radial-gradient(circle,rgba(201,168,76,.06),transparent 70%);
-            bottom:-100px;left:-100px;
+        /* На мобильном — градиент вместо фото */
+        .hero-img img{display:none}
+        .hero-img-fallback{
+            position:absolute;inset:0;
+            background:linear-gradient(160deg,#0a0a14,#12101f 50%,#1a1028);
         }
-        .hero>*{position:relative;z-index:1}
+        .hero-overlay{
+            position:absolute;inset:0;z-index:1;
+            background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.1) 40%,rgba(0,0,0,.6) 80%,#0D0D0D);
+        }
+        .hero>*:not(.hero-img):not(.hero-overlay){position:relative;z-index:2}
         .badge{
             display:inline-block;padding:8px 20px;
             border:1px solid var(--gold);border-radius:30px;
             font-size:11px;font-weight:700;letter-spacing:2.5px;
             text-transform:uppercase;color:var(--gold);margin-bottom:28px;
         }
-        .hero h1{
-            font-size:clamp(32px,8vw,64px);font-weight:900;
-            line-height:1.1;margin-bottom:20px;
-        }
+        .hero h1{font-size:clamp(32px,7vw,68px);font-weight:900;line-height:1.1;margin-bottom:20px}
         .hero h1 span{color:var(--gold);display:block}
-        .hero p{
-            font-size:clamp(14px,3.5vw,17px);color:var(--gray);
-            max-width:480px;margin:0 auto 36px;
-        }
+        .hero p{font-size:clamp(14px,2.5vw,17px);color:var(--gray);max-width:520px;margin:0 auto 36px}
         .hero-btn{
             display:inline-flex;align-items:center;gap:8px;
             padding:14px 30px;border:1px solid rgba(201,168,76,.4);
@@ -70,175 +65,288 @@
         }
         .hero-btn:hover{background:var(--gold);color:#0D0D0D}
 
-        /* ===== СЕКЦИИ ===== */
-        .section{padding:60px 20px}
-        .section-dark{background:var(--bg)}
-        .section-alt{background:linear-gradient(180deg,var(--bg),#0a0f1a,var(--bg))}
+        @media(min-width:769px){
+            .hero-img img{display:block;width:100%;height:100%;object-fit:cover}
+            .hero-img-fallback{display:none}
+        }
+
+        /* ============================================
+           КНОПКИ
+           ============================================ */
+        .btn{
+            display:inline-flex;align-items:center;gap:6px;
+            padding:13px 24px;border-radius:12px;
+            font-size:13px;font-weight:700;transition:all .3s;
+            border:none;cursor:pointer;font-family:inherit;
+        }
+        .btn-gold{background:var(--gold);color:#0D0D0D}
+        .btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,168,76,.3)}
+        .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
+        .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+        .btn-s{padding:10px 18px;font-size:12px;border-radius:10px}
+        .btn-row{display:flex;gap:10px;flex-wrap:wrap}
+
+        /* ============================================
+           SECTIONS
+           ============================================ */
+        .section{padding:70px 24px}
+        .sec-alt{background:linear-gradient(180deg,var(--bg),#0a0f1a,var(--bg))}
+        .sec-dark{background:var(--bg)}
 
         .sec-label{
             display:flex;align-items:center;gap:10px;justify-content:center;
             font-size:11px;font-weight:700;letter-spacing:3px;
             text-transform:uppercase;color:var(--gold);margin-bottom:14px;
         }
-        .sec-label::before,.sec-label::after{
-            content:'';width:24px;height:1px;background:var(--gold);
-        }
-        .sec-title{
-            text-align:center;font-size:clamp(28px,6vw,46px);
-            font-weight:900;line-height:1.15;margin-bottom:10px;
-        }
-        .sec-sub{
-            text-align:center;font-size:14px;color:var(--gray);
-            max-width:400px;margin:0 auto 36px;
-        }
+        .sec-label::before,.sec-label::after{content:'';width:28px;height:1px;background:var(--gold)}
+        .sec-title{text-align:center;font-size:clamp(28px,5vw,48px);font-weight:900;line-height:1.15;margin-bottom:12px}
+        .sec-sub{text-align:center;font-size:15px;color:var(--gray);max-width:450px;margin:0 auto 40px}
 
-        /* ===== SPORT CARD ===== */
+        /* ============================================
+           SPORT — двухколоночный на десктопе
+           ============================================ */
         .sport-card{
-            max-width:600px;margin:0 auto;
+            max-width:960px;margin:0 auto;
             background:var(--card);border-radius:20px;overflow:hidden;
+            box-shadow:0 30px 60px rgba(0,0,0,.4);
         }
-        .sport-top{
+        .sport-inner{display:block}
+        .sport-img{
+            min-height:200px;
             background:linear-gradient(135deg,#0d1a2d,#1a2a42);
-            padding:40px 24px;text-align:center;
+            display:flex;align-items:center;justify-content:center;
+            position:relative;overflow:hidden;
         }
-        .sport-top .emoji{font-size:64px;display:block;margin-bottom:10px}
-        .sport-top .vs{font-size:48px;font-weight:900;color:rgba(255,255,255,.1)}
+        .sport-img img{display:none}
+        .sport-img .fallback{text-align:center}
+        .sport-img .fallback .emoji{font-size:60px;display:block;margin-bottom:8px}
+        .sport-img .fallback .vs{font-size:42px;font-weight:900;color:rgba(255,255,255,.1)}
         .sport-body{padding:28px 24px}
-        .sport-body h2{font-size:clamp(24px,5vw,34px);font-weight:900;line-height:1.15;margin-bottom:6px}
+        .sport-body h2{font-size:clamp(24px,4vw,36px);font-weight:900;line-height:1.15;margin-bottom:6px}
         .sport-body .vs-sm{color:var(--gray);font-size:.55em}
-        .sport-meta{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 18px}
+        .sport-meta{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0 18px}
         .sport-meta span{font-size:13px;color:var(--gray)}
-        .sport-body p{font-size:14px;color:var(--gray);margin-bottom:24px}
-        .btn-row{display:flex;gap:10px;flex-wrap:wrap}
-        .btn{
-            display:inline-flex;align-items:center;gap:6px;
-            padding:12px 22px;border-radius:12px;
-            font-size:13px;font-weight:700;transition:all .3s;
-            border:none;cursor:pointer;font-family:inherit;
-        }
-        .btn-gold{background:var(--gold);color:#0D0D0D}
-        .btn-gold:hover{background:var(--gold-l);transform:translateY(-1px)}
-        .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
-        .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+        .sport-body>p{font-size:14px;color:var(--gray);margin-bottom:24px;line-height:1.7}
 
-        /* ===== TIP ===== */
+        @media(min-width:769px){
+            .sport-inner{display:grid;grid-template-columns:1fr 1fr}
+            .sport-img{min-height:420px}
+            .sport-img img{display:block;position:absolute;inset:0}
+            .sport-img .fallback{display:none}
+            .sport-body{padding:44px 40px}
+        }
+
+        /* ============================================
+           TIP
+           ============================================ */
         .tip{
-            max-width:560px;margin:0 auto 32px;
+            max-width:600px;margin:0 auto 36px;
             background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);
             border-radius:14px;padding:16px 20px;
             display:flex;align-items:center;gap:12px;
         }
         .tip-icon{font-size:24px;flex-shrink:0}
-        .tip-text{font-size:13px;color:var(--gold-l);line-height:1.5}
+        .tip-text{font-size:13px;color:var(--gold-l);line-height:1.55}
         .tip-text strong{color:var(--gold)}
 
-        /* ===== RESTAURANT CARDS ===== */
+        /* ============================================
+           RESTAURANT CARDS — горизонтальные на десктопе
+           ============================================ */
+        .rest-list{max-width:960px;margin:0 auto}
         .rest{
-            max-width:600px;margin:0 auto 20px;
-            background:var(--card);border-radius:16px;overflow:hidden;
-            border:1px solid rgba(255,255,255,.04);
+            background:var(--card);border-radius:18px;overflow:hidden;
+            margin-bottom:24px;border:1px solid rgba(255,255,255,.04);
+            transition:all .3s;
         }
-        .rest-header{
-            display:flex;align-items:center;gap:14px;padding:20px 20px 0;
+        .rest:hover{border-color:rgba(201,168,76,.15);transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,.4)}
+        .rest-inner{display:block}
+        .rest-img{
+            position:relative;overflow:hidden;min-height:160px;
+            display:flex;align-items:center;justify-content:center;
         }
+        .rest-img img{display:none}
+        .rest-img .fallback{text-align:center}
+        .rest-img .fallback .food-icon{font-size:48px;opacity:.6}
         .rest-num{
+            position:absolute;top:14px;left:14px;
             width:38px;height:38px;background:var(--gold);color:#0D0D0D;
             border-radius:10px;display:flex;align-items:center;justify-content:center;
-            font-weight:800;font-size:17px;flex-shrink:0;
+            font-weight:800;font-size:17px;z-index:2;
         }
-        .rest-emoji{font-size:36px;flex-shrink:0}
-        .rest-header-text h3{font-size:18px;font-weight:800;line-height:1.2}
-        .rest-header-text .tag{font-size:12px;color:var(--gold);font-weight:600;font-style:italic}
-        .rest-body{padding:14px 20px 20px}
+        .rest-body{padding:22px 20px}
+        .rest-body h3{font-size:20px;font-weight:800;margin-bottom:2px}
+        .rest-tag{color:var(--gold);font-size:13px;font-weight:600;font-style:italic;margin-bottom:10px}
         .rest-loc{font-size:12px;color:var(--gray);margin-bottom:12px}
         .rest-desc{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:6px}
         .rest-order{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:16px;line-height:1.6}
         .rest-order strong{color:var(--gold-l)}
         .rest-btns{display:flex;gap:8px;flex-wrap:wrap}
-        .btn-s{padding:9px 16px;font-size:12px;border-radius:10px}
 
-        /* Градиентные полоски сбоку карточки */
-        .rest-1{border-left:3px solid #8B4513}
-        .rest-2{border-left:3px solid #6B3FA0}
-        .rest-3{border-left:3px solid #CC6600}
-        .rest-4{border-left:3px solid #2E8B57}
-        .rest-5{border-left:3px solid #B8860B}
+        /* Цветные акценты */
+        .rest-1 .rest-img{background:linear-gradient(135deg,#2a1f0f,#1a1510)}
+        .rest-2 .rest-img{background:linear-gradient(135deg,#1a1520,#120f18)}
+        .rest-3 .rest-img{background:linear-gradient(135deg,#1f1a0a,#1a150d)}
+        .rest-4 .rest-img{background:linear-gradient(135deg,#0f1a1a,#0d1515)}
+        .rest-5 .rest-img{background:linear-gradient(135deg,#1a1508,#15120a)}
 
-        /* ===== OFFER ===== */
+        @media(min-width:769px){
+            .rest-inner{display:grid;grid-template-columns:320px 1fr}
+            .rest-img{min-height:300px}
+            .rest-img img{display:block;position:absolute;inset:0;transition:transform .5s}
+            .rest:hover .rest-img img{transform:scale(1.06)}
+            .rest-img .fallback{display:none}
+            .rest-body{padding:30px 32px;display:flex;flex-direction:column;justify-content:center}
+            .rest-body h3{font-size:24px}
+        }
+
+        /* ============================================
+           OFFER — двухколоночный на десктопе
+           ============================================ */
         .offer{
-            max-width:600px;margin:0 auto;
+            max-width:960px;margin:0 auto;
             background:var(--card);border-radius:20px;overflow:hidden;
             border:1px solid rgba(201,168,76,.1);
+            box-shadow:0 30px 60px rgba(0,0,0,.4);
         }
-        .offer-top{
+        .offer-inner{display:block}
+        .offer-img{
+            min-height:180px;overflow:hidden;position:relative;
             background:linear-gradient(135deg,#1a0d20,#120a18);
-            padding:40px 24px;text-align:center;
+            display:flex;align-items:center;justify-content:center;
         }
-        .offer-top .emoji{font-size:72px;display:block}
+        .offer-img img{display:none}
+        .offer-img .fallback .emoji{font-size:72px;opacity:.5}
         .offer-body{padding:28px 24px}
-        .offer-body h2{font-size:clamp(24px,5vw,34px);font-weight:900;margin-bottom:16px}
+        .offer-body h2{font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px}
         .offer-body p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:24px}
         .offer-body em{color:var(--gold-l);font-style:normal;font-weight:600}
 
-        /* ===== FOOTER ===== */
+        @media(min-width:769px){
+            .offer-inner{display:grid;grid-template-columns:1fr 1fr}
+            .offer-img{min-height:440px}
+            .offer-img img{display:block;position:absolute;inset:0;transition:transform .5s}
+            .offer:hover .offer-img img{transform:scale(1.05)}
+            .offer-img .fallback{display:none}
+            .offer-body{padding:50px 44px;display:flex;flex-direction:column;justify-content:center}
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
         .footer{
             background:var(--card);border-top:1px solid rgba(255,255,255,.05);
-            padding:32px 24px;text-align:center;
+            padding:36px 24px;text-align:center;
         }
         .footer-logo{font-size:22px;font-weight:900;color:var(--gold);margin-bottom:8px}
         .footer-text{font-size:12px;color:var(--gray)}
-
-        /* ===== Безопасные отступы для iPhone ===== */
         @supports(padding-bottom:env(safe-area-inset-bottom)){
-            .footer{padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+            .footer{padding-bottom:calc(36px + env(safe-area-inset-bottom))}
         }
 
-        /* ===== Маленький экран ===== */
+        /* ============================================
+           DESKTOP NAV DOTS (только >768)
+           ============================================ */
+        .nav-dots{display:none}
+        @media(min-width:769px){
+            .nav-dots{
+                display:flex;flex-direction:column;gap:12px;
+                position:fixed;right:24px;top:50%;transform:translateY(-50%);
+                z-index:1000;
+            }
+            .nav-dot{
+                width:12px;height:12px;border-radius:50%;
+                background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.25);
+                cursor:pointer;transition:all .3s;position:relative;
+            }
+            .nav-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 10px rgba(201,168,76,.4)}
+            .nav-dot:hover{background:var(--gold-l);border-color:var(--gold-l)}
+            .nav-dot .tp{
+                position:absolute;right:22px;top:50%;transform:translateY(-50%);
+                background:rgba(0,0,0,.85);color:#fff;padding:5px 10px;
+                border-radius:5px;font-size:11px;white-space:nowrap;
+                opacity:0;pointer-events:none;transition:opacity .3s;
+            }
+            .nav-dot:hover .tp{opacity:1}
+        }
+
+        /* ============================================
+           PARALLAX HERO — только десктоп
+           ============================================ */
+        @media(min-width:769px){
+            .hero{min-height:100vh}
+        }
+
+        /* ============================================
+           Мелкий экран
+           ============================================ */
         @media(max-width:380px){
             .hero{padding:40px 16px 30px}
             .section{padding:48px 16px}
-            .sport-body,.rest-body,.offer-body{padding:20px 16px}
-            .rest-header{padding:16px 16px 0}
             .btn{padding:11px 16px;font-size:12px}
+        }
+
+        /* Scrollbar */
+        @media(min-width:769px){
+            ::-webkit-scrollbar{width:6px}
+            ::-webkit-scrollbar-track{background:var(--bg)}
+            ::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25);border-radius:3px}
         }
     </style>
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
+<!-- NAV DOTS — только десктоп, через CSS -->
+<nav class="nav-dots" id="nd">
+    <div class="nav-dot active" data-s="top"><span class="tp">Главная</span></div>
+    <div class="nav-dot" data-s="sport"><span class="tp">Спорт</span></div>
+    <div class="nav-dot" data-s="gastro"><span class="tp">Гастро</span></div>
+    <div class="nav-dot" data-s="offer"><span class="tp">Оффер</span></div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
 <section class="hero" id="top">
+    <div class="hero-img">
+        <div class="hero-img-fallback"></div>
+        <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1400&q=70" alt="" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
     <div class="badge">Nort Weekend Guide</div>
     <h1>Мужской уикенд <span>в Нижнем Новгороде</span></h1>
     <p>Собрали для вас лучшие локации города в пешей доступности. Спорт, мясо, крафт и перезагрузка — всё для идеального выходного.</p>
     <a href="#sport" class="hero-btn">Начать маршрут ↓</a>
 </section>
 
-<!-- ===== SPORT ===== -->
-<section class="section section-alt" id="sport">
+<!-- ==================== SPORT ==================== -->
+<section class="section sec-alt" id="sport">
     <div class="sec-label">Главное событие</div>
     <div class="sport-card">
-        <div class="sport-top">
-            <span class="emoji">🏒</span>
-            <div class="vs">VS</div>
-        </div>
-        <div class="sport-body">
-            <h2>Торпедо <span class="vs-sm">vs</span> Динамо-Минск</h2>
-            <div class="sport-meta">
-                <span>📅 23 февраля</span>
-                <span>🕐 17:00</span>
-                <span>📍 КРК Нагорный</span>
+        <div class="sport-inner">
+            <div class="sport-img">
+                <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=700&q=70" alt="Хоккей" loading="lazy">
+                <div class="fallback">
+                    <span class="emoji">🏒</span>
+                    <div class="vs">VS</div>
+                </div>
             </div>
-            <p>Легендарный нижегородский лёд. Если нет билетов — пишите в поддержку бота, мы подскажем, в каких барах самая крутая атмосфера для просмотра.</p>
-            <div class="btn-row">
-                <a href="https://hctorpedo.ru/tickets/" target="_blank" rel="noopener" class="btn btn-gold">🎫 Купить билеты</a>
-                <a href="#gastro" class="btn btn-ghost">🍺 Где смотреть</a>
+            <div class="sport-body">
+                <h2>Торпедо <span class="vs-sm">vs</span> Динамо-Минск</h2>
+                <div class="sport-meta">
+                    <span>📅 23 февраля</span>
+                    <span>🕐 17:00</span>
+                    <span>📍 КРК Нагорный</span>
+                </div>
+                <p>Легендарный нижегородский лёд. Если нет билетов — пишите в поддержку бота, мы подскажем, в каких барах самая крутая атмосфера для просмотра.</p>
+                <div class="btn-row">
+                    <a href="https://hctorpedo.ru/tickets/" target="_blank" rel="noopener" class="btn btn-gold">🎫 Купить билеты</a>
+                    <a href="#gastro" class="btn btn-ghost">🍺 Где смотреть</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== GASTRO ===== -->
-<section class="section section-dark" id="gastro">
+<!-- ==================== GASTRO ==================== -->
+<section class="section sec-dark" id="gastro">
     <div class="sec-label">Гастро-маршрут</div>
     <h2 class="sec-title">Где поесть<br>брутально</h2>
     <p class="sec-sub">Мясо, огонь, крафт — маршрут для настоящих</p>
@@ -248,138 +356,176 @@
         <p class="tip-text"><strong>Совет от Nort:</strong> Забронируйте столик заранее — в праздничные выходные лучшие места разбирают быстро.</p>
     </div>
 
-    <!-- 1 -->
-    <div class="rest rest-1">
-        <div class="rest-header">
-            <div class="rest-num">1</div>
-            <span class="rest-emoji">🥩</span>
-            <div class="rest-header-text">
-                <h3>Steak-House KM</h3>
-                <div class="tag">«Стейки в 0 минутах от кровати»</div>
-            </div>
-        </div>
-        <div class="rest-body">
-            <div class="rest-loc">📍 Прямо в вашем здании — ул. М. Горького, 23А</div>
-            <p class="rest-desc">Идеальный вариант для тех, кто не хочет никуда ехать. Мясо на живом огне. Кожа, дерево, приглушённый свет.</p>
-            <p class="rest-order"><strong>Что заказывать:</strong> Стейк Рибай или сочные свиные рёбрышки</p>
-            <div class="rest-btns">
-                <a href="https://steakhousekm.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                <a href="https://yandex.ru/maps/?rtext=~56.316739,43.997385&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-            </div>
-        </div>
-    </div>
+    <div class="rest-list">
 
-    <!-- 2 -->
-    <div class="rest rest-2">
-        <div class="rest-header">
-            <div class="rest-num">2</div>
-            <span class="rest-emoji">🔥</span>
-            <div class="rest-header-text">
-                <h3>Mitrich Steakhouse</h3>
-                <div class="tag">«Мясной премиум»</div>
+        <!-- 1 -->
+        <div class="rest rest-1">
+            <div class="rest-inner">
+                <div class="rest-img">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=70" alt="Steak House KM" loading="lazy">
+                    <div class="fallback"><span class="food-icon">🥩</span></div>
+                    <div class="rest-num">1</div>
+                </div>
+                <div class="rest-body">
+                    <h3>Steak-House KM</h3>
+                    <div class="rest-tag">«Стейки в 0 минутах от кровати»</div>
+                    <div class="rest-loc">📍 Прямо в вашем здании — ул. М. Горького, 23А</div>
+                    <p class="rest-desc">Идеальный вариант для тех, кто не хочет никуда ехать. Мясо на живом огне. Кожа, дерево, приглушённый свет.</p>
+                    <p class="rest-order"><strong>Что заказывать:</strong> Стейк Рибай или сочные свиные рёбрышки</p>
+                    <div class="rest-btns">
+                        <a href="https://steakhousekm.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.316739,43.997385&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="rest-body">
-            <div class="rest-loc">📍 ул. Ковалихинская, 8 · ~7 мин на такси</div>
-            <p class="rest-desc">Первый и самый статусный стейк-хаус города. «Дорого и качественно». Интерьер сдержанный и очень мужской.</p>
-            <p class="rest-order"><strong>Что заказывать:</strong> Стейк «Нью-Йорк» или тартар из говядины</p>
-            <div class="rest-btns">
-                <a href="https://mitrichsteakhouse.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                <a href="https://yandex.ru/maps/?rtext=~56.313053,43.990509&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-            </div>
-        </div>
-    </div>
 
-    <!-- 3 -->
-    <div class="rest rest-3">
-        <div class="rest-header">
-            <div class="rest-num">3</div>
-            <span class="rest-emoji">🍖</span>
-            <div class="rest-header-text">
-                <h3>Dodici Grill</h3>
-                <div class="tag">«Дым и огонь»</div>
+        <!-- 2 -->
+        <div class="rest rest-2">
+            <div class="rest-inner">
+                <div class="rest-img">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=70" alt="Mitrich" loading="lazy">
+                    <div class="fallback"><span class="food-icon">🔥</span></div>
+                    <div class="rest-num">2</div>
+                </div>
+                <div class="rest-body">
+                    <h3>Mitrich Steakhouse</h3>
+                    <div class="rest-tag">«Мясной премиум»</div>
+                    <div class="rest-loc">📍 ул. Ковалихинская, 8 · ~7 мин на такси</div>
+                    <p class="rest-desc">Первый и самый статусный стейк-хаус города. «Дорого и качественно». Интерьер сдержанный и очень мужской.</p>
+                    <p class="rest-order"><strong>Что заказывать:</strong> Стейк «Нью-Йорк» или тартар из говядины</p>
+                    <div class="rest-btns">
+                        <a href="https://mitrichsteakhouse.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.313053,43.990509&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="rest-body">
-            <div class="rest-loc">📍 ул. Октябрьская, 12 · ~15 мин пешком</div>
-            <p class="rest-desc">В центре зала — открытый гриль и дровяной смокер. Запах костра и вид готовящегося мяса создают ту самую атмосферу.</p>
-            <p class="rest-order"><strong>Что заказывать:</strong> Брискет из мраморной говядины — томят 12 часов</p>
-            <div class="rest-btns">
-                <a href="https://dodici-grill.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                <a href="https://yandex.ru/maps/?rtext=~56.318776,43.992442&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-            </div>
-        </div>
-    </div>
 
-    <!-- 4 -->
-    <div class="rest rest-4">
-        <div class="rest-header">
-            <div class="rest-num">4</div>
-            <span class="rest-emoji">🦌</span>
-            <div class="rest-header-text">
-                <h3>Ресторан «Экспедиция»</h3>
-                <div class="tag">«Для охотников и искателей»</div>
+        <!-- 3 -->
+        <div class="rest rest-3">
+            <div class="rest-inner">
+                <div class="rest-img">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=70" alt="Dodici" loading="lazy">
+                    <div class="fallback"><span class="food-icon">🍖</span></div>
+                    <div class="rest-num">3</div>
+                </div>
+                <div class="rest-body">
+                    <h3>Dodici Grill</h3>
+                    <div class="rest-tag">«Дым и огонь»</div>
+                    <div class="rest-loc">📍 ул. Октябрьская, 12 · ~15 мин пешком</div>
+                    <p class="rest-desc">В центре зала — открытый гриль и дровяной смокер. Запах костра и вид готовящегося мяса создают ту самую атмосферу.</p>
+                    <p class="rest-order"><strong>Что заказывать:</strong> Брискет из мраморной говядины — томят 12 часов</p>
+                    <div class="rest-btns">
+                        <a href="https://dodici-grill.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.318776,43.992442&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="rest-body">
-            <div class="rest-loc">📍 ул. Рождественская, 1 · ~10 мин на такси</div>
-            <p class="rest-desc">База полярников. Дерево, металл, карта мира и вертолёт в натуральную величину. Кухня северная, честная, мужская.</p>
-            <p class="rest-order"><strong>Что заказывать:</strong> Строганину из северных рыб, мясо оленя или косули</p>
-            <div class="rest-btns">
-                <a href="http://expedition-nn.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                <a href="https://yandex.ru/maps/?rtext=~56.328180,43.976988&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-            </div>
-        </div>
-    </div>
 
-    <!-- 5 -->
-    <div class="rest rest-5">
-        <div class="rest-header">
-            <div class="rest-num">5</div>
-            <span class="rest-emoji">🍺</span>
-            <div class="rest-header-text">
-                <h3>Горьковская пивоварня</h3>
-                <div class="tag">«Локальный крафт»</div>
+        <!-- 4 -->
+        <div class="rest rest-4">
+            <div class="rest-inner">
+                <div class="rest-img">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70" alt="Экспедиция" loading="lazy">
+                    <div class="fallback"><span class="food-icon">🦌</span></div>
+                    <div class="rest-num">4</div>
+                </div>
+                <div class="rest-body">
+                    <h3>Ресторан «Экспедиция»</h3>
+                    <div class="rest-tag">«Для охотников и искателей»</div>
+                    <div class="rest-loc">📍 ул. Рождественская, 1 · ~10 мин на такси</div>
+                    <p class="rest-desc">База полярников. Дерево, металл, карта мира и вертолёт в натуральную величину. Кухня северная, честная, мужская.</p>
+                    <p class="rest-order"><strong>Что заказывать:</strong> Строганину из северных рыб, мясо оленя или косули</p>
+                    <div class="rest-btns">
+                        <a href="http://expedition-nn.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.328180,43.976988&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="rest-body">
-            <div class="rest-loc">📍 ул. Рождественская, 29</div>
-            <p class="rest-desc">Гастропаб при собственной пивоварне. Шумно, драйвово, спорт на экранах. Идеально для просмотра хоккея.</p>
-            <p class="rest-order"><strong>Что заказывать:</strong> Локальный IPA и фирменные закуски к пиву</p>
-            <div class="rest-btns">
-                <a href="https://gorkovskaya.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                <a href="https://yandex.ru/maps/?rtext=~56.326909,43.979918&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+
+        <!-- 5 -->
+        <div class="rest rest-5">
+            <div class="rest-inner">
+                <div class="rest-img">
+                    <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=600&q=70" alt="Горьковская пивоварня" loading="lazy">
+                    <div class="fallback"><span class="food-icon">🍺</span></div>
+                    <div class="rest-num">5</div>
+                </div>
+                <div class="rest-body">
+                    <h3>Горьковская пивоварня</h3>
+                    <div class="rest-tag">«Локальный крафт»</div>
+                    <div class="rest-loc">📍 ул. Рождественская, 29</div>
+                    <p class="rest-desc">Гастропаб при собственной пивоварне. Шумно, драйвово, спорт на экранах. Идеально для просмотра хоккея.</p>
+                    <p class="rest-order"><strong>Что заказывать:</strong> Локальный IPA и фирменные закуски к пиву</p>
+                    <div class="rest-btns">
+                        <a href="https://gorkovskaya.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
+                        <a href="https://yandex.ru/maps/?rtext=~56.326909,43.979918&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </section>
 
-<!-- ===== OFFER ===== -->
-<section class="section section-alt" id="offer">
+<!-- ==================== OFFER ==================== -->
+<section class="section sec-alt" id="offer">
     <div class="sec-label">Перезагрузка</div>
     <div class="offer">
-        <div class="offer-top">
-            <span class="emoji">🥊</span>
-        </div>
-        <div class="offer-body">
-            <h2>Твой спец. оффер</h2>
-            <p>
-                После активного дня — время восстановиться. Попробуйте что-то новое — <em>пробная тренировка по боксу</em>.
-                <br><br>
-                Даже одна тренировка в <em>Академии бокса</em> даст вам базовое понимание техники и, возможно, станет началом нового хобби.
-                <br><br>
-                Сбросьте напряжение, почувствуйте драйв и зарядитесь энергией.
-            </p>
-            <a href="https://boxingacademynn.ru/probnoe-poseshchenie-akademiya-boksa" target="_blank" rel="noopener" class="btn btn-gold">🥊 Записаться на тренировку</a>
+        <div class="offer-inner">
+            <div class="offer-body">
+                <h2>Твой спец. оффер</h2>
+                <p>
+                    После активного дня — время восстановиться. Попробуйте что-то новое — <em>пробная тренировка по боксу</em>.
+                    <br><br>
+                    Даже одна тренировка в <em>Академии бокса</em> даст вам базовое понимание техники и, возможно, станет началом нового хобби.
+                    <br><br>
+                    Сбросьте напряжение, почувствуйте драйв и зарядитесь энергией.
+                </p>
+                <a href="https://boxingacademynn.ru/probnoe-poseshchenie-akademiya-boksa" target="_blank" rel="noopener" class="btn btn-gold">🥊 Записаться на тренировку</a>
+            </div>
+            <div class="offer-img">
+                <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=700&q=70" alt="Бокс" loading="lazy">
+                <div class="fallback"><span class="emoji">🥊</span></div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer class="footer">
     <div class="footer-logo">NORT</div>
     <p class="footer-text">Ваш гид по лучшим локациям Нижнего Новгорода<br>Приятного уикенда! 🤝</p>
 </footer>
+
+<!-- JS — минимальный, только для десктопных навигационных точек -->
+<script>
+if(window.innerWidth>768){
+    var dots=document.querySelectorAll('.nav-dot');
+    var ids=['top','sport','gastro','offer'];
+    for(var i=0;i<dots.length;i++){
+        (function(d,id){
+            d.addEventListener('click',function(){
+                var el=document.getElementById(id);
+                if(el)el.scrollIntoView({behavior:'smooth'});
+            });
+        })(dots[i],ids[i]);
+    }
+    window.addEventListener('scroll',function(){
+        var scrollY=window.pageYOffset;
+        var current=0;
+        for(var i=0;i<ids.length;i++){
+            var el=document.getElementById(ids[i]);
+            if(el&&el.offsetTop-300<=scrollY)current=i;
+        }
+        for(var i=0;i<dots.length;i++)dots[i].classList.remove('active');
+        dots[current].classList.add('active');
+    },{passive:true});
+}
+</script>
 
 </body>
 </html>
