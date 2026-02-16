@@ -21,9 +21,7 @@
         a{color:inherit;text-decoration:none}
         img{display:block;width:100%;height:100%;object-fit:cover}
 
-        /* ============================================
-           HERO
-           ============================================ */
+        /* ========== HERO ========== */
         .hero{
             min-height:100vh;min-height:100dvh;
             display:flex;flex-direction:column;
@@ -32,19 +30,11 @@
             position:relative;overflow:hidden;
             background:#0a0a14;
         }
-        .hero-img{
-            position:absolute;inset:0;z-index:0;
-            opacity:.3;
-        }
-        /* На мобильном — градиент вместо фото */
-        .hero-img img{display:none}
-        .hero-img-fallback{
-            position:absolute;inset:0;
-            background:linear-gradient(160deg,#0a0a14,#12101f 50%,#1a1028);
-        }
+        .hero-img{position:absolute;inset:0;z-index:0}
+        .hero-img img{opacity:.3;filter:brightness(.6)}
         .hero-overlay{
             position:absolute;inset:0;z-index:1;
-            background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.1) 40%,rgba(0,0,0,.6) 80%,#0D0D0D);
+            background:linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.1) 40%,rgba(0,0,0,.65) 80%,#0D0D0D);
         }
         .hero>*:not(.hero-img):not(.hero-overlay){position:relative;z-index:2}
         .badge{
@@ -65,14 +55,7 @@
         }
         .hero-btn:hover{background:var(--gold);color:#0D0D0D}
 
-        @media(min-width:769px){
-            .hero-img img{display:block;width:100%;height:100%;object-fit:cover}
-            .hero-img-fallback{display:none}
-        }
-
-        /* ============================================
-           КНОПКИ
-           ============================================ */
+        /* ========== BUTTONS ========== */
         .btn{
             display:inline-flex;align-items:center;gap:6px;
             padding:13px 24px;border-radius:12px;
@@ -86,13 +69,10 @@
         .btn-s{padding:10px 18px;font-size:12px;border-radius:10px}
         .btn-row{display:flex;gap:10px;flex-wrap:wrap}
 
-        /* ============================================
-           SECTIONS
-           ============================================ */
+        /* ========== SECTIONS ========== */
         .section{padding:70px 24px}
         .sec-alt{background:linear-gradient(180deg,var(--bg),#0a0f1a,var(--bg))}
         .sec-dark{background:var(--bg)}
-
         .sec-label{
             display:flex;align-items:center;gap:10px;justify-content:center;
             font-size:11px;font-weight:700;letter-spacing:3px;
@@ -102,25 +82,14 @@
         .sec-title{text-align:center;font-size:clamp(28px,5vw,48px);font-weight:900;line-height:1.15;margin-bottom:12px}
         .sec-sub{text-align:center;font-size:15px;color:var(--gray);max-width:450px;margin:0 auto 40px}
 
-        /* ============================================
-           SPORT — двухколоночный на десктопе
-           ============================================ */
+        /* ========== SPORT ========== */
         .sport-card{
             max-width:960px;margin:0 auto;
             background:var(--card);border-radius:20px;overflow:hidden;
             box-shadow:0 30px 60px rgba(0,0,0,.4);
         }
-        .sport-inner{display:block}
-        .sport-img{
-            min-height:200px;
-            background:linear-gradient(135deg,#0d1a2d,#1a2a42);
-            display:flex;align-items:center;justify-content:center;
-            position:relative;overflow:hidden;
-        }
-        .sport-img img{display:none}
-        .sport-img .fallback{text-align:center}
-        .sport-img .fallback .emoji{font-size:60px;display:block;margin-bottom:8px}
-        .sport-img .fallback .vs{font-size:42px;font-weight:900;color:rgba(255,255,255,.1)}
+        .sport-inner{display:grid;grid-template-columns:1fr}
+        .sport-img{position:relative;overflow:hidden;height:220px;background:#0d1a2d}
         .sport-body{padding:28px 24px}
         .sport-body h2{font-size:clamp(24px,4vw,36px);font-weight:900;line-height:1.15;margin-bottom:6px}
         .sport-body .vs-sm{color:var(--gray);font-size:.55em}
@@ -129,16 +98,12 @@
         .sport-body>p{font-size:14px;color:var(--gray);margin-bottom:24px;line-height:1.7}
 
         @media(min-width:769px){
-            .sport-inner{display:grid;grid-template-columns:1fr 1fr}
-            .sport-img{min-height:420px}
-            .sport-img img{display:block;position:absolute;inset:0}
-            .sport-img .fallback{display:none}
+            .sport-inner{grid-template-columns:1fr 1fr}
+            .sport-img{height:auto;min-height:420px}
             .sport-body{padding:44px 40px}
         }
 
-        /* ============================================
-           TIP
-           ============================================ */
+        /* ========== TIP ========== */
         .tip{
             max-width:600px;margin:0 auto 36px;
             background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);
@@ -149,9 +114,7 @@
         .tip-text{font-size:13px;color:var(--gold-l);line-height:1.55}
         .tip-text strong{color:var(--gold)}
 
-        /* ============================================
-           RESTAURANT CARDS — горизонтальные на десктопе
-           ============================================ */
+        /* ========== RESTAURANTS ========== */
         .rest-list{max-width:960px;margin:0 auto}
         .rest{
             background:var(--card);border-radius:18px;overflow:hidden;
@@ -159,14 +122,10 @@
             transition:all .3s;
         }
         .rest:hover{border-color:rgba(201,168,76,.15);transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,.4)}
-        .rest-inner{display:block}
-        .rest-img{
-            position:relative;overflow:hidden;min-height:160px;
-            display:flex;align-items:center;justify-content:center;
-        }
-        .rest-img img{display:none}
-        .rest-img .fallback{text-align:center}
-        .rest-img .fallback .food-icon{font-size:48px;opacity:.6}
+        .rest-inner{display:grid;grid-template-columns:1fr}
+        .rest-img{position:relative;overflow:hidden;height:200px}
+        .rest-img img{transition:transform .5s}
+        .rest:hover .rest-img img{transform:scale(1.06)}
         .rest-num{
             position:absolute;top:14px;left:14px;
             width:38px;height:38px;background:var(--gold);color:#0D0D0D;
@@ -182,57 +141,42 @@
         .rest-order strong{color:var(--gold-l)}
         .rest-btns{display:flex;gap:8px;flex-wrap:wrap}
 
-        /* Цветные акценты */
-        .rest-1 .rest-img{background:linear-gradient(135deg,#2a1f0f,#1a1510)}
-        .rest-2 .rest-img{background:linear-gradient(135deg,#1a1520,#120f18)}
-        .rest-3 .rest-img{background:linear-gradient(135deg,#1f1a0a,#1a150d)}
-        .rest-4 .rest-img{background:linear-gradient(135deg,#0f1a1a,#0d1515)}
-        .rest-5 .rest-img{background:linear-gradient(135deg,#1a1508,#15120a)}
+        .rest-1 .rest-img{background:#2a1f0f}
+        .rest-2 .rest-img{background:#1a1520}
+        .rest-3 .rest-img{background:#1f1a0a}
+        .rest-4 .rest-img{background:#0f1a1a}
+        .rest-5 .rest-img{background:#1a1508}
 
         @media(min-width:769px){
-            .rest-inner{display:grid;grid-template-columns:320px 1fr}
-            .rest-img{min-height:300px}
-            .rest-img img{display:block;position:absolute;inset:0;transition:transform .5s}
-            .rest:hover .rest-img img{transform:scale(1.06)}
-            .rest-img .fallback{display:none}
+            .rest-inner{grid-template-columns:320px 1fr}
+            .rest-img{height:auto;min-height:300px}
             .rest-body{padding:30px 32px;display:flex;flex-direction:column;justify-content:center}
             .rest-body h3{font-size:24px}
         }
 
-        /* ============================================
-           OFFER — двухколоночный на десктопе
-           ============================================ */
+        /* ========== OFFER ========== */
         .offer{
             max-width:960px;margin:0 auto;
             background:var(--card);border-radius:20px;overflow:hidden;
             border:1px solid rgba(201,168,76,.1);
             box-shadow:0 30px 60px rgba(0,0,0,.4);
         }
-        .offer-inner{display:block}
-        .offer-img{
-            min-height:180px;overflow:hidden;position:relative;
-            background:linear-gradient(135deg,#1a0d20,#120a18);
-            display:flex;align-items:center;justify-content:center;
-        }
-        .offer-img img{display:none}
-        .offer-img .fallback .emoji{font-size:72px;opacity:.5}
+        .offer-inner{display:grid;grid-template-columns:1fr}
+        .offer-img{position:relative;overflow:hidden;height:240px;background:#1a0d20}
+        .offer-img img{transition:transform .5s}
+        .offer:hover .offer-img img{transform:scale(1.05)}
         .offer-body{padding:28px 24px}
         .offer-body h2{font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px}
         .offer-body p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:24px}
         .offer-body em{color:var(--gold-l);font-style:normal;font-weight:600}
 
         @media(min-width:769px){
-            .offer-inner{display:grid;grid-template-columns:1fr 1fr}
-            .offer-img{min-height:440px}
-            .offer-img img{display:block;position:absolute;inset:0;transition:transform .5s}
-            .offer:hover .offer-img img{transform:scale(1.05)}
-            .offer-img .fallback{display:none}
+            .offer-inner{grid-template-columns:1fr 1fr}
+            .offer-img{height:auto;min-height:440px}
             .offer-body{padding:50px 44px;display:flex;flex-direction:column;justify-content:center}
         }
 
-        /* ============================================
-           FOOTER
-           ============================================ */
+        /* ========== FOOTER ========== */
         .footer{
             background:var(--card);border-top:1px solid rgba(255,255,255,.05);
             padding:36px 24px;text-align:center;
@@ -243,15 +187,12 @@
             .footer{padding-bottom:calc(36px + env(safe-area-inset-bottom))}
         }
 
-        /* ============================================
-           DESKTOP NAV DOTS (только >768)
-           ============================================ */
+        /* ========== NAV DOTS — desktop only ========== */
         .nav-dots{display:none}
         @media(min-width:769px){
             .nav-dots{
                 display:flex;flex-direction:column;gap:12px;
-                position:fixed;right:24px;top:50%;transform:translateY(-50%);
-                z-index:1000;
+                position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:1000;
             }
             .nav-dot{
                 width:12px;height:12px;border-radius:50%;
@@ -269,23 +210,14 @@
             .nav-dot:hover .tp{opacity:1}
         }
 
-        /* ============================================
-           PARALLAX HERO — только десктоп
-           ============================================ */
-        @media(min-width:769px){
-            .hero{min-height:100vh}
-        }
-
-        /* ============================================
-           Мелкий экран
-           ============================================ */
+        /* ========== Мелкий экран ========== */
         @media(max-width:380px){
             .hero{padding:40px 16px 30px}
             .section{padding:48px 16px}
             .btn{padding:11px 16px;font-size:12px}
         }
 
-        /* Scrollbar */
+        /* Scrollbar desktop */
         @media(min-width:769px){
             ::-webkit-scrollbar{width:6px}
             ::-webkit-scrollbar-track{background:var(--bg)}
@@ -295,7 +227,7 @@
 </head>
 <body>
 
-<!-- NAV DOTS — только десктоп, через CSS -->
+<!-- NAV DOTS desktop -->
 <nav class="nav-dots" id="nd">
     <div class="nav-dot active" data-s="top"><span class="tp">Главная</span></div>
     <div class="nav-dot" data-s="sport"><span class="tp">Спорт</span></div>
@@ -306,8 +238,11 @@
 <!-- ==================== HERO ==================== -->
 <section class="hero" id="top">
     <div class="hero-img">
-        <div class="hero-img-fallback"></div>
-        <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1400&q=70" alt="" loading="eager">
+        <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&q=60" 
+             srcset="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=480&q=50 480w,
+                     https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&q=60 800w,
+                     https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1400&q=70 1400w"
+             sizes="100vw" alt="" loading="eager">
     </div>
     <div class="hero-overlay"></div>
     <div class="badge">Nort Weekend Guide</div>
@@ -322,11 +257,10 @@
     <div class="sport-card">
         <div class="sport-inner">
             <div class="sport-img">
-                <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=700&q=70" alt="Хоккей" loading="lazy">
-                <div class="fallback">
-                    <span class="emoji">🏒</span>
-                    <div class="vs">VS</div>
-                </div>
+                <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=480&q=50"
+                     srcset="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=480&q=50 480w,
+                             https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=700&q=70 700w"
+                     sizes="(max-width:768px) 100vw, 50vw" alt="Хоккей" loading="lazy">
             </div>
             <div class="sport-body">
                 <h2>Торпедо <span class="vs-sm">vs</span> Динамо-Минск</h2>
@@ -362,8 +296,10 @@
         <div class="rest rest-1">
             <div class="rest-inner">
                 <div class="rest-img">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=70" alt="Steak House KM" loading="lazy">
-                    <div class="fallback"><span class="food-icon">🥩</span></div>
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=480&q=50"
+                         srcset="https://images.unsplash.com/photo-1544025162-d76694265947?w=480&q=50 480w,
+                                 https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=70 600w"
+                         sizes="(max-width:768px) 100vw, 320px" alt="Steak House KM" loading="lazy">
                     <div class="rest-num">1</div>
                 </div>
                 <div class="rest-body">
@@ -384,8 +320,10 @@
         <div class="rest rest-2">
             <div class="rest-inner">
                 <div class="rest-img">
-                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=70" alt="Mitrich" loading="lazy">
-                    <div class="fallback"><span class="food-icon">🔥</span></div>
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=480&q=50"
+                         srcset="https://images.unsplash.com/photo-1558030006-450675393462?w=480&q=50 480w,
+                                 https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=70 600w"
+                         sizes="(max-width:768px) 100vw, 320px" alt="Mitrich" loading="lazy">
                     <div class="rest-num">2</div>
                 </div>
                 <div class="rest-body">
@@ -406,8 +344,10 @@
         <div class="rest rest-3">
             <div class="rest-inner">
                 <div class="rest-img">
-                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=70" alt="Dodici" loading="lazy">
-                    <div class="fallback"><span class="food-icon">🍖</span></div>
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=480&q=50"
+                         srcset="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=480&q=50 480w,
+                                 https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=70 600w"
+                         sizes="(max-width:768px) 100vw, 320px" alt="Dodici" loading="lazy">
                     <div class="rest-num">3</div>
                 </div>
                 <div class="rest-body">
@@ -428,8 +368,10 @@
         <div class="rest rest-4">
             <div class="rest-inner">
                 <div class="rest-img">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70" alt="Экспедиция" loading="lazy">
-                    <div class="fallback"><span class="food-icon">🦌</span></div>
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=480&q=50"
+                         srcset="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=480&q=50 480w,
+                                 https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70 600w"
+                         sizes="(max-width:768px) 100vw, 320px" alt="Экспедиция" loading="lazy">
                     <div class="rest-num">4</div>
                 </div>
                 <div class="rest-body">
@@ -450,8 +392,10 @@
         <div class="rest rest-5">
             <div class="rest-inner">
                 <div class="rest-img">
-                    <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=600&q=70" alt="Горьковская пивоварня" loading="lazy">
-                    <div class="fallback"><span class="food-icon">🍺</span></div>
+                    <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=480&q=50"
+                         srcset="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=480&q=50 480w,
+                                 https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=600&q=70 600w"
+                         sizes="(max-width:768px) 100vw, 320px" alt="Горьковская пивоварня" loading="lazy">
                     <div class="rest-num">5</div>
                 </div>
                 <div class="rest-body">
@@ -488,8 +432,10 @@
                 <a href="https://boxingacademynn.ru/probnoe-poseshchenie-akademiya-boksa" target="_blank" rel="noopener" class="btn btn-gold">🥊 Записаться на тренировку</a>
             </div>
             <div class="offer-img">
-                <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=700&q=70" alt="Бокс" loading="lazy">
-                <div class="fallback"><span class="emoji">🥊</span></div>
+                <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=480&q=50"
+                     srcset="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=480&q=50 480w,
+                             https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=700&q=70 700w"
+                     sizes="(max-width:768px) 100vw, 50vw" alt="Бокс" loading="lazy">
             </div>
         </div>
     </div>
@@ -501,7 +447,6 @@
     <p class="footer-text">Ваш гид по лучшим локациям Нижнего Новгорода<br>Приятного уикенда! 🤝</p>
 </footer>
 
-<!-- JS — минимальный, только для десктопных навигационных точек -->
 <script>
 if(window.innerWidth>768){
     var dots=document.querySelectorAll('.nav-dot');
@@ -515,18 +460,16 @@ if(window.innerWidth>768){
         })(dots[i],ids[i]);
     }
     window.addEventListener('scroll',function(){
-        var scrollY=window.pageYOffset;
-        var current=0;
+        var sy=window.pageYOffset,cur=0;
         for(var i=0;i<ids.length;i++){
             var el=document.getElementById(ids[i]);
-            if(el&&el.offsetTop-300<=scrollY)current=i;
+            if(el&&el.offsetTop-300<=sy)cur=i;
         }
         for(var i=0;i<dots.length;i++)dots[i].classList.remove('active');
-        dots[current].classList.add('active');
+        dots[cur].classList.add('active');
     },{passive:true});
 }
 </script>
-
 </body>
 </html>
 
