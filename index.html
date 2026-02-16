@@ -128,7 +128,12 @@
             position: absolute;
             inset: 0;
             z-index: 0;
-            background: url('https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             opacity: 0.35;
             filter: brightness(0.6) contrast(1.1);
         }
@@ -251,7 +256,6 @@
             position: relative;
             min-height: 400px;
             overflow: hidden;
-            background: linear-gradient(135deg, #1a2332, #0d1520);
         }
 
         .sport-image img {
@@ -306,11 +310,6 @@
             margin-bottom: 8px;
         }
 
-        .sport-vs {
-            color: var(--text-secondary);
-            font-size: 0.65em;
-        }
-
         .sport-meta {
             display: flex;
             align-items: center;
@@ -325,6 +324,10 @@
             gap: 6px;
             font-size: 14px;
             color: var(--text-secondary);
+        }
+
+        .sport-meta-icon {
+            font-size: 18px;
         }
 
         .sport-desc {
@@ -499,7 +502,6 @@
             position: relative;
             overflow: hidden;
             min-height: 280px;
-            background: linear-gradient(135deg, #2a1f0f, #1a1a1a);
         }
 
         .restaurant-image img {
@@ -554,7 +556,7 @@
 
         .restaurant-location {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 6px;
             font-size: 13px;
             color: var(--text-secondary);
@@ -675,7 +677,6 @@
             position: relative;
             overflow: hidden;
             min-height: 400px;
-            background: linear-gradient(135deg, #1a1020, #0d0d0d);
         }
 
         .offer-image img {
@@ -734,13 +735,25 @@
 
         /* ===================== ANIMATIONS ===================== */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .reveal {
@@ -755,16 +768,25 @@
         }
 
         .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.15s; }
-        .reveal-delay-3 { transition-delay: 0.2s; }
-        .reveal-delay-4 { transition-delay: 0.25s; }
-        .reveal-delay-5 { transition-delay: 0.3s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--dark); }
-        ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+        /* Smooth scrollbar style */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(201,168,76,0.3);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
 
         /* Loading screen */
         .loader {
@@ -783,7 +805,6 @@
         .loader.hidden {
             opacity: 0;
             visibility: hidden;
-            pointer-events: none;
         }
 
         .loader-ring {
@@ -817,15 +838,27 @@
 
     <!-- NAVIGATION DOTS -->
     <nav class="nav-dots" id="navDots">
-        <div class="nav-dot active" data-slide="0"><span class="tooltip">Главная</span></div>
-        <div class="nav-dot" data-slide="1"><span class="tooltip">Спорт</span></div>
-        <div class="nav-dot" data-slide="2"><span class="tooltip">Гастро-маршрут</span></div>
-        <div class="nav-dot" data-slide="3"><span class="tooltip">Спец. оффер</span></div>
+        <div class="nav-dot active" data-slide="0">
+            <span class="tooltip">Главная</span>
+        </div>
+        <div class="nav-dot" data-slide="1">
+            <span class="tooltip">Спорт</span>
+        </div>
+        <div class="nav-dot" data-slide="2">
+            <span class="tooltip">Гастро-маршрут</span>
+        </div>
+        <div class="nav-dot" data-slide="3">
+            <span class="tooltip">Спец. оффер</span>
+        </div>
     </nav>
 
     <!-- ======================== SLIDE 1: HERO ======================== -->
     <section class="slide slide-hero" id="slide-0">
-        <div class="hero-bg"></div>
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1920&q=80" 
+                 alt="Нижний Новгород панорама"
+                 onerror="this.src='https://images.unsplash.com/photo-1519500099198-fd1c7f2aab21?w=1920&q=80'">
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-badge">Nort Weekend Guide</div>
@@ -834,332 +867,4 @@
                 <span class="gold">в Нижнем Новгороде</span>
             </h1>
             <p class="hero-subtitle">
-                Собрали для вас лучшие локации города в пешей доступности.
-                Спорт, мясо, крафт и перезагрузка — всё, что нужно для идеального выходного.
-            </p>
-            <div class="hero-scroll">
-                <a href="#slide-1" class="scroll-btn">
-                    Начать маршрут <span class="scroll-arrow">↓</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================== SLIDE 2: SPORT ======================== -->
-    <section class="slide slide-sport" id="slide-1">
-        <div class="sport-container reveal">
-            <div class="sport-image">
-                <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=800&q=75" alt="Хоккейный матч" loading="lazy">
-                <div class="sport-image-overlay"></div>
-            </div>
-            <div class="sport-info">
-                <div class="sport-label">Главное событие</div>
-                <h2 class="sport-title">
-                    Торпедо<br>
-                    <span class="sport-vs">vs</span><br>
-                    Динамо-Минск
-                </h2>
-                <div class="sport-meta">
-                    <span class="sport-meta-item">📅 23 февраля</span>
-                    <span class="sport-meta-item">🕐 17:00</span>
-                    <span class="sport-meta-item">📍 КРК Нагорный</span>
-                </div>
-                <p class="sport-desc">
-                    Легендарный нижегородский лёд. Если нет билетов — пишите в поддержку бота, мы подскажем, в каких барах самая крутая атмосфера для просмотра.
-                </p>
-                <div class="sport-buttons">
-                    <a href="https://hctorpedo.ru/tickets/" target="_blank" rel="noopener" class="btn btn-primary">
-                        🎫 Купить билеты
-                    </a>
-                    <a href="#slide-2" class="btn btn-outline">
-                        🍺 Смотреть в баре
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================== SLIDE 3: GASTRO ======================== -->
-    <section class="slide slide-gastro" id="slide-2" style="align-items:flex-start;">
-        <div class="gastro-wrapper">
-
-            <div class="section-header reveal">
-                <div class="section-label">Гастро-маршрут</div>
-                <h2 class="section-title">Где поесть<br>брутально</h2>
-                <p class="section-subtitle">Мясо, огонь, крафт — маршрут для настоящих</p>
-            </div>
-
-            <div class="gastro-tip reveal reveal-delay-1">
-                <span class="gastro-tip-icon">💡</span>
-                <p class="gastro-tip-text">
-                    <strong>Совет от Nort:</strong> Забронируйте столик заранее — в праздничные выходные лучшие места разбирают быстро.
-                </p>
-            </div>
-
-            <!-- RESTAURANT 1 -->
-            <div class="restaurant-card reveal reveal-delay-1">
-                <div class="restaurant-inner">
-                    <div class="restaurant-image">
-                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=75" alt="Steak House KM" loading="lazy">
-                        <div class="restaurant-number">1</div>
-                    </div>
-                    <div class="restaurant-content">
-                        <h3 class="restaurant-name">Steak-House KM</h3>
-                        <div class="restaurant-tagline">«Стейки в 0 минутах от кровати»</div>
-                        <div class="restaurant-location">📍 Прямо в вашем здании — ул. Максима Горького, 23А</div>
-                        <p class="restaurant-why">
-                            Идеальный вариант для тех, кто не хочет никуда ехать. Здесь готовят мясо на живом огне. Атмосфера классического стейк-хауса: кожа, дерево, приглушённый свет.
-                        </p>
-                        <p class="restaurant-order">
-                            <strong>Что заказывать:</strong> Стейк Рибай или сочные свиные рёбрышки
-                        </p>
-                        <div class="restaurant-actions">
-                            <a href="https://steakhousekm.ru/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">🌐 Сайт</a>
-                            <a href="https://yandex.ru/maps/?rtext=~56.316739,43.997385&rtt=auto" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🧭 Навигатор</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RESTAURANT 2 -->
-            <div class="restaurant-card reveal reveal-delay-2">
-                <div class="restaurant-inner">
-                    <div class="restaurant-image">
-                        <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=75" alt="Mitrich Steakhouse" loading="lazy">
-                        <div class="restaurant-number">2</div>
-                    </div>
-                    <div class="restaurant-content">
-                        <h3 class="restaurant-name">Mitrich Steakhouse</h3>
-                        <div class="restaurant-tagline">«Мясной премиум»</div>
-                        <div class="restaurant-location">📍 ул. Ковалихинская, 8 · ~7 мин на такси</div>
-                        <p class="restaurant-why">
-                            Первый и самый статусный стейк-хаус города. Если хочется «дорого и качественно» — это сюда. Интерьер современный, сдержанный и очень мужской.
-                        </p>
-                        <p class="restaurant-order">
-                            <strong>Что заказывать:</strong> Фирменный стейк «Нью-Йорк» или тартар из говядины
-                        </p>
-                        <div class="restaurant-actions">
-                            <a href="https://mitrichsteakhouse.ru/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">🌐 Сайт</a>
-                            <a href="https://yandex.ru/maps/?rtext=~56.313053,43.990509&rtt=auto" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🧭 Навигатор</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RESTAURANT 3 -->
-            <div class="restaurant-card reveal reveal-delay-3">
-                <div class="restaurant-inner">
-                    <div class="restaurant-image">
-                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=75" alt="Dodici Grill" loading="lazy">
-                        <div class="restaurant-number">3</div>
-                    </div>
-                    <div class="restaurant-content">
-                        <h3 class="restaurant-name">Dodici Grill</h3>
-                        <div class="restaurant-tagline">«Дым и огонь»</div>
-                        <div class="restaurant-location">📍 ул. Октябрьская, 12 · ~15 мин пешком по центру</div>
-                        <p class="restaurant-why">
-                            В центре зала — открытый гриль и дровяной смокер. Запах костра и вид готовящегося мяса создают ту самую атмосферу.
-                        </p>
-                        <p class="restaurant-order">
-                            <strong>Что заказывать:</strong> Брискет из мраморной говядины — его томят 12 часов
-                        </p>
-                        <div class="restaurant-actions">
-                            <a href="https://dodici-grill.ru/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">🌐 Сайт</a>
-                            <a href="https://yandex.ru/maps/?rtext=~56.318776,43.992442&rtt=auto" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🧭 Навигатор</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RESTAURANT 4 -->
-            <div class="restaurant-card reveal reveal-delay-4">
-                <div class="restaurant-inner">
-                    <div class="restaurant-image">
-                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75" alt="Экспедиция" loading="lazy">
-                        <div class="restaurant-number">4</div>
-                    </div>
-                    <div class="restaurant-content">
-                        <h3 class="restaurant-name">Ресторан «Экспедиция»</h3>
-                        <div class="restaurant-tagline">«Для охотников и искателей»</div>
-                        <div class="restaurant-location">📍 ул. Рождественская, 1 · ~10 мин на такси</div>
-                        <p class="restaurant-why">
-                            Это не просто ресторан, а база полярников. Внутри — дерево, металл, карта мира и вертолёт в натуральную величину. Кухня северная, честная, мужская.
-                        </p>
-                        <p class="restaurant-order">
-                            <strong>Что заказывать:</strong> Строганину из северных рыб, мясо оленя или косули
-                        </p>
-                        <div class="restaurant-actions">
-                            <a href="http://expedition-nn.ru/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">🌐 Сайт</a>
-                            <a href="https://yandex.ru/maps/?rtext=~56.328180,43.976988&rtt=auto" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🧭 Навигатор</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RESTAURANT 5 -->
-            <div class="restaurant-card reveal reveal-delay-5">
-                <div class="restaurant-inner">
-                    <div class="restaurant-image">
-                        <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=600&q=75" alt="Горьковская пивоварня" loading="lazy">
-                        <div class="restaurant-number">5</div>
-                    </div>
-                    <div class="restaurant-content">
-                        <h3 class="restaurant-name">Горьковская пивоварня</h3>
-                        <div class="restaurant-tagline">«Локальный крафт»</div>
-                        <div class="restaurant-location">📍 ул. Рождественская, 29</div>
-                        <p class="restaurant-why">
-                            Гастропаб при собственной пивоварне. Шумно, драйвово, много спорта на экранах. Идеальное место, чтобы посмотреть хоккей с бокалом свежесваренного крафта.
-                        </p>
-                        <p class="restaurant-order">
-                            <strong>Что заказывать:</strong> Локальный IPA и фирменные закуски к пиву
-                        </p>
-                        <div class="restaurant-actions">
-                            <a href="https://gorkovskaya.ru/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">🌐 Сайт</a>
-                            <a href="https://yandex.ru/maps/?rtext=~56.326909,43.979918&rtt=auto" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🧭 Навигатор</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ======================== SLIDE 4: OFFER ======================== -->
-    <section class="slide slide-offer" id="slide-3">
-        <div class="offer-container reveal">
-            <div class="offer-content">
-                <div class="offer-label">Перезагрузка</div>
-                <h2 class="offer-title">Твой спец.<br>оффер</h2>
-                <p class="offer-text">
-                    После активного дня — время восстановиться. Попробуйте что-то новое — <em>пробная тренировка по боксу</em>.
-                    <br><br>
-                    Даже одна тренировка в <em>Академии бокса</em> даст вам базовое понимание техники и, возможно, станет началом вашего нового хобби.
-                    <br><br>
-                    Сбросьте напряжение, почувствуйте драйв и зарядитесь энергией на всю неделю вперёд.
-                </p>
-                <div class="sport-buttons">
-                    <a href="https://boxingacademynn.ru/probnoe-poseshchenie-akademiya-boksa" target="_blank" rel="noopener" class="btn btn-primary">
-                        🥊 Записаться на тренировку
-                    </a>
-                </div>
-            </div>
-            <div class="offer-image">
-                <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=75" alt="Бокс" loading="lazy">
-                <div class="offer-image-overlay"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-logo">NORT</div>
-        <p class="footer-text">
-            Ваш гид по лучшим локациям Нижнего Новгорода<br>
-            Приятного уикенда! 🤝
-        </p>
-    </footer>
-
-    <script>
-        /* ===================== LOADER — гарантированное скрытие ===================== */
-        (function() {
-            var loader = document.getElementById('loader');
-            
-            function hideLoader() {
-                if (loader && !loader.classList.contains('hidden')) {
-                    loader.classList.add('hidden');
-                }
-            }
-
-            // Вариант 1: DOM готов — скрываем через 500мс
-            if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                setTimeout(hideLoader, 500);
-            }
-
-            // Вариант 2: DOMContentLoaded — скрываем через 600мс
-            document.addEventListener('DOMContentLoaded', function() {
-                setTimeout(hideLoader, 600);
-            });
-
-            // Вариант 3: полная загрузка
-            window.addEventListener('load', function() {
-                setTimeout(hideLoader, 300);
-            });
-
-            // Вариант 4: страховка — максимум 2 секунды
-            setTimeout(hideLoader, 2000);
-        })();
-
-        /* ===================== SCROLL REVEAL ===================== */
-        var revealElements = document.querySelectorAll('.reveal');
-
-        var revealObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.08,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        revealElements.forEach(function(el) {
-            revealObserver.observe(el);
-        });
-
-        /* ===================== NAVIGATION DOTS ===================== */
-        var slides = document.querySelectorAll('.slide');
-        var dots = document.querySelectorAll('.nav-dot');
-
-        dots.forEach(function(dot) {
-            dot.addEventListener('click', function() {
-                var slideIndex = this.getAttribute('data-slide');
-                var target = document.getElementById('slide-' + slideIndex);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        var dotObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    var index = entry.target.id.replace('slide-', '');
-                    dots.forEach(function(d) { d.classList.remove('active'); });
-                    var activeDot = document.querySelector('.nav-dot[data-slide="' + index + '"]');
-                    if (activeDot) activeDot.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.35
-        });
-
-        slides.forEach(function(slide) { dotObserver.observe(slide); });
-
-        /* ===================== SMOOTH ANCHOR SCROLL ===================== */
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                var target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        /* ===================== PARALLAX HERO ===================== */
-        if (window.innerWidth > 768) {
-            var heroBg = document.querySelector('.hero-bg');
-            if (heroBg) {
-                window.addEventListener('scroll', function() {
-                    var scrolled = window.pageYOffset;
-                    if (scrolled < window.innerHeight) {
-                        heroBg.style.transform = 'translateY(' + (scrolled * 0.25) + 'px)';
-                    }
-                }, { passive: true });
-            }
-        }
-    </script>
-
-</body>
-</html>
+                Собрали для вас лучшие локации города
