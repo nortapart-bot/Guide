@@ -1,421 +1,353 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мужской уикенд в Нижнем Новгороде</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{
-            font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-            background:#0D0D0D;color:#fff;line-height:1.6;
-        }
-        :root{
-            --gold:#C9A84C;
-            --gold-l:#E8D48B;
-            --bg:#0D0D0D;
-            --card:#1A1A1A;
-            --gray:#AAA;
-        }
-        a{color:inherit;text-decoration:none}
-        img{display:block;width:100%;height:100%;object-fit:cover}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Мужской уикенд в Нижнем Новгороде</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0D0D0D;color:#fff;line-height:1.6;overflow-x:hidden}
+:root{--gold:#C9A84C;--gold-l:#E8D48B;--bg:#0D0D0D;--card:#1A1A1A;--card-h:#222;--gray:#AAA}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
 
-        .hero{
-            min-height:100vh;min-height:100dvh;
-            display:flex;flex-direction:column;
-            align-items:center;justify-content:center;
-            text-align:center;padding:60px 24px 40px;
-            position:relative;overflow:hidden;background:#0a0a14;
-        }
-        .hero-img{position:absolute;inset:0;z-index:0}
-        .hero-img img{opacity:.3;filter:brightness(.6)}
-        .hero-overlay{
-            position:absolute;inset:0;z-index:1;
-            background:linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.1) 40%,rgba(0,0,0,.65) 80%,#0D0D0D);
-        }
-        .hero>*:not(.hero-img):not(.hero-overlay){position:relative;z-index:2}
-        .badge{
-            display:inline-block;padding:8px 20px;
-            border:1px solid var(--gold);border-radius:30px;
-            font-size:11px;font-weight:700;letter-spacing:2.5px;
-            text-transform:uppercase;color:var(--gold);margin-bottom:28px;
-        }
-        .hero h1{font-size:clamp(32px,7vw,68px);font-weight:900;line-height:1.1;margin-bottom:20px}
-        .hero h1 span{color:var(--gold);display:block}
-        .hero p{font-size:clamp(14px,2.5vw,17px);color:var(--gray);max-width:520px;margin:0 auto 36px}
-        .hero-btn{
-            display:inline-flex;align-items:center;gap:8px;
-            padding:14px 30px;border:1px solid rgba(201,168,76,.4);
-            border-radius:40px;color:var(--gold);font-size:13px;
-            font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s;
-        }
-        .hero-btn:hover{background:var(--gold);color:#0D0D0D}
+/* ===== NAV DOTS ===== */
+.nav-dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:1000;display:flex;flex-direction:column;gap:14px}
+.nav-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.25);cursor:pointer;transition:.3s;position:relative}
+.nav-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 10px rgba(201,168,76,.4)}
+.nav-dot:hover{background:var(--gold-l);border-color:var(--gold-l)}
+.nav-dot .tip{position:absolute;right:22px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.85);color:#fff;padding:5px 12px;border-radius:6px;font-size:11px;white-space:nowrap;opacity:0;pointer-events:none;transition:.3s}
+.nav-dot:hover .tip{opacity:1}
+@media(max-width:768px){.nav-dots{display:none}}
 
-        .btn{
-            display:inline-flex;align-items:center;gap:6px;
-            padding:13px 24px;border-radius:12px;
-            font-size:13px;font-weight:700;transition:all .3s;
-            border:none;cursor:pointer;font-family:inherit;
-        }
-        .btn-gold{background:var(--gold);color:#0D0D0D}
-        .btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,168,76,.3)}
-        .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
-        .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-        .btn-s{padding:10px 18px;font-size:12px;border-radius:10px}
-        .btn-row{display:flex;gap:10px;flex-wrap:wrap}
+/* ===== HERO ===== */
+.hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px 40px;position:relative;overflow:hidden;background:#0a0a14}
+.hero-img{position:absolute;inset:0;z-index:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.3;filter:brightness(.6)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.4),rgba(0,0,0,.1) 40%,rgba(0,0,0,.65) 80%,#0D0D0D)}
+.hero>*:not(.hero-img):not(.hero-overlay){position:relative;z-index:2}
+.badge{display:inline-block;padding:8px 20px;border:1px solid var(--gold);border-radius:30px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.hero h1{font-size:clamp(32px,7vw,68px);font-weight:900;line-height:1.1;margin-bottom:20px}
+.hero h1 span{color:var(--gold);display:block}
+.hero p{font-size:clamp(14px,2.5vw,17px);color:var(--gray);max-width:520px;margin:0 auto 36px}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border:1px solid rgba(201,168,76,.4);border-radius:40px;color:var(--gold);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:.3s}
+.hero-btn:hover{background:var(--gold);color:#0D0D0D}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.arrow{display:inline-block;animation:bounce 2s infinite}
 
-        .section{padding:70px 24px}
-        .sec-alt{background:linear-gradient(180deg,var(--bg),#0a0f1a,var(--bg))}
-        .sec-dark{background:var(--bg)}
-        .sec-label{
-            display:flex;align-items:center;gap:10px;justify-content:center;
-            font-size:11px;font-weight:700;letter-spacing:3px;
-            text-transform:uppercase;color:var(--gold);margin-bottom:14px;
-        }
-        .sec-label::before,.sec-label::after{content:'';width:28px;height:1px;background:var(--gold)}
-        .sec-title{text-align:center;font-size:clamp(28px,5vw,48px);font-weight:900;line-height:1.15;margin-bottom:12px}
-        .sec-sub{text-align:center;font-size:15px;color:var(--gray);max-width:450px;margin:0 auto 40px}
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:13px 24px;border-radius:12px;font-size:13px;font-weight:700;transition:.3s;border:none;cursor:pointer;font-family:inherit}
+.btn-gold{background:var(--gold);color:#0D0D0D}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,168,76,.3)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-s{padding:10px 18px;font-size:12px;border-radius:10px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 
-        .sport-card{
-            max-width:960px;margin:0 auto;
-            background:var(--card);border-radius:20px;overflow:hidden;
-            box-shadow:0 30px 60px rgba(0,0,0,.4);
-        }
-        .sport-inner{display:grid;grid-template-columns:1fr}
-        .sport-img{position:relative;overflow:hidden;height:220px;background:#0d1a2d}
-        .sport-body{padding:28px 24px}
-        .sport-body h2{font-size:clamp(24px,4vw,36px);font-weight:900;line-height:1.15;margin-bottom:6px}
-        .sport-body .vs-sm{color:var(--gray);font-size:.55em}
-        .sport-meta{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0 18px}
-        .sport-meta span{font-size:13px;color:var(--gray)}
-        .sport-body>p{font-size:14px;color:var(--gray);margin-bottom:24px;line-height:1.7}
+/* ===== SECTIONS ===== */
+.section{padding:80px 24px}
+.sec-alt{background:linear-gradient(180deg,var(--bg),#0a0f1a 50%,var(--bg))}
+.sec-dark{background:var(--bg)}
+.sec-head{text-align:center;margin-bottom:48px}
+.sec-head h2{font-size:clamp(26px,5vw,42px);font-weight:800;margin-bottom:10px}
+.sec-head p{color:var(--gray);font-size:clamp(13px,2vw,16px);max-width:500px;margin:0 auto}
 
-        @media(min-width:769px){
-            .sport-inner{grid-template-columns:1fr 1fr}
-            .sport-img{height:auto;min-height:420px}
-            .sport-body{padding:44px 40px}
-        }
+/* ===== SPORT ===== */
+.sport-card{max-width:960px;margin:0 auto;border-radius:20px;overflow:hidden;background:var(--card);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.sport-inner{display:grid;grid-template-columns:1fr 1fr}
+.sport-img{position:relative;min-height:380px;overflow:hidden}
+.sport-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.sport-card:hover .sport-img img{transform:scale(1.05)}
+.sport-body{padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+.sport-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.sport-body h2{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.15;margin-bottom:12px}
+.sport-body h2 .vs{color:var(--gray);font-size:.6em;display:block;margin:4px 0}
+.sport-meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.sport-meta span{font-size:13px;color:var(--gray)}
+.sport-body>p{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:28px}
+@media(max-width:768px){
+    .sport-inner{grid-template-columns:1fr}
+    .sport-img{min-height:220px}
+    .sport-body{padding:28px 20px}
+}
 
-        .tip{
-            max-width:600px;margin:0 auto 36px;
-            background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);
-            border-radius:14px;padding:16px 20px;
-            display:flex;align-items:center;gap:12px;
-        }
-        .tip-icon{font-size:24px;flex-shrink:0}
-        .tip-text{font-size:13px;color:var(--gold-l);line-height:1.55}
-        .tip-text strong{color:var(--gold)}
+/* ===== GASTRO ===== */
+.gastro-grid{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.rest{border-radius:18px;overflow:hidden;background:var(--card);box-shadow:0 20px 40px rgba(0,0,0,.3);transition:.3s}
+.rest:hover{box-shadow:0 24px 48px rgba(0,0,0,.5);transform:translateY(-3px)}
+.rest-inner{display:grid;grid-template-columns:280px 1fr}
+.rest-img{position:relative;min-height:240px;overflow:hidden}
+.rest-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.rest:hover .rest-img img{transform:scale(1.06)}
+.rest-num{position:absolute;top:14px;left:14px;width:36px;height:36px;background:var(--gold);color:#0D0D0D;font-size:14px;font-weight:800;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.rest-body{padding:32px 28px;display:flex;flex-direction:column;justify-content:center}
+.rest-body h3{font-size:clamp(18px,3vw,22px);font-weight:800;margin-bottom:4px}
+.rest-tag{font-size:12px;font-style:italic;color:var(--gold);margin-bottom:8px}
+.rest-loc{font-size:13px;color:var(--gray);margin-bottom:8px}
+.rest-desc{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:0}
+@media(max-width:768px){
+    .rest-inner{grid-template-columns:1fr}
+    .rest-img{min-height:200px}
+    .rest-body{padding:20px 18px}
+}
 
-        .rest-list{max-width:960px;margin:0 auto}
-        .rest{
-            background:var(--card);border-radius:18px;overflow:hidden;
-            margin-bottom:24px;border:1px solid rgba(255,255,255,.04);transition:all .3s;
-        }
-        .rest:hover{border-color:rgba(201,168,76,.15);transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,.4)}
-        .rest-inner{display:grid;grid-template-columns:1fr}
-        .rest-img{position:relative;overflow:hidden;height:200px}
-        .rest-img img{transition:transform .5s}
-        .rest:hover .rest-img img{transform:scale(1.06)}
-        .rest-num{
-            position:absolute;top:14px;left:14px;
-            width:38px;height:38px;background:var(--gold);color:#0D0D0D;
-            border-radius:10px;display:flex;align-items:center;justify-content:center;
-            font-weight:800;font-size:17px;z-index:2;
-        }
-        .rest-body{padding:22px 20px}
-        .rest-body h3{font-size:20px;font-weight:800;margin-bottom:2px}
-        .rest-tag{color:var(--gold);font-size:13px;font-weight:600;font-style:italic;margin-bottom:10px}
-        .rest-loc{font-size:12px;color:var(--gray);margin-bottom:12px}
-        .rest-desc{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:6px}
-        .rest-order{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:16px;line-height:1.6}
-        .rest-order strong{color:var(--gold-l)}
-        .rest-btns{display:flex;gap:8px;flex-wrap:wrap}
+/* ===== OFFER ===== */
+.offer{max-width:960px;margin:0 auto;border-radius:20px;overflow:hidden;background:var(--card);box-shadow:0 30px 60px rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.1)}
+.offer-inner{display:grid;grid-template-columns:1fr 1fr}
+.offer-body{padding:56px 44px;display:flex;flex-direction:column;justify-content:center}
+.offer-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.offer-body h2{font-size:clamp(26px,4vw,38px);font-weight:800;line-height:1.2;margin-bottom:18px}
+.offer-body>p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:28px}
+.offer-img{position:relative;min-height:380px;overflow:hidden}
+.offer-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.offer:hover .offer-img img{transform:scale(1.05)}
+@media(max-width:768px){
+    .offer-inner{grid-template-columns:1fr}
+    .offer-body{padding:28px 20px;order:2}
+    .offer-img{min-height:220px;order:1}
+}
 
-        .rest-1 .rest-img{background:#2a1f0f}
-        .rest-2 .rest-img{background:#1a1520}
-        .rest-3 .rest-img{background:#1f1a0a}
-        .rest-4 .rest-img{background:#0f1a1a}
-        .rest-5 .rest-img{background:#1a1508}
+/* ===== FOOTER ===== */
+.footer{background:var(--card);border-top:1px solid rgba(255,255,255,.05);padding:36px 24px;text-align:center}
+.footer-logo{font-size:22px;font-weight:800;color:var(--gold);margin-bottom:8px}
+.footer-text{font-size:12px;color:var(--gray);line-height:1.6}
 
-        @media(min-width:769px){
-            .rest-inner{grid-template-columns:320px 1fr}
-            .rest-img{height:auto;min-height:300px}
-            .rest-body{padding:30px 32px;display:flex;flex-direction:column;justify-content:center}
-            .rest-body h3{font-size:24px}
-        }
-
-        .offer{
-            max-width:960px;margin:0 auto;
-            background:var(--card);border-radius:20px;overflow:hidden;
-            border:1px solid rgba(201,168,76,.1);box-shadow:0 30px 60px rgba(0,0,0,.4);
-        }
-        .offer-inner{display:grid;grid-template-columns:1fr}
-        .offer-img{position:relative;overflow:hidden;height:240px;background:#1a0d20}
-        .offer-img img{transition:transform .5s}
-        .offer:hover .offer-img img{transform:scale(1.05)}
-        .offer-body{padding:28px 24px}
-        .offer-body h2{font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px}
-        .offer-body p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:24px}
-        .offer-body em{color:var(--gold-l);font-style:normal;font-weight:600}
-
-        @media(min-width:769px){
-            .offer-inner{grid-template-columns:1fr 1fr}
-            .offer-img{height:auto;min-height:440px}
-            .offer-body{padding:50px 44px;display:flex;flex-direction:column;justify-content:center}
-        }
-
-        .footer{
-            background:var(--card);border-top:1px solid rgba(255,255,255,.05);
-            padding:36px 24px;text-align:center;
-        }
-        .footer-logo{font-size:22px;font-weight:900;color:var(--gold);margin-bottom:8px}
-        .footer-text{font-size:12px;color:var(--gray)}
-        @supports(padding-bottom:env(safe-area-inset-bottom)){
-            .footer{padding-bottom:calc(36px + env(safe-area-inset-bottom))}
-        }
-
-        .nav-dots{display:none}
-        @media(min-width:769px){
-            .nav-dots{
-                display:flex;flex-direction:column;gap:12px;
-                position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:1000;
-            }
-            .nav-dot{
-                width:12px;height:12px;border-radius:50%;
-                background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.25);
-                cursor:pointer;transition:all .3s;position:relative;
-            }
-            .nav-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 10px rgba(201,168,76,.4)}
-            .nav-dot:hover{background:var(--gold-l);border-color:var(--gold-l)}
-            .nav-dot .tp{
-                position:absolute;right:22px;top:50%;transform:translateY(-50%);
-                background:rgba(0,0,0,.85);color:#fff;padding:5px 10px;
-                border-radius:5px;font-size:11px;white-space:nowrap;
-                opacity:0;pointer-events:none;transition:opacity .3s;
-            }
-            .nav-dot:hover .tp{opacity:1}
-        }
-        @media(max-width:380px){
-            .hero{padding:40px 16px 30px}
-            .section{padding:48px 16px}
-            .btn{padding:11px 16px;font-size:12px}
-        }
-        @media(min-width:769px){
-            ::-webkit-scrollbar{width:6px}
-            ::-webkit-scrollbar-track{background:var(--bg)}
-            ::-webkit-scrollbar-thumb{background:rgba(201,168,76,.25);border-radius:3px}
-        }
-    </style>
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
 </head>
 <body>
 
-<nav class="nav-dots">
-    <div class="nav-dot active" data-s="top"><span class="tp">Главная</span></div>
-    <div class="nav-dot" data-s="sport"><span class="tp">Спорт</span></div>
-    <div class="nav-dot" data-s="gastro"><span class="tp">Гастро</span></div>
-    <div class="nav-dot" data-s="offer"><span class="tp">Оффер</span></div>
+<!-- NAV DOTS -->
+<nav class="nav-dots" id="nd">
+<div class="nav-dot active" data-slide="hero"><span class="tip">Главная</span></div>
+<div class="nav-dot" data-slide="sport"><span class="tip">Спорт</span></div>
+<div class="nav-dot" data-slide="gastro"><span class="tip">Гастро</span></div>
+<div class="nav-dot" data-slide="offer"><span class="tip">Оффер</span></div>
 </nav>
 
-<section class="hero" id="top">
-    <div class="hero-img">
-        <img src="photo-1596484552834-6a58f850e0a1.jfif" alt="">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="badge">Nort Weekend Guide</div>
-    <h1>Мужской уикенд <span>в Нижнем Новгороде</span></h1>
-    <p>Собрали для вас лучшие локации города в пешей доступности. Спорт, мясо, крафт и перезагрузка — всё для идеального выходного.</p>
-    <a href="#sport" class="hero-btn">Начать маршрут ↓</a>
+<!-- ========== SLIDE 1 — HERO ========== -->
+<section class="hero" id="hero">
+<div class="hero-img">
+    <img src="photo-1596484552834-6a58f850e0a1.jfif" alt="Нижний Новгород">
+</div>
+<div class="hero-overlay"></div>
+<div class="badge">Nort Weekend Guide</div>
+<h1>Мужской уикенд <span>в Нижнем Новгороде</span></h1>
+<p>Собрали для вас лучшие локации города в пешей доступности. Спорт, мясо, крафт и перезагрузка — всё, что нужно для идеального выходного.</p>
+<a href="#sport" class="hero-btn">Начать маршрут <span class="arrow">↓</span></a>
 </section>
 
+<!-- ========== SLIDE 2 — SPORT ========== -->
 <section class="section sec-alt" id="sport">
-    <div class="sec-label">Главное событие</div>
-    <div class="sport-card">
-        <div class="sport-inner">
-            <div class="sport-img">
-                <img src="photo-1515703407324-5f753afd8be8.jfif" alt="Хоккей">
+<div class="sport-card reveal">
+    <div class="sport-inner">
+        <div class="sport-img">
+            <img src="photo-1515703407324-5f753afd8be8.jfif" alt="Хоккей" loading="lazy">
+        </div>
+        <div class="sport-body">
+            <div class="sport-label">Главное событие</div>
+            <h2>Торпедо <span class="vs">vs</span> Динамо‑Минск</h2>
+            <div class="sport-meta">
+                <span>📅 23 февраля</span>
+                <span>🕐 17:00</span>
+                <span>📍 КРК Нагорный</span>
             </div>
-            <div class="sport-body">
-                <h2>Торпедо <span class="vs-sm">vs</span> Динамо-Минск</h2>
-                <div class="sport-meta">
-                    <span>📅 23 февраля</span>
-                    <span>🕐 17:00</span>
-                    <span>📍 КРК Нагорный</span>
-                </div>
-                <p>Легендарный нижегородский лёд. Если нет билетов — пишите в поддержку бота, мы подскажем, в каких барах самая крутая атмосфера для просмотра.</p>
-                <div class="btn-row">
-                    <a href="https://hctorpedo.ru/tickets/" target="_blank" rel="noopener" class="btn btn-gold">🎫 Купить билеты</a>
-                    <a href="#gastro" class="btn btn-ghost">🍺 Где смотреть</a>
-                </div>
+            <p>Легендарный нижегородский лёд. Если нет билетов — пишите в поддержку бота, мы подскажем, в каких барах самая крутая атмосфера для просмотра.</p>
+            <div class="btn-row">
+                <a href="https://hctorpedo.ru/tickets/" target="_blank" class="btn btn-gold">🎫 Купить билеты</a>
+                <a href="#gastro" class="btn btn-ghost">🍺 Где смотреть</a>
             </div>
         </div>
     </div>
+</div>
 </section>
 
+<!-- ========== SLIDE 3 — GASTRO ========== -->
 <section class="section sec-dark" id="gastro">
-    <div class="sec-label">Гастро-маршрут</div>
-    <h2 class="sec-title">Где поесть<br>брутально</h2>
-    <p class="sec-sub">Мясо, огонь, крафт — маршрут для настоящих</p>
+<div class="sec-head reveal">
+    <h2>Где поесть брутально</h2>
+    <p>5 проверенных мест в пешей доступности</p>
+</div>
+<div class="gastro-grid">
 
-    <div class="tip">
-        <span class="tip-icon">💡</span>
-        <p class="tip-text"><strong>Совет от Nort:</strong> Забронируйте столик заранее — в праздничные выходные лучшие места разбирают быстро.</p>
+<!-- 1. Steak-House KM -->
+<div class="rest reveal">
+<div class="rest-inner">
+    <div class="rest-img">
+        <img src="photo-1544025162-d76694265947.jfif" alt="Steak-House KM" loading="lazy">
+        <div class="rest-num">1</div>
     </div>
-
-    <div class="rest-list">
-
-        <div class="rest rest-1">
-            <div class="rest-inner">
-                <div class="rest-img">
-                    <img src="photo-1544025162-d76694265947.jfif" alt="Steak House KM">
-                    <div class="rest-num">1</div>
-                </div>
-                <div class="rest-body">
-                    <h3>Steak-House KM</h3>
-                    <div class="rest-tag">«Стейки в 0 минутах от кровати»</div>
-                    <div class="rest-loc">📍 Прямо в вашем здании — ул. М. Горького, 23А</div>
-                    <p class="rest-desc">Идеальный вариант для тех, кто не хочет никуда ехать. Мясо на живом огне. Кожа, дерево, приглушённый свет.</p>
-                    <p class="rest-order"><strong>Что заказывать:</strong> Стейк Рибай или сочные свиные рёбрышки</p>
-                    <div class="rest-btns">
-                        <a href="https://steakhousekm.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                        <a href="https://yandex.ru/maps/?rtext=~56.316739,43.997385&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-                    </div>
-                </div>
-            </div>
+    <div class="rest-body">
+        <h3>Steak‑House KM</h3>
+        <div class="rest-tag">«Стейки в 0 минутах от кровати»</div>
+        <div class="rest-loc">📍 ул. Максима Горького, 23А</div>
+        <p class="rest-desc">Рибай или свиные рёбра — идеальный вариант для старта гастро‑маршрута. Мясо готовят на открытом огне.</p>
+        <div class="btn-row">
+            <a href="https://steakhousekm.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a>
+            <a href="https://yandex.ru/maps/?rtext=~56.316739,43.997385&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a>
         </div>
-
-        <div class="rest rest-2">
-            <div class="rest-inner">
-                <div class="rest-img">
-                    <img src="photo-1558030006-450675393462.jfif" alt="Mitrich">
-                    <div class="rest-num">2</div>
-                </div>
-                <div class="rest-body">
-                    <h3>Mitrich Steakhouse</h3>
-                    <div class="rest-tag">«Мясной премиум»</div>
-                    <div class="rest-loc">📍 ул. Ковалихинская, 8 · ~7 мин на такси</div>
-                    <p class="rest-desc">Первый и самый статусный стейк-хаус города. «Дорого и качественно». Интерьер сдержанный и очень мужской.</p>
-                    <p class="rest-order"><strong>Что заказывать:</strong> Стейк «Нью-Йорк» или тартар из говядины</p>
-                    <div class="rest-btns">
-                        <a href="https://mitrichsteakhouse.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                        <a href="https://yandex.ru/maps/?rtext=~56.313053,43.990509&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="rest rest-3">
-            <div class="rest-inner">
-                <div class="rest-img">
-                    <img src="photo-1555939594-58d7cb561ad1.jfif" alt="Dodici">
-                    <div class="rest-num">3</div>
-                </div>
-                <div class="rest-body">
-                    <h3>Dodici Grill</h3>
-                    <div class="rest-tag">«Дым и огонь»</div>
-                    <div class="rest-loc">📍 ул. Октябрьская, 12 · ~15 мин пешком</div>
-                    <p class="rest-desc">В центре зала — открытый гриль и дровяной смокер. Запах костра и вид готовящегося мяса создают ту самую атмосферу.</p>
-                    <p class="rest-order"><strong>Что заказывать:</strong> Брискет из мраморной говядины — томят 12 часов</p>
-                    <div class="rest-btns">
-                        <a href="https://dodici-grill.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                        <a href="https://yandex.ru/maps/?rtext=~56.318776,43.992442&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="rest rest-4">
-            <div class="rest-inner">
-                <div class="rest-img">
-                    <img src="photo-1414235077428-338989a2e8c0.jfif" alt="Экспедиция">
-                    <div class="rest-num">4</div>
-                </div>
-                <div class="rest-body">
-                    <h3>Ресторан «Экспедиция»</h3>
-                    <div class="rest-tag">«Для охотников и искателей»</div>
-                    <div class="rest-loc">📍 ул. Рождественская, 1 · ~10 мин на такси</div>
-                    <p class="rest-desc">База полярников. Дерево, металл, карта мира и вертолёт в натуральную величину. Кухня северная, честная, мужская.</p>
-                    <p class="rest-order"><strong>Что заказывать:</strong> Строганину из северных рыб, мясо оленя или косули</p>
-                    <div class="rest-btns">
-                        <a href="http://expedition-nn.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                        <a href="https://yandex.ru/maps/?rtext=~56.328180,43.976988&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="rest rest-5">
-            <div class="rest-inner">
-                <div class="rest-img">
-                    <img src="photo-1436076863939-06870fe779c2.jfif" alt="Горьковская пивоварня">
-                    <div class="rest-num">5</div>
-                </div>
-                <div class="rest-body">
-                    <h3>Горьковская пивоварня</h3>
-                    <div class="rest-tag">«Локальный крафт»</div>
-                    <div class="rest-loc">📍 ул. Рождественская, 29</div>
-                    <p class="rest-desc">Гастропаб при собственной пивоварне. Шумно, драйвово, спорт на экранах. Идеально для просмотра хоккея.</p>
-                    <p class="rest-order"><strong>Что заказывать:</strong> Локальный IPA и фирменные закуски к пиву</p>
-                    <div class="rest-btns">
-                        <a href="https://gorkovskaya.ru/" target="_blank" rel="noopener" class="btn btn-gold btn-s">🌐 Сайт</a>
-                        <a href="https://yandex.ru/maps/?rtext=~56.326909,43.979918&rtt=auto" target="_blank" rel="noopener" class="btn btn-ghost btn-s">🧭 Маршрут</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
+</div>
+</div>
+
+<!-- 2. Mitrich Steakhouse -->
+<div class="rest reveal">
+<div class="rest-inner">
+    <div class="rest-img">
+        <img src="photo-1558030006-450675393462.jfif" alt="Mitrich Steakhouse" loading="lazy">
+        <div class="rest-num">2</div>
+    </div>
+    <div class="rest-body">
+        <h3>Mitrich Steakhouse</h3>
+        <div class="rest-tag">«Мясная классика в центре»</div>
+        <div class="rest-loc">📍 ул. Ковалихинская, 8</div>
+        <p class="rest-desc">New‑York стейк или тартар из говядины. Атмосфера настоящего мясного ресторана с авторской подачей.</p>
+        <div class="btn-row">
+            <a href="https://mitrichsteakhouse.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a>
+            <a href="https://yandex.ru/maps/?rtext=~56.312581,43.993492&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 3. Dodici Grill -->
+<div class="rest reveal">
+<div class="rest-inner">
+    <div class="rest-img">
+        <img src="photo-1555939594-58d7cb561ad1.jfif" alt="Dodici Grill" loading="lazy">
+        <div class="rest-num">3</div>
+    </div>
+    <div class="rest-body">
+        <h3>Dodici Grill</h3>
+        <div class="rest-tag">«Гриль‑бар с итальянским характером»</div>
+        <div class="rest-loc">📍 ул. Октябрьская, 14</div>
+        <p class="rest-desc">Говяжий брискет, томлённый по всем правилам. Мощное мясное меню и стильный интерьер.</p>
+        <div class="btn-row">
+            <a href="https://dodici-grill.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a>
+            <a href="https://yandex.ru/maps/?rtext=~56.326877,44.019026&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 4. Экспедиция -->
+<div class="rest reveal">
+<div class="rest-inner">
+    <div class="rest-img">
+        <img src="photo-1414235077428-338989a2e8c0.jfif" alt="Экспедиция" loading="lazy">
+        <div class="rest-num">4</div>
+    </div>
+    <div class="rest-body">
+        <h3>Ресторан «Экспедиция»</h3>
+        <div class="rest-tag">«Северная кухня на Рождественской»</div>
+        <div class="rest-loc">📍 ул. Рождественская, 1</div>
+        <p class="rest-desc">Северная рыба, лосятина и оленина. Для тех, кто хочет чего‑то необычного — настоящая экспедиция вкуса.</p>
+        <div class="btn-row">
+            <a href="http://expedition-nn.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a>
+            <a href="https://yandex.ru/maps/?rtext=~56.328930,43.984590&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 5. Горьковская пивоварня -->
+<div class="rest reveal">
+<div class="rest-inner">
+    <div class="rest-img">
+        <img src="photo-1436076863939-06870fe779c2.jfif" alt="Горьковская пивоварня" loading="lazy">
+        <div class="rest-num">5</div>
+    </div>
+    <div class="rest-body">
+        <h3>Горьковская пивоварня</h3>
+        <div class="rest-tag">«Крафт и атмосфера»</div>
+        <div class="rest-loc">📍 ул. Рождественская, 29</div>
+        <p class="rest-desc">Крафтовое пиво, сваренное здесь же. Идеальное завершение гастро‑маршрута — бокал свежего IPA или стаута.</p>
+        <div class="btn-row">
+            <a href="https://gorkovskaya.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a>
+            <a href="https://yandex.ru/maps/?rtext=~56.329080,43.989350&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a>
+        </div>
+    </div>
+</div>
+</div>
+
+</div><!-- /gastro-grid -->
 </section>
 
+<!-- ========== SLIDE 4 — OFFER ========== -->
 <section class="section sec-alt" id="offer">
-    <div class="sec-label">Перезагрузка</div>
-    <div class="offer">
-        <div class="offer-inner">
-            <div class="offer-body">
-                <h2>Твой спец. оффер</h2>
-                <p>
-                    После активного дня — время восстановиться. Попробуйте что-то новое — <em>пробная тренировка по боксу</em>.
-                    <br><br>
-                    Даже одна тренировка в <em>Академии бокса</em> даст вам базовое понимание техники и, возможно, станет началом нового хобби.
-                    <br><br>
-                    Сбросьте напряжение, почувствуйте драйв и зарядитесь энергией.
-                </p>
-                <a href="https://boxingacademynn.ru/probnoe-poseshchenie-akademiya-boksa" target="_blank" rel="noopener" class="btn btn-gold">🥊 Записаться на тренировку</a>
-            </div>
-            <div class="offer-img">
-                <img src="photo-1549719386-74dfcbf7dbed.jfif" alt="Бокс">
-            </div>
+<div class="offer reveal">
+    <div class="offer-inner">
+        <div class="offer-body">
+            <div class="offer-label">Перезагрузка</div>
+            <h2>Твой спец. оффер</h2>
+            <p>После активного дня — время восстановиться. Попробуйте пробную тренировку по боксу в Академии бокса. Сбросьте напряжение, почувствуйте драйв и, возможно, найдите новое хобби.</p>
+            <a href="https://boxingacademynn.ru/probnoe-poseshchenie-akademiya-boksa" target="_blank" class="btn btn-gold">🥊 Записаться на тренировку</a>
+        </div>
+        <div class="offer-img">
+            <img src="photo-1549719386-74dfcbf7dbed.jfif" alt="Бокс" loading="lazy">
         </div>
     </div>
+</div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
-    <div class="footer-logo">NORT</div>
-    <p class="footer-text">Ваш гид по лучшим локациям Нижнего Новгорода<br>Приятного уикенда! 🤝</p>
+<div class="footer-logo">NORT</div>
+<p class="footer-text">Ваш гид по лучшим локациям Нижнего Новгорода<br>Приятного уикенда! 🤝</p>
 </footer>
 
 <script>
-if(window.innerWidth>768){
-    var dots=document.querySelectorAll('.nav-dot');
-    var ids=['top','sport','gastro','offer'];
-    for(var i=0;i<dots.length;i++){
-        (function(d,id){
-            d.addEventListener('click',function(){
-                var el=document.getElementById(id);
-                if(el)el.scrollIntoView({behavior:'smooth'});
-            });
-        })(dots[i],ids[i]);
-    }
-    window.addEventListener('scroll',function(){
-        var sy=window.pageYOffset,cur=0;
-        for(var i=0;i<ids.length;i++){
-            var el=document.getElementById(ids[i]);
-            if(el&&el.offsetTop-300<=sy)cur=i;
+// Reveal on scroll
+var revEls=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+        for(var i=0;i<entries.length;i++){
+            if(entries[i].isIntersecting){
+                entries[i].target.classList.add('visible');
+            }
         }
-        for(var i=0;i<dots.length;i++)dots[i].classList.remove('active');
-        dots[cur].classList.add('active');
-    },{passive:true});
+    },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+    for(var i=0;i<revEls.length;i++) io.observe(revEls[i]);
+} else {
+    for(var i=0;i<revEls.length;i++) revEls[i].classList.add('visible');
+}
+
+// Nav dots
+var dots=document.querySelectorAll('.nav-dot');
+for(var d=0;d<dots.length;d++){
+    dots[d].addEventListener('click',function(){
+        var t=document.getElementById(this.getAttribute('data-slide'));
+        if(t) t.scrollIntoView({behavior:'smooth'});
+    });
+}
+var sections=document.querySelectorAll('.hero,.section');
+if('IntersectionObserver' in window){
+    var sio=new IntersectionObserver(function(entries){
+        for(var i=0;i<entries.length;i++){
+            if(entries[i].isIntersecting){
+                var id=entries[i].target.id;
+                for(var j=0;j<dots.length;j++){
+                    dots[j].classList.toggle('active',dots[j].getAttribute('data-slide')===id);
+                }
+            }
+        }
+    },{threshold:0.3});
+    for(var i=0;i<sections.length;i++) sio.observe(sections[i]);
+}
+
+// Smooth anchor
+var anchors=document.querySelectorAll('a[href^="#"]');
+for(var i=0;i<anchors.length;i++){
+    anchors[i].addEventListener('click',function(e){
+        e.preventDefault();
+        var t=document.querySelector(this.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth'});
+    });
 }
 </script>
 </body>
 </html>
+
