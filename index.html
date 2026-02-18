@@ -63,6 +63,14 @@ img{display:block;max-width:100%}
 .sport-body>p{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:28px}
 @media(max-width:768px){.sport-inner{grid-template-columns:1fr}.sport-img{min-height:220px}.sport-body{padding:28px 20px}}
 
+/* AFISHA */
+.afisha-card{max-width:960px;margin:0 auto;border-radius:20px;overflow:hidden;background:var(--card);box-shadow:0 30px 60px rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.1);text-align:center;padding:56px 40px}
+.afisha-icon{font-size:48px;margin-bottom:20px}
+.afisha-card h2{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:12px}
+.afisha-card>p{font-size:15px;color:var(--gray);line-height:1.7;max-width:600px;margin:0 auto 32px}
+.afisha-links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+@media(max-width:768px){.afisha-card{padding:36px 20px}}
+
 .gastro-grid{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
 .rest{border-radius:18px;overflow:hidden;background:var(--card);box-shadow:0 20px 40px rgba(0,0,0,.3);transition:.3s}
 .rest:hover{box-shadow:0 24px 48px rgba(0,0,0,.5);transform:translateY(-3px)}
@@ -102,6 +110,7 @@ img{display:block;max-width:100%}
 <nav class="nav-dots" id="nd">
 <div class="nav-dot active" data-slide="hero"><span class="tip">Главная</span></div>
 <div class="nav-dot" data-slide="sport"><span class="tip">Спорт</span></div>
+<div class="nav-dot" data-slide="afisha"><span class="tip">Афиша</span></div>
 <div class="nav-dot" data-slide="gastro"><span class="tip">Гастро</span></div>
 <div class="nav-dot" data-slide="offer"><span class="tip">Оффер</span></div>
 </nav>
@@ -133,7 +142,21 @@ img{display:block;max-width:100%}
 </div>
 </section>
 
-<section class="section sec-dark" id="gastro">
+<!-- АФИША -->
+<section class="section sec-dark" id="afisha">
+<div class="afisha-card reveal">
+<div class="afisha-icon">🎭</div>
+<h2>Афиша на 20–23 февраля</h2>
+<p>Концерты, спектакли, выставки и шоу — все мероприятия Нижнего Новгорода на длинные выходные. Выбирайте, что вам по душе.</p>
+<div class="afisha-links">
+<a href="https://nn.kassir.ru/category/23-fevral" target="_blank" class="btn btn-gold">🎫 Kassir.ru</a>
+<a href="https://www.afisha.ru/nnovgorod/events/na-fevral/" target="_blank" class="btn btn-gold">📅 Afisha.ru</a>
+<a href="https://www.kp.ru/russia/nizhnij-novgorod/prazdniki/23-fevralya/" target="_blank" class="btn btn-ghost">📰 Гид от КП</a>
+</div>
+</div>
+</section>
+
+<section class="section sec-alt" id="gastro">
 <div class="sec-head reveal"><h2>Где поесть брутально</h2><p>5 проверенных мест в пешей доступности</p></div>
 <div class="gastro-grid">
 
@@ -170,7 +193,7 @@ img{display:block;max-width:100%}
 </div>
 </section>
 
-<section class="section sec-alt" id="offer">
+<section class="section sec-dark" id="offer">
 <div class="offer reveal">
 <div class="offer-inner">
 <div class="offer-body">
@@ -226,6 +249,7 @@ if(t)t.scrollIntoView({behavior:'smooth'});
 </script>
 </body>
 </html>
+
 
 
 
