@@ -75,8 +75,196 @@ img{display:block;max-width:100%}
 .rest-body h3{font-size:clamp(18px,3vw,22px);font-weight:800;margin-bottom:4px}
 .rest-tag{font-size:12px;font-style:italic;color:var(--gold);margin-bottom:8px}
 .rest-loc{font-size:13px;color:var(--gray);margin-bottom:8px}
-.rest-desc{font-size:14px;color:var(--gray);line-
+.rest-desc{font-size:14px;color:var(--gray);line-height:1.6}
+@media(max-width:768px){.rest-inner{grid-template-columns:1fr}.rest-img{min-height:200px}.rest-body{padding:20px 18px}}
 
+.offer{max-width:960px;margin:0 auto;border-radius:20px;overflow:hidden;background:var(--card);box-shadow:0 30px 60px rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.1)}
+.offer-inner{display:grid;grid-template-columns:1fr 1fr}
+.offer-body{padding:56px 44px;display:flex;flex-direction:column;justify-content:center}
+.offer-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.offer-body h2{font-size:clamp(26px,4vw,38px);font-weight:800;line-height:1.2;margin-bottom:18px}
+.offer-body>p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:28px}
+.offer-img{position:relative;min-height:380px;overflow:hidden}
+.offer-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.offer:hover .offer-img img{transform:scale(1.05)}
+@media(max-width:768px){.offer-inner{grid-template-columns:1fr}.offer-body{padding:28px 20px;order:2}.offer-img{min-height:220px;order:1}}
+
+.footer{background:var(--card);border-top:1px solid rgba(255,255,255,.05);padding:36px 24px;text-align:center}
+.footer-logo{font-size:22px;font-weight:800;color:var(--gold);margin-bottom:8px}
+.footer-text{font-size:12px;color:var(--gray);line-height:1.6}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106912144', 'ym');
+
+    ym(106912144, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106912144" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<nav class="nav-dots" id="nd">
+<div class="nav-dot active" data-slide="hero"><span class="tip">Главная</span></div>
+<div class="nav-dot" data-slide="sport"><span class="tip">Спорт</span></div>
+<div class="nav-dot" data-slide="afisha"><span class="tip">Афиша</span></div>
+<div class="nav-dot" data-slide="gastro"><span class="tip">Гастро</span></div>
+<div class="nav-dot" data-slide="offer"><span class="tip">Оффер</span></div>
+</nav>
+
+<section class="hero" id="hero">
+<div class="hero-img"><img src="hero.jpg" alt="Нижний Новгород"></div>
+<div class="hero-overlay"></div>
+<div class="badge">Nort Weekend Guide</div>
+<h1>Мужской уикенд <span>в Нижнем Новгороде</span></h1>
+<p>Собрали для вас лучшие локации города в пешей доступности. Спорт, мясо, крафт и перезагрузка — всё, что нужно для идеального выходного.</p>
+<div class="btn-row" style="justify-content:center">
+<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=&name=&surname=&email=&phone=&orderid=&servicemode=0&firstroom=0&vkapp=&insidePopup=0&exval=dev5765_A%7Cdev4129_B%7Cdev10318_B%7Cdev1185_A%7Cproject12_B%7Cproject12read_B%7Cdev13185_B%7Cdev768_B%7Cdev9904_B" target="_blank" class="btn btn-gold">🏠 Забронировать номер</a>
+<a href="#sport" class="hero-btn">Начать маршрут <span class="arrow">↓</span></a>
+</div>
+</section>
+
+<section class="section sec-alt" id="sport">
+<div class="sport-card reveal">
+<div class="sport-inner">
+<div class="sport-img"><img src="hockey.jpg" alt="Хоккей" loading="lazy"></div>
+<div class="sport-body">
+<div class="sport-label">Главное событие</div>
+<h2>Торпедо <span class="vs">vs</span> Динамо‑Минск</h2>
+<div class="sport-meta"><span>📅 23 февраля</span><span>🕐 17:00</span><span>📍 КРК Нагорный</span></div>
+<p>Легендарный нижегородский лёд. Если нет билетов — пишите в поддержку бота, мы подскажем, в каких барах самая крутая атмосфера для просмотра.</p>
+<div class="btn-row">
+<a href="https://hctorpedo.ru/tickets/" target="_blank" class="btn btn-gold">🎫 Купить билеты</a>
+<a href="#gastro" class="btn btn-ghost">🍺 Где смотреть</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- АФИША -->
+<section class="section sec-dark" id="afisha">
+<div class="sport-card reveal">
+<div class="sport-inner">
+<div class="sport-img"><img src="afisha.jpg" alt="Афиша" loading="lazy"></div>
+<div class="sport-body">
+<div class="sport-label">Куда сходить</div>
+<h2>Афиша<br>20–23 февраля</h2>
+<p>Концерты, спектакли, выставки и шоу — все мероприятия Нижнего Новгорода на длинные выходные. Выбирайте, что вам по душе.</p>
+<div class="btn-row">
+<a href="https://nn.kassir.ru/category/23-fevral" target="_blank" class="btn btn-gold">🎫 Kassir.ru</a>
+<a href="https://www.afisha.ru/nnovgorod/events/na-fevral/" target="_blank" class="btn btn-gold">📅 Afisha.ru</a>
+<a href="https://www.kp.ru/russia/nizhnij-novgorod/prazdniki/23-fevralya/" target="_blank" class="btn btn-ghost">📰 Гид от КП</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section sec-alt" id="gastro">
+<div class="sec-head reveal"><h2>Где поесть брутально</h2><p>5 проверенных мест в пешей доступности</p></div>
+<div class="gastro-grid">
+
+<div class="rest reveal"><div class="rest-inner">
+<div class="rest-img"><img src="steak1.jpg" alt="Steak-House KM" loading="lazy"><div class="rest-num">1</div></div>
+<div class="rest-body"><h3>Steak‑House KM</h3><div class="rest-tag">«Стейки в 0 минутах от кровати»</div><div class="rest-loc">📍 ул. Максима Горького, 23А</div><p class="rest-desc">Рибай или свиные рёбра — идеальный вариант для старта гастро‑маршрута. Мясо готовят на открытом огне.</p>
+<div class="btn-row"><a href="https://steakhousekm.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a><a href="https://yandex.ru/maps/?rtext=~56.316739,43.997385&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a></div></div>
+</div></div>
+
+<div class="rest reveal"><div class="rest-inner">
+<div class="rest-img"><img src="steak2.jpg" alt="Mitrich Steakhouse" loading="lazy"><div class="rest-num">2</div></div>
+<div class="rest-body"><h3>Mitrich Steakhouse</h3><div class="rest-tag">«Мясная классика в центре»</div><div class="rest-loc">📍 ул. Ковалихинская, 8</div><p class="rest-desc">New‑York стейк или тартар из говядины. Атмосфера настоящего мясного ресторана с авторской подачей.</p>
+<div class="btn-row"><a href="https://mitrichsteakhouse.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a><a href="https://yandex.ru/maps/?rtext=~56.312581,43.993492&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a></div></div>
+</div></div>
+
+<div class="rest reveal"><div class="rest-inner">
+<div class="rest-img"><img src="grill.jpg" alt="Dodici Grill" loading="lazy"><div class="rest-num">3</div></div>
+<div class="rest-body"><h3>Dodici Grill</h3><div class="rest-tag">«Гриль‑бар с итальянским характером»</div><div class="rest-loc">📍 ул. Октябрьская, 14</div><p class="rest-desc">Говяжий брискет, томлённый по всем правилам. Мощное мясное меню и стильный интерьер.</p>
+<div class="btn-row"><a href="https://dodici-grill.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a><a href="https://yandex.ru/maps/?rtext=~56.326877,44.019026&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a></div></div>
+</div></div>
+
+<div class="rest reveal"><div class="rest-inner">
+<div class="rest-img"><img src="restaurant.jpg" alt="Экспедиция" loading="lazy"><div class="rest-num">4</div></div>
+<div class="rest-body"><h3>Ресторан «Экспедиция»</h3><div class="rest-tag">«Северная кухня на Рождественской»</div><div class="rest-loc">📍 ул. Рождественская, 1</div><p class="rest-desc">Северная рыба, лосятина и оленина. Для тех, кто хочет чего‑то необычного — настоящая экспедиция вкуса.</p>
+<div class="btn-row"><a href="http://expedition-nn.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a><a href="https://yandex.ru/maps/?rtext=~56.328930,43.984590&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a></div></div>
+</div></div>
+
+<div class="rest reveal"><div class="rest-inner">
+<div class="rest-img"><img src="beer.jpg" alt="Горьковская пивоварня" loading="lazy"><div class="rest-num">5</div></div>
+<div class="rest-body"><h3>Горьковская пивоварня</h3><div class="rest-tag">«Крафт и атмосфера»</div><div class="rest-loc">📍 ул. Рождественская, 29</div><p class="rest-desc">Крафтовое пиво, сваренное здесь же. Идеальное завершение гастро‑маршрута — бокал свежего IPA или стаута.</p>
+<div class="btn-row"><a href="https://gorkovskaya.ru/" target="_blank" class="btn btn-gold btn-s">🌐 Сайт</a><a href="https://yandex.ru/maps/?rtext=~56.329080,43.989350&rtt=auto" target="_blank" class="btn btn-ghost btn-s">🧭 Маршрут</a></div></div>
+</div></div>
+
+</div>
+</section>
+
+<section class="section sec-dark" id="offer">
+<div class="offer reveal">
+<div class="offer-inner">
+<div class="offer-body">
+<div class="offer-label">Перезагрузка</div>
+<h2>Твой спец. оффер</h2>
+<p>После активного дня — время восстановиться. Попробуйте пробную тренировку по боксу в Академии бокса. Сбросьте напряжение, почувствуйте драйв и, возможно, найдите новое хобби.</p>
+<a href="https://boxingacademynn.ru/probnoe-poseshchenie-akademiya-boksa" target="_blank" class="btn btn-gold">🥊 Записаться на тренировку</a>
+</div>
+<div class="offer-img"><img src="boxing.jpg" alt="Бокс" loading="lazy"></div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-logo">NORT</div>
+<p class="footer-text">Ваш гид по лучшим локациям Нижнего Новгорода<br>Приятного уикенда! 🤝</p>
+<div style="margin-top:20px">
+<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=&name=&surname=&email=&phone=&orderid=&servicemode=0&firstroom=0&vkapp=&insidePopup=0&exval=dev5765_A%7Cdev4129_B%7Cdev10318_B%7Cdev1185_A%7Cproject12_B%7Cproject12read_B%7Cdev13185_B%7Cdev768_B%7Cdev9904_B" target="_blank" class="btn btn-gold">🏠 Забронировать номер</a>
+</div>
+</footer>
+
+<script>
+var revEls=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){
+for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting)entries[i].target.classList.add('visible')}
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+for(var i=0;i<revEls.length;i++)io.observe(revEls[i]);
+}else{for(var i=0;i<revEls.length;i++)revEls[i].classList.add('visible')}
+
+var dots=document.querySelectorAll('.nav-dot');
+for(var d=0;d<dots.length;d++){
+dots[d].addEventListener('click',function(){
+var t=document.getElementById(this.getAttribute('data-slide'));
+if(t)t.scrollIntoView({behavior:'smooth'});
+});}
+
+var sections=document.querySelectorAll('.hero,.section');
+if('IntersectionObserver' in window){
+var sio=new IntersectionObserver(function(entries){
+for(var i=0;i<entries.length;i++){
+if(entries[i].isIntersecting){
+var id=entries[i].target.id;
+for(var j=0;j<dots.length;j++){
+dots[j].classList.toggle('active',dots[j].getAttribute('data-slide')===id);
+}}}},{threshold:0.3});
+for(var i=0;i<sections.length;i++)sio.observe(sections[i]);}
+
+var anchors=document.querySelectorAll('a[href^="#"]');
+for(var i=0;i<anchors.length;i++){
+anchors[i].addEventListener('click',function(e){
+e.preventDefault();
+var t=document.querySelector(this.getAttribute('href'));
+if(t)t.scrollIntoView({behavior:'smooth'});
+});}
+</script>
+</body>
+</html>
 
 
 
