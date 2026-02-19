@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Корпоративным клиентам — Апарт-отель «9 ночей – НОРТ»</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0D0D0D;color:#fff;line-height:1.7;overflow-x:hidden}
+:root{--gold:#C9A84C;--gold-l:#E8D48B;--bg:#0D0D0D;--card:#1A1A1A;--card-h:#222;--gray:#AAA;--blue:#2563EB}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px 40px;position:relative;overflow:hidden;background:#0a0a0a}
+.hero-img{position:absolute;inset:0;z-index:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.45;filter:brightness(.8) saturate(1.1)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.55) 75%,#0D0D0D 100%)}
+.hero>*:not(.hero-img):not(.hero-overlay){position:relative;z-index:2}
+.badge{display:inline-block;padding:8px 22px;border:1px solid var(--gold);border-radius:30px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;backdrop-filter:blur(4px);background:rgba(0,0,0,.25)}
+.hero h1{font-size:clamp(28px,6vw,58px);font-weight:900;line-height:1.12;margin-bottom:16px;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.hero h1 span{color:var(--gold);display:block}
+.hero-sub{font-size:clamp(15px,2.5vw,20px);color:#ddd;max-width:620px;margin:0 auto 12px;font-weight:500}
+.hero p{font-size:clamp(13px,2vw,16px);color:var(--gray);max-width:560px;margin:0 auto 36px}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border:1px solid rgba(201,168,76,.5);border-radius:40px;color:var(--gold);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:.3s;backdrop-filter:blur(4px);background:rgba(0,0,0,.2)}
+.hero-btn:hover{background:var(--gold);color:#0D0D0D}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.arrow{display:inline-block;animation:bounce 2s infinite}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:14px 28px;border-radius:12px;font-size:14px;font-weight:700;transition:.3s;border:none;cursor:pointer;font-family:inherit}
+.btn-gold{background:var(--gold);color:#0D0D0D}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,168,76,.3)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+
+/* ===== SECTIONS ===== */
+.section{padding:80px 24px}
+.sec-alt{background:linear-gradient(180deg,var(--bg),#0a0f1a 50%,var(--bg))}
+.sec-dark{background:var(--bg)}
+.sec-head{text-align:center;margin-bottom:48px}
+.sec-head h2{font-size:clamp(26px,5vw,42px);font-weight:800;margin-bottom:12px}
+.sec-head p{color:var(--gray);font-size:clamp(13px,2vw,16px);max-width:560px;margin:0 auto}
+
+/* ===== TEST-DRIVE CARD ===== */
+.td-card{max-width:960px;margin:0 auto;border-radius:20px;overflow:hidden;background:var(--card);box-shadow:0 30px 60px rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.08)}
+.td-inner{display:grid;grid-template-columns:1fr 1fr}
+.td-img{position:relative;min-height:420px;overflow:hidden}
+.td-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.td-card:hover .td-img img{transform:scale(1.04)}
+.td-body{padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+.td-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.td-body h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;line-height:1.2;margin-bottom:18px}
+.td-body>p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:24px}
+.td-list{list-style:none;margin-bottom:28px}
+.td-list li{font-size:14px;color:#ccc;padding:6px 0;padding-left:28px;position:relative}
+.td-list li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+@media(max-width:768px){.td-inner{grid-template-columns:1fr}.td-img{min-height:240px}.td-body{padding:28px 20px}}
+
+/* ===== APARTMENTS GALLERY ===== */
+.apart-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.apart-item{border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 16px 32px rgba(0,0,0,.3);transition:.3s}
+.apart-item:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.apart-item img{width:100%;height:220px;object-fit:cover;transition:.5s}
+.apart-item:hover img{transform:scale(1.06)}
+.apart-item-body{padding:20px}
+.apart-item-body h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.apart-item-body p{font-size:13px;color:var(--gray);line-height:1.6}
+@media(max-width:768px){.apart-grid{grid-template-columns:1fr}.apart-item img{height:200px}}
+
+/* ===== TWO COLUMNS ===== */
+.two-col{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.col-card{border-radius:18px;background:var(--card);padding:40px 32px;border:1px solid rgba(255,255,255,.05);transition:.3s}
+.col-card:hover{border-color:rgba(201,168,76,.15);transform:translateY(-3px)}
+.col-card h3{font-size:20px;font-weight:800;margin-bottom:6px}
+.col-card .col-sub{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:18px}
+.col-card ul{list-style:none}
+.col-card ul li{font-size:14px;color:#ccc;padding:7px 0;padding-left:24px;position:relative;line-height:1.6}
+.col-card ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-weight:700}
+@media(max-width:768px){.two-col{grid-template-columns:1fr}}
+
+/* ===== WHY US ===== */
+.why-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-item{border-radius:16px;background:var(--card);padding:32px 24px;text-align:center;border:1px solid rgba(255,255,255,.04);transition:.3s}
+.why-item:hover{border-color:rgba(201,168,76,.15);transform:translateY(-3px)}
+.why-icon{font-size:36px;margin-bottom:14px}
+.why-item h4{font-size:16px;font-weight:700;margin-bottom:8px}
+.why-item p{font-size:13px;color:var(--gray);line-height:1.6}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+
+/* ===== BL SECTION ===== */
+.bl-card{max-width:960px;margin:0 auto;border-radius:20px;background:var(--card);padding:48px 40px;border:1px solid rgba(201,168,76,.08);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.bl-card h2{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:8px}
+.bl-card .bl-tag{font-size:13px;color:var(--gold);font-weight:600;margin-bottom:20px}
+.bl-card>p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:16px}
+.bl-items{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px}
+.bl-item{background:rgba(255,255,255,.03);border-radius:12px;padding:20px;text-align:center;border:1px solid rgba(255,255,255,.04)}
+.bl-item .bl-emoji{font-size:28px;margin-bottom:8px}
+.bl-item p{font-size:13px;color:#ccc;line-height:1.5}
+@media(max-width:768px){.bl-card{padding:28px 20px}.bl-items{grid-template-columns:1fr}}
+
+/* ===== LOYALTY ===== */
+.loyalty{max-width:960px;margin:0 auto;border-radius:20px;background:linear-gradient(135deg,#1a1a2e,#16213e);padding:48px 40px;border:1px solid rgba(201,168,76,.1);text-align:center}
+.loyalty h2{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:8px}
+.loyalty .loy-sub{color:var(--gold);font-size:13px;font-weight:600;margin-bottom:20px}
+.loyalty>p{font-size:14px;color:var(--gray);line-height:1.8;max-width:600px;margin:0 auto 28px}
+.loy-uses{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.loy-chip{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);border-radius:30px;padding:10px 22px;font-size:13px;color:var(--gold-l);font-weight:600}
+@media(max-width:768px){.loyalty{padding:28px 20px}}
+
+/* ===== REVIEWS ===== */
+.reviews-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review{border-radius:16px;background:var(--card);padding:32px 24px;border:1px solid rgba(255,255,255,.04);transition:.3s}
+.review:hover{border-color:rgba(201,168,76,.15);transform:translateY(-3px)}
+.review-stars{color:var(--gold);font-size:16px;margin-bottom:12px;letter-spacing:2px}
+.review-text{font-size:14px;color:#ccc;line-height:1.7;font-style:italic;margin-bottom:20px}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#0D0D0D}
+.review-info h4{font-size:14px;font-weight:700;margin-bottom:2px}
+.review-info p{font-size:12px;color:var(--gray)}
+@media(max-width:768px){.reviews-grid{grid-template-columns:1fr}}
+
+/* ===== CTA ===== */
+.cta{max-width:960px;margin:0 auto;border-radius:20px;background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.2);padding:56px 40px;text-align:center}
+.cta h2{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:12px}
+.cta>p{font-size:15px;color:var(--gray);max-width:500px;margin:0 auto 28px;line-height:1.7}
+@media(max-width:768px){.cta{padding:32px 20px}}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--card);border-top:1px solid rgba(255,255,255,.05);padding:36px 24px;text-align:center}
+.footer-logo{font-size:22px;font-weight:800;color:var(--gold);margin-bottom:8px}
+.footer-text{font-size:12px;color:var(--gray);line-height:1.6}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106912144', 'ym');
+
+    ym(106912144, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106912144" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+<div class="hero-img"><img src="corp-hero.jpg" alt="Апарт-отель НОРТ"></div>
+<div class="hero-overlay"></div>
+<div class="badge">Корпоративным клиентам</div>
+<h1>Апарт-отель <span>«9 ночей – НОРТ»</span></h1>
+<div class="hero-sub">Business + Leisure</div>
+<p>Предлагаем начать сотрудничество и протестировать наш высокотехнологичный формат размещения сотрудников в центре Нижнего Новгорода.</p>
+<a href="#testdrive" class="hero-btn">Подробнее <span class="arrow">↓</span></a>
+</section>
+
+<!-- ============ TEST-DRIVE ============ -->
+<section class="section sec-alt" id="testdrive">
+<div class="td-card reveal">
+<div class="td-inner">
+<div class="td-img"><img src="apart-living.jpg" alt="Апартаменты" loading="lazy"></div>
+<div class="td-body">
+<div class="td-label">Формат сотрудничества</div>
+<h2>Тест-драйв апартаментов для топ-менеджмента</h2>
+<p>Вы размещаете сотрудников — мы показываем уровень сервиса и удобства на практике.</p>
+<ul class="td-list">
+<li>Апартаменты в центре города</li>
+<li>Полностью оборудованное пространство (кухня, техника, рабочая зона, Wi-Fi)</li>
+<li>Завтрак включён в стоимость</li>
+<li>Быстрый заезд без лишних формальностей</li>
+<li>Бот-консьерж 24/7 — решение вопросов за 30 секунд</li>
+<li>Полный пакет отчётных документов</li>
+</ul>
+<p style="font-size:13px;color:var(--gold);font-weight:600">Это формат, который сочетает приватность апартаментов и сервис отеля.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ APARTMENTS ============ -->
+<section class="section sec-dark" id="apartments">
+<div class="sec-head reveal"><h2>Варианты апартаментов</h2><p>Современные пространства в центре Нижнего Новгорода</p></div>
+<div class="apart-grid">
+<div class="apart-item reveal">
+<img src="apart-living.jpg" alt="Гостиная" loading="lazy">
+<div class="apart-item-body">
+<h3>Гостиная зона</h3>
+<p>Просторная гостиная с мягкой мебелью и рабочим столом. Идеально для работы и отдыха.</p>
+</div>
+</div>
+<div class="apart-item reveal">
+<img src="apart-bedroom.jpg" alt="Спальня" loading="lazy">
+<div class="apart-item-body">
+<h3>Спальня</h3>
+<p>Комфортная кровать, качественный матрас, шумоизоляция и blackout-шторы для полноценного сна.</p>
+</div>
+</div>
+<div class="apart-item reveal">
+<img src="apart-kitchen.jpg" alt="Кухня" loading="lazy">
+<div class="apart-item-body">
+<h3>Кухня</h3>
+<p>Полностью оборудованная кухня: плита, холодильник, микроволновка, посуда и всё необходимое.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ TWO COLUMNS: EMPLOYEE + COMPANY ============ -->
+<section class="section sec-alt" id="benefits">
+<div class="sec-head reveal"><h2>Выгода для всех сторон</h2><p>Что получает сотрудник и что получает компания</p></div>
+<div class="two-col">
+<div class="col-card reveal">
+<h3>Что получает сотрудник</h3>
+<div class="col-sub">Комфорт и автономность</div>
+<ul>
+<li>Центр города и инфраструктура в шаговой доступности</li>
+<li>Современный интерьер и тишина</li>
+<li>Автономность и комфорт</li>
+<li>Возможность продлить проживание на специальных условиях</li>
+</ul>
+</div>
+<div class="col-card reveal">
+<h3>Что получает компания</h3>
+<div class="col-sub">Прозрачность и контроль</div>
+<ul>
+<li>Фиксированные корпоративные условия</li>
+<li>Оперативное бронирование</li>
+<li>Один контакт для решения вопросов</li>
+<li>Прозрачные документы</li>
+<li>Завтрак включён (не выделяется отдельной строкой)</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="section sec-dark" id="why">
+<div class="sec-head reveal"><h2>Почему «9 ночей – НОРТ»</h2><p>6 причин выбрать нас для размещения сотрудников</p></div>
+<div class="why-grid">
+<div class="why-item reveal">
+<div class="why-icon">📍</div>
+<h4>Центр города</h4>
+<p>Нижний Новгород — вся инфраструктура в пешей доступности</p>
+</div>
+<div class="why-item reveal">
+<div class="why-icon">🏠</div>
+<h4>Не номер, а пространство</h4>
+<p>Современные апартаменты вместо стандартного гостиничного номера</p>
+</div>
+<div class="why-item reveal">
+<div class="why-icon">🤖</div>
+<h4>Бот-консьерж</h4>
+<p>Технологичный сервис — решение вопросов за 30 секунд, 24/7</p>
+</div>
+<div class="why-item reveal">
+<div class="why-icon">🥐</div>
+<h4>Завтрак включён</h4>
+<p>Уже в стоимости — не нужно выделять отдельной строкой</p>
+</div>
+<div class="why-item reveal">
+<div class="why-icon">⚡</div>
+<h4>Быстрое заселение</h4>
+<p>Без лишних формальностей — заехал и работаешь</p>
+</div>
+<div class="why-item reveal">
+<div class="why-icon">🔒</div>
+<h4>Приватность</h4>
+<p>Отдельные апартаменты — максимальный комфорт и тишина</p>
+</div>
+</div>
+</section>
+
+<!-- ============ BUSINESS + LEISURE ============ -->
+<section class="section sec-alt" id="bl">
+<div class="bl-card reveal">
+<h2>Business + Leisure</h2>
+<div class="bl-tag">Командировка как инструмент лояльности</div>
+<p>После завершения рабочих задач сотрудник может продлить проживание на специальных условиях, использовать накопленные баллы программы лояльности или остаться на выходные и познакомиться с городом.</p>
+<p>Командировка превращается не только в рабочую поездку, но и в инструмент лояльности персонала.</p>
+<div class="bl-items">
+<div class="bl-item">
+<div class="bl-emoji">🏖</div>
+<p>Продлить проживание на специальных условиях</p>
+</div>
+<div class="bl-item">
+<div class="bl-emoji">⭐</div>
+<p>Использовать баллы программы лояльности</p>
+</div>
+<div class="bl-item">
+<div class="bl-emoji">🗺</div>
+<p>Остаться на выходные и познакомиться с городом</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ LOYALTY ============ -->
+<section class="section sec-dark" id="loyalty">
+<div class="loyalty reveal">
+<h2>Корпоративная программа лояльности</h2>
+<div class="loy-sub">Баллы за каждое проживание</div>
+<p>За каждое проживание начисляются баллы. Накапливайте и используйте их для дополнительных привилегий.</p>
+<div class="loy-uses">
+<div class="loy-chip">🔄 Продление проживания</div>
+<div class="loy-chip">👥 Размещение других сотрудников</div>
+<div class="loy-chip">🏖 Частичная оплата leisure-дней</div>
+</div>
+</div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section sec-alt" id="reviews">
+<div class="sec-head reveal"><h2>Отзывы компаний</h2><p>Нам доверяют корпоративные клиенты</p></div>
+<div class="reviews-grid">
+
+<div class="review reveal">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">«Размещали топ-менеджмент на протяжении квартала. Апартаменты на уровне — сотрудники отмечают комфорт и автономность. Документооборот прозрачный, бронирование моментальное. Рекомендуем.»</p>
+<div class="review-author">
+<div class="review-avatar">А</div>
+<div class="review-info"><h4>Андрей К.</h4><p>Директор по логистике, IT-компания</p></div>
+</div>
+</div>
+
+<div class="review reveal">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">«Перевели всех командировочных сюда после тест-драйва. Главное — сотрудники сами просят бронировать именно НОРТ. Бот-консьерж реально работает, завтраки хорошие.»</p>
+<div class="review-author">
+<div class="review-avatar">Е</div>
+<div class="review-info"><h4>Елена М.</h4><p>HR-директор, производственный холдинг</p></div>
+</div>
+</div>
+
+<div class="review reveal">
+<div class="review-stars">★★★★★</div>
+<p class="review-text">«Отличный формат для длительных командировок. Кухня, рабочая зона, тишина — всё, что нужно. Корпоративные условия выгоднее, чем в классических отелях города.»</p>
+<div class="review-author">
+<div class="review-avatar">Д</div>
+<div class="review-info"><h4>Дмитрий В.</h4><p>Финансовый директор, строительная группа</p></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section sec-dark" id="cta">
+<div class="cta reveal">
+<h2>Начнём сотрудничество?</h2>
+<p>Оставьте заявку — мы подготовим индивидуальное коммерческое предложение и организуем тест-драйв апартаментов.</p>
+<div class="btn-row" style="justify-content:center">
+<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=&name=&surname=&email=&phone=&orderid=&servicemode=0&firstroom=0&vkapp=&insidePopup=0&exval=dev5765_A%7Cdev4129_B%7Cdev10318_B%7Cdev1185_A%7Cproject12_B%7Cproject12read_B%7Cdev13185_B%7Cdev768_B%7Cdev9904_B" target="_blank" class="btn btn-gold">🏠 Забронировать апартаменты</a>
+<a href="https://t.me/" target="_blank" class="btn btn-ghost">💬 Написать в Telegram</a>
+</div>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+<div class="footer-logo">NORT</div>
+<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород<br>Корпоративное размещение · Business + Leisure</p>
+<div style="margin-top:20px">
+<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=&name=&surname=&email=&phone=&orderid=&servicemode=0&firstroom=0&vkapp=&insidePopup=0&exval=dev5765_A%7Cdev4129_B%7Cdev10318_B%7Cdev1185_A%7Cproject12_B%7Cproject12read_B%7Cdev13185_B%7Cdev768_B%7Cdev9904_B" target="_blank" class="btn btn-gold">🏠 Забронировать номер</a>
+</div>
+</footer>
+
+<script>
+var revEls=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){
+for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting)entries[i].target.classList.add('visible')}
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+for(var i=0;i<revEls.length;i++)io.observe(revEls[i]);
+}else{for(var i=0;i<revEls.length;i++)revEls[i].classList.add('visible')}
+
+var anchors=document.querySelectorAll('a[href^="#"]');
+for(var i=0;i<anchors.length;i++){
+anchors[i].addEventListener('click',function(e){
+e.preventDefault();
+var t=document.querySelector(this.getAttribute('href'));
+if(t)t.scrollIntoView({behavior:'smooth'});
+});}
+</script>
+</body>
+</html>
