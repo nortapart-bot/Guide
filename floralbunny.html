@@ -8,83 +8,83 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#FDF8F4;color:#4A3F35;line-height:1.7;overflow-x:hidden;font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',sans-serif;background:#F6F3EE;color:#3D3629;line-height:1.7;overflow-x:hidden;font-size:16px;-webkit-font-smoothing:antialiased}
 :root{
-  --pink:#E8A0BF;
-  --pink-l:#F3C8DB;
-  --pink-d:#C97A9E;
-  --rose:#D4788C;
-  --cream:#FDF8F4;
-  --cream-d:#F5EDE6;
-  --beige:#EDE2D6;
-  --brown:#7A6555;
-  --dark:#3D3229;
-  --text:#4A3F35;
-  --text-m:#8A7E73;
+  --sage:#8FAE80;
+  --sage-l:#B5CCA9;
+  --sage-d:#6B8C5E;
+  --olive:#5C7A4B;
+  --cream:#F6F3EE;
+  --cream-d:#EDE8E0;
+  --beige:#DDD5C9;
+  --brown:#7A6B5A;
+  --dark:#2E2921;
+  --text:#3D3629;
+  --text-m:#8A7E6F;
   --card:#FFFFFF;
-  --shadow:0 4px 20px rgba(61,50,41,.06);
-  --shadow-h:0 10px 32px rgba(61,50,41,.12);
-  --radius:16px;
+  --shadow:0 2px 16px rgba(46,41,33,.06);
+  --shadow-h:0 8px 28px rgba(46,41,33,.12);
+  --radius:14px;
   --transition:.3s cubic-bezier(.4,0,.2,1)
 }
-a{color:var(--rose);text-decoration:none;transition:var(--transition)}
+a{color:var(--olive);text-decoration:none;transition:var(--transition)}
 img{display:block;max-width:100%}
-::selection{background:var(--pink-l);color:var(--dark)}
+::selection{background:var(--sage-l);color:var(--dark)}
 
 /* ===== HEADER ===== */
-.header{background:var(--card);border-bottom:1px solid var(--beige);padding:16px 24px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(255,255,255,.92)}
-.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--pink-l),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
-.logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--dark)}
-.logo-text span{color:var(--rose);font-style:italic}
-.header-info{font-size:13px;color:var(--text-m);text-align:right}
-.header-info a{color:var(--rose);font-weight:600}
-.header-phone{font-size:15px;font-weight:600;color:var(--dark)}
+.header{background:rgba(255,255,255,.92);border-bottom:1px solid var(--beige);padding:14px 20px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--sage-l),var(--sage));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+.logo-text{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--dark)}
+.logo-text span{color:var(--olive);font-style:italic}
+.header-info{font-size:12px;color:var(--text-m);text-align:right}
+.header-info a{color:var(--olive);font-weight:600}
+.header-phone{font-size:14px;font-weight:600;color:var(--dark)}
 
-/* ===== HERO BANNER ===== */
-.banner{background:linear-gradient(135deg,#FDEEF4,#FDF2E9,#F5EDE6);padding:48px 24px;text-align:center}
-.banner h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,44px);font-weight:600;color:var(--dark);margin-bottom:10px}
-.banner h1 span{color:var(--rose);font-style:italic}
-.banner p{font-size:16px;color:var(--text-m);max-width:480px;margin:0 auto 20px}
-.banner-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.banner-tag{background:rgba(255,255,255,.7);border:1px solid var(--pink-l);border-radius:20px;padding:8px 18px;font-size:12px;font-weight:600;color:var(--rose);backdrop-filter:blur(4px)}
+/* ===== BANNER ===== */
+.banner{background:linear-gradient(135deg,#EDF2E8,#F3EFE6,#EDE8E0);padding:44px 20px;text-align:center}
+.banner h1{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,42px);font-weight:600;color:var(--dark);margin-bottom:10px}
+.banner h1 span{color:var(--olive);font-style:italic}
+.banner p{font-size:15px;color:var(--text-m);max-width:460px;margin:0 auto 18px}
+.banner-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.banner-tag{background:rgba(255,255,255,.7);border:1px solid var(--sage-l);border-radius:20px;padding:7px 16px;font-size:12px;font-weight:600;color:var(--olive)}
 
-/* ===== CATALOG GRID ===== */
-.catalog{max-width:1100px;margin:0 auto;padding:40px 24px 80px}
-.catalog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
-.catalog-head h2{font-size:22px;font-weight:800;color:var(--dark)}
-.catalog-count{font-size:14px;color:var(--text-m)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+/* ===== CATALOG ===== */
+.catalog{max-width:1100px;margin:0 auto;padding:36px 16px 72px}
+.catalog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:10px;padding:0 4px}
+.catalog-head h2{font-size:20px;font-weight:800;color:var(--dark)}
+.catalog-count{font-size:13px;color:var(--text-m)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:14px}}
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
 
-/* ===== PRODUCT CARD ===== */
-.card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);border:1px solid rgba(237,226,214,.5);position:relative}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
-.card-badge{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.88);border:1px solid var(--pink-l);border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--rose);backdrop-filter:blur(4px);z-index:2}
+/* ===== CARD ===== */
+.card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);border:1px solid var(--beige);position:relative}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+.card-badge{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.9);border:1px solid var(--beige);border-radius:8px;padding:3px 9px;font-size:11px;font-weight:700;color:var(--olive);z-index:2}
+.card-img-wrap{overflow:hidden;background:var(--cream-d)}
 .card-img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:.5s}
 .card:hover .card-img{transform:scale(1.04)}
-.card-img-wrap{overflow:hidden}
-.card-body{padding:16px}
-.card-name{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;line-height:1.3}
+/* заглушка если нет фото */
+.card-placeholder{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,var(--cream-d),var(--beige));display:flex;align-items:center;justify-content:center;font-size:48px}
+.card-body{padding:14px}
+.card-name{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;line-height:1.3}
 .card-desc{font-size:12px;color:var(--text-m);margin-bottom:10px;line-height:1.5}
 .card-bottom{display:flex;align-items:center;justify-content:space-between}
-.card-price{font-size:18px;font-weight:800;color:var(--rose)}
+.card-price{font-size:17px;font-weight:800;color:var(--olive)}
 .card-price span{font-size:13px;font-weight:500;color:var(--text-m)}
-.card-btn{width:36px;height:36px;border-radius:50%;background:var(--pink-l);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);font-size:18px}
-.card-btn:hover{background:var(--pink);transform:scale(1.1)}
-@media(max-width:600px){.card-body{padding:12px}.card-name{font-size:13px}.card-price{font-size:16px}}
+.card-btn{width:34px;height:34px;border-radius:50%;background:var(--sage-l);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition);font-size:16px;color:var(--dark)}
+.card-btn:hover{background:var(--sage);transform:scale(1.1)}
+@media(max-width:600px){.card-body{padding:10px}.card-name{font-size:13px}.card-price{font-size:15px}.card-btn{width:30px;height:30px;font-size:14px}}
 
 /* ===== FOOTER ===== */
-.foot{background:var(--cream-d);border-top:1px solid var(--beige);padding:40px 24px;text-align:center}
-.foot-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--dark);margin-bottom:6px}
-.foot-logo span{color:var(--rose);font-style:italic}
+.foot{background:var(--cream-d);border-top:1px solid var(--beige);padding:36px 20px;text-align:center}
+.foot-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--dark);margin-bottom:6px}
+.foot-logo span{color:var(--olive);font-style:italic}
 .foot p{font-size:13px;color:var(--text-m);line-height:1.7}
-.foot a{color:var(--rose);font-weight:600}
-.foot-social{display:flex;gap:12px;justify-content:center;margin-top:16px}
-.foot-social a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.7);border:1px solid var(--beige);display:flex;align-items:center;justify-content:center;font-size:18px;transition:var(--transition)}
-.foot-social a:hover{background:var(--pink-l);border-color:var(--pink)}
+.foot a{color:var(--olive);font-weight:600}
+.foot-note{margin-top:12px;padding:12px 20px;background:rgba(143,174,128,.1);border-radius:10px;display:inline-block;font-size:13px;color:var(--olive);font-weight:600}
 </style>
 </head>
 <body>
@@ -108,7 +108,7 @@ img{display:block;max-width:100%}
 <h1>Выберите <span>букет</span></h1>
 <p>Свежие цветы с доставкой по Городцу. Каждый букет собран с любовью нашими флористами.</p>
 <div class="banner-tags">
-<div class="banner-tag">🌸 Авторская флористика</div>
+<div class="banner-tag">🌿 Авторская флористика</div>
 <div class="banner-tag">🚗 Доставка</div>
 <div class="banner-tag">💐 Свежие поставки</div>
 </div>
@@ -125,7 +125,7 @@ img{display:block;max-width:100%}
 <!-- 1 -->
 <div class="card">
 <div class="card-badge">№ 1</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=400&q=70&fm=jpg" alt="Улыбка весны" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">💐</div></div>
 <div class="card-body">
 <div class="card-name">Улыбка весны</div>
 <div class="card-desc">Нежные розы и эвкалипт</div>
@@ -139,7 +139,7 @@ img{display:block;max-width:100%}
 <!-- 2 -->
 <div class="card">
 <div class="card-badge">№ 2</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=400&q=70&fm=jpg" alt="Ягодный фреш" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🌸</div></div>
 <div class="card-body">
 <div class="card-name">Ягодный фреш</div>
 <div class="card-desc">Яркий микс с ягодами</div>
@@ -153,7 +153,7 @@ img{display:block;max-width:100%}
 <!-- 3 -->
 <div class="card">
 <div class="card-badge">№ 3</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=400&q=70&fm=jpg" alt="Автолюбителю" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🎁</div></div>
 <div class="card-body">
 <div class="card-name">Автолюбителю</div>
 <div class="card-desc">Стильная композиция в коробке</div>
@@ -167,7 +167,7 @@ img{display:block;max-width:100%}
 <!-- 4 -->
 <div class="card">
 <div class="card-badge">№ 4</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=400&q=70&fm=jpg" alt="Облако нежности" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🤍</div></div>
 <div class="card-body">
 <div class="card-name">Облако нежности</div>
 <div class="card-desc">Белые пионовидные розы</div>
@@ -181,7 +181,7 @@ img{display:block;max-width:100%}
 <!-- 5 -->
 <div class="card">
 <div class="card-badge">№ 5</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1494336956603-39a3f0e3608a?w=400&q=70&fm=jpg" alt="Глоток свежести" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🌿</div></div>
 <div class="card-body">
 <div class="card-name">Глоток свежести</div>
 <div class="card-desc">Лёгкий весенний букет</div>
@@ -195,7 +195,7 @@ img{display:block;max-width:100%}
 <!-- 6 -->
 <div class="card">
 <div class="card-badge">№ 6</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=400&q=70&fm=jpg" alt="Цветущий сад" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🌻</div></div>
 <div class="card-body">
 <div class="card-name">Цветущий сад</div>
 <div class="card-desc">Пышный микс полевых цветов</div>
@@ -209,7 +209,7 @@ img{display:block;max-width:100%}
 <!-- 7 -->
 <div class="card">
 <div class="card-badge">№ 7</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=400&q=70&fm=jpg" alt="Бабочка" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🦋</div></div>
 <div class="card-body">
 <div class="card-name">Бабочка</div>
 <div class="card-desc">Воздушная гипсофила</div>
@@ -223,7 +223,7 @@ img{display:block;max-width:100%}
 <!-- 8 -->
 <div class="card">
 <div class="card-badge">№ 8</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1548094990-c4ca0a0e5206?w=400&q=70&fm=jpg" alt="Love is" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">❤️</div></div>
 <div class="card-body">
 <div class="card-name">Love is</div>
 <div class="card-desc">Красные розы классика</div>
@@ -237,7 +237,7 @@ img{display:block;max-width:100%}
 <!-- 9 -->
 <div class="card">
 <div class="card-badge">№ 9</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=400&q=70&fm=jpg" alt="Розовый рассвет" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🌷</div></div>
 <div class="card-body">
 <div class="card-name">Розовый рассвет</div>
 <div class="card-desc">Нежно-розовые розы и зелень</div>
@@ -251,7 +251,7 @@ img{display:block;max-width:100%}
 <!-- 10 -->
 <div class="card">
 <div class="card-badge">№ 10</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1522124624696-7ea32df94d3a?w=400&q=70&fm=jpg" alt="Сладкий сон" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">💜</div></div>
 <div class="card-body">
 <div class="card-name">Сладкий сон</div>
 <div class="card-desc">Лаванда и пионы</div>
@@ -265,7 +265,7 @@ img{display:block;max-width:100%}
 <!-- 11 -->
 <div class="card">
 <div class="card-badge">№ 11</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1533616688419-b7a585564566?w=400&q=70&fm=jpg" alt="Солнечный день" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🌻</div></div>
 <div class="card-body">
 <div class="card-name">Солнечный день</div>
 <div class="card-desc">Яркие подсолнухи и ромашки</div>
@@ -279,7 +279,7 @@ img{display:block;max-width:100%}
 <!-- 12 -->
 <div class="card">
 <div class="card-badge">№ 12</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=400&q=70&fm=jpg" alt="Мятный бриз" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🍃</div></div>
 <div class="card-body">
 <div class="card-name">Мятный бриз</div>
 <div class="card-desc">Хризантемы и эвкалипт</div>
@@ -293,7 +293,7 @@ img{display:block;max-width:100%}
 <!-- 13 -->
 <div class="card">
 <div class="card-badge">№ 13</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=400&q=70&fm=jpg" alt="Королевский" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">👑</div></div>
 <div class="card-body">
 <div class="card-name">Королевский</div>
 <div class="card-desc">Большой букет премиум-роз</div>
@@ -307,7 +307,7 @@ img{display:block;max-width:100%}
 <!-- 14 -->
 <div class="card">
 <div class="card-badge">№ 14</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1471696035578-3d8c78d99571?w=400&q=70&fm=jpg" alt="Прованс" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">💛</div></div>
 <div class="card-body">
 <div class="card-name">Прованс</div>
 <div class="card-desc">Лавандовый букет с сухоцветами</div>
@@ -321,7 +321,7 @@ img{display:block;max-width:100%}
 <!-- 15 -->
 <div class="card">
 <div class="card-badge">№ 15</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=400&q=70&fm=jpg" alt="Карамель" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🧁</div></div>
 <div class="card-body">
 <div class="card-name">Карамель</div>
 <div class="card-desc">Кремовые розы в крафте</div>
@@ -335,7 +335,7 @@ img{display:block;max-width:100%}
 <!-- 16 -->
 <div class="card">
 <div class="card-badge">№ 16</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1495231916356-a86217efff12?w=400&q=70&fm=jpg" alt="Сказка" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🌺</div></div>
 <div class="card-body">
 <div class="card-name">Сказка</div>
 <div class="card-desc">Микс из тюльпанов</div>
@@ -349,7 +349,7 @@ img{display:block;max-width:100%}
 <!-- 17 -->
 <div class="card">
 <div class="card-badge">№ 17</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&q=70&fm=jpg" alt="Нежность" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🩷</div></div>
 <div class="card-body">
 <div class="card-name">Нежность</div>
 <div class="card-desc">Пастельные пионы</div>
@@ -363,7 +363,7 @@ img{display:block;max-width:100%}
 <!-- 18 -->
 <div class="card">
 <div class="card-badge">№ 18</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?w=400&q=70&fm=jpg" alt="Мишка" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🧸</div></div>
 <div class="card-body">
 <div class="card-name">Мишка</div>
 <div class="card-desc">Букет с мягкой игрушкой</div>
@@ -377,7 +377,7 @@ img{display:block;max-width:100%}
 <!-- 19 -->
 <div class="card">
 <div class="card-badge">№ 19</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=400&q=70&fm=jpg" alt="Радуга" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🌈</div></div>
 <div class="card-body">
 <div class="card-name">Радуга</div>
 <div class="card-desc">Радужная гипсофила</div>
@@ -391,7 +391,7 @@ img{display:block;max-width:100%}
 <!-- 20 -->
 <div class="card">
 <div class="card-badge">№ 20</div>
-<div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?w=400&q=70&fm=jpg" alt="Гигант" loading="lazy"></div>
+<div class="card-img-wrap"><div class="card-placeholder">🌹</div></div>
 <div class="card-body">
 <div class="card-name">Гигант</div>
 <div class="card-desc">Огромный букет 101 роза</div>
@@ -409,11 +409,7 @@ img{display:block;max-width:100%}
 <footer class="foot">
 <div class="foot-logo">Floral <span>Bunny</span></div>
 <p>г. Городец, ул. Кирова, 42<br><a href="tel:89081616776">8-908-161-67-76</a></p>
-<p style="margin-top:8px">Для заказа — напишите номер букета в чат бота</p>
-<div class="foot-social">
-<a href="https://vk.com/floralbunny52" target="_blank">📱</a>
-<a href="tel:89081616776">📞</a>
-</div>
+<div class="foot-note">Для заказа — напишите номер букета в чат бота</div>
 </footer>
 
 </body>
