@@ -51,45 +51,39 @@ img{display:block;max-width:100%}
 .section-label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
 .section-title{font-size:clamp(24px,5vw,38px);font-weight:800;line-height:1.2;margin-bottom:24px}
 
-/* ===== ACTIVITY CARD ===== */
-.act-card{border-radius:20px;overflow:hidden;background:var(--card)}
-.act-card img{width:100%;height:320px;object-fit:cover}
-.act-body{padding:28px}
-.act-body h3{font-size:22px;margin-bottom:6px}
-.act-tag{display:inline-block;font-size:12px;background:rgba(212,120,140,.15);color:var(--rose-l);padding:3px 10px;border-radius:10px;margin-bottom:12px}
-.act-body p{color:var(--gray);margin-bottom:18px}
-.act-body .btn-rose{font-size:14px;padding:12px 24px}
+/* ===== FULL-WIDTH CARD (spa, afisha, offer) ===== */
+.fw-card{border-radius:20px;overflow:hidden;background:var(--card)}
+.fw-card img{width:100%;height:360px;object-fit:cover}
+.fw-body{padding:28px 28px 32px}
+.fw-body h3{font-size:22px;margin-bottom:6px}
+.fw-tag{display:inline-block;font-size:12px;background:rgba(212,120,140,.15);color:var(--rose-l);padding:3px 10px;border-radius:10px;margin-bottom:12px}
+.fw-body p{color:var(--gray);margin-bottom:16px;font-size:15px;line-height:1.7}
+.fw-body .meta{font-size:14px;color:var(--gray)}
 
-/* ===== AFISHA ===== */
-.afisha-card{border-radius:20px;overflow:hidden;background:var(--card)}
-.afisha-card img{width:100%;height:280px;object-fit:cover}
-.afisha-body{padding:28px}
-.afisha-body h3{font-size:22px;margin-bottom:12px}
-.afisha-links{display:flex;flex-direction:column;gap:10px}
-.afisha-links a{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:rgba(255,255,255,.04);font-size:15px;font-weight:600;transition:.2s}
+/* ===== AFISHA LINKS ===== */
+.afisha-links{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.afisha-links a{display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.04);font-size:15px;font-weight:600;transition:.2s}
 .afisha-links a:hover{background:rgba(212,120,140,.12);color:var(--rose-l)}
 .afisha-links .ico{font-size:20px}
 
 /* ===== GASTRO ===== */
-.gastro-grid{display:grid;gap:20px}
-.g-card{display:grid;grid-template-columns:140px 1fr;border-radius:16px;overflow:hidden;background:var(--card);transition:.25s}
-.g-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.4)}
-.g-card img{width:140px;height:100%;object-fit:cover}
-.g-info{padding:18px 20px;display:flex;flex-direction:column;justify-content:center}
-.g-info h4{font-size:17px;margin-bottom:4px}
-.g-tag{font-size:11px;color:var(--rose);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.g-info .addr{font-size:13px;color:var(--gray);margin-bottom:4px}
-.g-info .desc{font-size:13px;color:#ccc;margin-bottom:10px}
-.g-links{display:flex;gap:10px;flex-wrap:wrap}
-.g-links a{font-size:13px;font-weight:600;padding:6px 14px;border-radius:10px;background:rgba(255,255,255,.06);transition:.2s}
-.g-links a:hover{background:var(--rose);color:#fff}
+.gastro-intro{color:var(--gray);font-size:16px;margin-bottom:30px}
+.gastro-grid{display:flex;flex-direction:column;gap:32px}
 
-/* ===== OFFER CARD ===== */
-.offer-card{border-radius:20px;overflow:hidden;background:var(--card)}
-.offer-card img{width:100%;height:280px;object-fit:cover}
-.offer-body{padding:28px}
-.offer-body h3{font-size:22px;margin-bottom:6px}
-.offer-body p{color:var(--gray);margin-bottom:18px}
+.g-card{border-radius:20px;overflow:hidden;background:var(--card);transition:.25s}
+.g-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.g-card-img{position:relative;width:100%;height:360px;overflow:hidden}
+.g-card-img img{width:100%;height:100%;object-fit:cover}
+.g-num{position:absolute;top:16px;left:16px;width:40px;height:40px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff}
+.g-body{padding:24px 28px 28px}
+.g-body .g-tag{display:inline-block;font-size:11px;color:var(--rose);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.g-body h3{font-size:22px;font-weight:800;margin-bottom:4px}
+.g-body .g-sub{font-size:14px;color:var(--rose-l);font-style:italic;margin-bottom:8px}
+.g-body .g-addr{font-size:14px;color:var(--gray);margin-bottom:10px}
+.g-body .g-desc{font-size:15px;color:#ccc;line-height:1.7;margin-bottom:16px}
+.g-links{display:flex;gap:12px;flex-wrap:wrap}
+.g-links a{font-size:14px;font-weight:600;padding:10px 20px;border-radius:12px;background:rgba(255,255,255,.06);transition:.2s}
+.g-links a:hover{background:var(--rose);color:#fff}
 
 /* ===== FOOTER ===== */
 .footer{text-align:center;padding:50px 20px;border-top:1px solid #222}
@@ -102,12 +96,10 @@ img{display:block;max-width:100%}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:600px){
-  .g-card{grid-template-columns:1fr}
-  .g-card img{width:100%;height:180px}
   .section{padding:50px 16px}
-  .act-card img{height:220px}
-  .afisha-card img{height:200px}
-  .offer-card img{height:200px}
+  .fw-card img{height:260px}
+  .g-card-img{height:260px}
+  .g-body{padding:20px}
 }
 </style>
 </head>
@@ -143,13 +135,13 @@ img{display:block;max-width:100%}
     <h2 class="section-title">SPA и Релакс</h2>
   </div>
 
-  <div class="act-card reveal">
+  <div class="fw-card reveal">
     <img src="spa-oceanis.jpg" alt="Океанис Thermal & Spa">
-    <div class="act-body">
-      <span class="act-tag">Термы · Бассейны · SPA</span>
+    <div class="fw-body">
+      <span class="fw-tag">Термы · Бассейны · SPA</span>
       <h3>Океанис Thermal & Spa</h3>
       <p>5 000 м² релакса — 21 баня, 10 бассейнов, джакузи, хамам и зона отдыха. Идеальный подарок на 8 Марта: термальный комплекс с панорамными зонами, массажем и уютной атмосферой.</p>
-      <p style="font-size:14px;color:var(--gray)">📍 пр. Гагарина, 35, корп. 3 &nbsp;·&nbsp; 10:00 – 22:00</p>
+      <p class="meta">📍 пр. Гагарина, 35, корп. 3 &nbsp;·&nbsp; 10:00 – 22:00</p>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
         <a href="https://oceanis-therm.ru/" target="_blank" class="btn btn-rose">Сайт термального комплекса</a>
         <a href="https://oceanis-aquapark.ru/" target="_blank" class="btn btn-outline">Аквапарк Океанис</a>
@@ -165,10 +157,11 @@ img{display:block;max-width:100%}
     <h2 class="section-title">Куда сходить в праздники</h2>
   </div>
 
-  <div class="afisha-card reveal">
+  <div class="fw-card reveal">
     <img src="afisha-march.jpg" alt="Афиша 8 марта">
-    <div class="afisha-body">
+    <div class="fw-body">
       <h3>Концерты, спектакли и шоу</h3>
+      <p>Концерты, спектакли, выставки и шоу — все мероприятия Нижнего Новгорода на праздничные выходные. Выбирайте, что вам по душе.</p>
       <div class="afisha-links">
         <a href="https://nn.kassir.ru/category/8-mart" target="_blank">
           <span class="ico">🎫</span> Kassir.ru — все события к 8 Марта
@@ -189,18 +182,23 @@ img{display:block;max-width:100%}
   <div class="reveal">
     <span class="section-label">Инстаграмные рестораны</span>
     <h2 class="section-title">Где вкусно и красиво</h2>
+    <p class="gastro-intro">4 проверенных места для идеального вечера или бранча</p>
   </div>
 
   <div class="gastro-grid">
 
     <!-- 1. Ministry of Breakfast -->
     <div class="g-card reveal">
-      <img src="rest-ministry.jpg" alt="Ministry of Breakfast">
-      <div class="g-info">
+      <div class="g-card-img">
+        <img src="rest-ministry.jpg" alt="Ministry of Breakfast">
+        <div class="g-num">1</div>
+      </div>
+      <div class="g-body">
         <span class="g-tag">Завтраки · Бранчи</span>
-        <h4>Ministry of Breakfast</h4>
-        <p class="addr">📍 Большая Покровская, 21/5</p>
-        <p class="desc">Министерство завтраков — культовое место города с авторскими бранчами, идеальной подачей и уютным интерьером. Рейтинг 5.0 на Яндекс Картах.</p>
+        <h3>Ministry of Breakfast</h3>
+        <p class="g-sub">«Министерство идеальных завтраков»</p>
+        <p class="g-addr">📍 Большая Покровская, 21/5</p>
+        <p class="g-desc">Культовое место города с авторскими бранчами, идеальной подачей и интерьером по мотивам «Алисы в стране чудес». Рейтинг 5.0 на Яндекс Картах.</p>
         <div class="g-links">
           <a href="https://ministryofbreakfast.ru/" target="_blank">Сайт</a>
           <a href="https://yandex.ru/maps/org/ministerstvo_zavtrakov/77154439922/" target="_blank">Карта</a>
@@ -210,12 +208,16 @@ img{display:block;max-width:100%}
 
     <!-- 2. Парк Культуры -->
     <div class="g-card reveal">
-      <img src="rest-park.jpg" alt="Парк Культуры">
-      <div class="g-info">
+      <div class="g-card-img">
+        <img src="rest-park.jpg" alt="Парк Культуры">
+        <div class="g-num">2</div>
+      </div>
+      <div class="g-body">
         <span class="g-tag">Ресторан-галерея</span>
-        <h4>Парк Культуры</h4>
-        <p class="addr">📍 Верхне-Волжская наб., 10А</p>
-        <p class="desc">Двухуровневый ресторан-галерея с европейской кухней, летней верандой и панорамным видом на Волгу. Chef's Table по предварительной записи.</p>
+        <h3>Парк Культуры</h3>
+        <p class="g-sub">«Галерея вкуса с видом на Волгу»</p>
+        <p class="g-addr">📍 Верхне-Волжская наб., 10А</p>
+        <p class="g-desc">Двухуровневый ресторан-галерея с европейской кухней, картинами на стенах, летней верандой и панорамным видом на Волгу. Chef's Table по предварительной записи.</p>
         <div class="g-links">
           <a href="https://park-k.ru/" target="_blank">Сайт</a>
           <a href="https://yandex.ru/maps/org/park_kultury/83697362609/" target="_blank">Карта</a>
@@ -225,12 +227,16 @@ img{display:block;max-width:100%}
 
     <!-- 3. Red Wall -->
     <div class="g-card reveal">
-      <img src="rest-redwall.jpg" alt="Red Wall">
-      <div class="g-info">
+      <div class="g-card-img">
+        <img src="rest-redwall.jpg" alt="Red Wall">
+        <div class="g-num">3</div>
+      </div>
+      <div class="g-body">
         <span class="g-tag">Авторская кухня</span>
-        <h4>Red Wall</h4>
-        <p class="addr">📍 Кожевенная, 2</p>
-        <p class="desc">Четырёхэтажный ресторан в особняке 1917 года у стен Кремля. Панорамная веранда с видом на Волгу, zero-waste философия и авторское меню.</p>
+        <h3>Red Wall</h3>
+        <p class="g-sub">«Четыре этажа вкуса у стен Кремля»</p>
+        <p class="g-addr">📍 Кожевенная, 2</p>
+        <p class="g-desc">Четырёхэтажный ресторан в особняке 1917 года у Зачатьевской башни Кремля. Панорамная застеклённая веранда с видом на Волгу, zero-waste философия и авторское меню.</p>
         <div class="g-links">
           <a href="https://redwallrestaurant.ru/" target="_blank">Сайт</a>
           <a href="https://yandex.ru/maps/org/red_wall/49972832465/" target="_blank">Карта</a>
@@ -240,12 +246,16 @@ img{display:block;max-width:100%}
 
     <!-- 4. Escape -->
     <div class="g-card reveal">
-      <img src="rest-escape.jpg" alt="Escape">
-      <div class="g-info">
+      <div class="g-card-img">
+        <img src="rest-escape.jpg" alt="Escape">
+        <div class="g-num">4</div>
+      </div>
+      <div class="g-body">
         <span class="g-tag">Средиземноморская · Азиатская</span>
-        <h4>Escape</h4>
-        <p class="addr">📍 Верхне-Волжская наб., 8</p>
-        <p class="desc">Двухэтажный ресторан авторской кухни от бренд-шефа Глена Баллиса. Завтраки с 7:30, вечерняя атмосфера и летняя веранда с видом на набережную.</p>
+        <h3>Escape</h3>
+        <p class="g-sub">«Два этажа — два мира»</p>
+        <p class="g-addr">📍 Верхне-Волжская наб., 8</p>
+        <p class="g-desc">Двухэтажный ресторан авторской кухни от бренд-шефа Глена Баллиса. Средиземноморский первый этаж и азиатский второй. Завтраки с 7:30, летняя веранда с видом на набережную.</p>
         <div class="g-links">
           <a href="https://escape.rest/" target="_blank">Сайт</a>
           <a href="https://yandex.ru/maps/org/escape/164690318634/" target="_blank">Карта</a>
@@ -263,9 +273,9 @@ img{display:block;max-width:100%}
     <h2 class="section-title">Подарок к 8 Марта</h2>
   </div>
 
-  <div class="offer-card reveal">
+  <div class="fw-card reveal">
     <img src="offer-march.jpg" alt="Подарок на 8 Марта">
-    <div class="offer-body">
+    <div class="fw-body">
       <h3>Романтический уикенд в NORT</h3>
       <p>Подарите близкому человеку уикенд в апарт-отеле в центре Нижнего Новгорода — современные апартаменты, завтрак, бот-консьерж 24/7 и все лучшие локации города в пешей доступности.</p>
       <a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=" target="_blank" class="btn btn-rose">🏠 Забронировать апартаменты</a>
@@ -280,14 +290,14 @@ img{display:block;max-width:100%}
     <h2 class="section-title">Бесплатное пробное занятие растяжкой</h2>
   </div>
 
-  <div class="offer-card reveal">
+  <div class="fw-card reveal">
     <img src="stretch.jpg" alt="Студия растяжки InTop Stretching">
-    <div class="offer-body">
+    <div class="fw-body">
       <h3>InTop Stretching</h3>
-      <p>Подарите себе заботу о теле — запишитесь на бесплатное пробное занятие в студию растяжки InTop Stretching. Стретчинг, школа шпагата, МФР и Strip Dance — выбирайте направление и приходите!</p>
-      <p style="font-size:14px;color:var(--gray)">📍 ул. Бурнаковская, 77А &nbsp;·&nbsp; 10:00 – 22:00 &nbsp;·&nbsp; +7 906 366-81-83</p>
+      <p>После активного дня — время позаботиться о себе. Запишитесь на бесплатное пробное занятие в студию растяжки InTop Stretching. Стретчинг, школа шпагата, МФР и Strip Dance — выбирайте направление и приходите!</p>
+      <p class="meta">📍 ул. Бурнаковская, 77А &nbsp;·&nbsp; 10:00 – 22:00 &nbsp;·&nbsp; +7 906 366-81-83</p>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
-        <a href="https://n922544.yclients.com/company/858500/activity/" target="_blank" class="btn btn-rose">Записаться бесплатно</a>
+        <a href="https://n922544.yclients.com/company/858500/activity/" target="_blank" class="btn btn-rose">🧘 Записаться бесплатно</a>
         <a href="https://yandex.ru/maps/org/intop_stretching/216902322437/" target="_blank" class="btn btn-outline">На карте</a>
       </div>
     </div>
