@@ -7,78 +7,81 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#0D0D0D;color:#fff;line-height:1.6;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#FDF6F0;color:#2D2D2D;line-height:1.6;overflow-x:hidden}
 
 :root{
-  --rose:#D4788C;
+  --rose:#C95D74;
   --rose-l:#E8A4B4;
-  --bg:#0D0D0D;
-  --card:#1A1A1A;
-  --gray:#AAA;
+  --rose-soft:#F3D5DC;
+  --bg:#FDF6F0;
+  --card:#FFFFFF;
+  --gray:#6B6B6B;
+  --text:#2D2D2D;
+  --shadow:0 4px 24px rgba(0,0,0,.07);
 }
 
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
 .nav-dots{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:14px}
-.nav-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;position:relative;transition:.3s}
+.nav-dot{width:12px;height:12px;border-radius:50%;background:rgba(201,93,116,.3);cursor:pointer;position:relative;transition:.3s}
 .nav-dot.active{background:var(--rose)}
-.nav-dot .tip{position:absolute;right:22px;top:50%;transform:translateY(-50%);background:#222;color:#fff;font-size:12px;padding:4px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:.25s}
+.nav-dot .tip{position:absolute;right:22px;top:50%;transform:translateY(-50%);background:#fff;color:var(--text);font-size:12px;padding:4px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:.25s;box-shadow:var(--shadow)}
 .nav-dot:hover .tip{opacity:1}
 
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px 40px;overflow:hidden}
 .hero-img{position:absolute;inset:0}
 .hero-img img{width:100%;height:100%;object-fit:cover}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.75) 100%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(253,246,240,.3) 0%,rgba(253,246,240,.85) 100%)}
 .badge{position:relative;z-index:2;display:inline-block;background:var(--rose);color:#fff;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:18px}
-.hero h1{position:relative;z-index:2;font-size:clamp(28px,6vw,52px);font-weight:800;line-height:1.2;margin-bottom:14px}
-.hero h1 span{display:block;color:var(--rose-l)}
+.hero h1{position:relative;z-index:2;font-size:clamp(28px,6vw,52px);font-weight:800;line-height:1.2;margin-bottom:14px;color:var(--text)}
+.hero h1 span{display:block;color:var(--rose)}
 .hero p{position:relative;z-index:2;max-width:560px;color:var(--gray);font-size:16px;margin-bottom:28px}
 .btn-row{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:30px;font-weight:700;font-size:15px;transition:.3s;text-decoration:none;cursor:pointer}
 .btn-rose{background:var(--rose);color:#fff}
-.btn-rose:hover{background:var(--rose-l);color:#1a1a1a}
-.btn-outline{background:transparent;border:2px solid var(--rose);color:var(--rose-l)}
+.btn-rose:hover{background:#B04E64;color:#fff}
+.btn-outline{background:transparent;border:2px solid var(--rose);color:var(--rose)}
 .btn-outline:hover{background:var(--rose);color:#fff}
-.hero-btn{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;color:var(--rose-l);font-weight:600;font-size:15px;margin-top:6px}
+.hero-btn{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;color:var(--rose);font-weight:600;font-size:15px;margin-top:6px}
 .hero-btn .arrow{display:inline-block;animation:bounce 1.5s infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
 .section{padding:80px 20px;max-width:820px;margin:0 auto}
 .section-label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
-.section-title{font-size:clamp(24px,5vw,38px);font-weight:800;line-height:1.2;margin-bottom:24px}
+.section-title{font-size:clamp(24px,5vw,38px);font-weight:800;line-height:1.2;margin-bottom:24px;color:var(--text)}
 
-.fw-card{border-radius:20px;overflow:hidden;background:var(--card)}
+.fw-card{border-radius:20px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
 .fw-card img{width:100%;height:360px;object-fit:cover}
 .fw-body{padding:28px 28px 32px}
-.fw-body h3{font-size:22px;margin-bottom:6px}
-.fw-tag{display:inline-block;font-size:12px;background:rgba(212,120,140,.15);color:var(--rose-l);padding:3px 10px;border-radius:10px;margin-bottom:12px}
+.fw-body h3{font-size:22px;margin-bottom:6px;color:var(--text)}
+.fw-tag{display:inline-block;font-size:12px;background:var(--rose-soft);color:var(--rose);padding:3px 10px;border-radius:10px;margin-bottom:12px}
 .fw-body p{color:var(--gray);margin-bottom:16px;font-size:15px;line-height:1.7}
 .fw-body .meta{font-size:14px;color:var(--gray)}
 
 .afisha-links{display:flex;flex-direction:column;gap:10px;margin-top:4px}
-.afisha-links a{display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.04);font-size:15px;font-weight:600;transition:.2s}
-.afisha-links a:hover{background:rgba(212,120,140,.12);color:var(--rose-l)}
+.afisha-links a{display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;background:#FDF0F3;font-size:15px;font-weight:600;color:var(--text);transition:.2s}
+.afisha-links a:hover{background:var(--rose-soft);color:var(--rose)}
 .afisha-links .ico{font-size:20px}
 
 .gastro-intro{color:var(--gray);font-size:16px;margin-bottom:30px}
 .gastro-grid{display:flex;flex-direction:column;gap:32px}
-.g-card{border-radius:20px;overflow:hidden;background:var(--card);transition:.25s}
-.g-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.g-card{border-radius:20px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:.25s}
+.g-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
 .g-card-img{position:relative;width:100%;height:360px;overflow:hidden}
 .g-card-img img{width:100%;height:100%;object-fit:cover}
 .g-num{position:absolute;top:16px;left:16px;width:40px;height:40px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff}
 .g-body{padding:24px 28px 28px}
 .g-body .g-tag{display:inline-block;font-size:11px;color:var(--rose);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.g-body h3{font-size:22px;font-weight:800;margin-bottom:4px}
-.g-body .g-sub{font-size:14px;color:var(--rose-l);font-style:italic;margin-bottom:8px}
+.g-body h3{font-size:22px;font-weight:800;margin-bottom:4px;color:var(--text)}
+.g-body .g-sub{font-size:14px;color:var(--rose);font-style:italic;margin-bottom:8px}
 .g-body .g-addr{font-size:14px;color:var(--gray);margin-bottom:10px}
-.g-body .g-desc{font-size:15px;color:#ccc;line-height:1.7;margin-bottom:16px}
+.g-body .g-desc{font-size:15px;color:var(--gray);line-height:1.7;margin-bottom:16px}
 .g-links{display:flex;gap:12px;flex-wrap:wrap}
-.g-links a{font-size:14px;font-weight:600;padding:10px 20px;border-radius:12px;background:rgba(255,255,255,.06);transition:.2s}
+.g-links a{font-size:14px;font-weight:600;padding:10px 20px;border-radius:12px;background:#FDF0F3;color:var(--text);transition:.2s}
 .g-links a:hover{background:var(--rose);color:#fff}
 
-.footer{text-align:center;padding:50px 20px;border-top:1px solid #222}
+.footer{text-align:center;padding:50px 20px;border-top:1px solid #E8DDD6}
 .footer-logo{font-size:28px;font-weight:800;letter-spacing:4px;color:var(--rose)}
 .footer-text{color:var(--gray);font-size:14px;margin-top:6px}
 
@@ -97,38 +100,38 @@ img{display:block;max-width:100%}
 
 <nav class="nav-dots" id="nd">
   <div class="nav-dot active" data-slide="hero"><span class="tip">Главная</span></div>
-  <div class="nav-dot" data-slide="spa"><span class="tip">SPA & Релакс</span></div>
+  <div class="nav-dot" data-slide="spa"><span class="tip">Спа и отдых</span></div>
   <div class="nav-dot" data-slide="afisha"><span class="tip">Афиша</span></div>
   <div class="nav-dot" data-slide="gastro"><span class="tip">Рестораны</span></div>
   <div class="nav-dot" data-slide="dance"><span class="tip">Танцы</span></div>
   <div class="nav-dot" data-slide="offer"><span class="tip">Подарок</span></div>
 </nav>
 
-<!-- HERO -->
+<!-- ГЕРОЙ -->
 <section class="hero" id="hero">
   <div class="hero-img"><img src="hero-march.jpg" alt="Нижний Новгород весна"></div>
   <div class="hero-overlay"></div>
-  <div class="badge">Nort Weekend Guide</div>
+  <div class="badge">Гид выходного дня от NORT</div>
   <h1>Весенний уикенд <span>в Нижнем Новгороде</span></h1>
-  <p>Лучшие локации для идеального 8 Марта — SPA, инстаграмные рестораны, городские события и атмосфера весны.</p>
+  <p>Лучшие локации для идеального 8 Марта — спа, рестораны для красивых фото, городские события и атмосфера весны. Всё в пешей доступности от NORT.</p>
   <div class="btn-row" style="justify-content:center">
     <a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=" target="_blank" class="btn btn-rose">🏠 Забронировать номер</a>
     <a href="#spa" class="hero-btn">Начать маршрут <span class="arrow">↓</span></a>
   </div>
 </section>
 
-<!-- SPA -->
+<!-- СПА -->
 <section class="section" id="spa">
   <div class="reveal">
     <span class="section-label">Главная активность</span>
-    <h2 class="section-title">SPA и Релакс</h2>
+    <h2 class="section-title">Спа и отдых</h2>
   </div>
   <div class="fw-card reveal">
-    <img src="spa-oceanis.jpg" alt="Океанис Thermal & Spa">
+    <img src="spa-oceanis.jpg" alt="Океанис — термальный комплекс">
     <div class="fw-body">
-      <span class="fw-tag">Термы · Бассейны · SPA</span>
-      <h3>Океанис Thermal & Spa</h3>
-      <p>5 000 м² релакса — 21 баня, 10 бассейнов, джакузи, хамам и зона отдыха. Идеальный подарок на 8 Марта: термальный комплекс с панорамными зонами, массажем и уютной атмосферой.</p>
+      <span class="fw-tag">Термы · Бассейны · Спа</span>
+      <h3>Океанис — термальный комплекс</h3>
+      <p>5 000 м² для отдыха — 21 баня, 10 бассейнов, джакузи, хамам и зона релаксации. Идеальный подарок на 8 Марта: термальный комплекс с панорамными зонами, массажем и уютной атмосферой.</p>
       <p class="meta">📍 пр. Гагарина, 35, корп. 3 &nbsp;·&nbsp; 10:00 – 22:00</p>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
         <a href="https://oceanis-therm.ru/" target="_blank" class="btn btn-rose">Сайт термального комплекса</a>
@@ -138,7 +141,7 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- AFISHA -->
+<!-- АФИША -->
 <section class="section" id="afisha">
   <div class="reveal">
     <span class="section-label">Афиша 6 — 8 марта</span>
@@ -148,22 +151,22 @@ img{display:block;max-width:100%}
     <img src="afisha-march.jpg" alt="Афиша 8 марта">
     <div class="fw-body">
       <h3>Концерты, спектакли и шоу</h3>
-      <p>Концерты, спектакли, выставки и шоу — все мероприятия Нижнего Новгорода на праздничные выходные.</p>
+      <p>Концерты, спектакли, выставки и шоу — все мероприятия Нижнего Новгорода на праздничные выходные. Выбирайте, что вам по душе.</p>
       <div class="afisha-links">
-        <a href="https://nn.kassir.ru/category/8-mart" target="_blank"><span class="ico">🎫</span> Kassir.ru — все события к 8 Марта</a>
-        <a href="https://www.afisha.ru/nnovgorod/events/na-mart/" target="_blank"><span class="ico">🎭</span> Afisha.ru — афиша на март</a>
-        <a href="https://experience.tripster.ru/articles/nizhnij-novgorod-afisha-meropriyatij-v-marte-2026-goda/" target="_blank"><span class="ico">📰</span> Tripster — обзор мероприятий марта</a>
+        <a href="https://nn.kassir.ru/category/8-mart" target="_blank"><span class="ico">🎫</span> Кассир.ру — все события к 8 Марта</a>
+        <a href="https://www.afisha.ru/nnovgorod/events/na-mart/" target="_blank"><span class="ico">🎭</span> Афиша.ру — мероприятия на март</a>
+        <a href="https://experience.tripster.ru/articles/nizhnij-novgorod-afisha-meropriyatij-v-marte-2026-goda/" target="_blank"><span class="ico">📰</span> Трипстер — обзор мероприятий марта</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GASTRO -->
+<!-- РЕСТОРАНЫ -->
 <section class="section" id="gastro">
   <div class="reveal">
-    <span class="section-label">Инстаграмные рестораны</span>
+    <span class="section-label">Рестораны для красивых фото</span>
     <h2 class="section-title">Где вкусно и красиво</h2>
-    <p class="gastro-intro">4 проверенных места для идеального вечера или бранча</p>
+    <p class="gastro-intro">4 проверенных места для идеального вечера или позднего завтрака</p>
   </div>
   <div class="gastro-grid">
 
@@ -173,11 +176,11 @@ img{display:block;max-width:100%}
         <div class="g-num">1</div>
       </div>
       <div class="g-body">
-        <span class="g-tag">Завтраки · Бранчи</span>
+        <span class="g-tag">Завтраки · Поздние завтраки</span>
         <h3>Ministry of Breakfast</h3>
         <p class="g-sub">«Министерство идеальных завтраков»</p>
         <p class="g-addr">📍 Большая Покровская, 21/5</p>
-        <p class="g-desc">Культовое место города с авторскими бранчами, идеальной подачей и интерьером по мотивам «Алисы в стране чудес». Рейтинг 5.0 на Яндекс Картах.</p>
+        <p class="g-desc">Культовое место города с авторскими завтраками, идеальной подачей и интерьером по мотивам «Алисы в стране чудес». Рейтинг 5.0 на Яндекс Картах.</p>
         <div class="g-links">
           <a href="https://ministryofbreakfast.ru/" target="_blank">Сайт</a>
           <a href="https://yandex.ru/maps/org/ministerstvo_zavtrakov/77154439922/" target="_blank">Карта</a>
@@ -195,7 +198,7 @@ img{display:block;max-width:100%}
         <h3>Парк Культуры</h3>
         <p class="g-sub">«Галерея вкуса с видом на Волгу»</p>
         <p class="g-addr">📍 Верхне-Волжская наб., 10А</p>
-        <p class="g-desc">Двухуровневый ресторан-галерея с европейской кухней, картинами на стенах, летней верандой и панорамным видом на Волгу. Chef's Table по предварительной записи.</p>
+        <p class="g-desc">Двухуровневый ресторан-галерея с европейской кухней, картинами на стенах, летней верандой и панорамным видом на Волгу. Стол шеф-повара по предварительной записи.</p>
         <div class="g-links">
           <a href="https://park-k.ru/" target="_blank">Сайт</a>
           <a href="https://yandex.ru/maps/org/park_kultury/83697362609/" target="_blank">Карта</a>
@@ -213,7 +216,7 @@ img{display:block;max-width:100%}
         <h3>Red Wall</h3>
         <p class="g-sub">«Четыре этажа вкуса у стен Кремля»</p>
         <p class="g-addr">📍 Кожевенная, 2</p>
-        <p class="g-desc">Четырёхэтажный ресторан в особняке 1917 года у Зачатьевской башни Кремля. Панорамная застеклённая веранда с видом на Волгу, zero-waste философия и авторское меню.</p>
+        <p class="g-desc">Четырёхэтажный ресторан в особняке 1917 года у Зачатьевской башни Кремля. Панорамная застеклённая веранда с видом на Волгу, философия безотходной кухни и авторское меню.</p>
         <div class="g-links">
           <a href="https://redwallrestaurant.ru/" target="_blank">Сайт</a>
           <a href="https://yandex.ru/maps/org/red_wall/49972832465/" target="_blank">Карта</a>
@@ -242,18 +245,18 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- MARY DANCE STUDIO -->
+<!-- ТАНЦЫ И РАСТЯЖКА -->
 <section class="section" id="dance">
   <div class="reveal">
     <span class="section-label">Бонус для гостей</span>
-    <h2 class="section-title">Пробное занятие танцами и растяжкой</h2>
+    <h2 class="section-title">Бесплатное пробное занятие танцами и растяжкой</h2>
   </div>
   <div class="fw-card reveal">
     <img src="stretch.jpg" alt="Mary Dance Studio">
     <div class="fw-body">
       <span class="fw-tag">Танцы · Растяжка · Фитнес</span>
       <h3>Mary Dance Studio</h3>
-      <p>Студия растяжки и танцев в самом центре города — на Большой Покровской! Стретчинг, школа шпагата, МФР, Strip Dance и другие направления. Все занятия по одному абонементу. Запишитесь на бесплатное пробное занятие и подарите себе заряд энергии в праздничные выходные.</p>
+      <p>Студия растяжки и танцев в самом центре города — на Большой Покровской! Стретчинг, школа шпагата, миофасциальный релиз и другие направления. Все занятия по одному абонементу. Запишитесь на бесплатное пробное занятие и подарите себе заряд энергии в праздничные выходные.</p>
       <p class="meta">📍 Большая Покровская, 71А, 4 этаж &nbsp;·&nbsp; м. Горьковская</p>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
         <a href="https://marydance.ru/new" target="_blank" class="btn btn-rose">💃 Записаться бесплатно</a>
@@ -263,7 +266,7 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- OFFER — последний блок -->
+<!-- ПРЕДЛОЖЕНИЕ -->
 <section class="section" id="offer">
   <div class="reveal">
     <span class="section-label">Специальное предложение</span>
@@ -272,8 +275,8 @@ img{display:block;max-width:100%}
   <div class="fw-card reveal">
     <img src="offer-march.jpg" alt="Подарок на 8 Марта">
     <div class="fw-body">
-      <h3>Романтический уикенд в NORT</h3>
-      <p>Подарите близкому человеку уикенд в апарт-отеле в центре Нижнего Новгорода — современные апартаменты, завтрак, бот-консьерж 24/7 и все лучшие локации города в пешей доступности.</p>
+      <h3>Романтические выходные в NORT</h3>
+      <p>Подарите близкому человеку выходные в апарт-отеле в центре Нижнего Новгорода — современные апартаменты, завтрак, бот-консьерж 24/7 и все лучшие места города в пешей доступности.</p>
       <a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=" target="_blank" class="btn btn-rose">🏠 Забронировать апартаменты</a>
     </div>
   </div>
@@ -281,7 +284,7 @@ img{display:block;max-width:100%}
 
 <footer class="footer">
   <div class="footer-logo">NORT</div>
-  <p class="footer-text">Ваш гид по лучшим локациям Нижнего Новгорода<br>Счастливого 8 Марта!</p>
+  <p class="footer-text">Ваш гид по лучшим местам Нижнего Новгорода<br>Счастливого 8 Марта!</p>
   <div style="margin-top:20px">
     <a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=" target="_blank" class="btn btn-rose">🏠 Забронировать номер</a>
   </div>
