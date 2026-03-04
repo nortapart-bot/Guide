@@ -30,7 +30,6 @@ a:hover{color:var(--brown-d)}
 img{display:block;max-width:100%}
 ::selection{background:var(--sand);color:var(--dark)}
 
-/* ===== HERO ===== */
 .hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden;background:var(--dark)}
 .hero-img{position:absolute;inset:0;z-index:0}
 .hero-img img{width:100%;height:100%;object-fit:cover;opacity:.35;filter:brightness(.9) saturate(.85)}
@@ -46,7 +45,6 @@ img{display:block;max-width:100%}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 .arrow{display:inline-block;animation:float 2.5s ease-in-out infinite}
 
-/* ===== BUTTONS ===== */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:10px;font-size:15px;font-weight:600;transition:var(--transition);border:none;cursor:pointer;font-family:inherit;letter-spacing:.3px}
 .btn-brown{background:var(--brown);color:var(--cream)}
 .btn-brown:hover{background:var(--brown-d);color:var(--cream);transform:translateY(-2px);box-shadow:0 8px 24px rgba(139,115,85,.2)}
@@ -54,7 +52,6 @@ img{display:block;max-width:100%}
 .btn-outline:hover{border-color:var(--brown);color:var(--brown);transform:translateY(-2px)}
 .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 
-/* ===== SECTIONS ===== */
 .section{padding:110px 24px}
 .sec-cream{background:var(--cream)}
 .sec-white{background:var(--white)}
@@ -63,7 +60,6 @@ img{display:block;max-width:100%}
 .sec-head p{color:var(--text-m);font-size:17px;max-width:540px;margin:0 auto}
 .sec-head .line{width:48px;height:2px;background:var(--sand);margin:20px auto 0;border-radius:2px}
 
-/* ===== TEST-DRIVE CARD ===== */
 .td-card{max-width:1040px;margin:0 auto;border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
 .td-inner{display:grid;grid-template-columns:1fr 1fr}
 .td-img{position:relative;min-height:520px;overflow:hidden}
@@ -79,7 +75,6 @@ img{display:block;max-width:100%}
 .td-note{font-size:15px;color:var(--brown-d);font-weight:500;padding:18px 24px;background:rgba(139,115,85,.06);border-radius:10px;border-left:3px solid var(--brown);line-height:1.7}
 @media(max-width:768px){.td-inner{grid-template-columns:1fr}.td-img{min-height:280px}.td-body{padding:32px 24px}}
 
-/* ===== APARTMENTS GALLERY ===== */
 .apart-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .apart-item{border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:var(--transition)}
 .apart-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-h)}
@@ -90,7 +85,6 @@ img{display:block;max-width:100%}
 .apart-item-body p{font-size:15px;color:var(--text-m);line-height:1.75}
 @media(max-width:768px){.apart-grid{grid-template-columns:1fr}.apart-item img{height:240px}}
 
-/* ===== TWO COLUMNS ===== */
 .two-col{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .col-card{border-radius:var(--radius);background:var(--card);padding:48px 40px;box-shadow:var(--shadow);transition:var(--transition)}
 .col-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
@@ -101,7 +95,6 @@ img{display:block;max-width:100%}
 .col-card ul li::before{content:'—';position:absolute;left:0;color:var(--brown);font-weight:600}
 @media(max-width:768px){.two-col{grid-template-columns:1fr}.col-card{padding:32px 24px}}
 
-/* ===== WHY US ===== */
 .why-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .why-item{border-radius:var(--radius);background:var(--card);padding:40px 28px;text-align:center;box-shadow:var(--shadow);transition:var(--transition)}
 .why-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
@@ -110,7 +103,6 @@ img{display:block;max-width:100%}
 .why-item p{font-size:15px;color:var(--text-m);line-height:1.75}
 @media(max-width:768px){.why-grid{grid-template-columns:1fr}}
 
-/* ===== BL SECTION ===== */
 .bl-card{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--card);padding:60px 52px;box-shadow:var(--shadow)}
 .bl-card h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--dark);margin-bottom:8px}
 .bl-card .bl-tag{font-size:14px;color:var(--brown);font-weight:600;margin-bottom:24px}
@@ -121,7 +113,6 @@ img{display:block;max-width:100%}
 .bl-item p{font-size:15px;color:var(--text);line-height:1.65}
 @media(max-width:768px){.bl-card{padding:32px 24px}.bl-items{grid-template-columns:1fr}}
 
-/* ===== LOYALTY ===== */
 .loyalty{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:rgba(139,115,85,.06);padding:60px 52px;text-align:center}
 .loyalty h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--dark);margin-bottom:8px}
 .loyalty .loy-sub{color:var(--brown);font-size:14px;font-weight:600;margin-bottom:24px}
@@ -130,18 +121,47 @@ img{display:block;max-width:100%}
 .loy-chip{background:var(--white);border:1.5px solid var(--sand);border-radius:30px;padding:13px 26px;font-size:14px;color:var(--brown-d);font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 @media(max-width:768px){.loyalty{padding:32px 24px}}
 
-/* ===== REVIEWS ===== */
-.reviews-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.review{border-radius:var(--radius);background:var(--card);padding:40px 30px;box-shadow:var(--shadow);transition:var(--transition);position:relative}
-.review:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
-.review::before{content:'"';position:absolute;top:20px;right:28px;font-size:64px;font-family:Georgia,serif;color:var(--sand);line-height:1;opacity:.5}
-.review-stars{color:var(--brown);font-size:16px;margin-bottom:18px;letter-spacing:3px}
-.review-text{font-size:16px;color:var(--text);line-height:1.8;margin-bottom:28px}
-.review-author{display:flex;align-items:center;gap:14px}
-.review-avatar{width:50px;height:50px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:var(--dark)}
-.review-info h4{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:3px}
-.review-info p{font-size:13px;color:var(--text-m)}
-@media(max-width:768px){.reviews-grid{grid-template-columns:1fr}}
+/* ===== RECOMMEND BADGES ===== */
+.rec-strip{max-width:1040px;margin:0 auto 60px;display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
+.rec-badge{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:14px;padding:16px 24px;box-shadow:var(--shadow);transition:var(--transition)}
+.rec-badge:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+.rec-logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;flex-shrink:0}
+.rec-logo-ya{background:#FC3F1D}
+.rec-logo-2g{background:#2BAF4F}
+.rec-logo-ost{background:#1A73E8}
+.rec-logo-101{background:#E53935}
+.rec-info{display:flex;flex-direction:column}
+.rec-score{font-size:20px;font-weight:800;color:var(--dark)}
+.rec-name{font-size:12px;color:var(--text-m);font-weight:500}
+.rec-stars{color:#FFB400;font-size:13px;letter-spacing:1px}
+
+/* ===== REVIEWS NEW STYLE ===== */
+.reviews-wrap{max-width:1040px;margin:0 auto;position:relative}
+.reviews-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px}
+.reviews-track::-webkit-scrollbar{display:none}
+.rv-card{min-width:320px;max-width:340px;flex-shrink:0;scroll-snap-align:start;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;transition:var(--transition)}
+.rv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
+.rv-top{padding:28px 24px 0;display:flex;flex-direction:column;flex:1}
+.rv-source{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.rv-source-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0}
+.rv-source-score{font-size:18px;font-weight:800;color:var(--dark)}
+.rv-author-name{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.rv-stars-date{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.rv-stars{color:#FFB400;font-size:14px;letter-spacing:1px}
+.rv-date{font-size:12px;color:var(--text-m)}
+.rv-text{font-size:14px;color:var(--text);line-height:1.75;flex:1}
+.rv-photos{display:flex;gap:6px;padding:16px 24px 20px;flex-wrap:wrap}
+.rv-photos img{width:72px;height:72px;object-fit:cover;border-radius:10px;cursor:pointer;transition:.2s}
+.rv-photos img:hover{transform:scale(1.08)}
+.rv-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.rv-dot{width:10px;height:10px;border-radius:50%;background:var(--sand);cursor:pointer;transition:.3s}
+.rv-dot.active{background:var(--brown)}
+.rv-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--card);box-shadow:var(--shadow);border:1px solid var(--cream-d);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:var(--brown);transition:var(--transition);z-index:5}
+.rv-arrow:hover{background:var(--brown);color:#fff;box-shadow:var(--shadow-h)}
+.rv-arrow-l{left:-22px}
+.rv-arrow-r{right:-22px}
+@media(max-width:1100px){.rv-arrow-l{left:4px}.rv-arrow-r{right:4px}}
+@media(max-width:600px){.rv-card{min-width:280px;max-width:300px}.rv-arrow{display:none}}
 
 /* ===== CTA ===== */
 .cta{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--dark);padding:72px 52px;text-align:center}
@@ -153,15 +173,10 @@ img{display:block;max-width:100%}
 .cta .btn-ghost:hover{border-color:var(--sand);color:var(--sand);transform:translateY(-2px)}
 @media(max-width:768px){.cta{padding:40px 24px}}
 
-/* ===== FOOTER ===== */
 .footer{background:var(--cream-d);padding:48px 24px;text-align:center}
 .footer-logo{font-size:26px;font-weight:800;color:var(--brown);margin-bottom:10px;letter-spacing:2px}
 .footer-text{font-size:14px;color:var(--text-m);line-height:1.7}
 
-/* ===== DIVIDER ===== */
-.divider{width:48px;height:2px;background:var(--sand);margin:0 auto;border-radius:2px}
-
-/* ===== REVEAL ===== */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
@@ -174,7 +189,7 @@ img{display:block;max-width:100%}
 <div class="hero-overlay"></div>
 <div class="badge">Корпоративным клиентам</div>
 <h1>Апарт-отель <span>«9 ночей – НОРТ»</span></h1>
-<div class="hero-sub">Business + Leisure</div>
+<div class="hero-sub">Деловое размещение + отдых</div>
 <p>Предлагаем начать сотрудничество и протестировать наш высокотехнологичный формат размещения сотрудников в центре Нижнего Новгорода.</p>
 <a href="#testdrive" class="hero-btn">Подробнее <span class="arrow">↓</span></a>
 </section>
@@ -186,7 +201,7 @@ img{display:block;max-width:100%}
 <div class="td-img"><img src="apart-living.jpg" alt="Апартаменты" loading="lazy"></div>
 <div class="td-body">
 <div class="td-label">Формат сотрудничества</div>
-<h2>Тест-драйв апартаментов для топ-менеджмента</h2>
+<h2>Пробное размещение апартаментов для руководства</h2>
 <p>Вы размещаете сотрудников — мы показываем уровень сервиса и удобства на практике.</p>
 <ul class="td-list">
 <li>Апартаменты в центре города</li>
@@ -221,7 +236,7 @@ img{display:block;max-width:100%}
 <img src="apart-bedroom.jpg" alt="Спальня" loading="lazy">
 <div class="apart-item-body">
 <h3>Спальня</h3>
-<p>Комфортная кровать, качественный матрас, шумоизоляция и blackout-шторы для полноценного сна.</p>
+<p>Комфортная кровать, качественный матрас, шумоизоляция и светонепроницаемые шторы для полноценного сна.</p>
 </div>
 </div>
 <div class="apart-item reveal">
@@ -310,7 +325,7 @@ img{display:block;max-width:100%}
 <!-- ============ BUSINESS + LEISURE ============ -->
 <section class="section sec-cream" id="bl">
 <div class="bl-card reveal">
-<h2>Business + Leisure</h2>
+<h2>Деловое размещение + отдых</h2>
 <div class="bl-tag">Командировка как инструмент лояльности</div>
 <p>После завершения рабочих задач сотрудник может продлить проживание на специальных условиях, использовать накопленные баллы программы лояльности или остаться на выходные и познакомиться с городом.</p>
 <p>Командировка превращается не только в рабочую поездку, но и в инструмент лояльности персонала.</p>
@@ -340,72 +355,214 @@ img{display:block;max-width:100%}
 <div class="loy-uses">
 <div class="loy-chip">🔄 Продление проживания</div>
 <div class="loy-chip">👥 Размещение других сотрудников</div>
-<div class="loy-chip">🏖 Частичная оплата leisure-дней</div>
+<div class="loy-chip">🏖 Частичная оплата дней отдыха</div>
 </div>
 </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
+<!-- ============ НАС РЕКОМЕНДУЮТ + ОТЗЫВЫ ============ -->
 <section class="section sec-cream" id="reviews">
+
+<!-- Нас рекомендуют -->
 <div class="sec-head reveal">
-<h2>Отзывы компаний</h2>
-<p>Нам доверяют корпоративные клиенты</p>
+<h2>Нас рекомендуют</h2>
 <div class="line"></div>
 </div>
-<div class="reviews-grid">
+<div class="rec-strip reveal">
+  <a href="https://travel.yandex.ru/hotels/nizhny-novgorod/9-nochei-nort/" target="_blank" class="rec-badge">
+    <div class="rec-logo rec-logo-ya">Я</div>
+    <div class="rec-info">
+      <span class="rec-score">5.0 <span class="rec-stars">★★★★★</span></span>
+      <span class="rec-name">Яндекс Путешествия</span>
+    </div>
+  </a>
+  <a href="https://2gis.ru/n_novgorod/firm/70000001064268369" target="_blank" class="rec-badge">
+    <div class="rec-logo rec-logo-2g">2</div>
+    <div class="rec-info">
+      <span class="rec-score">4.8 <span class="rec-stars">★★★★★</span></span>
+      <span class="rec-name">2ГИС · 517 оценок</span>
+    </div>
+  </a>
+  <a href="https://ostrovok.ru/hotel/russia/nizhniy_novgorod/mid10136421/9_nochey_nn_aparthotel/" target="_blank" class="rec-badge">
+    <div class="rec-logo rec-logo-ost">О</div>
+    <div class="rec-info">
+      <span class="rec-score">8.9</span>
+      <span class="rec-name">Островок</span>
+    </div>
+  </a>
+  <a href="https://101hotels.com/opinions/hotel/nizhniy_novgorod/apart-otel_9_nochey_1.html" target="_blank" class="rec-badge">
+    <div class="rec-logo rec-logo-101">101</div>
+    <div class="rec-info">
+      <span class="rec-score">Рекомендуют</span>
+      <span class="rec-name">101Hotels</span>
+    </div>
+  </a>
+</div>
 
-<div class="review reveal">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">Размещали топ-менеджмент на протяжении квартала. Апартаменты на уровне — сотрудники отмечают комфорт и автономность. Документооборот прозрачный, бронирование моментальное. Рекомендуем.</p>
-<div class="review-author">
-<div class="review-avatar">А</div>
-<div class="review-info"><h4>Андрей К.</h4><p>Директор по логистике, IT-компания</p></div>
-</div>
+<!-- Отзывы гостей -->
+<div class="sec-head reveal" style="margin-top:40px">
+<h2>Отзывы гостей</h2>
+<p>Реальные отзывы с площадок бронирования</p>
+<div class="line"></div>
 </div>
 
-<div class="review reveal">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">Перевели всех командировочных сюда после тест-драйва. Главное — сотрудники сами просят бронировать именно НОРТ. Бот-консьерж реально работает, завтраки хорошие.</p>
-<div class="review-author">
-<div class="review-avatar">Е</div>
-<div class="review-info"><h4>Елена М.</h4><p>HR-директор, производственный холдинг</p></div>
-</div>
-</div>
+<div class="reviews-wrap reveal">
+  <div class="rv-arrow rv-arrow-l" id="rvLeft">‹</div>
+  <div class="rv-arrow rv-arrow-r" id="rvRight">›</div>
 
-<div class="review reveal">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">Отличный формат для длительных командировок. Кухня, рабочая зона, тишина — всё, что нужно. Корпоративные условия выгоднее, чем в классических отелях города.</p>
-<div class="review-author">
-<div class="review-avatar">Д</div>
-<div class="review-info"><h4>Дмитрий В.</h4><p>Финансовый директор, строительная группа</p></div>
-</div>
-</div>
+  <div class="reviews-track" id="rvTrack">
 
-</div>
+    <!-- 1 — Дина Корзун -->
+    <div class="rv-card">
+      <div class="rv-top">
+        <div class="rv-source">
+          <div class="rv-source-logo rec-logo-ya">Я</div>
+          <span class="rv-source-score">5.0</span>
+        </div>
+        <div class="rv-author-name">Дина Корзун, актриса</div>
+        <div class="rv-stars-date">
+          <span class="rv-stars">★★★★★</span>
+          <span class="rv-date">30 декабря 2024</span>
+        </div>
+        <p class="rv-text">Всё понравилось! Номера уютные, с красивым дизайном и со всеми удобствами, как в отеле. Отдельно хотелось бы отметить сопровождение менеджеров, которые оперативно помогали решать все вопросы и действительно заботились о нашем комфорте. Спасибо!</p>
+      </div>
+      <div class="rv-photos">
+        <img src="https://apart-nn.ru/assets/cache/images/60be6b31-0ffb-4a59-b8bf-9822972bcf69-x-15d.jpg.webp" alt="Фото" loading="lazy">
+        <img src="https://apart-nn.ru/assets/cache/images/5d2f35a5-a310-48dd-8e4d-067454762632-x-15d.jpg.webp" alt="Фото" loading="lazy">
+      </div>
+    </div>
+
+    <!-- 2 — Станислав -->
+    <div class="rv-card">
+      <div class="rv-top">
+        <div class="rv-source">
+          <div class="rv-source-logo rec-logo-2g">2</div>
+          <span class="rv-source-score">5.0</span>
+        </div>
+        <div class="rv-author-name">Станислав</div>
+        <div class="rv-stars-date">
+          <span class="rv-stars">★★★★★</span>
+          <span class="rv-date">12 сентября 2025</span>
+        </div>
+        <p class="rv-text">Прекрасный номер, подобный квартире-студии со всем необходимым, что можно только представить! А вид на реку Ока с 10го этажа - это просто шедеврально! Таких закатов Вы не увидите нигде! Одним словом, здесь нужно жить, гулять - остановитесь на отпуск в этом небоскрёбе и Вам захочется остаться здесь на очень долго, если не навсегда!</p>
+      </div>
+      <div class="rv-photos">
+        <img src="https://apart-nn.ru/assets/cache/images/otzyvy/2025-09-12_15-51-03-x-0b7.png.webp" alt="Фото" loading="lazy">
+      </div>
+    </div>
+
+    <!-- 3 — Павел -->
+    <div class="rv-card">
+      <div class="rv-top">
+        <div class="rv-source">
+          <div class="rv-source-logo rec-logo-ya">Я</div>
+          <span class="rv-source-score">5.0</span>
+        </div>
+        <div class="rv-author-name">Павел</div>
+        <div class="rv-stars-date">
+          <span class="rv-stars">★★★★★</span>
+          <span class="rv-date">19 июня 2025</span>
+        </div>
+        <p class="rv-text">Отличный номер, без посторонних запахов. Чисто, все необходимые бытовые приборы есть, от микроволновки до стиральной машины. Шикарный вид из окна. До Большой Покровской ходили пешком.</p>
+      </div>
+      <div class="rv-photos">
+        <img src="https://apart-nn.ru/assets/cache/images/xl_1-x-15d.jpg.webp" alt="Фото" loading="lazy">
+        <img src="https://apart-nn.ru/assets/cache/images/xl_2-x-15d.jpg.webp" alt="Фото" loading="lazy">
+        <img src="https://apart-nn.ru/assets/cache/images/xl-x-15d.jpg.webp" alt="Фото" loading="lazy">
+      </div>
+    </div>
+
+    <!-- 4 — Елена Ш. -->
+    <div class="rv-card">
+      <div class="rv-top">
+        <div class="rv-source">
+          <div class="rv-source-logo rec-logo-ya">Я</div>
+          <span class="rv-source-score">5.0</span>
+        </div>
+        <div class="rv-author-name">Елена Ш.</div>
+        <div class="rv-stars-date">
+          <span class="rv-stars">★★★★★</span>
+          <span class="rv-date">14 мая 2025</span>
+        </div>
+        <p class="rv-text">Очень высоко - вид потрясающий! Очень уютно, есть все необходимое в квартире. Удобная кровать и подушки. Зубные щетки, полотенца, чистое белье, проигрыватель, телевизор. В квартире комфортная температура и прекрасный вид из окна. Рекомендую!</p>
+      </div>
+      <div class="rv-photos">
+        <img src="https://apart-nn.ru/assets/cache/images/otzyvy/img_1658-x-15d.jpg.webp" alt="Фото" loading="lazy">
+        <img src="https://apart-nn.ru/assets/cache/images/otzyvy/img_8633-x-15d.jpg.webp" alt="Фото" loading="lazy">
+      </div>
+    </div>
+
+    <!-- 5 — Марина К. -->
+    <div class="rv-card">
+      <div class="rv-top">
+        <div class="rv-source">
+          <div class="rv-source-logo rec-logo-2g">2</div>
+          <span class="rv-source-score">5.0</span>
+        </div>
+        <div class="rv-author-name">Марина К.</div>
+        <div class="rv-stars-date">
+          <span class="rv-stars">★★★★★</span>
+          <span class="rv-date">17 апреля 2025</span>
+        </div>
+        <p class="rv-text">Оставили пряник - так мило! Полотенца по 2 штуки, есть жидкое мыло, шампунь и зубные щетки. Водичка 2 шт всегда ждёт в номере - очень мило) Внизу в ресторане можно всегда выпить вкусный кофе, позавтракать или поужинать. Рекомендую</p>
+      </div>
+      <div class="rv-photos">
+        <img src="https://apart-nn.ru/assets/cache/images/otzyvy/xxl-x-0b7.png.webp" alt="Фото" loading="lazy">
+        <img src="https://apart-nn.ru/assets/cache/images/otzyvy/xxl_4-x-15d.jpg.webp" alt="Фото" loading="lazy">
+      </div>
+    </div>
+
+    <!-- 6 — Владимир А. -->
+    <div class="rv-card">
+      <div class="rv-top">
+        <div class="rv-source">
+          <div class="rv-source-logo rec-logo-ya">Я</div>
+          <span class="rv-source-score">5.0</span>
+        </div>
+        <div class="rv-author-name">Владимир А.</div>
+        <div class="rv-stars-date">
+          <span class="rv-stars">★★★★★</span>
+          <span class="rv-date">02 марта 2025</span>
+        </div>
+        <p class="rv-text">Приезжал посетить чудесный город Нижний Новгород и решил остановиться в отеле 9 ночей! Был очень удивлён сервисом бесконтактного заселения, администратор со мной связался и все прекрасно объяснил. После заселения был удивлён уютным и ухоженным номером, где было все для комфортного проживания. Спасибо!</p>
+      </div>
+      <div class="rv-photos">
+        <img src="https://apart-nn.ru/assets/cache/images/xxxl-x-15d.jpg.webp" alt="Фото" loading="lazy">
+        <img src="https://apart-nn.ru/assets/cache/images/xxxl_2-x-15d.jpg.webp" alt="Фото" loading="lazy">
+        <img src="https://apart-nn.ru/assets/cache/images/xxxl_1%281%29-x-15d.jpg.webp" alt="Фото" loading="lazy">
+      </div>
+    </div>
+
+  </div><!-- /reviews-track -->
+
+  <div class="rv-dots" id="rvDots"></div>
+</div><!-- /reviews-wrap -->
+
 </section>
 
 <!-- ============ CTA ============ -->
 <section class="section sec-white" id="cta">
 <div class="cta reveal">
 <h2>Начнём сотрудничество?</h2>
-<p>Оставьте заявку — мы подготовим индивидуальное коммерческое предложение и организуем тест-драйв апартаментов.</p>
+<p>Оставьте заявку — мы подготовим индивидуальное коммерческое предложение и организуем пробное размещение в апартаментах.</p>
 <div class="btn-row" style="justify-content:center">
 <a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=&name=&surname=&email=&phone=&orderid=&servicemode=0&firstroom=0&vkapp=&insidePopup=0&exval=dev5765_A%7Cdev4129_B%7Cdev10318_B%7Cdev1185_A%7Cproject12_B%7Cproject12read_B%7Cdev13185_B%7Cdev768_B%7Cdev9904_B" target="_blank" class="btn btn-sand">Забронировать апартаменты</a>
-<a href="https://t.me/" target="_blank" class="btn btn-ghost">Написать в Telegram</a>
+<a href="https://t.me/" target="_blank" class="btn btn-ghost">Написать в Телеграм</a>
 </div>
 </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
-<div class="footer-logo">NORT</div>
-<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород<br>Корпоративное размещение · Business + Leisure</p>
+<div class="footer-logo">НОРТ</div>
+<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород<br>Корпоративное размещение · Деловое размещение + отдых</p>
 <div style="margin-top:24px">
 <a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=&name=&surname=&email=&phone=&orderid=&servicemode=0&firstroom=0&vkapp=&insidePopup=0&exval=dev5765_A%7Cdev4129_B%7Cdev10318_B%7Cdev1185_A%7Cproject12_B%7Cproject12read_B%7Cdev13185_B%7Cdev768_B%7Cdev9904_B" target="_blank" class="btn btn-brown">Забронировать номер</a>
 </div>
 </footer>
 
 <script>
+/* Reveal */
 var revEls=document.querySelectorAll('.reveal');
 if('IntersectionObserver' in window){
 var io=new IntersectionObserver(function(entries){
@@ -414,6 +571,7 @@ for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting)entries[i].target
 for(var i=0;i<revEls.length;i++)io.observe(revEls[i]);
 }else{for(var i=0;i<revEls.length;i++)revEls[i].classList.add('visible')}
 
+/* Smooth anchors */
 var anchors=document.querySelectorAll('a[href^="#"]');
 for(var i=0;i<anchors.length;i++){
 anchors[i].addEventListener('click',function(e){
@@ -421,8 +579,56 @@ e.preventDefault();
 var t=document.querySelector(this.getAttribute('href'));
 if(t)t.scrollIntoView({behavior:'smooth'});
 });}
+
+/* Reviews carousel */
+(function(){
+  var track=document.getElementById('rvTrack');
+  var left=document.getElementById('rvLeft');
+  var right=document.getElementById('rvRight');
+  var dotsWrap=document.getElementById('rvDots');
+  if(!track)return;
+  var cards=track.querySelectorAll('.rv-card');
+  var total=cards.length;
+  var perView=3;
+  function getPerView(){
+    if(window.innerWidth<600)return 1;
+    if(window.innerWidth<900)return 2;
+    return 3;
+  }
+  function buildDots(){
+    dotsWrap.innerHTML='';
+    perView=getPerView();
+    var pages=Math.ceil(total/perView);
+    for(var i=0;i<pages;i++){
+      var d=document.createElement('div');
+      d.className='rv-dot'+(i===0?' active':'');
+      d.setAttribute('data-page',i);
+      d.addEventListener('click',function(){scrollToPage(+this.getAttribute('data-page'))});
+      dotsWrap.appendChild(d);
+    }
+  }
+  function scrollToPage(p){
+    var card=cards[0];if(!card)return;
+    var gap=24;
+    var w=card.offsetWidth+gap;
+    track.scrollTo({left:w*perView*p,behavior:'smooth'});
+  }
+  function updateDots(){
+    var card=cards[0];if(!card)return;
+    var gap=24;
+    var w=card.offsetWidth+gap;
+    var scrolled=track.scrollLeft;
+    var page=Math.round(scrolled/(w*perView));
+    var dots=dotsWrap.querySelectorAll('.rv-dot');
+    for(var i=0;i<dots.length;i++)dots[i].classList.toggle('active',i===page);
+  }
+  left.addEventListener('click',function(){track.scrollBy({left:-(cards[0].offsetWidth+24),behavior:'smooth'})});
+  right.addEventListener('click',function(){track.scrollBy({left:cards[0].offsetWidth+24,behavior:'smooth'})});
+  track.addEventListener('scroll',updateDots);
+  window.addEventListener('resize',buildDots);
+  buildDots();
+})();
 </script>
 </body>
 </html>
-
 
