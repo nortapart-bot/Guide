@@ -72,7 +72,9 @@ img{display:block;max-width:100%}
 .td-list{list-style:none;margin-bottom:32px}
 .td-list li{font-size:16px;color:var(--text);padding:9px 0;padding-left:32px;position:relative;line-height:1.75}
 .td-list li::before{content:'';position:absolute;left:0;top:18px;width:8px;height:8px;background:var(--sand);border-radius:50%}
-.td-note{font-size:15px;color:var(--brown-d);font-weight:500;padding:18px 24px;background:rgba(139,115,85,.06);border-radius:10px;border-left:3px solid var(--brown);line-height:1.7}
+.td-note{padding:18px 24px;border-left:3px solid var(--brown);line-height:1.7}
+.td-note strong{display:block;font-size:16px;font-weight:700;color:var(--brown-d);margin-bottom:8px}
+.td-note-sub{margin:0;font-size:14px;font-weight:400;color:var(--text-m);line-height:1.65}
 @media(max-width:768px){.td-inner{grid-template-columns:1fr}.td-img{min-height:280px}.td-body{padding:32px 24px}}
 
 .apart-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -253,7 +255,10 @@ img{display:block;max-width:100%}
 <li>Скорость решения вопросов</li>
 <li>Полный пакет отчётных документов</li>
 </ul>
-<div class="td-note">Без заключения долгосрочного договора</div>
+<div class="td-note">
+  <strong>Без заключения долгосрочного договора.</strong>
+  <p class="td-note-sub">Вы принимаете решение о сотрудничестве, опираясь на реальный опыт проживания и уровень сервиса.</p>
+</div>
 </div>
 </div>
 </div>
@@ -612,23 +617,24 @@ if(t)t.scrollIntoView({behavior:'smooth'});
     for(var i=0;i<pages;i++){
       var d=document.createElement('div');
       d.className='rv-dot'+(i===0?' active':'');
-      d.setAttribute('data-page',i);
-      d.addEventListener('click',function(){scrollToPage(+this.getAttribute('data-page'))});
+      d.dataset.page=i;
+      d.addEventListener('click',function(){goTo(+this.dataset.page)});
       dotsWrap.appendChild(d);
     }
   }
-  function scrollToPage(p){
-    var card=cards[0];if(!card)return;
+  function goTo(page){
+    perView=getPerView();
+    var card=cards[0];
     var gap=24;
     var w=card.offsetWidth+gap;
-    track.scrollTo({left:w*perView*p,behavior:'smooth'});
+    track.scrollTo({left:page*perView*w,behavior:'smooth'});
   }
   function updateDots(){
-    var card=cards[0];if(!card)return;
+    perView=getPerView();
+    var card=cards[0];
     var gap=24;
     var w=card.offsetWidth+gap;
-    var scrolled=track.scrollLeft;
-    var page=Math.round(scrolled/(w*perView));
+    var page=Math.round(track.scrollLeft/(perView*w));
     var dots=dotsWrap.querySelectorAll('.rv-dot');
     for(var i=0;i<dots.length;i++)dots[i].classList.toggle('active',i===page);
   }
@@ -639,7 +645,7 @@ if(t)t.scrollIntoView({behavior:'smooth'});
   buildDots();
 })();
 
-/* Form submission */
+/* Form submit */
 (function(){
   var form=document.getElementById('ctaForm');
   if(!form)return;
@@ -649,27 +655,20 @@ if(t)t.scrollIntoView({behavior:'smooth'});
     var origText=btn.textContent;
     btn.textContent='Отправляем…';
     btn.disabled=true;
-    btn.style.opacity='.6';
-
-    var data=new FormData(form);
-    fetch(form.action,{
-      method:'POST',
-      body:data,
-      headers:{'Accept':'application/json'}
-    }).then(function(r){
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    .then(function(r){
       if(r.ok){
         form.style.display='none';
         document.getElementById('ctaThankyou').style.display='block';
       }else{
         btn.textContent='Ошибка, попробуйте ещё раз';
         btn.disabled=false;
-        btn.style.opacity='1';
         setTimeout(function(){btn.textContent=origText},3000);
       }
-    }).catch(function(){
+    })
+    .catch(function(){
       btn.textContent='Ошибка сети';
       btn.disabled=false;
-      btn.style.opacity='1';
       setTimeout(function(){btn.textContent=origText},3000);
     });
   });
