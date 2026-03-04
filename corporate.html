@@ -135,24 +135,18 @@ img{display:block;max-width:100%}
 .rec-name{font-size:12px;color:var(--text-m);font-weight:500}
 .rec-stars{color:#FFB400;font-size:13px;letter-spacing:1px}
 
-/* ===== REVIEWS NEW STYLE ===== */
+/* ===== REVIEWS ===== */
 .reviews-wrap{max-width:1040px;margin:0 auto;position:relative}
 .reviews-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px}
 .reviews-track::-webkit-scrollbar{display:none}
 .rv-card{min-width:320px;max-width:340px;flex-shrink:0;scroll-snap-align:start;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;transition:var(--transition)}
 .rv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
-.rv-top{padding:28px 24px 0;display:flex;flex-direction:column;flex:1}
-.rv-source{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.rv-source-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0}
-.rv-source-score{font-size:18px;font-weight:800;color:var(--dark)}
+.rv-top{padding:28px 24px 24px;display:flex;flex-direction:column;flex:1}
 .rv-author-name{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:2px}
-.rv-stars-date{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.rv-stars-date{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
 .rv-stars{color:#FFB400;font-size:14px;letter-spacing:1px}
 .rv-date{font-size:12px;color:var(--text-m)}
 .rv-text{font-size:14px;color:var(--text);line-height:1.75;flex:1}
-.rv-photos{display:flex;gap:6px;padding:16px 24px 20px;flex-wrap:wrap}
-.rv-photos img{width:72px;height:72px;object-fit:cover;border-radius:10px;cursor:pointer;transition:.2s}
-.rv-photos img:hover{transform:scale(1.08)}
 .rv-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
 .rv-dot{width:10px;height:10px;border-radius:50%;background:var(--sand);cursor:pointer;transition:.3s}
 .rv-dot.active{background:var(--brown)}
@@ -163,15 +157,60 @@ img{display:block;max-width:100%}
 @media(max-width:1100px){.rv-arrow-l{left:4px}.rv-arrow-r{right:4px}}
 @media(max-width:600px){.rv-card{min-width:280px;max-width:300px}.rv-arrow{display:none}}
 
-/* ===== CTA ===== */
+/* ===== CTA + FORM ===== */
 .cta{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--dark);padding:72px 52px;text-align:center}
 .cta h2{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--cream);margin-bottom:14px}
-.cta>p{font-size:17px;color:rgba(245,240,235,.6);max-width:520px;margin:0 auto 36px;line-height:1.85}
+.cta>p{font-size:17px;color:rgba(245,240,235,.6);max-width:520px;margin:0 auto 0;line-height:1.85}
 .cta .btn-sand{background:var(--sand);color:var(--dark);font-weight:700}
 .cta .btn-sand:hover{background:var(--cream);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
 .cta .btn-ghost{background:transparent;color:var(--cream-d);border:1.5px solid rgba(212,201,186,.3)}
 .cta .btn-ghost:hover{border-color:var(--sand);color:var(--sand);transform:translateY(-2px)}
 @media(max-width:768px){.cta{padding:40px 24px}}
+
+.cta-form{margin-top:36px;text-align:left}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-bottom:16px}
+.form-group{display:flex;flex-direction:column}
+.form-group-full{margin-bottom:24px}
+.cta-form label{font-size:12px;font-weight:600;color:rgba(245,240,235,.5);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
+.cta-form input,
+.cta-form textarea{
+  width:100%;
+  padding:15px 18px;
+  border-radius:10px;
+  border:1.5px solid rgba(212,201,186,.2);
+  background:rgba(255,255,255,.07);
+  color:var(--cream);
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  transition:var(--transition);
+  outline:none;
+}
+.cta-form input::placeholder,
+.cta-form textarea::placeholder{color:rgba(245,240,235,.3)}
+.cta-form input:focus,
+.cta-form textarea:focus{
+  border-color:var(--sand);
+  background:rgba(255,255,255,.1);
+  box-shadow:0 0 0 3px rgba(212,201,186,.15);
+}
+.cta-form textarea{resize:vertical;min-height:110px}
+.form-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.form-actions .btn{min-width:200px;justify-content:center}
+@media(max-width:600px){
+  .form-grid{grid-template-columns:1fr}
+  .form-actions{flex-direction:column;align-items:stretch}
+  .form-actions .btn{min-width:auto}
+}
+.cta-thankyou{text-align:center;padding:40px 20px}
+.cta-thankyou .ty-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--sand);color:var(--dark);
+  font-size:32px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+}
+.cta-thankyou h3{font-size:24px;color:var(--cream);margin-bottom:10px}
+.cta-thankyou p{font-size:16px;color:rgba(245,240,235,.6);max-width:420px;margin:0 auto}
 
 .footer{background:var(--cream-d);padding:48px 24px;text-align:center}
 .footer-logo{font-size:26px;font-weight:800;color:var(--brown);margin-bottom:10px;letter-spacing:2px}
@@ -363,7 +402,6 @@ img{display:block;max-width:100%}
 <!-- ============ НАС РЕКОМЕНДУЮТ + ОТЗЫВЫ ============ -->
 <section class="section sec-cream" id="reviews">
 
-<!-- Нас рекомендуют -->
 <div class="sec-head reveal">
 <h2>Нас рекомендуют</h2>
 <div class="line"></div>
@@ -399,7 +437,6 @@ img{display:block;max-width:100%}
   </a>
 </div>
 
-<!-- Отзывы компаний -->
 <div class="sec-head reveal" style="margin-top:40px">
 <h2>Отзывы компаний</h2>
 <p>Нам доверяют корпоративные клиенты</p>
@@ -409,10 +446,8 @@ img{display:block;max-width:100%}
 <div class="reviews-wrap reveal">
   <div class="rv-arrow rv-arrow-l" id="rvLeft">‹</div>
   <div class="rv-arrow rv-arrow-r" id="rvRight">›</div>
-
   <div class="reviews-track" id="rvTrack">
 
-    <!-- 1 — Андрей К. -->
     <div class="rv-card">
       <div class="rv-top">
         <div class="rv-author-name">Андрей К.</div>
@@ -424,7 +459,6 @@ img{display:block;max-width:100%}
       </div>
     </div>
 
-    <!-- 2 — Елена М. -->
     <div class="rv-card">
       <div class="rv-top">
         <div class="rv-author-name">Елена М.</div>
@@ -436,7 +470,6 @@ img{display:block;max-width:100%}
       </div>
     </div>
 
-    <!-- 3 — Дмитрий В. -->
     <div class="rv-card">
       <div class="rv-top">
         <div class="rv-author-name">Дмитрий В.</div>
@@ -448,7 +481,6 @@ img{display:block;max-width:100%}
       </div>
     </div>
 
-    <!-- 4 — Ольга С. -->
     <div class="rv-card">
       <div class="rv-top">
         <div class="rv-author-name">Ольга С.</div>
@@ -460,7 +492,6 @@ img{display:block;max-width:100%}
       </div>
     </div>
 
-    <!-- 5 — Игорь Н. -->
     <div class="rv-card">
       <div class="rv-top">
         <div class="rv-author-name">Игорь Н.</div>
@@ -472,22 +503,59 @@ img{display:block;max-width:100%}
       </div>
     </div>
 
-  </div><!-- /reviews-track -->
-
+  </div>
   <div class="rv-dots" id="rvDots"></div>
-</div><!-- /reviews-wrap -->
+</div>
 
 </section>
 
-<!-- ============ CTA ============ -->
+<!-- ============ CTA + ФОРМА ============ -->
 <section class="section sec-white" id="cta">
 <div class="cta reveal">
 <h2>Начнём сотрудничество?</h2>
-<p>Оставьте заявку — мы подготовим индивидуальное коммерческое предложение и организуем пробное размещение в апартаментах.</p>
-<div class="btn-row" style="justify-content:center">
-<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=&name=&surname=&email=&phone=&orderid=&servicemode=0&firstroom=0&vkapp=&insidePopup=0&exval=dev5765_A%7Cdev4129_B%7Cdev10318_B%7Cdev1185_A%7Cproject12_B%7Cproject12read_B%7Cdev13185_B%7Cdev768_B%7Cdev9904_B" target="_blank" class="btn btn-sand">Забронировать апартаменты</a>
-<a href="https://t.me/" target="_blank" class="btn btn-ghost">Написать в Телеграм</a>
+<p>Заполните форму — мы подготовим индивидуальное коммерческое предложение и свяжемся с вами в течение рабочего дня.</p>
+
+<form class="cta-form" id="ctaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <input type="hidden" name="_subject" value="Корпоративная заявка с сайта">
+  <input type="hidden" name="_next" value="https://nortapart-bot.github.io/Guide/corporate.html#cta">
+  <input type="hidden" name="_template" value="table">
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="cf-name">Имя</label>
+      <input type="text" id="cf-name" name="Имя" placeholder="Как к вам обращаться" required>
+    </div>
+    <div class="form-group">
+      <label for="cf-company">Компания</label>
+      <input type="text" id="cf-company" name="Компания" placeholder="Название компании" required>
+    </div>
+    <div class="form-group">
+      <label for="cf-phone">Телефон</label>
+      <input type="tel" id="cf-phone" name="Телефон" placeholder="+7 (___) ___-__-__" required>
+    </div>
+    <div class="form-group">
+      <label for="cf-email">Почта</label>
+      <input type="email" id="cf-email" name="Почта" placeholder="email@company.ru" required>
+    </div>
+  </div>
+
+  <div class="form-group form-group-full">
+    <label for="cf-message">Сообщение</label>
+    <textarea id="cf-message" name="Сообщение" rows="4" placeholder="Расскажите о задаче: количество сотрудников, сроки, пожелания…"></textarea>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-sand" id="cfSubmit">Отправить заявку</button>
+    <a href="https://t.me/" target="_blank" class="btn btn-ghost">Написать в Телеграм</a>
+  </div>
+</form>
+
+<div class="cta-thankyou" id="ctaThankyou" style="display:none">
+  <div class="ty-icon">✓</div>
+  <h3>Заявка отправлена!</h3>
+  <p>Мы свяжемся с вами в течение рабочего дня и подготовим индивидуальное предложение.</p>
 </div>
+
 </div>
 </section>
 
@@ -496,7 +564,7 @@ img{display:block;max-width:100%}
 <div class="footer-logo">НОРТ</div>
 <p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород<br>Корпоративное размещение · Деловое размещение + отдых</p>
 <div style="margin-top:24px">
-<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=&name=&surname=&email=&phone=&orderid=&servicemode=0&firstroom=0&vkapp=&insidePopup=0&exval=dev5765_A%7Cdev4129_B%7Cdev10318_B%7Cdev1185_A%7Cproject12_B%7Cproject12read_B%7Cdev13185_B%7Cdev768_B%7Cdev9904_B" target="_blank" class="btn btn-brown">Забронировать номер</a>
+<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=" target="_blank" class="btn btn-brown">Забронировать номер</a>
 </div>
 </footer>
 
@@ -566,6 +634,42 @@ if(t)t.scrollIntoView({behavior:'smooth'});
   track.addEventListener('scroll',updateDots);
   window.addEventListener('resize',buildDots);
   buildDots();
+})();
+
+/* Form submission */
+(function(){
+  var form=document.getElementById('ctaForm');
+  if(!form)return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=document.getElementById('cfSubmit');
+    var origText=btn.textContent;
+    btn.textContent='Отправляем…';
+    btn.disabled=true;
+    btn.style.opacity='.6';
+
+    var data=new FormData(form);
+    fetch(form.action,{
+      method:'POST',
+      body:data,
+      headers:{'Accept':'application/json'}
+    }).then(function(r){
+      if(r.ok){
+        form.style.display='none';
+        document.getElementById('ctaThankyou').style.display='block';
+      }else{
+        btn.textContent='Ошибка, попробуйте ещё раз';
+        btn.disabled=false;
+        btn.style.opacity='1';
+        setTimeout(function(){btn.textContent=origText},3000);
+      }
+    }).catch(function(){
+      btn.textContent='Ошибка сети';
+      btn.disabled=false;
+      btn.style.opacity='1';
+      setTimeout(function(){btn.textContent=origText},3000);
+    });
+  });
 })();
 </script>
 </body>
