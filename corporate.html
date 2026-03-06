@@ -8,82 +8,91 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#F5F0EB;color:#3A3530;line-height:1.8;overflow-x:hidden;font-size:17px}
+body{font-family:'Inter',sans-serif;background:#1A1714;color:#D5CFC8;line-height:1.8;overflow-x:hidden;font-size:17px}
 :root{
-  --cream:#F5F0EB;
-  --cream-d:#EDE6DE;
-  --sand:#D4C9BA;
-  --brown:#8B7355;
-  --brown-d:#6B5740;
-  --dark:#2C2620;
-  --text:#3A3530;
-  --text-m:#6B6358;
-  --white:#FDFBF9;
-  --card:#FDFBF9;
-  --shadow:0 4px 24px rgba(44,38,32,.06);
-  --shadow-h:0 8px 36px rgba(44,38,32,.1);
+  --bg:#1A1714;
+  --bg-2:#211E1A;
+  --bg-3:#2A2520;
+  --card:#2A2520;
+  --card-l:#322D27;
+  --sand:#C4B8A5;
+  --sand-l:#D4C9BA;
+  --gold:#B8A080;
+  --gold-l:#D4C4A8;
+  --text:#D5CFC8;
+  --text-m:#9A9189;
+  --text-d:#706860;
+  --white-a:.07;
+  --dark:#0F0D0B;
+  --shadow:0 4px 24px rgba(0,0,0,.25);
+  --shadow-h:0 12px 40px rgba(0,0,0,.35);
   --radius:14px;
   --transition:.35s cubic-bezier(.4,0,.2,1)
 }
-a{color:var(--brown);text-decoration:none;transition:var(--transition)}
-a:hover{color:var(--brown-d)}
+a{color:var(--gold);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--gold-l)}
 img{display:block;max-width:100%}
-::selection{background:var(--sand);color:var(--dark)}
+::selection{background:var(--gold);color:var(--dark)}
 
-.hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden;background:var(--dark)}
+/* ===== HERO ===== */
+.hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden;background:var(--bg)}
 .hero-img{position:absolute;inset:0;z-index:0}
-.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.35;filter:brightness(.9) saturate(.85)}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(44,38,32,.3) 0%,rgba(44,38,32,.1) 40%,rgba(44,38,32,.6) 80%,rgba(44,38,32,.95) 100%)}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.3;filter:brightness(.8) saturate(.7)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(26,23,20,.4) 0%,rgba(26,23,20,.2) 40%,rgba(26,23,20,.7) 75%,rgba(26,23,20,1) 100%)}
 .hero>*:not(.hero-img):not(.hero-overlay){position:relative;z-index:2}
-.badge{display:inline-block;padding:10px 26px;border:1px solid rgba(212,201,186,.5);border-radius:30px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sand);margin-bottom:36px;backdrop-filter:blur(8px);background:rgba(255,255,255,.06)}
-.hero h1{font-size:clamp(30px,6vw,60px);font-weight:800;line-height:1.1;margin-bottom:18px;color:var(--cream)}
-.hero h1 span{color:var(--sand);display:block}
-.hero-sub{font-size:clamp(16px,2.5vw,22px);color:var(--cream-d);font-weight:500;margin-bottom:14px;letter-spacing:1px}
-.hero p{font-size:clamp(15px,2vw,18px);color:rgba(245,240,235,.65);max-width:600px;margin:0 auto 44px}
-.hero-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border:1.5px solid var(--sand);border-radius:40px;color:var(--cream);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:var(--transition);backdrop-filter:blur(6px);background:rgba(255,255,255,.05)}
-.hero-btn:hover{background:var(--sand);color:var(--dark)}
+.badge{display:inline-block;padding:10px 26px;border:1px solid rgba(196,184,165,.35);border-radius:30px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sand);margin-bottom:36px;backdrop-filter:blur(8px);background:rgba(255,255,255,.04)}
+.hero h1{font-size:clamp(30px,6vw,60px);font-weight:800;line-height:1.1;margin-bottom:18px;color:var(--text)}
+.hero h1 span{color:var(--gold);display:block}
+.hero-sub{font-size:clamp(16px,2.5vw,22px);color:var(--sand);font-weight:500;margin-bottom:14px;letter-spacing:1px}
+.hero p{font-size:clamp(15px,2vw,18px);color:var(--text-m);max-width:600px;margin:0 auto 44px}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border:1.5px solid var(--sand);border-radius:40px;color:var(--text);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:var(--transition);backdrop-filter:blur(6px);background:rgba(255,255,255,.04)}
+.hero-btn:hover{background:var(--gold);color:var(--dark);border-color:var(--gold)}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 .arrow{display:inline-block;animation:float 2.5s ease-in-out infinite}
 
+/* ===== BUTTONS ===== */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:10px;font-size:15px;font-weight:600;transition:var(--transition);border:none;cursor:pointer;font-family:inherit;letter-spacing:.3px}
-.btn-brown{background:var(--brown);color:var(--cream)}
-.btn-brown:hover{background:var(--brown-d);color:var(--cream);transform:translateY(-2px);box-shadow:0 8px 24px rgba(139,115,85,.2)}
-.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--sand)}
-.btn-outline:hover{border-color:var(--brown);color:var(--brown);transform:translateY(-2px)}
-.btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn-gold{background:var(--gold);color:var(--dark);font-weight:700}
+.btn-gold:hover{background:var(--gold-l);color:var(--dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,160,128,.25)}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--text-d)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 
+/* ===== SECTIONS ===== */
 .section{padding:110px 24px}
-.sec-cream{background:var(--cream)}
-.sec-white{background:var(--white)}
+.sec-dark{background:var(--bg)}
+.sec-dark2{background:var(--bg-2)}
+.sec-dark3{background:var(--bg-3)}
 .sec-head{text-align:center;margin-bottom:60px}
-.sec-head h2{font-size:clamp(26px,4.5vw,40px);font-weight:800;color:var(--dark);margin-bottom:14px;letter-spacing:-.3px}
+.sec-head h2{font-size:clamp(26px,4.5vw,40px);font-weight:800;color:var(--text);margin-bottom:14px;letter-spacing:-.3px}
 .sec-head p{color:var(--text-m);font-size:17px;max-width:540px;margin:0 auto}
-.sec-head .line{width:48px;height:2px;background:var(--sand);margin:20px auto 0;border-radius:2px}
+.sec-head .line{width:48px;height:2px;background:var(--gold);margin:20px auto 0;border-radius:2px}
 
+/* ===== TEST-DRIVE CARD ===== */
 .td-card{max-width:1040px;margin:0 auto;border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
 .td-inner{display:grid;grid-template-columns:1fr 1fr}
 .td-img{position:relative;min-height:520px;overflow:hidden}
 .td-img img{width:100%;height:100%;object-fit:cover;transition:.7s}
 .td-card:hover .td-img img{transform:scale(1.03)}
 .td-body{padding:60px 52px;display:flex;flex-direction:column;justify-content:center}
-.td-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--brown);margin-bottom:20px}
-.td-body h2{font-size:clamp(24px,3.5vw,32px);font-weight:800;line-height:1.3;margin-bottom:22px;color:var(--dark)}
+.td-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.td-body h2{font-size:clamp(24px,3.5vw,32px);font-weight:800;line-height:1.3;margin-bottom:22px;color:var(--text)}
 .td-body>p{font-size:17px;color:var(--text-m);line-height:1.85;margin-bottom:28px}
 .td-list{list-style:none;margin-bottom:32px}
 .td-list li{font-size:16px;color:var(--text);padding:9px 0;padding-left:32px;position:relative;line-height:1.75}
-.td-list li::before{content:'';position:absolute;left:0;top:18px;width:8px;height:8px;background:var(--sand);border-radius:50%}
-.td-note{padding:18px 24px;border-left:3px solid var(--brown);line-height:1.7}
-.td-note strong{display:block;font-size:16px;font-weight:700;color:var(--brown-d);margin-bottom:8px}
+.td-list li::before{content:'';position:absolute;left:0;top:18px;width:8px;height:8px;background:var(--gold);border-radius:50%}
+.td-note{padding:18px 24px;border-left:3px solid var(--gold);line-height:1.7}
+.td-note strong{display:block;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:8px}
 .td-note-sub{margin:0;font-size:14px;font-weight:400;color:var(--text-m);line-height:1.65}
 @media(max-width:768px){.td-inner{grid-template-columns:1fr}.td-img{min-height:280px}.td-body{padding:32px 24px}}
 
+/* ===== APARTMENTS GRID ===== */
 .apart-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .apart-item{border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:var(--transition)}
 .apart-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-h)}
 .apart-item img{width:100%;height:260px;object-fit:cover;transition:.6s}
 .apart-item:hover img{transform:scale(1.04)}
 .apart-item-body{padding:26px 24px}
-.apart-item-body h3{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:8px}
+.apart-item-body h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
 .apart-item-body p{font-size:15px;color:var(--text-m);line-height:1.75}
 @media(max-width:768px){.apart-grid{grid-template-columns:1fr}.apart-item img{height:240px}}
 
@@ -94,49 +103,53 @@ img{display:block;max-width:100%}
 .type-item img{width:100%;height:320px;object-fit:cover;transition:.6s}
 .type-item:hover img{transform:scale(1.04)}
 .type-body{padding:28px 26px}
-.type-body h3{font-size:20px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.type-body h3{font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
 .type-body p{font-size:15px;color:var(--text-m);line-height:1.75}
 @media(max-width:768px){.type-grid{grid-template-columns:1fr}.type-item img{height:260px}}
 
+/* ===== TWO COLUMNS ===== */
 .two-col{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .col-card{border-radius:var(--radius);background:var(--card);padding:48px 40px;box-shadow:var(--shadow);transition:var(--transition)}
 .col-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
-.col-card h3{font-size:22px;font-weight:800;color:var(--dark);margin-bottom:6px}
-.col-card .col-sub{font-size:11px;color:var(--brown);text-transform:uppercase;letter-spacing:2.5px;font-weight:600;margin-bottom:24px}
+.col-card h3{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px}
+.col-card .col-sub{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:2.5px;font-weight:600;margin-bottom:24px}
 .col-card ul{list-style:none}
 .col-card ul li{font-size:16px;color:var(--text);padding:9px 0;padding-left:28px;position:relative;line-height:1.75}
-.col-card ul li::before{content:'—';position:absolute;left:0;color:var(--brown);font-weight:600}
+.col-card ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-weight:600}
 @media(max-width:768px){.two-col{grid-template-columns:1fr}.col-card{padding:32px 24px}}
 
+/* ===== WHY US ===== */
 .why-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .why-item{border-radius:var(--radius);background:var(--card);padding:40px 28px;text-align:center;box-shadow:var(--shadow);transition:var(--transition)}
 .why-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
-.why-icon{font-size:36px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;width:72px;height:72px;background:rgba(139,115,85,.07);border-radius:50%;margin:0 auto 18px}
-.why-item h4{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.why-icon{font-size:36px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;width:72px;height:72px;background:rgba(184,160,128,.1);border-radius:50%;margin:0 auto 18px}
+.why-item h4{font-size:17px;font-weight:700;color:var(--text);margin-bottom:10px}
 .why-item p{font-size:15px;color:var(--text-m);line-height:1.75}
 @media(max-width:768px){.why-grid{grid-template-columns:1fr}}
 
+/* ===== BL CARD ===== */
 .bl-card{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--card);padding:60px 52px;box-shadow:var(--shadow)}
-.bl-card h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--dark);margin-bottom:8px}
-.bl-card .bl-tag{font-size:14px;color:var(--brown);font-weight:600;margin-bottom:24px}
+.bl-card h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--text);margin-bottom:8px}
+.bl-card .bl-tag{font-size:14px;color:var(--gold);font-weight:600;margin-bottom:24px}
 .bl-card>p{font-size:17px;color:var(--text-m);line-height:1.85;margin-bottom:18px}
 .bl-items{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:32px}
-.bl-item{background:var(--cream);border-radius:12px;padding:28px;text-align:center}
+.bl-item{background:var(--bg-2);border-radius:12px;padding:28px;text-align:center;border:1px solid rgba(196,184,165,.08)}
 .bl-item .bl-emoji{font-size:32px;margin-bottom:12px}
 .bl-item p{font-size:15px;color:var(--text);line-height:1.65}
 @media(max-width:768px){.bl-card{padding:32px 24px}.bl-items{grid-template-columns:1fr}}
 
-.loyalty{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:rgba(139,115,85,.06);padding:60px 52px;text-align:center}
-.loyalty h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--dark);margin-bottom:8px}
-.loyalty .loy-sub{color:var(--brown);font-size:14px;font-weight:600;margin-bottom:24px}
+/* ===== LOYALTY ===== */
+.loyalty{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:rgba(184,160,128,.06);padding:60px 52px;text-align:center;border:1px solid rgba(184,160,128,.1)}
+.loyalty h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--text);margin-bottom:8px}
+.loyalty .loy-sub{color:var(--gold);font-size:14px;font-weight:600;margin-bottom:24px}
 .loyalty>p{font-size:17px;color:var(--text-m);line-height:1.85;max-width:600px;margin:0 auto 36px}
 .loy-uses{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.loy-chip{background:var(--white);border:1.5px solid var(--sand);border-radius:30px;padding:13px 26px;font-size:14px;color:var(--brown-d);font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.loy-chip{background:var(--card);border:1.5px solid rgba(184,160,128,.2);border-radius:30px;padding:13px 26px;font-size:14px;color:var(--gold);font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.15)}
 @media(max-width:768px){.loyalty{padding:32px 24px}}
 
 /* ===== RECOMMEND BADGES ===== */
 .rec-strip{max-width:1040px;margin:0 auto 60px;display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
-.rec-badge{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:14px;padding:16px 24px;box-shadow:var(--shadow);transition:var(--transition)}
+.rec-badge{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:14px;padding:16px 24px;box-shadow:var(--shadow);transition:var(--transition);border:1px solid rgba(255,255,255,.04)}
 .rec-badge:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
 .rec-logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;flex-shrink:0}
 .rec-logo-ya{background:#FC3F1D}
@@ -144,7 +157,7 @@ img{display:block;max-width:100%}
 .rec-logo-ost{background:#1A73E8}
 .rec-logo-101{background:#E53935}
 .rec-info{display:flex;flex-direction:column}
-.rec-score{font-size:20px;font-weight:800;color:var(--dark)}
+.rec-score{font-size:20px;font-weight:800;color:var(--text)}
 .rec-name{font-size:12px;color:var(--text-m);font-weight:500}
 .rec-stars{color:#FFB400;font-size:13px;letter-spacing:1px}
 
@@ -152,51 +165,51 @@ img{display:block;max-width:100%}
 .reviews-wrap{max-width:1040px;margin:0 auto;position:relative}
 .reviews-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px}
 .reviews-track::-webkit-scrollbar{display:none}
-.rv-card{min-width:320px;max-width:340px;flex-shrink:0;scroll-snap-align:start;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;transition:var(--transition)}
+.rv-card{min-width:320px;max-width:340px;flex-shrink:0;scroll-snap-align:start;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;transition:var(--transition);border:1px solid rgba(255,255,255,.04)}
 .rv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
 .rv-top{padding:28px 24px 24px;display:flex;flex-direction:column;flex:1}
-.rv-author-name{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.rv-author-name{font-size:17px;font-weight:700;color:var(--text);margin-bottom:2px}
 .rv-stars-date{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
 .rv-stars{color:#FFB400;font-size:14px;letter-spacing:1px}
 .rv-date{font-size:12px;color:var(--text-m)}
-.rv-text{font-size:14px;color:var(--text);line-height:1.75;flex:1}
+.rv-text{font-size:14px;color:var(--text-m);line-height:1.75;flex:1}
 .rv-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
-.rv-dot{width:10px;height:10px;border-radius:50%;background:var(--sand);cursor:pointer;transition:.3s}
-.rv-dot.active{background:var(--brown)}
-.rv-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--card);box-shadow:var(--shadow);border:1px solid var(--cream-d);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:var(--brown);transition:var(--transition);z-index:5}
-.rv-arrow:hover{background:var(--brown);color:#fff;box-shadow:var(--shadow-h)}
+.rv-dot{width:10px;height:10px;border-radius:50%;background:var(--text-d);cursor:pointer;transition:.3s}
+.rv-dot.active{background:var(--gold)}
+.rv-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--card);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:var(--gold);transition:var(--transition);z-index:5}
+.rv-arrow:hover{background:var(--gold);color:var(--dark);box-shadow:var(--shadow-h)}
 .rv-arrow-l{left:-22px}
 .rv-arrow-r{right:-22px}
 @media(max-width:1100px){.rv-arrow-l{left:4px}.rv-arrow-r{right:4px}}
 @media(max-width:600px){.rv-card{min-width:280px;max-width:300px}.rv-arrow{display:none}}
 
 /* ===== CTA + FORM ===== */
-.cta{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--dark);padding:72px 52px;text-align:center}
-.cta h2{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--cream);margin-bottom:14px}
-.cta>p{font-size:17px;color:rgba(245,240,235,.6);max-width:520px;margin:0 auto 0;line-height:1.85}
-.cta .btn-sand{background:var(--sand);color:var(--dark);font-weight:700}
-.cta .btn-sand:hover{background:var(--cream);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
-.cta .btn-ghost{background:transparent;color:var(--cream-d);border:1.5px solid rgba(212,201,186,.3)}
-.cta .btn-ghost:hover{border-color:var(--sand);color:var(--sand);transform:translateY(-2px)}
+.cta{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--dark);padding:72px 52px;text-align:center;border:1px solid rgba(184,160,128,.1)}
+.cta h2{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--text);margin-bottom:14px}
+.cta>p{font-size:17px;color:var(--text-m);max-width:520px;margin:0 auto 0;line-height:1.85}
+.cta .btn-sand{background:var(--gold);color:var(--dark);font-weight:700}
+.cta .btn-sand:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.cta .btn-ghost{background:transparent;color:var(--text-m);border:1.5px solid rgba(196,184,165,.2)}
+.cta .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 @media(max-width:768px){.cta{padding:40px 24px}}
 
 .cta-form{margin-top:36px;text-align:left}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-bottom:16px}
 .form-group{display:flex;flex-direction:column}
 .form-group-full{margin-bottom:24px}
-.cta-form label{font-size:12px;font-weight:600;color:rgba(245,240,235,.5);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
+.cta-form label{font-size:12px;font-weight:600;color:var(--text-d);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
 .cta-form input,
 .cta-form textarea{
   width:100%;padding:15px 18px;border-radius:10px;
-  border:1.5px solid rgba(212,201,186,.2);
-  background:rgba(255,255,255,.07);color:var(--cream);
+  border:1.5px solid rgba(196,184,165,.15);
+  background:rgba(255,255,255,.05);color:var(--text);
   font-family:'Inter',sans-serif;font-size:15px;
   transition:var(--transition);outline:none;
 }
 .cta-form input::placeholder,
-.cta-form textarea::placeholder{color:rgba(245,240,235,.3)}
+.cta-form textarea::placeholder{color:var(--text-d)}
 .cta-form input:focus,
-.cta-form textarea:focus{border-color:var(--sand);background:rgba(255,255,255,.1);box-shadow:0 0 0 3px rgba(212,201,186,.15)}
+.cta-form textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.08);box-shadow:0 0 0 3px rgba(184,160,128,.12)}
 .cta-form textarea{resize:vertical;min-height:110px}
 .form-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
 .form-actions .btn{min-width:200px;justify-content:center}
@@ -206,12 +219,13 @@ img{display:block;max-width:100%}
   .form-actions .btn{min-width:auto}
 }
 .cta-thankyou{text-align:center;padding:40px 20px}
-.cta-thankyou .ty-icon{width:72px;height:72px;border-radius:50%;background:var(--sand);color:var(--dark);font-size:32px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
-.cta-thankyou h3{font-size:24px;color:var(--cream);margin-bottom:10px}
-.cta-thankyou p{font-size:16px;color:rgba(245,240,235,.6);max-width:420px;margin:0 auto}
+.cta-thankyou .ty-icon{width:72px;height:72px;border-radius:50%;background:var(--gold);color:var(--dark);font-size:32px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.cta-thankyou h3{font-size:24px;color:var(--text);margin-bottom:10px}
+.cta-thankyou p{font-size:16px;color:var(--text-m);max-width:420px;margin:0 auto}
 
-.footer{background:var(--cream-d);padding:48px 24px;text-align:center}
-.footer-logo{font-size:26px;font-weight:800;color:var(--brown);margin-bottom:10px;letter-spacing:2px}
+/* ===== FOOTER ===== */
+.footer{background:var(--dark);padding:48px 24px;text-align:center;border-top:1px solid rgba(184,160,128,.1)}
+.footer-logo{font-size:26px;font-weight:800;color:var(--gold);margin-bottom:10px;letter-spacing:2px}
 .footer-text{font-size:14px;color:var(--text-m);line-height:1.7}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
@@ -232,7 +246,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ TEST-DRIVE ============ -->
-<section class="section sec-cream" id="testdrive">
+<section class="section sec-dark" id="testdrive">
 <div class="td-card reveal">
 <div class="td-inner">
 <div class="td-img"><img src="apart-living.jpg" alt="Апартаменты" loading="lazy"></div>
@@ -244,7 +258,7 @@ img{display:block;max-width:100%}
 <li>Уровень сервиса</li>
 <li>Технологичность заселения</li>
 <li>Комфорт оборудованных апартаментов<br>
-  <span style="font-size:0.9em; opacity:0.7;">(кухня, техника, рабочая зона, Wi-Fi)</span>
+  <span style="font-size:0.9em;opacity:0.5;">(кухня, техника, рабочая зона, Wi-Fi)</span>
 </li>
 <li>Завтрак</li>
 <li>Бот-консьерж 24/7</li>
@@ -261,7 +275,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ APARTMENTS ============ -->
-<section class="section sec-white" id="apartments">
+<section class="section sec-dark2" id="apartments">
 <div class="sec-head reveal">
 <h2>Внутри</h2>
 <p>Современные пространства в центре Нижнего Новгорода</p>
@@ -291,7 +305,6 @@ img{display:block;max-width:100%}
 </div>
 </div>
 
-<!-- Варианты апартаментов -->
 <div class="sec-head reveal" style="margin-top:80px">
 <h2>Типы апартаментов</h2>
 <p>Подберём оптимальный вариант под задачи компании</p>
@@ -327,11 +340,10 @@ img{display:block;max-width:100%}
 </div>
 </div>
 </div>
-
 </section>
 
 <!-- ============ TWO COLUMNS ============ -->
-<section class="section sec-cream" id="benefits">
+<section class="section sec-dark" id="benefits">
 <div class="sec-head reveal">
 <h2>Выгода для всех сторон</h2>
 <p>Что получает сотрудник и что получает компания</p>
@@ -363,48 +375,24 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ WHY US ============ -->
-<section class="section sec-white" id="why">
+<section class="section sec-dark2" id="why">
 <div class="sec-head reveal">
 <h2>Почему «9 ночей – НОРТ»</h2>
 <p>6 причин выбрать нас для размещения сотрудников</p>
 <div class="line"></div>
 </div>
 <div class="why-grid">
-<div class="why-item reveal">
-<div class="why-icon">📍</div>
-<h4>Центр города</h4>
-<p>Нижний Новгород — вся инфраструктура в пешей доступности</p>
-</div>
-<div class="why-item reveal">
-<div class="why-icon">🏠</div>
-<h4>Не номер, а пространство</h4>
-<p>Современные апартаменты вместо стандартного гостиничного номера</p>
-</div>
-<div class="why-item reveal">
-<div class="why-icon">🤖</div>
-<h4>Бот-консьерж</h4>
-<p>Технологичный сервис — решение вопросов за 30 секунд, 24/7</p>
-</div>
-<div class="why-item reveal">
-<div class="why-icon">🥐</div>
-<h4>Завтрак включён</h4>
-<p>Уже в стоимости — не нужно выделять отдельной строкой</p>
-</div>
-<div class="why-item reveal">
-<div class="why-icon">⚡</div>
-<h4>Быстрое заселение</h4>
-<p>Без лишних формальностей — заехал и работаешь</p>
-</div>
-<div class="why-item reveal">
-<div class="why-icon">🔒</div>
-<h4>Приватность</h4>
-<p>Отдельные апартаменты — максимальный комфорт и тишина</p>
-</div>
+<div class="why-item reveal"><div class="why-icon">📍</div><h4>Центр города</h4><p>Нижний Новгород — вся инфраструктура в пешей доступности</p></div>
+<div class="why-item reveal"><div class="why-icon">🏠</div><h4>Не номер, а пространство</h4><p>Современные апартаменты вместо стандартного гостиничного номера</p></div>
+<div class="why-item reveal"><div class="why-icon">🤖</div><h4>Бот-консьерж</h4><p>Технологичный сервис — решение вопросов за 30 секунд, 24/7</p></div>
+<div class="why-item reveal"><div class="why-icon">🥐</div><h4>Завтрак включён</h4><p>Уже в стоимости — не нужно выделять отдельной строкой</p></div>
+<div class="why-item reveal"><div class="why-icon">⚡</div><h4>Быстрое заселение</h4><p>Без лишних формальностей — заехал и работаешь</p></div>
+<div class="why-item reveal"><div class="why-icon">🔒</div><h4>Приватность</h4><p>Отдельные апартаменты — максимальный комфорт и тишина</p></div>
 </div>
 </section>
 
 <!-- ============ BUSINESS + LEISURE ============ -->
-<section class="section sec-cream" id="bl">
+<section class="section sec-dark" id="bl">
 <div class="bl-card reveal">
 <h2>Business + Leisure</h2>
 <div class="bl-tag">Работа и отдых</div>
@@ -413,24 +401,15 @@ img{display:block;max-width:100%}
 <p>В дополнение, каждому гостю мы направляем НОРТ-гид — подборку лучших ресторанов, баров, событий и локаций в пешей доступности от апартаментов.</p>
 <p>Командировка перестаёт быть формальностью — она становится частью системы заботы о команде.</p>
 <div class="bl-items">
-<div class="bl-item">
-<div class="bl-emoji">🏖</div>
-<p>Продлить проживание на специальных условиях</p>
-</div>
-<div class="bl-item">
-<div class="bl-emoji">⭐</div>
-<p>Использовать баллы программы лояльности</p>
-</div>
-<div class="bl-item">
-<div class="bl-emoji">🗺</div>
-<p>Остаться на выходные и познакомиться с городом</p>
-</div>
+<div class="bl-item"><div class="bl-emoji">🏖</div><p>Продлить проживание на специальных условиях</p></div>
+<div class="bl-item"><div class="bl-emoji">⭐</div><p>Использовать баллы программы лояльности</p></div>
+<div class="bl-item"><div class="bl-emoji">🗺</div><p>Остаться на выходные и познакомиться с городом</p></div>
 </div>
 </div>
 </section>
 
 <!-- ============ LOYALTY ============ -->
-<section class="section sec-white" id="loyalty">
+<section class="section sec-dark2" id="loyalty">
 <div class="loyalty reveal">
 <h2>Корпоративная программа лояльности</h2>
 <div class="loy-sub">Баллы за каждое проживание</div>
@@ -444,8 +423,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ НАС РЕКОМЕНДУЮТ + ОТЗЫВЫ ============ -->
-<section class="section sec-cream" id="reviews">
-
+<section class="section sec-dark" id="reviews">
 <div class="sec-head reveal">
 <h2>Нас рекомендуют</h2>
 <div class="line"></div>
@@ -453,31 +431,19 @@ img{display:block;max-width:100%}
 <div class="rec-strip reveal">
   <a href="https://travel.yandex.ru/hotels/nizhny-novgorod/9-nochei-nort/" target="_blank" class="rec-badge">
     <div class="rec-logo rec-logo-ya">Я</div>
-    <div class="rec-info">
-      <span class="rec-score">5.0 <span class="rec-stars">★★★★★</span></span>
-      <span class="rec-name">Яндекс Путешествия</span>
-    </div>
+    <div class="rec-info"><span class="rec-score">5.0 <span class="rec-stars">★★★★★</span></span><span class="rec-name">Яндекс Путешествия</span></div>
   </a>
   <a href="https://2gis.ru/n_novgorod/firm/70000001064268369" target="_blank" class="rec-badge">
     <div class="rec-logo rec-logo-2g">2</div>
-    <div class="rec-info">
-      <span class="rec-score">4.8 <span class="rec-stars">★★★★★</span></span>
-      <span class="rec-name">2ГИС · 517 оценок</span>
-    </div>
+    <div class="rec-info"><span class="rec-score">4.8 <span class="rec-stars">★★★★★</span></span><span class="rec-name">2ГИС · 517 оценок</span></div>
   </a>
   <a href="https://ostrovok.ru/hotel/russia/nizhniy_novgorod/mid10136421/9_nochey_nn_aparthotel/" target="_blank" class="rec-badge">
     <div class="rec-logo rec-logo-ost">О</div>
-    <div class="rec-info">
-      <span class="rec-score">8.9</span>
-      <span class="rec-name">Островок</span>
-    </div>
+    <div class="rec-info"><span class="rec-score">8.9</span><span class="rec-name">Островок</span></div>
   </a>
   <a href="https://101hotels.com/opinions/hotel/nizhniy_novgorod/apart-otel_9_nochey_1.html" target="_blank" class="rec-badge">
     <div class="rec-logo rec-logo-101">101</div>
-    <div class="rec-info">
-      <span class="rec-score">Рекомендуют</span>
-      <span class="rec-name">101Hotels</span>
-    </div>
+    <div class="rec-info"><span class="rec-score">Рекомендуют</span><span class="rec-name">101Hotels</span></div>
   </a>
 </div>
 
@@ -486,129 +452,55 @@ img{display:block;max-width:100%}
 <p>Нам доверяют корпоративные клиенты</p>
 <div class="line"></div>
 </div>
-
 <div class="reviews-wrap reveal">
   <div class="rv-arrow rv-arrow-l" id="rvLeft">‹</div>
   <div class="rv-arrow rv-arrow-r" id="rvRight">›</div>
   <div class="reviews-track" id="rvTrack">
-
-    <div class="rv-card">
-      <div class="rv-top">
-        <div class="rv-author-name">Андрей К.</div>
-        <div class="rv-stars-date">
-          <span class="rv-stars">★★★★★</span>
-          <span class="rv-date">Директор по логистике, IT-компания</span>
-        </div>
-        <p class="rv-text">Размещали руководство на протяжении квартала. Апартаменты на уровне — сотрудники отмечают комфорт и автономность. Документооборот прозрачный, бронирование моментальное. Рекомендуем.</p>
-      </div>
-    </div>
-
-    <div class="rv-card">
-      <div class="rv-top">
-        <div class="rv-author-name">Елена М.</div>
-        <div class="rv-stars-date">
-          <span class="rv-stars">★★★★★</span>
-          <span class="rv-date">HR-директор, производственный холдинг</span>
-        </div>
-        <p class="rv-text">Перевели всех командировочных сюда после пробного размещения. Главное — сотрудники сами просят бронировать именно НОРТ. Бот-консьерж реально работает, завтраки хорошие.</p>
-      </div>
-    </div>
-
-    <div class="rv-card">
-      <div class="rv-top">
-        <div class="rv-author-name">Дмитрий В.</div>
-        <div class="rv-stars-date">
-          <span class="rv-stars">★★★★★</span>
-          <span class="rv-date">Финансовый директор, строительная группа</span>
-        </div>
-        <p class="rv-text">Отличный формат для длительных командировок. Кухня, рабочая зона, тишина — всё, что нужно. Корпоративные условия выгоднее, чем в классических отелях города.</p>
-      </div>
-    </div>
-
-    <div class="rv-card">
-      <div class="rv-top">
-        <div class="rv-author-name">Ольга С.</div>
-        <div class="rv-stars-date">
-          <span class="rv-stars">★★★★★</span>
-          <span class="rv-date">Руководитель АХО, фармацевтическая компания</span>
-        </div>
-        <p class="rv-text">Для нас важна скорость заселения — сотрудники прилетают поздно, ждать на ресепшене некогда. Здесь бесконтактный заезд за минуту, бот-консьерж отвечает моментально. Полный пакет закрывающих документов приходит на почту без напоминаний. За полгода — ни одного сбоя.</p>
-      </div>
-    </div>
-
-    <div class="rv-card">
-      <div class="rv-top">
-        <div class="rv-author-name">Игорь Н.</div>
-        <div class="rv-stars-date">
-          <span class="rv-stars">★★★★★</span>
-          <span class="rv-date">Коммерческий директор, инжиниринговая группа</span>
-        </div>
-        <p class="rv-text">Наши инженеры живут в командировках по 2–3 недели. В обычном отеле за это время сходишь с ума, а тут полноценная квартира — кухня, стиралка, рабочий стол. Ребята стали продуктивнее, а компания экономит: завтрак включён, корпоративная цена фиксированная. Плюс программа лояльности — баллы копятся и идут в дело.</p>
-      </div>
-    </div>
-
+    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Андрей К.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Директор по логистике, IT-компания</span></div><p class="rv-text">Размещали руководство на протяжении квартала. Апартаменты на уровне — сотрудники отмечают комфорт и автономность. Документооборот прозрачный, бронирование моментальное. Рекомендуем.</p></div></div>
+    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Елена М.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">HR-директор, производственный холдинг</span></div><p class="rv-text">Перевели всех командировочных сюда после пробного размещения. Главное — сотрудники сами просят бронировать именно НОРТ. Бот-консьерж реально работает, завтраки хорошие.</p></div></div>
+    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Дмитрий В.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Финансовый директор, строительная группа</span></div><p class="rv-text">Отличный формат для длительных командировок. Кухня, рабочая зона, тишина — всё, что нужно. Корпоративные условия выгоднее, чем в классических отелях города.</p></div></div>
+    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Ольга С.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Руководитель АХО, фармацевтическая компания</span></div><p class="rv-text">Для нас важна скорость заселения — сотрудники прилетают поздно, ждать на ресепшене некогда. Здесь бесконтактный заезд за минуту, бот-консьерж отвечает моментально. Полный пакет закрывающих документов приходит на почту без напоминаний. За полгода — ни одного сбоя.</p></div></div>
+    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Игорь Н.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Коммерческий директор, инжиниринговая группа</span></div><p class="rv-text">Наши инженеры живут в командировках по 2–3 недели. В обычном отеле за это время сходишь с ума, а тут полноценная квартира — кухня, стиралка, рабочий стол. Ребята стали продуктивнее, а компания экономит: завтрак включён, корпоративная цена фиксированная. Плюс программа лояльности — баллы копятся и идут в дело.</p></div></div>
   </div>
   <div class="rv-dots" id="rvDots"></div>
 </div>
-
 </section>
 
 <!-- ============ CTA + ФОРМА ============ -->
-<section class="section sec-white" id="cta">
+<section class="section sec-dark2" id="cta">
 <div class="cta reveal">
 <h2>Начнём сотрудничество?</h2>
 <p>Заполните форму — мы подготовим индивидуальное коммерческое предложение и свяжемся с вами в течение рабочего дня.</p>
-
 <form class="cta-form" id="ctaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
   <input type="hidden" name="_subject" value="Корпоративная заявка с сайта">
   <input type="hidden" name="_next" value="https://nortapart-bot.github.io/Guide/corporate.html#cta">
   <input type="hidden" name="_template" value="table">
-
   <div class="form-grid">
-    <div class="form-group">
-      <label for="cf-name">Имя</label>
-      <input type="text" id="cf-name" name="Имя" placeholder="Как к вам обращаться" required>
-    </div>
-    <div class="form-group">
-      <label for="cf-company">Компания</label>
-      <input type="text" id="cf-company" name="Компания" placeholder="Название компании" required>
-    </div>
-    <div class="form-group">
-      <label for="cf-phone">Телефон</label>
-      <input type="tel" id="cf-phone" name="Телефон" placeholder="+7 (___) ___-__-__" required>
-    </div>
-    <div class="form-group">
-      <label for="cf-email">Почта</label>
-      <input type="email" id="cf-email" name="Почта" placeholder="email@company.ru" required>
-    </div>
+    <div class="form-group"><label for="cf-name">Имя</label><input type="text" id="cf-name" name="Имя" placeholder="Как к вам обращаться" required></div>
+    <div class="form-group"><label for="cf-company">Компания</label><input type="text" id="cf-company" name="Компания" placeholder="Название компании" required></div>
+    <div class="form-group"><label for="cf-phone">Телефон</label><input type="tel" id="cf-phone" name="Телефон" placeholder="+7 (___) ___-__-__" required></div>
+    <div class="form-group"><label for="cf-email">Почта</label><input type="email" id="cf-email" name="Почта" placeholder="email@company.ru" required></div>
   </div>
-
-  <div class="form-group form-group-full">
-    <label for="cf-message">Сообщение</label>
-    <textarea id="cf-message" name="Сообщение" rows="4" placeholder="Расскажите о задаче: количество сотрудников, сроки, пожелания…"></textarea>
-  </div>
-
+  <div class="form-group form-group-full"><label for="cf-message">Сообщение</label><textarea id="cf-message" name="Сообщение" rows="4" placeholder="Расскажите о задаче: количество сотрудников, сроки, пожелания…"></textarea></div>
   <div class="form-actions">
     <button type="submit" class="btn btn-sand" id="cfSubmit">Отправить заявку</button>
     <a href="https://t.me/" target="_blank" class="btn btn-ghost">Написать в Телеграм</a>
   </div>
 </form>
-
 <div class="cta-thankyou" id="ctaThankyou" style="display:none">
   <div class="ty-icon">✓</div>
   <h3>Заявка отправлена!</h3>
   <p>Мы свяжемся с вами в течение рабочего дня и подготовим индивидуальное предложение.</p>
 </div>
-
 </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
 <div class="footer-logo">НОРТ</div>
-<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород<br>Корпоративное размещение · Деловое размещение + отдых</p>
+<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород<br>Корпоративное размещение · Business + Leisure</p>
 <div style="margin-top:24px">
-<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=" target="_blank" class="btn btn-brown">Забронировать номер</a>
+<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=" target="_blank" class="btn btn-gold">Забронировать номер</a>
 </div>
 </footer>
 
@@ -693,20 +585,10 @@ if(t)t.scrollIntoView({behavior:'smooth'});
     btn.disabled=true;
     fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
     .then(function(r){
-      if(r.ok){
-        form.style.display='none';
-        document.getElementById('ctaThankyou').style.display='block';
-      }else{
-        btn.textContent='Ошибка, попробуйте ещё раз';
-        btn.disabled=false;
-        setTimeout(function(){btn.textContent=origText},3000);
-      }
+      if(r.ok){form.style.display='none';document.getElementById('ctaThankyou').style.display='block';}
+      else{btn.textContent='Ошибка, попробуйте ещё раз';btn.disabled=false;setTimeout(function(){btn.textContent=origText},3000);}
     })
-    .catch(function(){
-      btn.textContent='Ошибка сети';
-      btn.disabled=false;
-      setTimeout(function(){btn.textContent=origText},3000);
-    });
+    .catch(function(){btn.textContent='Ошибка сети';btn.disabled=false;setTimeout(function(){btn.textContent=origText},3000);});
   });
 })();
 </script>
