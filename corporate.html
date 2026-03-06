@@ -87,6 +87,17 @@ img{display:block;max-width:100%}
 .apart-item-body p{font-size:15px;color:var(--text-m);line-height:1.75}
 @media(max-width:768px){.apart-grid{grid-template-columns:1fr}.apart-item img{height:240px}}
 
+/* ===== APARTMENT TYPES ===== */
+.type-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.type-item{border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:var(--transition)}
+.type-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-h)}
+.type-item img{width:100%;height:320px;object-fit:cover;transition:.6s}
+.type-item:hover img{transform:scale(1.04)}
+.type-body{padding:28px 26px}
+.type-body h3{font-size:20px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.type-body p{font-size:15px;color:var(--text-m);line-height:1.75}
+@media(max-width:768px){.type-grid{grid-template-columns:1fr}.type-item img{height:260px}}
+
 .two-col{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .col-card{border-radius:var(--radius);background:var(--card);padding:48px 40px;box-shadow:var(--shadow);transition:var(--transition)}
 .col-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
@@ -176,25 +187,16 @@ img{display:block;max-width:100%}
 .cta-form label{font-size:12px;font-weight:600;color:rgba(245,240,235,.5);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
 .cta-form input,
 .cta-form textarea{
-  width:100%;
-  padding:15px 18px;
-  border-radius:10px;
+  width:100%;padding:15px 18px;border-radius:10px;
   border:1.5px solid rgba(212,201,186,.2);
-  background:rgba(255,255,255,.07);
-  color:var(--cream);
-  font-family:'Inter',sans-serif;
-  font-size:15px;
-  transition:var(--transition);
-  outline:none;
+  background:rgba(255,255,255,.07);color:var(--cream);
+  font-family:'Inter',sans-serif;font-size:15px;
+  transition:var(--transition);outline:none;
 }
 .cta-form input::placeholder,
 .cta-form textarea::placeholder{color:rgba(245,240,235,.3)}
 .cta-form input:focus,
-.cta-form textarea:focus{
-  border-color:var(--sand);
-  background:rgba(255,255,255,.1);
-  box-shadow:0 0 0 3px rgba(212,201,186,.15);
-}
+.cta-form textarea:focus{border-color:var(--sand);background:rgba(255,255,255,.1);box-shadow:0 0 0 3px rgba(212,201,186,.15)}
 .cta-form textarea{resize:vertical;min-height:110px}
 .form-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
 .form-actions .btn{min-width:200px;justify-content:center}
@@ -204,13 +206,7 @@ img{display:block;max-width:100%}
   .form-actions .btn{min-width:auto}
 }
 .cta-thankyou{text-align:center;padding:40px 20px}
-.cta-thankyou .ty-icon{
-  width:72px;height:72px;border-radius:50%;
-  background:var(--sand);color:var(--dark);
-  font-size:32px;font-weight:800;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 20px;
-}
+.cta-thankyou .ty-icon{width:72px;height:72px;border-radius:50%;background:var(--sand);color:var(--dark);font-size:32px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
 .cta-thankyou h3{font-size:24px;color:var(--cream);margin-bottom:10px}
 .cta-thankyou p{font-size:16px;color:rgba(245,240,235,.6);max-width:420px;margin:0 auto}
 
@@ -294,6 +290,44 @@ img{display:block;max-width:100%}
 </div>
 </div>
 </div>
+
+<!-- Типы апартаментов -->
+<div class="sec-head reveal" style="margin-top:80px">
+<h2>Типы апартаментов</h2>
+<p>Подберём оптимальный вариант под задачи компании</p>
+<div class="line"></div>
+</div>
+<div class="type-grid">
+<div class="type-item reveal">
+<img src="type-studio.jpg" alt="Стандарт студии" loading="lazy">
+<div class="type-body">
+<h3>Стандарт студии</h3>
+<p>Компактные студии с полным оснащением — рабочая зона, кухня, удобная кровать. Оптимальный выбор для краткосрочных командировок одного сотрудника.</p>
+</div>
+</div>
+<div class="type-item reveal">
+<img src="type-2room.jpg" alt="Двухкомнатные апартаменты" loading="lazy">
+<div class="type-body">
+<h3>Двухкомнатные апартаменты</h3>
+<p>Отдельная спальня и гостиная с рабочим пространством. Для длительных командировок и руководителей, ценящих приватность и простор.</p>
+</div>
+</div>
+<div class="type-item reveal">
+<img src="type-design.jpg" alt="Дизайнерские студии" loading="lazy">
+<div class="type-body">
+<h3>Дизайнерские студии</h3>
+<p>Авторский интерьер, панорамные виды на город и реку. Для размещения ключевых клиентов и партнёров компании на особом уровне.</p>
+</div>
+</div>
+<div class="type-item reveal">
+<img src="type-premium.jpg" alt="Premium апартаменты" loading="lazy">
+<div class="type-body">
+<h3>Premium апартаменты</h3>
+<p>Максимальная площадь, премиальная отделка, панорамное остекление. Для первых лиц компании и VIP-гостей, которым важен статус и комфорт.</p>
+</div>
+</div>
+</div>
+
 </section>
 
 <!-- ============ TWO COLUMNS ============ -->
@@ -678,4 +712,3 @@ if(t)t.scrollIntoView({behavior:'smooth'});
 </script>
 </body>
 </html>
-
