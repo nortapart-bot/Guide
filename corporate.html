@@ -34,7 +34,7 @@ img{display:block;max-width:100%}
 .hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden;background:var(--dark)}
 .hero-img{position:absolute;inset:0;z-index:0}
 .hero-img img{width:100%;height:100%;object-fit:cover;opacity:.35;filter:brightness(.9) saturate(.85)}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(44,38,32,.3) 0%,rgba(44,38,32,.1) 40%,rgba(44,38,32,.6) 75%,rgba(44,38,32,1) 100%)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(44,38,32,.3) 0%,rgba(44,38,32,.1) 40%,rgba(44,38,32,.55) 80%,rgba(44,38,32,.85) 100%)}
 .hero>*:not(.hero-img):not(.hero-overlay){position:relative;z-index:2}
 .badge{display:inline-block;padding:10px 26px;border:1px solid rgba(212,201,186,.5);border-radius:30px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sand);margin-bottom:36px;backdrop-filter:blur(8px);background:rgba(255,255,255,.06)}
 .hero h1{font-size:clamp(30px,6vw,60px);font-weight:800;line-height:1.1;margin-bottom:18px;color:var(--cream)}
@@ -57,13 +57,6 @@ img{display:block;max-width:100%}
 .section{padding:110px 24px}
 .sec-cream{background:var(--cream)}
 .sec-white{background:var(--white)}
-
-/* ===== TRANSITION SECTION (dark → light) ===== */
-.sec-transition{
-  background:linear-gradient(to bottom, var(--dark) 0%, #3D352D 15%, #6B5F53 30%, #A89A8A 50%, var(--cream) 75%);
-  padding-top:60px;
-  padding-bottom:110px;
-}
 
 .sec-head{text-align:center;margin-bottom:60px}
 .sec-head h2{font-size:clamp(26px,4.5vw,40px);font-weight:800;color:var(--dark);margin-bottom:14px;letter-spacing:-.3px}
@@ -248,8 +241,8 @@ img{display:block;max-width:100%}
 <a href="#testdrive" class="hero-btn">Подробнее <span class="arrow">↓</span></a>
 </section>
 
-<!-- ============ TEST-DRIVE (gradient transition) ============ -->
-<section class="section sec-transition" id="testdrive">
+<!-- ============ TEST-DRIVE ============ -->
+<section class="section sec-cream" id="testdrive">
 <div class="td-card reveal">
 <div class="td-inner">
 <div class="td-img"><img src="apart-living.jpg" alt="Апартаменты" loading="lazy"></div>
@@ -418,18 +411,18 @@ img{display:block;max-width:100%}
     <div class="form-group"><label for="cf-name">Имя</label><input type="text" id="cf-name" name="Имя" placeholder="Как к вам обращаться" required></div>
     <div class="form-group"><label for="cf-company">Компания</label><input type="text" id="cf-company" name="Компания" placeholder="Название компании" required></div>
     <div class="form-group"><label for="cf-phone">Телефон</label><input type="tel" id="cf-phone" name="Телефон" placeholder="+7 (___) ___-__-__" required></div>
-    <div class="form-group"><label for="cf-email">Почта</label><input type="email" id="cf-email" name="Почта" placeholder="email@company.ru" required></div>
+    <div class="form-group"><label for="cf-email">Почта</label><input type="email" id="cf-email" name="Почта" placeholder="email@company.ru"></div>
   </div>
-  <div class="form-group form-group-full"><label for="cf-message">Сообщение</label><textarea id="cf-message" name="Сообщение" rows="4" placeholder="Расскажите о задаче: количество сотрудников, сроки, пожелания…"></textarea></div>
+  <div class="form-group form-group-full"><label for="cf-msg">Сообщение</label><textarea id="cf-msg" name="Сообщение" placeholder="Количество сотрудников, даты, пожелания…"></textarea></div>
   <div class="form-actions">
-    <button type="submit" class="btn btn-sand" id="cfSubmit">Отправить заявку</button>
-    <a href="https://t.me/" target="_blank" class="btn btn-ghost">Написать в Телеграм</a>
+    <button type="submit" class="btn btn-sand">Отправить заявку</button>
+    <a href="https://reservationsteps.ru/rooms/index/af2167bd-d5b8-4e8d-ad9b-90c159d757e9?token=f7024&lang=ru&utm_source=share_from_pms" target="_blank" class="btn btn-ghost">Забронировать апартаменты</a>
   </div>
 </form>
 <div class="cta-thankyou" id="ctaThankyou" style="display:none">
   <div class="ty-icon">✓</div>
-  <h3>Заявка отправлена!</h3>
-  <p>Мы свяжемся с вами в течение рабочего дня и подготовим индивидуальное предложение.</p>
+  <h3>Спасибо!</h3>
+  <p>Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>
 </div>
 </div>
 </section>
@@ -437,97 +430,38 @@ img{display:block;max-width:100%}
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
 <div class="footer-logo">НОРТ</div>
-<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород<br>Корпоративное размещение · Business + Leisure</p>
-<div style="margin-top:24px">
-<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&colorSchemePreview=0&onlyrooms=" target="_blank" class="btn btn-brown">Забронировать номер</a>
-</div>
+<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород · Корпоративное размещение</p>
+<a href="https://reservationsteps.ru/rooms/index/af2167bd-d5b8-4e8d-ad9b-90c159d757e9?token=f7024&lang=ru&utm_source=share_from_pms" target="_blank" class="btn btn-brown" style="margin-top:24px">Забронировать апартаменты</a>
 </footer>
 
+<!-- ============ SCRIPTS ============ -->
 <script>
-/* Reveal */
-var revEls=document.querySelectorAll('.reveal');
-if('IntersectionObserver' in window){
-var io=new IntersectionObserver(function(entries){
-for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting)entries[i].target.classList.add('visible')}
-},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-for(var i=0;i<revEls.length;i++)io.observe(revEls[i]);
-}else{for(var i=0;i<revEls.length;i++)revEls[i].classList.add('visible')}
+/* reveal */
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* Smooth anchors */
-var anchors=document.querySelectorAll('a[href^="#"]');
-for(var i=0;i<anchors.length;i++){
-anchors[i].addEventListener('click',function(e){
-e.preventDefault();
-var t=document.querySelector(this.getAttribute('href'));
-if(t)t.scrollIntoView({behavior:'smooth'});
-});}
+/* smooth anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
-/* Reviews carousel */
-(function(){
-  var track=document.getElementById('rvTrack');
-  var left=document.getElementById('rvLeft');
-  var right=document.getElementById('rvRight');
-  var dotsWrap=document.getElementById('rvDots');
-  if(!track)return;
-  var cards=track.querySelectorAll('.rv-card');
-  var total=cards.length;
-  var perView=3;
-  function getPerView(){
-    if(window.innerWidth<600)return 1;
-    if(window.innerWidth<900)return 2;
-    return 3;
-  }
-  function buildDots(){
-    dotsWrap.innerHTML='';
-    perView=getPerView();
-    var pages=Math.ceil(total/perView);
-    for(var i=0;i<pages;i++){
-      var d=document.createElement('div');
-      d.className='rv-dot'+(i===0?' active':'');
-      d.dataset.page=i;
-      d.addEventListener('click',function(){goTo(+this.dataset.page)});
-      dotsWrap.appendChild(d);
-    }
-  }
-  function goTo(page){
-    perView=getPerView();
-    var gap=24;
-    var w=cards[0].offsetWidth+gap;
-    track.scrollTo({left:page*perView*w,behavior:'smooth'});
-  }
-  function updateDots(){
-    perView=getPerView();
-    var gap=24;
-    var w=cards[0].offsetWidth+gap;
-    var page=Math.round(track.scrollLeft/(perView*w));
-    var dots=dotsWrap.querySelectorAll('.rv-dot');
-    for(var i=0;i<dots.length;i++)dots[i].classList.toggle('active',i===page);
-  }
-  left.addEventListener('click',function(){track.scrollBy({left:-(cards[0].offsetWidth+24),behavior:'smooth'})});
-  right.addEventListener('click',function(){track.scrollBy({left:cards[0].offsetWidth+24,behavior:'smooth'})});
-  track.addEventListener('scroll',updateDots);
-  window.addEventListener('resize',buildDots);
-  buildDots();
-})();
+/* reviews carousel */
+const track=document.getElementById('rvTrack');
+const left=document.getElementById('rvLeft');
+const right=document.getElementById('rvRight');
+const dots=document.getElementById('rvDots');
+if(track&&left&&right){
+  const cards=track.querySelectorAll('.rv-card');
+  cards.forEach((_,i)=>{const d=document.createElement('span');d.className='rv-dot'+(i===0?' active':'');d.dataset.i=i;dots.appendChild(d)});
+  const allDots=dots.querySelectorAll('.rv-dot');
+  const scrollTo=i=>{cards[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'})};
+  allDots.forEach(d=>d.addEventListener('click',()=>scrollTo(+d.dataset.i)));
+  left.addEventListener('click',()=>track.scrollBy({left:-350,behavior:'smooth'}));
+  right.addEventListener('click',()=>track.scrollBy({left:350,behavior:'smooth'}));
+  track.addEventListener('scroll',()=>{let idx=0;cards.forEach((c,i)=>{if(c.offsetLeft-track.scrollLeft<180)idx=i});allDots.forEach((d,i)=>d.classList.toggle('active',i===idx))});
+}
 
-/* Form submit */
-(function(){
-  var form=document.getElementById('ctaForm');
-  if(!form)return;
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var btn=document.getElementById('cfSubmit');
-    var origText=btn.textContent;
-    btn.textContent='Отправляем…';
-    btn.disabled=true;
-    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-    .then(function(r){
-      if(r.ok){form.style.display='none';document.getElementById('ctaThankyou').style.display='block';}
-      else{btn.textContent='Ошибка, попробуйте ещё раз';btn.disabled=false;setTimeout(function(){btn.textContent=origText},3000);}
-    })
-    .catch(function(){btn.textContent='Ошибка сети';btn.disabled=false;setTimeout(function(){btn.textContent=origText},3000);});
-  });
-})();
+/* form submit */
+const form=document.getElementById('ctaForm');
+if(form){form.addEventListener('submit',async e=>{e.preventDefault();try{await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});form.style.display='none';document.getElementById('ctaThankyou').style.display='block'}catch(err){alert('Ошибка отправки. Попробуйте позже.')}});}
 </script>
 </body>
 </html>
