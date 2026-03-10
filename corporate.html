@@ -81,6 +81,17 @@ img{display:block;max-width:100%}
 .td-note-sub{margin:0;font-size:14px;font-weight:400;color:var(--text-m);line-height:1.65}
 @media(max-width:768px){.td-inner{grid-template-columns:1fr}.td-img{min-height:280px}.td-body{padding:32px 24px}}
 
+/* ===== BREAKFAST ===== */
+.bfast-card{max-width:1040px;margin:0 auto;border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+.bfast-img{width:100%;max-height:420px;overflow:hidden}
+.bfast-img img{width:100%;height:100%;object-fit:cover;display:block;transition:.6s}
+.bfast-card:hover .bfast-img img{transform:scale(1.03)}
+.bfast-body{padding:40px 44px}
+.bfast-body h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--dark);margin-bottom:16px}
+.bfast-body p{font-size:17px;color:var(--text-m);line-height:1.85;margin-bottom:14px}
+.bfast-body p:last-child{margin-bottom:0}
+@media(max-width:768px){.bfast-body{padding:28px 24px}.bfast-img{max-height:280px}}
+
 /* ===== APARTMENTS GRID ===== */
 .apart-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .apart-item{border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:var(--transition)}
@@ -94,6 +105,7 @@ img{display:block;max-width:100%}
 
 /* ===== APARTMENT TYPES ===== */
 .type-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+a.type-item{color:inherit;text-decoration:none;display:block}
 .type-item{border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:var(--transition)}
 .type-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-h)}
 .type-item img{width:100%;height:320px;object-fit:cover;transition:.6s}
@@ -236,8 +248,8 @@ img{display:block;max-width:100%}
 <div class="hero-overlay"></div>
 <div class="badge">Корпоративным клиентам</div>
 <h1>Апарт-отель <span>«9 ночей – НОРТ»</span></h1>
-<div class="hero-sub">Business + Leisure<br>Работа и Отдых</div>
-<p>Предлагаем начать сотрудничество и протестировать наш технологичный формат размещения сотрудников в центре Нижнего Новгорода.</p>
+<div class="hero-sub">Business + Leisure<br>работа и отдых</div>
+<p>Предлагаем начать сотрудничество и протестировать наш высокотехнологичный формат размещения сотрудников в центре Нижнего Новгорода.</p>
 <a href="#testdrive" class="hero-btn">Подробнее <span class="arrow">↓</span></a>
 </section>
 
@@ -249,7 +261,7 @@ img{display:block;max-width:100%}
 <div class="td-body">
 <div class="td-label">Формат сотрудничества</div>
 <h2>Тест-драйв апартаментов для руководителей</h2>
-<p>Начачните сотрудничество в формате пробного размещения чтобы лично оценить:</p>
+<p>Предлагаем компании начать сотрудничество в формате пробного размещения и лично оценить:</p>
 <ul class="td-list">
 <li>Уровень сервиса</li>
 <li>Технологичность заселения</li>
@@ -270,11 +282,25 @@ img{display:block;max-width:100%}
 </div>
 </section>
 
+<!-- ============ ЗАВТРАКИ ============ -->
+<section class="section sec-white" id="breakfast">
+<div class="bfast-card reveal">
+<div class="bfast-img">
+  <img src="breakfast.jpg" alt="Завтраки" loading="lazy">
+</div>
+<div class="bfast-body">
+  <h2>Завтраки</h2>
+  <p>Континентальный завтрак в ресторане «Стейкхаус» на первом этаже здания или завтрак из кофейни в ланчбоксе — на выбор.</p>
+  <p>Также вы можете заказать доставку продуктов и приготовить завтрак самостоятельно на полностью оборудованной кухне апартаментов.</p>
+</div>
+</div>
+</section>
+
 <!-- ============ APARTMENTS ============ -->
-<section class="section sec-white" id="apartments">
+<section class="section sec-cream" id="apartments">
 <div class="sec-head reveal">
 <h2>Внутри</h2>
-<p>Современное пространство в центре Нижнего Новгорода</p>
+<p>Современные пространства в центре Нижнего Новгорода</p>
 <div class="line"></div>
 </div>
 <div class="apart-grid">
@@ -293,7 +319,7 @@ img{display:block;max-width:100%}
 </div>
 
 <div class="sec-head reveal" style="margin-top:80px">
-<h2>Варианты</h2>
+<h2>Типы апартаментов</h2>
 <p>Подберём оптимальный вариант под задачи компании</p>
 <div class="line"></div>
 </div>
@@ -306,9 +332,9 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ TWO COLUMNS ============ -->
-<section class="section sec-cream" id="benefits">
+<section class="section sec-white" id="benefits">
 <div class="sec-head reveal">
-<h2>Выгода</h2>
+<h2>Выгода для всех сторон</h2>
 <p>Что получает сотрудник и что получает компания</p>
 <div class="line"></div>
 </div>
@@ -319,7 +345,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ WHY US ============ -->
-<section class="section sec-white" id="why">
+<section class="section sec-cream" id="why">
 <div class="sec-head reveal">
 <h2>Почему «9 ночей – НОРТ»</h2>
 <p>6 причин выбрать нас для размещения сотрудников</p>
@@ -336,10 +362,10 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ BUSINESS + LEISURE ============ -->
-<section class="section sec-cream" id="bl">
+<section class="section sec-white" id="bl">
 <div class="bl-card reveal">
 <h2>Business + Leisure</h2>
-<div class="bl-tag">Работа и Отдых</div>
+<div class="bl-tag">Работа и отдых</div>
 <p>Мы создаём условия, при которых деловая поездка становится комфортной и содержательной.</p>
 <p>После завершения рабочих задач сотрудник может продлить проживание на специальных условиях, использовать накопленные баллы программы лояльности и остаться в городе на выходные.</p>
 <p>В дополнение, каждому гостю мы направляем НОРТ-гид — подборку лучших ресторанов, баров, событий и локаций в пешей доступности от апартаментов.</p>
@@ -353,7 +379,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ LOYALTY ============ -->
-<section class="section sec-white" id="loyalty">
+<section class="section sec-cream" id="loyalty">
 <div class="loyalty reveal">
 <h2>Корпоративная программа лояльности</h2>
 <div class="loy-sub">Баллы за каждое проживание</div>
@@ -367,7 +393,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ НАС РЕКОМЕНДУЮТ + ОТЗЫВЫ ============ -->
-<section class="section sec-cream" id="reviews">
+<section class="section sec-white" id="reviews">
 <div class="sec-head reveal">
 <h2>Нас рекомендуют</h2>
 <div class="line"></div>
@@ -399,7 +425,7 @@ img{display:block;max-width:100%}
 </section>
 
 <!-- ============ CTA + ФОРМА ============ -->
-<section class="section sec-white" id="cta">
+<section class="section sec-cream" id="cta">
 <div class="cta reveal">
 <h2>Начнём сотрудничество?</h2>
 <p>Заполните форму — мы подготовим индивидуальное коммерческое предложение и свяжемся с вами в течение рабочего дня.</p>
