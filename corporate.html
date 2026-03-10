@@ -428,17 +428,14 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 <div class="cta reveal">
 <h2>Начнём сотрудничество?</h2>
 <p>Заполните форму — мы подготовим индивидуальное коммерческое предложение и свяжемся с вами в течение рабочего дня.</p>
-<form class="cta-form" id="ctaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-  <input type="hidden" name="_subject" value="Корпоративная заявка с сайта">
-  <input type="hidden" name="_next" value="https://nortapart-bot.github.io/Guide/corporate.html#cta">
-  <input type="hidden" name="_template" value="table">
+<form class="cta-form" id="ctaForm">
   <div class="form-grid">
-    <div class="form-group"><label for="cf-name">Имя</label><input type="text" id="cf-name" name="Имя" placeholder="Как к вам обращаться" required></div>
-    <div class="form-group"><label for="cf-company">Компания</label><input type="text" id="cf-company" name="Компания" placeholder="Название компании" required></div>
-    <div class="form-group"><label for="cf-phone">Телефон</label><input type="tel" id="cf-phone" name="Телефон" placeholder="+7 (___) ___-__-__" required></div>
-    <div class="form-group"><label for="cf-email">Почта</label><input type="email" id="cf-email" name="Почта" placeholder="email@company.ru"></div>
+    <div class="form-group"><label for="cf-name">Имя</label><input type="text" id="cf-name" name="name" placeholder="Как к вам обращаться" required></div>
+    <div class="form-group"><label for="cf-company">Компания</label><input type="text" id="cf-company" name="company" placeholder="Название компании" required></div>
+    <div class="form-group"><label for="cf-phone">Телефон</label><input type="tel" id="cf-phone" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+    <div class="form-group"><label for="cf-email">Почта</label><input type="email" id="cf-email" name="email" placeholder="email@company.ru"></div>
   </div>
-  <div class="form-group form-group-full"><label for="cf-msg">Сообщение</label><textarea id="cf-msg" name="Сообщение" placeholder="Количество сотрудников, даты, пожелания…"></textarea></div>
+  <div class="form-group form-group-full"><label for="cf-msg">Сообщение</label><textarea id="cf-msg" name="message" placeholder="Количество сотрудников, даты, пожелания…"></textarea></div>
   <div class="form-actions">
     <button type="submit" class="btn btn-sand">Отправить заявку</button>
     <a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&adults=2" target="_blank" class="btn btn-ghost">Забронировать апартаменты</a>
@@ -484,9 +481,39 @@ if(track&&left&&right){
   track.addEventListener('scroll',()=>{let idx=0;cards.forEach((c,i)=>{if(c.offsetLeft-track.scrollLeft<180)idx=i});allDots.forEach((d,i)=>d.classList.toggle('active',i===idx))});
 }
 
-/* form submit */
+/* form submit → Telegram */
 const form=document.getElementById('ctaForm');
-if(form){form.addEventListener('submit',async e=>{e.preventDefault();try{await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});form.style.display='none';document.getElementById('ctaThankyou').style.display='block'}catch(err){alert('Ошибка отправки. Попробуйте позже.')}});}
+if(form){form.addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=form.querySelector('button[type="submit"]');
+  const orig=btn.textContent;
+  btn.textContent='Отправка…';
+  btn.disabled=true;
+
+  const name=form.querySelector('[name="name"]').value.trim();
+  const company=form.querySelector('[name="company"]').value.trim();
+  const phone=form.querySelector('[name="phone"]').value.trim();
+  const email=form.querySelector('[name="email"]').value.trim();
+  const message=form.querySelector('[name="message"]').value.trim();
+
+  const text='📩 *Корпоративная заявка*\n\n👤 Имя: '+name+'\n🏢 Компания: '+company+'\n📞 Телефон: '+phone+'\n📧 E-mail: '+(email||'—')+'\n💬 Сообщение: '+(message||'—');
+
+  try{
+    const res=await fetch('https://api.telegram.org/bot6802345536:AAG-BdGVbtizI5JfhUls_7evfvz2_0JyZbk/sendMessage',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:799699622,text:text,parse_mode:'Markdown'})
+    });
+    if(res.ok){
+      form.style.display='none';
+      document.getElementById('ctaThankyou').style.display='block';
+    }else{throw new Error('err')}
+  }catch(err){
+    btn.textContent='Ошибка, попробуйте снова';
+    btn.disabled=false;
+    setTimeout(function(){btn.textContent=orig;},3000);
+  }
+});}
 </script>
 </body>
 </html>
