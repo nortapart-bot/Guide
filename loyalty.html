@@ -91,8 +91,21 @@ img{display:block;max-width:100%}
 @media(max-width:768px){.steps{grid-template-columns:1fr}}
 
 /* ===== FAQ ===== */
-.faq{max-width:760px;margin:0 auto}
+.faq-card{
+  max-width:760px;
+  margin:0 auto;
+  background:var(--white);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px 40px;
+  transition:var(--transition);
+}
+.faq-card:hover{
+  box-shadow:var(--shadow-h);
+}
+.faq{max-width:100%;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--cream-d);overflow:hidden}
+.faq-item:last-child{border-bottom:none}
 .faq-q{display:flex;align-items:center;justify-content:space-between;padding:24px 0;cursor:pointer;font-size:17px;font-weight:600;color:var(--dark);transition:var(--transition);gap:16px}
 .faq-q:hover{color:var(--brown)}
 .faq-arrow{font-size:20px;color:var(--sand);transition:var(--transition);flex-shrink:0}
@@ -100,6 +113,9 @@ img{display:block;max-width:100%}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
 .faq-item.open .faq-a{max-height:300px;padding-bottom:24px}
 .faq-a p{font-size:15px;color:var(--text-m);line-height:1.85}
+@media(max-width:768px){
+  .faq-card{padding:16px 20px}
+}
 
 /* ===== CTA ===== */
 .cta-block{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--dark);padding:72px 52px;text-align:center}
@@ -260,7 +276,8 @@ img{display:block;max-width:100%}
 <h2>Частые вопросы</h2>
 <div class="line"></div>
 </div>
-<div class="faq reveal">
+<div class="faq-card reveal">
+<div class="faq">
 
 <div class="faq-item">
 <div class="faq-q">Как стать участником программы?<span class="faq-arrow">▾</span></div>
@@ -287,6 +304,7 @@ img{display:block;max-width:100%}
 <div class="faq-a"><p>Уровень повышается автоматически по мере накопления проживаний. Чем чаще вы останавливаетесь у нас, тем выше ваш статус и кэшбек.</p></div>
 </div>
 
+</div>
 </div>
 </section>
 
