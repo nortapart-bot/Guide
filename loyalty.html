@@ -8,6 +8,420 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#1C1915;color:#E8E0D6;line-height:1.8;overflow-x:hidden;font-size:17px}
+:root{
+  /* — тёмная палитра, единая с hero — */
+  --bg-dark:#1C1915;
+  --bg-section:#232019;
+  --bg-card:#2C2720;
+  --bg-card-hover:#342E26;
+  --bg-accent:#1A1714;
+  --cream:#F5F0EB;
+  --cream-d:#D4CBC0;
+  --sand:#C4B49A;
+  --sand-l:rgba(196,180,154,.15);
+  --brown:#A08C6E;
+  --brown-l:#B8A284;
+  --dark:#0F0D0A;
+  --text:#E8E0D6;
+  --text-m:#A09888;
+  --text-dim:#7A7068;
+  --white:#FAF7F4;
+  --border:rgba(196,180,154,.12);
+  --border-l:rgba(196,180,154,.08);
+  --shadow:0 4px 32px rgba(0,0,0,.25);
+  --shadow-h:0 12px 48px rgba(0,0,0,.4);
+  --radius:16px;
+  --transition:.35s cubic-bezier(.4,0,.2,1);
+  --gold:#C9A84C;
+  --gold-glow:rgba(201,168,76,.15);
+  --silver:#A0A5AD;
+  --silver-glow:rgba(160,165,173,.12);
+  --standard:#8B7355;
+  --standard-glow:rgba(139,115,85,.12);
+}
+a{color:var(--sand);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--cream)}
+img{display:block;max-width:100%}
+::selection{background:var(--brown);color:var(--cream)}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:70vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:100px 24px 80px;position:relative;overflow:hidden;
+  background:url('hero-bg.jpg') center/cover no-repeat;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,
+    rgba(28,25,21,.55) 0%,
+    rgba(28,25,21,.70) 60%,
+    rgba(28,25,21,.95) 100%);
+}
+.hero>*{position:relative;z-index:1}
+.badge{display:inline-block;padding:10px 26px;border:1px solid rgba(196,180,154,.25);border-radius:30px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sand);margin-bottom:32px;backdrop-filter:blur(12px);background:rgba(255,255,255,.04)}
+.hero h1{font-size:clamp(34px,7vw,64px);font-weight:900;line-height:1.05;margin-bottom:12px;color:var(--cream);letter-spacing:2px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
+.hero h1 span{color:var(--gold);display:block;font-size:clamp(18px,3vw,28px);font-weight:600;letter-spacing:4px;margin-top:8px;text-shadow:none}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:rgba(245,240,235,.6);max-width:560px;margin:20px auto 40px;line-height:1.85}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border:1.5px solid rgba(196,180,154,.3);border-radius:40px;color:var(--cream);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:var(--transition);background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+.hero-btn:hover{background:var(--sand);color:var(--dark);border-color:var(--sand)}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:10px;font-size:15px;font-weight:600;transition:var(--transition);border:none;cursor:pointer;font-family:inherit;letter-spacing:.3px}
+.btn-brown{background:var(--brown);color:var(--dark)}
+.btn-brown:hover{background:var(--brown-l);color:var(--dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(139,115,85,.3)}
+
+/* ===== SECTIONS ===== */
+.section{padding:100px 24px}
+.sec-dark{background:var(--bg-dark)}
+.sec-darker{background:var(--bg-section)}
+.sec-head{text-align:center;margin-bottom:60px}
+.sec-head h2{font-size:clamp(26px,4.5vw,40px);font-weight:800;color:var(--cream);margin-bottom:14px;letter-spacing:-.3px}
+.sec-head p{color:var(--text-m);font-size:17px;max-width:540px;margin:0 auto}
+.sec-head .line{width:48px;height:2px;background:var(--sand);margin:20px auto 0;border-radius:2px;opacity:.5}
+
+/* ===== BENEFITS ===== */
+.benefits-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.benefit-card{border-radius:var(--radius);background:var(--bg-card);padding:44px 32px;text-align:center;box-shadow:var(--shadow);transition:var(--transition);border:1px solid var(--border)}
+.benefit-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);background:var(--bg-card-hover);border-color:rgba(196,180,154,.2)}
+.benefit-icon{font-size:40px;display:flex;align-items:center;justify-content:center;width:80px;height:80px;background:var(--sand-l);border-radius:50%;margin:0 auto 20px}
+.benefit-card h3{font-size:18px;font-weight:700;color:var(--cream);margin-bottom:10px}
+.benefit-card p{font-size:15px;color:var(--text-m);line-height:1.75}
+@media(max-width:768px){.benefits-grid{grid-template-columns:1fr}}
+
+/* ===== TIERS ===== */
+.tiers{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch}
+.tier{border-radius:var(--radius);background:var(--bg-card);padding:0;box-shadow:var(--shadow);transition:var(--transition);overflow:hidden;display:flex;flex-direction:column;position:relative;border:1px solid var(--border)}
+.tier:hover{transform:translateY(-5px);box-shadow:var(--shadow-h);border-color:rgba(196,180,154,.2)}
+.tier-head{padding:40px 32px 28px;text-align:center}
+.tier-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:var(--dark);margin:0 auto 18px}
+.tier-num-1{background:var(--standard);box-shadow:0 4px 20px var(--standard-glow)}
+.tier-num-2{background:var(--silver);box-shadow:0 4px 20px var(--silver-glow)}
+.tier-num-3{background:var(--gold);box-shadow:0 4px 20px var(--gold-glow)}
+.tier h3{font-size:24px;font-weight:800;color:var(--cream);margin-bottom:4px}
+.tier .tier-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.tier-label-1{color:var(--standard)}
+.tier-label-2{color:var(--silver)}
+.tier-label-3{color:var(--gold)}
+.tier-cashback{font-size:clamp(40px,6vw,56px);font-weight:900;line-height:1;margin-bottom:6px}
+.tier-cashback-1{color:var(--standard)}
+.tier-cashback-2{color:var(--silver)}
+.tier-cashback-3{color:var(--gold)}
+.tier-cashback-sub{font-size:14px;color:var(--text-dim);font-weight:500}
+.tier-body{padding:0 32px 36px;flex:1;display:flex;flex-direction:column}
+.tier-divider{width:100%;height:1px;background:var(--border);margin:0 0 24px}
+.tier-features{list-style:none;flex:1}
+.tier-features li{font-size:15px;color:var(--text-m);padding:8px 0 8px 28px;position:relative;line-height:1.7}
+.tier-features li::before{content:'✓';position:absolute;left:0;color:var(--sand);font-weight:700;font-size:14px}
+.tier-popular{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--dark);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;box-shadow:0 4px 16px var(--gold-glow)}
+
+/* silver highlight */
+.tier:nth-child(2){border-color:rgba(201,168,76,.2);background:linear-gradient(180deg,rgba(201,168,76,.06) 0%,var(--bg-card) 40%)}
+
+@media(max-width:768px){.tiers{grid-template-columns:1fr;max-width:400px}}
+
+/* ===== HOW IT WORKS ===== */
+.steps{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{text-align:center;padding:40px 28px;border-radius:var(--radius);transition:var(--transition)}
+.step:hover{background:rgba(196,180,154,.04)}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--sand-l);border:1px solid var(--border);color:var(--sand);font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+.step h3{font-size:18px;font-weight:700;color:var(--cream);margin-bottom:10px}
+.step p{font-size:15px;color:var(--text-m);line-height:1.75}
+@media(max-width:768px){.steps{grid-template-columns:1fr}}
+
+/* ===== CONNECTOR LINE between steps (desktop) ===== */
+@media(min-width:769px){
+  .steps{position:relative}
+  .steps::before{
+    content:'';position:absolute;top:68px;left:calc(33.33% + 12px);
+    width:calc(33.33% - 24px);height:1px;background:var(--border);
+  }
+  .steps::after{
+    content:'';position:absolute;top:68px;left:calc(66.66% + 12px);
+    width:calc(33.33% - 24px);height:1px;background:var(--border);
+  }
+}
+
+/* ===== FAQ ===== */
+.faq-card{
+  max-width:760px;
+  margin:0 auto;
+  background:var(--bg-card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px 40px;
+  transition:var(--transition);
+  border:1px solid var(--border);
+}
+.faq-card:hover{
+  box-shadow:var(--shadow-h);
+  border-color:rgba(196,180,154,.2);
+}
+.faq{max-width:100%;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:24px 0;cursor:pointer;font-size:17px;font-weight:600;color:var(--cream);transition:var(--transition);gap:16px}
+.faq-q:hover{color:var(--sand)}
+.faq-arrow{font-size:20px;color:var(--text-dim);transition:var(--transition);flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--sand)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:24px}
+.faq-a p{font-size:15px;color:var(--text-m);line-height:1.85}
+@media(max-width:768px){
+  .faq-card{padding:16px 20px}
+}
+
+/* ===== CTA ===== */
+.cta-block{
+  max-width:1040px;margin:0 auto;border-radius:var(--radius);
+  padding:72px 52px;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(201,168,76,.12) 0%,rgba(139,115,85,.08) 100%);
+  border:1px solid rgba(201,168,76,.15);
+}
+.cta-block h2{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--cream);margin-bottom:14px}
+.cta-block p{font-size:17px;color:var(--text-m);max-width:520px;margin:0 auto 32px;line-height:1.85}
+.cta-block .btn-sand{background:var(--gold);color:var(--dark);font-weight:700;border-radius:10px}
+.cta-block .btn-sand:hover{background:#D4B85C;transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,.3)}
+@media(max-width:768px){.cta-block{padding:40px 24px}}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--dark);padding:48px 24px;text-align:center;border-top:1px solid var(--border)}
+.footer-logo{font-size:26px;font-weight:800;color:var(--sand);margin-bottom:10px;letter-spacing:2px}
+.footer-text{font-size:14px;color:var(--text-dim);line-height:1.7}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+<div class="hero-overlay"></div>
+<div class="badge">Программа лояльности</div>
+<h1>КЛУБ НОРТ<span>Привилегии для постоянных гостей</span></h1>
+<p class="hero-sub">Копите бонусы за каждое проживание и используйте их при следующем бронировании. Три уровня — чем чаще вы у нас, тем больше привилегий.</p>
+<a href="#tiers" class="hero-btn">Уровни программы ↓</a>
+</section>
+
+<!-- ============ ПРЕИМУЩЕСТВА ============ -->
+<section class="section sec-dark">
+<div class="sec-head reveal">
+<h2>Преимущества программы</h2>
+<p>Всё, что нужно знать о Клубе НОРТ</p>
+<div class="line"></div>
+</div>
+<div class="benefits-grid">
+<div class="benefit-card reveal">
+<div class="benefit-icon">💰</div>
+<h3>Кэшбек до 20%</h3>
+<p>Получайте бонусные баллы после каждого проживания. Чем выше уровень — тем больше кэшбек.</p>
+</div>
+<div class="benefit-card reveal">
+<div class="benefit-icon">🎁</div>
+<h3>Оплата бонусами</h3>
+<p>Используйте накопленные баллы для оплаты до 10% стоимости следующего бронирования.</p>
+</div>
+<div class="benefit-card reveal">
+<div class="benefit-icon">⭐</div>
+<h3>Особые условия</h3>
+<p>Гарантированное заселение, улучшение апартаментов при возможности, гибкий чек-аут.</p>
+</div>
+</div>
+</section>
+
+<!-- ============ УРОВНИ ============ -->
+<section class="section sec-darker" id="tiers">
+<div class="sec-head reveal">
+<h2>Уровни программы</h2>
+<p>Три уровня привилегий — начните копить бонусы с первого бронирования</p>
+<div class="line"></div>
+</div>
+<div class="tiers">
+
+<div class="tier reveal">
+<div class="tier-head">
+<div class="tier-num tier-num-1">1</div>
+<div class="tier-label tier-label-1">Уровень</div>
+<h3>Standard</h3>
+<div class="tier-cashback tier-cashback-1">10%</div>
+<div class="tier-cashback-sub">кэшбек баллами</div>
+</div>
+<div class="tier-body">
+<div class="tier-divider"></div>
+<ul class="tier-features">
+<li>10% кэшбек от суммы проживания</li>
+<li>Оплата до 10% бронирования баллами</li>
+<li>Присваивается автоматически</li>
+<li>Бот-консьерж 24/7</li>
+</ul>
+</div>
+</div>
+
+<div class="tier reveal">
+<div class="tier-popular">Популярный</div>
+<div class="tier-head">
+<div class="tier-num tier-num-2">2</div>
+<div class="tier-label tier-label-2">Уровень</div>
+<h3>Silver</h3>
+<div class="tier-cashback tier-cashback-2">15%</div>
+<div class="tier-cashback-sub">кэшбек баллами</div>
+</div>
+<div class="tier-body">
+<div class="tier-divider"></div>
+<ul class="tier-features">
+<li>15% кэшбек от суммы проживания</li>
+<li>Оплата до 10% бронирования баллами</li>
+<li>Приоритетное заселение</li>
+<li>Гибкий чек-аут при возможности</li>
+<li>Бот-консьерж 24/7</li>
+</ul>
+</div>
+</div>
+
+<div class="tier reveal">
+<div class="tier-head">
+<div class="tier-num tier-num-3">3</div>
+<div class="tier-label tier-label-3">Уровень</div>
+<h3>Gold</h3>
+<div class="tier-cashback tier-cashback-3">20%</div>
+<div class="tier-cashback-sub">кэшбек баллами</div>
+</div>
+<div class="tier-body">
+<div class="tier-divider"></div>
+<ul class="tier-features">
+<li>20% кэшбек от суммы проживания</li>
+<li>Оплата до 10% бронирования баллами</li>
+<li>Гарантированное заселение</li>
+<li>Улучшение апартаментов при возможности</li>
+<li>Гибкий чек-аут</li>
+<li>Бот-консьерж 24/7</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ============ КАК ЭТО РАБОТАЕТ ============ -->
+<section class="section sec-dark">
+<div class="sec-head reveal">
+<h2>Как это работает</h2>
+<p>Три простых шага</p>
+<div class="line"></div>
+</div>
+<div class="steps">
+<div class="step reveal">
+<div class="step-num">1</div>
+<h3>Бронируйте</h3>
+<p>Забронируйте апартаменты через сайт или менеджера. Бонусный счёт создаётся автоматически.</p>
+</div>
+<div class="step reveal">
+<div class="step-num">2</div>
+<h3>Получайте бонусы</h3>
+<p>После каждого проживания на ваш счёт начисляется от 10 до 20% от суммы бронирования в виде баллов.</p>
+</div>
+<div class="step reveal">
+<div class="step-num">3</div>
+<h3>Используйте</h3>
+<p>При следующем бронировании оплатите до 10% стоимости накопленными баллами. Сообщите менеджеру при бронировании.</p>
+</div>
+</div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section sec-darker">
+<div class="sec-head reveal">
+<h2>Частые вопросы</h2>
+<div class="line"></div>
+</div>
+<div class="faq-card reveal">
+<div class="faq">
+
+<div class="faq-item">
+<div class="faq-q">Как стать участником программы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>Забронируйте апартаменты — мы автоматически создадим для вас личный бонусный счёт. Никаких анкет и регистраций.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Как начисляются бонусы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>После завершения проживания мы начислим от 10 до 20% от суммы бронирования в зависимости от вашего уровня в программе.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Как использовать бонусные баллы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>При бронировании сообщите менеджеру о желании использовать бонусы. Баллами можно оплатить до 10% от стоимости проживания.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Сколько действуют бонусные баллы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>Бонусные баллы действуют в течение 3 месяцев с момента начисления. Используйте их для бронирования любых дат, кроме 31 декабря — 11 января.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Как перейти на следующий уровень?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>Уровень повышается автоматически по мере накопления проживаний. Чем чаще вы останавливаетесь у нас, тем выше ваш статус и кэшбек.</p></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section sec-dark">
+<div class="cta-block reveal">
+<h2>Начните копить бонусы</h2>
+<p>Забронируйте апартаменты — бонусный счёт создаётся автоматически с первого проживания.</p>
+<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&adults=2" target="_blank" class="btn btn-sand">Забронировать апартаменты</a>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+<div class="footer-logo">НОРТ</div>
+<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород · Программа лояльности «Клуб НОРТ»</p>
+<a href="https://apart-nn.ru" class="btn btn-brown" style="margin-top:24px">На главную</a>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+/* reveal */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* smooth anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement;item.classList.toggle('open');document.querySelectorAll('.faq-item').forEach(other=>{if(other!==item)other.classList.remove('open')})})});
+</script>
+</body>
+</html>
+Copy
+Что изменилось и почему это теперь единое целое:
+
+Вся страница переведена на тёмную палитру — фон #1C1915 (тёплый тёмно-коричневый) плавно вытекает из затемнённого hero-фото. Секции чередуются между sec-dark (#1C1915) и sec-darker (#232019) — это даёт лёгкое визуальное разделение без резких контрастов. Карточки используют #2C2720 с тонкой полупрозрачной рамкой rgba(196,180,154,.12) — на тёмном фоне они мягко выделяются, но не выбиваются. Текст — светло-кремовый #E8E0D6, вторичный — #A09888, приглушённый — #7A7068. Золотой акцент #C9A84C для Gold-уровня получил свечение (box-shadow), Silver тоже. Карточка Silver-уровня имеет лёгкий золотистый градиент сверху. Hero-overlay теперь градиентный: сверху полупрозрачный (видно фото), снизу почти непрозрачный — плавный переход в тёмный фон следующей секции. CTA-блок — с золотистым градиентным фоном и золотой кнопкой вместо sand. Между шагами «Как это работает» на десктопе добавлены соединительные линии. Footer — самый тёмный (#0F0D0A) с тонкой верхней рамкой.
+
+оставил светлую тему
+окно "Начните копить бонусы" должно быть с картинкой как на шапке сайта размер окна такой же как сейчас
+Использование инструмента
+|
+Чтение
+https://raw.githubusercontent.com/nortapart-bot/Guide/main/loyalty.html
+Посмотреть
+Понял — оставляем светлую тему как есть, только CTA-блок «Начните копить бонусы» делаем с фоновой картинкой (как hero) вместо сплошного тёмного цвета. Вот полный код:
+
+Copy<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Клуб НОРТ — Программа лояльности | Апарт-отель «9 ночей – НОРТ»</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#F5F0EB;color:#3A3530;line-height:1.8;overflow-x:hidden;font-size:17px}
 :root{
   --cream:#F5F0EB;--cream-d:#EDE6DE;--sand:#D4C9BA;--brown:#8B7355;--brown-d:#6B5740;
@@ -322,6 +736,392 @@ img{display:block;max-width:100%}
 <div class="faq-item">
 <div class="faq-q">Как использовать бонусные баллы?<span class="faq-arrow">▾</span></div>
 <div class="faq-a"><p>При бронировании сообщите менеджеру о желании использовать бонусы. Баллами можно оплатить до 10% от стоимости проживания.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Сколько действуют бонусные баллы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>Бонусные баллы действуют в течение 3 месяцев с момента начисления. Используйте их для бронирования любых дат, кроме 31 декабря — 11 января.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Как перейти на следующий уровень?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>Уровень повышается автоматически по мере накопления проживаний. Чем чаще вы останавливаетесь у нас, тем выше ваш статус и кэшбек.</p></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section sec-white">
+<div class="cta-block reveal">
+<div class="cta-block-overlay"></div>
+<h2>Начните копить бонусы</h2>
+<p>Забронируйте апартаменты — бонусный счёт создаётся автоматически с первого проживания.</p>
+<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&adults=2" target="_blank" class="btn btn-sand">Забронировать апартаменты</a>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+<div class="footer-logo">НОРТ</div>
+<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород · Программа лояльности «Клуб НОРТ»</p>
+<a href="https://apart-nn.ru" class="btn btn-brown" style="margin-top:24px">На главную</a>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+/* reveal */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* smooth anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement;item.classList.toggle('open');document.querySelectorAll('.faq-item').forEach(other=>{if(other!==item)other.classList.remove('open')})})});
+</script>
+</body>
+</html>
+Copy
+Что изменилось — только блок CTA:
+
+Вместо сплошного background: var(--dark) теперь background: url('hero-bg.jpg') center/cover no-repeat — та же картинка, что и в шапке. Поверх добавлен отдельный div.cta-block-overlay с затемнением (70–80% прозрачности), чтобы белый текст и кнопка оставались читаемыми. Все дочерние элементы подняты на z-index:1 выше оверлея. Заголовок получил text-shadow для дополнительной контрастности. Размеры блока (max-width:1040px, padding:72px 52px, border-radius:14px) остались точно такими же. Вся остальная страница — светлая тема без изменений.
+
+"Частые вопросы"
+Добавь пункт: Еа что можно тратить бонусные баллы?
+Баллы можно тратить на частичную оплату проживания и парковки
+Вот полный обновлённый код:
+
+Copy<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Клуб НОРТ — Программа лояльности | Апарт-отель «9 ночей – НОРТ»</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#F5F0EB;color:#3A3530;line-height:1.8;overflow-x:hidden;font-size:17px}
+:root{
+  --cream:#F5F0EB;--cream-d:#EDE6DE;--sand:#D4C9BA;--brown:#8B7355;--brown-d:#6B5740;
+  --dark:#2C2620;--text:#3A3530;--text-m:#6B6358;--white:#FDFBF9;--card:#FDFBF9;
+  --shadow:0 4px 24px rgba(44,38,32,.06);--shadow-h:0 8px 36px rgba(44,38,32,.1);
+  --radius:14px;--transition:.35s cubic-bezier(.4,0,.2,1);
+  --gold:#C9A84C;--silver:#A0A5AD;--standard:#8B7355
+}
+a{color:var(--brown);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--brown-d)}
+img{display:block;max-width:100%}
+::selection{background:var(--sand);color:var(--dark)}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:70vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:100px 24px 80px;position:relative;overflow:hidden;
+  background:url('hero-bg.jpg') center/cover no-repeat;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,rgba(44,38,32,.65) 0%,rgba(44,38,32,.75) 100%);
+}
+.hero>*{position:relative;z-index:1}
+.badge{display:inline-block;padding:10px 26px;border:1px solid rgba(212,201,186,.4);border-radius:30px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--sand);margin-bottom:32px;backdrop-filter:blur(8px);background:rgba(255,255,255,.05)}
+.hero h1{font-size:clamp(34px,7vw,64px);font-weight:900;line-height:1.05;margin-bottom:12px;color:var(--cream);letter-spacing:2px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero h1 span{color:var(--gold);display:block;font-size:clamp(18px,3vw,28px);font-weight:600;letter-spacing:4px;margin-top:8px;text-shadow:none}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:rgba(245,240,235,.75);max-width:560px;margin:20px auto 40px;line-height:1.85}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border:1.5px solid var(--sand);border-radius:40px;color:var(--cream);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:var(--transition);background:rgba(255,255,255,.08);backdrop-filter:blur(6px)}
+.hero-btn:hover{background:var(--sand);color:var(--dark)}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:10px;font-size:15px;font-weight:600;transition:var(--transition);border:none;cursor:pointer;font-family:inherit;letter-spacing:.3px}
+.btn-brown{background:var(--brown);color:var(--cream)}
+.btn-brown:hover{background:var(--brown-d);color:var(--cream);transform:translateY(-2px);box-shadow:0 8px 24px rgba(139,115,85,.2)}
+
+/* ===== SECTIONS ===== */
+.section{padding:100px 24px}
+.sec-cream{background:var(--cream)}
+.sec-white{background:var(--white)}
+.sec-head{text-align:center;margin-bottom:60px}
+.sec-head h2{font-size:clamp(26px,4.5vw,40px);font-weight:800;color:var(--dark);margin-bottom:14px;letter-spacing:-.3px}
+.sec-head p{color:var(--text-m);font-size:17px;max-width:540px;margin:0 auto}
+.sec-head .line{width:48px;height:2px;background:var(--sand);margin:20px auto 0;border-radius:2px}
+
+/* ===== BENEFITS ===== */
+.benefits-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.benefit-card{border-radius:var(--radius);background:var(--card);padding:44px 32px;text-align:center;box-shadow:var(--shadow);transition:var(--transition)}
+.benefit-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
+.benefit-icon{font-size:40px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;width:80px;height:80px;background:rgba(139,115,85,.07);border-radius:50%;margin:0 auto 20px}
+.benefit-card h3{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.benefit-card p{font-size:15px;color:var(--text-m);line-height:1.75}
+@media(max-width:768px){.benefits-grid{grid-template-columns:1fr}}
+
+/* ===== TIERS ===== */
+.tiers{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch}
+.tier{border-radius:var(--radius);background:var(--card);padding:0;box-shadow:var(--shadow);transition:var(--transition);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.tier:hover{transform:translateY(-5px);box-shadow:var(--shadow-h)}
+.tier-head{padding:40px 32px 28px;text-align:center}
+.tier-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;margin:0 auto 18px}
+.tier-num-1{background:var(--standard)}
+.tier-num-2{background:var(--silver)}
+.tier-num-3{background:var(--gold)}
+.tier h3{font-size:24px;font-weight:800;color:var(--dark);margin-bottom:4px}
+.tier .tier-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.tier-label-1{color:var(--standard)}
+.tier-label-2{color:var(--silver)}
+.tier-label-3{color:var(--gold)}
+.tier-cashback{font-size:clamp(40px,6vw,56px);font-weight:900;line-height:1;margin-bottom:6px}
+.tier-cashback-1{color:var(--standard)}
+.tier-cashback-2{color:var(--silver)}
+.tier-cashback-3{color:var(--gold)}
+.tier-cashback-sub{font-size:14px;color:var(--text-m);font-weight:500}
+.tier-body{padding:0 32px 36px;flex:1;display:flex;flex-direction:column}
+.tier-divider{width:100%;height:1px;background:var(--cream-d);margin:0 0 24px}
+.tier-features{list-style:none;flex:1}
+.tier-features li{font-size:15px;color:var(--text);padding:8px 0 8px 28px;position:relative;line-height:1.7}
+.tier-features li::before{content:'✓';position:absolute;left:0;color:var(--brown);font-weight:700;font-size:14px}
+.tier-popular{position:absolute;top:16px;right:16px;background:var(--gold);color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px}
+@media(max-width:768px){.tiers{grid-template-columns:1fr;max-width:400px}}
+
+/* ===== HOW IT WORKS ===== */
+.steps{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{text-align:center;padding:40px 28px}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--dark);color:var(--sand);font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+.step h3{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.step p{font-size:15px;color:var(--text-m);line-height:1.75}
+@media(max-width:768px){.steps{grid-template-columns:1fr}}
+
+/* ===== FAQ ===== */
+.faq-card{
+  max-width:760px;
+  margin:0 auto;
+  background:var(--white);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px 40px;
+  transition:var(--transition);
+}
+.faq-card:hover{
+  box-shadow:var(--shadow-h);
+}
+.faq{max-width:100%;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--cream-d);overflow:hidden}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:24px 0;cursor:pointer;font-size:17px;font-weight:600;color:var(--dark);transition:var(--transition);gap:16px}
+.faq-q:hover{color:var(--brown)}
+.faq-arrow{font-size:20px;color:var(--sand);transition:var(--transition);flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--brown)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:24px}
+.faq-a p{font-size:15px;color:var(--text-m);line-height:1.85}
+@media(max-width:768px){
+  .faq-card{padding:16px 20px}
+}
+
+/* ===== CTA ===== */
+.cta-block{
+  max-width:1040px;
+  margin:0 auto;
+  border-radius:var(--radius);
+  padding:72px 52px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:url('hero-bg.jpg') center/cover no-repeat;
+}
+.cta-block-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(44,38,32,.7) 0%,rgba(44,38,32,.8) 100%);
+  border-radius:var(--radius);
+}
+.cta-block>*{position:relative;z-index:1}
+.cta-block h2{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--cream);margin-bottom:14px;text-shadow:0 2px 16px rgba(0,0,0,.3)}
+.cta-block p{font-size:17px;color:rgba(245,240,235,.7);max-width:520px;margin:0 auto 32px;line-height:1.85}
+.cta-block .btn-sand{
+  background:var(--sand);color:var(--dark);font-weight:700;
+  backdrop-filter:blur(4px);
+}
+.cta-block .btn-sand:hover{
+  background:var(--cream);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,.2);
+}
+@media(max-width:768px){.cta-block{padding:40px 24px}}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--cream-d);padding:48px 24px;text-align:center}
+.footer-logo{font-size:26px;font-weight:800;color:var(--brown);margin-bottom:10px;letter-spacing:2px}
+.footer-text{font-size:14px;color:var(--text-m);line-height:1.7}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+<div class="hero-overlay"></div>
+<div class="badge">Программа лояльности</div>
+<h1>КЛУБ НОРТ<span>Привилегии для постоянных гостей</span></h1>
+<p class="hero-sub">Копите бонусы за каждое проживание и используйте их при следующем бронировании. Три уровня — чем чаще вы у нас, тем больше привилегий.</p>
+<a href="#tiers" class="hero-btn">Уровни программы ↓</a>
+</section>
+
+<!-- ============ ПРЕИМУЩЕСТВА ============ -->
+<section class="section sec-white">
+<div class="sec-head reveal">
+<h2>Преимущества программы</h2>
+<p>Всё, что нужно знать о Клубе НОРТ</p>
+<div class="line"></div>
+</div>
+<div class="benefits-grid">
+<div class="benefit-card reveal">
+<div class="benefit-icon">🎁</div>
+<h3>Кэшбек до 20%</h3>
+<p>Получайте бонусные баллы после каждого проживания. Чем выше уровень — тем больше кэшбек.</p>
+</div>
+<div class="benefit-card reveal">
+<div class="benefit-icon">💰</div>
+<h3>Оплата бонусами</h3>
+<p>Используйте накопленные баллы для оплаты до 10% стоимости следующего бронирования.</p>
+</div>
+<div class="benefit-card reveal">
+<div class="benefit-icon">⭐</div>
+<h3>Особые условия</h3>
+<p>Гарантированное заселение, улучшение апартаментов при возможности, гибкий чек-аут.</p>
+</div>
+</div>
+</section>
+
+<!-- ============ УРОВНИ ============ -->
+<section class="section sec-cream" id="tiers">
+<div class="sec-head reveal">
+<h2>Уровни программы</h2>
+<p>Три уровня привилегий — начните копить бонусы с первого бронирования</p>
+<div class="line"></div>
+</div>
+<div class="tiers">
+
+<div class="tier reveal">
+<div class="tier-head">
+<div class="tier-num tier-num-1">1</div>
+<div class="tier-label tier-label-1">Уровень</div>
+<h3>Standard</h3>
+<div class="tier-cashback tier-cashback-1">10%</div>
+<div class="tier-cashback-sub">кэшбек баллами</div>
+</div>
+<div class="tier-body">
+<div class="tier-divider"></div>
+<ul class="tier-features">
+<li>10% кэшбек от суммы проживания</li>
+<li>Оплата до 10% бронирования баллами</li>
+<li>Присваивается автоматически</li>
+<li>Бот-консьерж 24/7</li>
+</ul>
+</div>
+</div>
+
+<div class="tier reveal">
+<div class="tier-popular">Популярный</div>
+<div class="tier-head">
+<div class="tier-num tier-num-2">2</div>
+<div class="tier-label tier-label-2">Уровень</div>
+<h3>Silver</h3>
+<div class="tier-cashback tier-cashback-2">15%</div>
+<div class="tier-cashback-sub">кэшбек баллами</div>
+</div>
+<div class="tier-body">
+<div class="tier-divider"></div>
+<ul class="tier-features">
+<li>15% кэшбек от суммы проживания</li>
+<li>Оплата до 10% бронирования баллами</li>
+<li>Приоритетное заселение</li>
+<li>Гибкий чек-аут при возможности</li>
+<li>Бот-консьерж 24/7</li>
+</ul>
+</div>
+</div>
+
+<div class="tier reveal">
+<div class="tier-head">
+<div class="tier-num tier-num-3">3</div>
+<div class="tier-label tier-label-3">Уровень</div>
+<h3>Gold</h3>
+<div class="tier-cashback tier-cashback-3">20%</div>
+<div class="tier-cashback-sub">кэшбек баллами</div>
+</div>
+<div class="tier-body">
+<div class="tier-divider"></div>
+<ul class="tier-features">
+<li>20% кэшбек от суммы проживания</li>
+<li>Оплата до 10% бронирования баллами</li>
+<li>Гарантированное заселение</li>
+<li>Улучшение апартаментов при возможности</li>
+<li>Гибкий чек-аут</li>
+<li>Бот-консьерж 24/7</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ============ КАК ЭТО РАБОТАЕТ ============ -->
+<section class="section sec-white">
+<div class="sec-head reveal">
+<h2>Как это работает</h2>
+<p>Три простых шага</p>
+<div class="line"></div>
+</div>
+<div class="steps">
+<div class="step reveal">
+<div class="step-num">1</div>
+<h3>Бронируйте</h3>
+<p>Забронируйте апартаменты через сайт или менеджера. Бонусный счёт создаётся автоматически.</p>
+</div>
+<div class="step reveal">
+<div class="step-num">2</div>
+<h3>Получайте бонусы</h3>
+<p>После каждого проживания на ваш счёт начисляется от 10 до 20% от суммы бронирования в виде баллов.</p>
+</div>
+<div class="step reveal">
+<div class="step-num">3</div>
+<h3>Используйте</h3>
+<p>При следующем бронировании оплатите до 10% стоимости накопленными баллами. Сообщите менеджеру при бронировании.</p>
+</div>
+</div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section sec-cream">
+<div class="sec-head reveal">
+<h2>Частые вопросы</h2>
+<div class="line"></div>
+</div>
+<div class="faq-card reveal">
+<div class="faq">
+
+<div class="faq-item">
+<div class="faq-q">Как стать участником программы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>Забронируйте апартаменты — мы автоматически создадим для вас личный бонусный счёт. Никаких анкет и регистраций.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Как начисляются бонусы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>После завершения проживания мы начислим от 10 до 20% от суммы бронирования в зависимости от вашего уровня в программе.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Как использовать бонусные баллы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>При бронировании сообщите менеджеру о желании использовать бонусы. Баллами можно оплатить до 10% от стоимости проживания.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">На что можно тратить бонусные баллы?<span class="faq-arrow">▾</span></div>
+<div class="faq-a"><p>Баллы можно тратить на частичную оплату проживания и парковки.</p></div>
 </div>
 
 <div class="faq-item">
