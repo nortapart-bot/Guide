@@ -495,19 +495,40 @@ if(form){form.addEventListener('submit',async function(e){
   const email=form.querySelector('[name="email"]').value.trim();
   const message=form.querySelector('[name="message"]').value.trim();
 
-  const text='📩 *Корпоративная заявка*\n\n👤 Имя: '+name+'\n🏢 Компания: '+company+'\n📞 Телефон: '+phone+'\n📧 E-mail: '+(email||'—')+'\n💬 Сообщение: '+(message||'—');
+  /* ---- ФИКС 1: убрали Markdown, используем простой текст ---- */
+  const text=
+    '📩 Корпоративная заявка\n\n'+
+    '👤 Имя: '+name+'\n'+
+    '🏢 Компания: '+company+'\n'+
+    '📞 Телефон: '+phone+'\n'+
+    '📧 E-mail: '+(email||'—')+'\n'+
+    '💬 Сообщение: '+(message||'—');
+
+  /* ---- ФИКС 2: добавлен таймаут 10 сек ---- */
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),10000);
 
   try{
     const res=await fetch('https://api.telegram.org/bot6802345536:AAG-BdGVbtizI5JfhUls_7evfvz2_0JyZbk/sendMessage',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({chat_id:799699622,text:text,parse_mode:'Markdown'})
+      body:JSON.stringify({chat_id:799699622, text:text}),
+      signal:controller.signal
     });
+    clearTimeout(timeout);
+
     if(res.ok){
       form.style.display='none';
       document.getElementById('ctaThankyou').style.display='block';
-    }else{throw new Error('err')}
+    }else{
+      /* ---- ФИКС 3: логируем ошибку для отладки ---- */
+      const errData=await res.text();
+      console.error('TG API error:',res.status,errData);
+      throw new Error('TG '+res.status);
+    }
   }catch(err){
+    clearTimeout(timeout);
+    console.error('Form send error:',err);
     btn.textContent='Ошибка, попробуйте снова';
     btn.disabled=false;
     setTimeout(function(){btn.textContent=orig;},3000);
