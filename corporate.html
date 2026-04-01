@@ -10,27 +10,16 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#F5F0EB;color:#3A3530;line-height:1.8;overflow-x:hidden;font-size:17px}
 :root{
-  --cream:#F5F0EB;
-  --cream-d:#EDE6DE;
-  --sand:#D4C9BA;
-  --brown:#8B7355;
-  --brown-d:#6B5740;
-  --dark:#2C2620;
-  --text:#3A3530;
-  --text-m:#6B6358;
-  --white:#FDFBF9;
-  --card:#FDFBF9;
-  --shadow:0 4px 24px rgba(44,38,32,.06);
-  --shadow-h:0 8px 36px rgba(44,38,32,.1);
-  --radius:14px;
-  --transition:.35s cubic-bezier(.4,0,.2,1)
+  --cream:#F5F0EB;--cream-d:#EDE6DE;--sand:#D4C9BA;--brown:#8B7355;--brown-d:#6B5740;
+  --dark:#2C2620;--text:#3A3530;--text-m:#6B6358;--white:#FDFBF9;--card:#FDFBF9;
+  --shadow:0 4px 24px rgba(44,38,32,.06);--shadow-h:0 8px 36px rgba(44,38,32,.1);
+  --radius:14px;--transition:.35s cubic-bezier(.4,0,.2,1)
 }
 a{color:var(--brown);text-decoration:none;transition:var(--transition)}
 a:hover{color:var(--brown-d)}
 img{display:block;max-width:100%}
 ::selection{background:var(--sand);color:var(--dark)}
 
-/* ===== HERO ===== */
 .hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden;background:var(--dark)}
 .hero-img{position:absolute;inset:0;z-index:0}
 .hero-img img{width:100%;height:100%;object-fit:cover;opacity:.35;filter:brightness(.9) saturate(.85)}
@@ -46,24 +35,20 @@ img{display:block;max-width:100%}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 .arrow{display:inline-block;animation:float 2.5s ease-in-out infinite}
 
-/* ===== BUTTONS ===== */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:10px;font-size:15px;font-weight:600;transition:var(--transition);border:none;cursor:pointer;font-family:inherit;letter-spacing:.3px}
 .btn-brown{background:var(--brown);color:var(--cream)}
 .btn-brown:hover{background:var(--brown-d);color:var(--cream);transform:translateY(-2px);box-shadow:0 8px 24px rgba(139,115,85,.2)}
 .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--sand)}
 .btn-outline:hover{border-color:var(--brown);color:var(--brown);transform:translateY(-2px)}
 
-/* ===== SECTIONS ===== */
 .section{padding:110px 24px}
 .sec-cream{background:var(--cream)}
 .sec-white{background:var(--white)}
-
 .sec-head{text-align:center;margin-bottom:60px}
 .sec-head h2{font-size:clamp(26px,4.5vw,40px);font-weight:800;color:var(--dark);margin-bottom:14px;letter-spacing:-.3px}
 .sec-head p{color:var(--text-m);font-size:17px;max-width:540px;margin:0 auto}
 .sec-head .line{width:48px;height:2px;background:var(--sand);margin:20px auto 0;border-radius:2px}
 
-/* ===== TEST-DRIVE CARD ===== */
 .td-card{max-width:1040px;margin:0 auto;border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:0 8px 40px rgba(44,38,32,.15)}
 .td-inner{display:grid;grid-template-columns:1fr 1fr}
 .td-img{position:relative;min-height:520px;overflow:hidden}
@@ -81,7 +66,6 @@ img{display:block;max-width:100%}
 .td-note-sub{margin:0;font-size:14px;font-weight:400;color:var(--text-m);line-height:1.65}
 @media(max-width:768px){.td-inner{grid-template-columns:1fr}.td-img{min-height:280px}.td-body{padding:32px 24px}}
 
-/* ===== BREAKFAST ===== */
 .bfast-card{max-width:1040px;margin:0 auto;border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
 .bfast-img{width:100%;max-height:420px;overflow:hidden}
 .bfast-img img{width:100%;height:100%;object-fit:cover;display:block;transition:.6s}
@@ -92,7 +76,6 @@ img{display:block;max-width:100%}
 .bfast-body p:last-child{margin-bottom:0}
 @media(max-width:768px){.bfast-body{padding:28px 24px}.bfast-img{max-height:280px}}
 
-/* ===== APARTMENTS GRID ===== */
 .apart-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .apart-item{border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:var(--transition)}
 .apart-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-h)}
@@ -103,7 +86,6 @@ img{display:block;max-width:100%}
 .apart-item-body p{font-size:15px;color:var(--text-m);line-height:1.75}
 @media(max-width:768px){.apart-grid{grid-template-columns:1fr}.apart-item img{height:240px}}
 
-/* ===== APARTMENT TYPES ===== */
 .type-grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
 a.type-item{color:inherit;text-decoration:none;display:block}
 .type-item{border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:var(--transition)}
@@ -115,7 +97,6 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 .type-body p{font-size:15px;color:var(--text-m);line-height:1.75}
 @media(max-width:768px){.type-grid{grid-template-columns:1fr}.type-item img{height:260px}}
 
-/* ===== TWO COLUMNS ===== */
 .two-col{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .col-card{border-radius:var(--radius);background:var(--card);padding:48px 40px;box-shadow:var(--shadow);transition:var(--transition)}
 .col-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
@@ -126,7 +107,6 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 .col-card ul li::before{content:'—';position:absolute;left:0;color:var(--brown);font-weight:600}
 @media(max-width:768px){.two-col{grid-template-columns:1fr}.col-card{padding:32px 24px}}
 
-/* ===== BL CARD ===== */
 .bl-card{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--card);padding:60px 52px;box-shadow:var(--shadow)}
 .bl-card .bl-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--brown);margin-bottom:20px}
 .bl-card h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--dark);margin-bottom:8px}
@@ -138,7 +118,6 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 .bl-item p{font-size:15px;color:var(--text);line-height:1.65}
 @media(max-width:768px){.bl-card{padding:32px 24px}.bl-items{grid-template-columns:1fr}}
 
-/* ===== LOYALTY ===== */
 .loyalty{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:rgba(139,115,85,.06);padding:60px 52px;text-align:center}
 .loyalty h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:var(--dark);margin-bottom:8px}
 .loyalty .loy-sub{color:var(--brown);font-size:14px;font-weight:600;margin-bottom:24px}
@@ -147,7 +126,6 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 .loy-chip{background:var(--white);border:1.5px solid var(--sand);border-radius:30px;padding:13px 26px;font-size:14px;color:var(--brown-d);font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 @media(max-width:768px){.loyalty{padding:32px 24px}}
 
-/* ===== RECOMMEND BADGES ===== */
 .rec-strip{max-width:1040px;margin:0 auto 60px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
 .rec-badge{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:14px;padding:18px 26px;box-shadow:var(--shadow);transition:var(--transition);text-decoration:none;color:inherit}
 .rec-badge:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);color:inherit}
@@ -159,7 +137,6 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 .rec-name{font-size:12px;color:var(--text-m);font-weight:500;margin-top:2px}
 .rec-stars{color:#FFB400;font-size:13px;letter-spacing:1px}
 
-/* ===== REVIEWS ===== */
 .reviews-wrap{max-width:1040px;margin:0 auto;position:relative}
 .reviews-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px}
 .reviews-track::-webkit-scrollbar{display:none}
@@ -181,7 +158,6 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 @media(max-width:1100px){.rv-arrow-l{left:4px}.rv-arrow-r{right:4px}}
 @media(max-width:600px){.rv-card{min-width:280px;max-width:300px}.rv-arrow{display:none}.rec-strip{gap:16px}.rec-badge{padding:14px 18px;width:100%}}
 
-/* ===== CTA + FORM ===== */
 .cta{max-width:1040px;margin:0 auto;border-radius:var(--radius);background:var(--dark);padding:72px 52px;text-align:center}
 .cta h2{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--cream);margin-bottom:14px}
 .cta>p{font-size:17px;color:rgba(245,240,235,.6);max-width:520px;margin:0 auto 0;line-height:1.85}
@@ -196,43 +172,28 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 .form-group{display:flex;flex-direction:column}
 .form-group-full{margin-bottom:24px}
 .cta-form label{font-size:12px;font-weight:600;color:rgba(245,240,235,.5);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
-.cta-form input,
-.cta-form textarea{
-  width:100%;padding:15px 18px;border-radius:10px;
-  border:1.5px solid rgba(212,201,186,.2);
-  background:rgba(255,255,255,.07);color:var(--cream);
-  font-family:'Inter',sans-serif;font-size:15px;
-  transition:var(--transition);outline:none;
-}
-.cta-form input::placeholder,
-.cta-form textarea::placeholder{color:rgba(245,240,235,.3)}
-.cta-form input:focus,
-.cta-form textarea:focus{border-color:var(--sand);background:rgba(255,255,255,.1);box-shadow:0 0 0 3px rgba(212,201,186,.15)}
+.cta-form input,.cta-form textarea{width:100%;padding:15px 18px;border-radius:10px;border:1.5px solid rgba(212,201,186,.2);background:rgba(255,255,255,.07);color:var(--cream);font-family:'Inter',sans-serif;font-size:15px;transition:var(--transition);outline:none}
+.cta-form input::placeholder,.cta-form textarea::placeholder{color:rgba(245,240,235,.3)}
+.cta-form input:focus,.cta-form textarea:focus{border-color:var(--sand);background:rgba(255,255,255,.1);box-shadow:0 0 0 3px rgba(212,201,186,.15)}
 .cta-form textarea{resize:vertical;min-height:110px}
 .form-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
 .form-actions .btn{min-width:200px;justify-content:center}
-@media(max-width:600px){
-  .form-grid{grid-template-columns:1fr}
-  .form-actions{flex-direction:column;align-items:stretch}
-  .form-actions .btn{min-width:auto}
-}
-.cta-thankyou{text-align:center;padding:40px 20px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.form-actions{flex-direction:column;align-items:stretch}.form-actions .btn{min-width:auto}}
+.cta-thankyou{text-align:center;padding:40px 20px;display:none}
 .cta-thankyou .ty-icon{width:72px;height:72px;border-radius:50%;background:var(--sand);color:var(--dark);font-size:32px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
 .cta-thankyou h3{font-size:24px;color:var(--cream);margin-bottom:10px}
 .cta-thankyou p{font-size:16px;color:rgba(245,240,235,.6);max-width:420px;margin:0 auto}
 
-/* ===== FOOTER ===== */
 .footer{background:var(--cream-d);padding:48px 24px;text-align:center}
 .footer-logo{font-size:26px;font-weight:800;color:var(--brown);margin-bottom:10px;letter-spacing:2px}
 .footer-text{font-size:14px;color:var(--text-m);line-height:1.7}
-
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- ============ HERO ============ -->
+<!-- HERO -->
 <section class="hero" id="hero">
 <div class="hero-img"><img src="corp-hero.jpg" alt="Апарт-отель НОРТ"></div>
 <div class="hero-overlay"></div>
@@ -243,7 +204,7 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 <a href="#testdrive" class="hero-btn">Подробнее <span class="arrow">↓</span></a>
 </section>
 
-<!-- ============ TEST-DRIVE ============ -->
+<!-- TEST-DRIVE -->
 <section class="section sec-cream" id="testdrive">
 <div class="td-card reveal">
 <div class="td-inner">
@@ -255,38 +216,34 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 <ul class="td-list">
 <li>Уровень сервиса</li>
 <li>Технологичность заселения</li>
-<li>Комфорт оборудованных апартаментов<br>
-  <span style="font-size:0.9em;opacity:0.7;">(кухня, техника, рабочая зона, Wi-Fi)</span>
-</li>
+<li>Комфорт оборудованных апартаментов<br><span style="font-size:0.9em;opacity:0.7;">(кухня, техника, рабочая зона, Wi-Fi)</span></li>
 <li>Завтрак</li>
 <li>Администратор 24/7</li>
 <li>Скорость решения вопросов</li>
 <li>Полный пакет отчётных документов</li>
 </ul>
 <div class="td-note">
-  <strong>Без заключения долгосрочного договора.</strong>
-  <p class="td-note-sub">Вы принимаете решение о сотрудничестве, опираясь на реальный опыт проживания и уровень сервиса.</p>
+<strong>Без заключения долгосрочного договора.</strong>
+<p class="td-note-sub">Вы принимаете решение о сотрудничестве, опираясь на реальный опыт проживания и уровень сервиса.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- ============ ЗАВТРАКИ ============ -->
+<!-- ЗАВТРАКИ -->
 <section class="section sec-white" id="breakfast">
 <div class="bfast-card reveal">
-<div class="bfast-img">
-  <img src="breakfast.jpg" alt="Завтраки" loading="lazy">
-</div>
+<div class="bfast-img"><img src="breakfast.jpg" alt="Завтраки" loading="lazy"></div>
 <div class="bfast-body">
-  <h2>Завтраки</h2>
-  <p>Континентальный завтрак в ресторане «Стейк-Хаус» на первом этаже здания или завтрак из кофейни в ланчбоксе.</p>
-  <p>Также вы можете заказать доставку продуктов и приготовить завтрак самостоятельно на полностью оборудованной кухне апартаментов.</p>
+<h2>Завтраки</h2>
+<p>Континентальный завтрак в ресторане «Стейк-Хаус» на первом этаже здания или завтрак из кофейни в ланчбоксе.</p>
+<p>Также вы можете заказать доставку продуктов и приготовить завтрак самостоятельно на полностью оборудованной кухне апартаментов.</p>
 </div>
 </div>
 </section>
 
-<!-- ============ APARTMENTS ============ -->
+<!-- APARTMENTS -->
 <section class="section sec-cream" id="apartments">
 <div class="sec-head reveal">
 <h2>Внутри</h2>
@@ -321,7 +278,7 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 </div>
 </section>
 
-<!-- ============ TWO COLUMNS ============ -->
+<!-- TWO COLUMNS -->
 <section class="section sec-white" id="benefits">
 <div class="sec-head reveal">
 <h2>Выгода</h2>
@@ -334,7 +291,7 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 </div>
 </section>
 
-<!-- ============ BUSINESS + LEISURE ============ -->
+<!-- BUSINESS + LEISURE -->
 <section class="section sec-cream" id="bl">
 <div class="bl-card reveal">
 <div class="bl-label">Новый формат</div>
@@ -351,7 +308,7 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 </div>
 </section>
 
-<!-- ============ LOYALTY ============ -->
+<!-- LOYALTY -->
 <section class="section sec-white" id="loyalty">
 <div class="loyalty reveal">
 <h2>Корпоративная программа лояльности</h2>
@@ -365,7 +322,7 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 </div>
 </section>
 
-<!-- ============ НАС РЕКОМЕНДУЮТ + ОТЗЫВЫ ============ -->
+<!-- ОТЗЫВЫ -->
 <section class="section sec-cream" id="reviews">
 <div class="sec-head reveal">
 <h2>Нас рекомендуют</h2>
@@ -373,34 +330,22 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 <div class="line"></div>
 </div>
 <div class="rec-strip reveal">
-  <a href="https://travel.yandex.ru/hotels/nizhny-novgorod/9-nochei-nort/" target="_blank" class="rec-badge">
-    <div class="rec-logo"><img src="https://www.google.com/s2/favicons?domain=travel.yandex.ru&sz=128" alt="Яндекс Путешествия"></div>
-    <div class="rec-info">
-      <span class="rec-score">5.0<span class="rec-scale"> / 5.0</span> <span class="rec-stars">★★★★★</span></span>
-      <span class="rec-name">Яндекс Путешествия</span>
-    </div>
-  </a>
-  <a href="https://2gis.ru/n_novgorod/firm/70000001064268369" target="_blank" class="rec-badge">
-    <div class="rec-logo"><img src="https://www.google.com/s2/favicons?domain=2gis.ru&sz=128" alt="2ГИС"></div>
-    <div class="rec-info">
-      <span class="rec-score">4.8<span class="rec-scale"> / 5.0</span> <span class="rec-stars">★★★★★</span></span>
-      <span class="rec-name">2ГИС · 517 оценок</span>
-    </div>
-  </a>
-  <a href="https://ostrovok.ru/hotel/russia/nizhniy_novgorod/mid10136421/9_nochey_nn_aparthotel/" target="_blank" class="rec-badge">
-    <div class="rec-logo"><img src="https://www.google.com/s2/favicons?domain=ostrovok.ru&sz=128" alt="Островок"></div>
-    <div class="rec-info">
-      <span class="rec-score">8.9<span class="rec-scale"> / 10.0</span></span>
-      <span class="rec-name">Островок</span>
-    </div>
-  </a>
-  <a href="https://101hotels.com/opinions/hotel/nizhniy_novgorod/apart-otel_9_nochey_1.html" target="_blank" class="rec-badge">
-    <div class="rec-logo"><img src="https://www.google.com/s2/favicons?domain=101hotels.com&sz=128" alt="101Hotels"></div>
-    <div class="rec-info">
-      <span class="rec-score">Рекомендуют</span>
-      <span class="rec-name">101Hotels</span>
-    </div>
-  </a>
+<a href="https://travel.yandex.ru/hotels/nizhny-novgorod/9-nochei-nort/" target="_blank" class="rec-badge">
+<div class="rec-logo"><img src="https://www.google.com/s2/favicons?domain=travel.yandex.ru&sz=128" alt="Яндекс Путешествия"></div>
+<div class="rec-info"><span class="rec-score">5.0<span class="rec-scale"> / 5.0</span> <span class="rec-stars">★★★★★</span></span><span class="rec-name">Яндекс Путешествия</span></div>
+</a>
+<a href="https://2gis.ru/n_novgorod/firm/70000001064268369" target="_blank" class="rec-badge">
+<div class="rec-logo"><img src="https://www.google.com/s2/favicons?domain=2gis.ru&sz=128" alt="2ГИС"></div>
+<div class="rec-info"><span class="rec-score">4.8<span class="rec-scale"> / 5.0</span> <span class="rec-stars">★★★★★</span></span><span class="rec-name">2ГИС · 517 оценок</span></div>
+</a>
+<a href="https://ostrovok.ru/hotel/russia/nizhniy_novgorod/mid10136421/9_nochey_nn_aparthotel/" target="_blank" class="rec-badge">
+<div class="rec-logo"><img src="https://www.google.com/s2/favicons?domain=ostrovok.ru&sz=128" alt="Островок"></div>
+<div class="rec-info"><span class="rec-score">8.9<span class="rec-scale"> / 10.0</span></span><span class="rec-name">Островок</span></div>
+</a>
+<a href="https://101hotels.com/opinions/hotel/nizhniy_novgorod/apart-otel_9_nochey_1.html" target="_blank" class="rec-badge">
+<div class="rec-logo"><img src="https://www.google.com/s2/favicons?domain=101hotels.com&sz=128" alt="101Hotels"></div>
+<div class="rec-info"><span class="rec-score">Рекомендуют</span><span class="rec-name">101Hotels</span></div>
+</a>
 </div>
 
 <div class="sec-head reveal" style="margin-top:40px">
@@ -409,90 +354,126 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 <div class="line"></div>
 </div>
 <div class="reviews-wrap reveal">
-  <div class="rv-arrow rv-arrow-l" id="rvLeft">‹</div>
-  <div class="rv-arrow rv-arrow-r" id="rvRight">›</div>
-  <div class="reviews-track" id="rvTrack">
-    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Андрей К.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Директор по логистике, IT-компания</span></div><p class="rv-text">Размещали руководство на протяжении квартала. Апартаменты на уровне — сотрудники отмечают комфорт и автономность. Документооборот прозрачный, бронирование моментальное. Рекомендуем.</p></div></div>
-    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Елена М.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">HR-директор, производственный холдинг</span></div><p class="rv-text">Перевели всех командировочных сюда после пробного размещения. Сотрудники сами просят бронировать именно НОРТ. Завтраки хорошие.</p></div></div>
-    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Дмитрий В.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Финансовый директор, строительная группа</span></div><p class="rv-text">Отличный формат для длительных командировок. Кухня, рабочая зона, тишина — всё, что нужно. Корпоративные условия выгоднее, чем в классических отелях города.</p></div></div>
-    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Ольга С.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Руководитель АХО, фармацевтическая компания</span></div><p class="rv-text">Для нас важна скорость заселения — сотрудники прилетают поздно, ждать на ресепшене некогда. Здесь бесконтактный заезд за минуту, администратор отвечает быстро. Полный пакет закрывающих документов приходит на почту без напоминаний. За полгода — ни одного сбоя.</p></div></div>
-    <div class="rv-card"><div class="rv-top"><div class="rv-author-name">Игорь Н.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Коммерческий директор, инжиниринговая группа</span></div><p class="rv-text">Наши инженеры живут в командировках по 2–3 недели. В обычном отеле за это время сходишь с ума, а тут полноценная квартира — кухня, стиральная машине, рабочий стол. Ребята стали продуктивнее, а компания экономит: завтрак включён, корпоративная цена. Плюс программа лояльности — баллы копятся и идут в дело.</p></div></div>
-  </div>
-  <div class="rv-dots" id="rvDots"></div>
+<div class="rv-arrow rv-arrow-l" id="rvLeft">‹</div>
+<div class="rv-arrow rv-arrow-r" id="rvRight">›</div>
+<div class="reviews-track" id="rvTrack">
+<div class="rv-card"><div class="rv-top"><div class="rv-author-name">Андрей К.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Директор по логистике, IT-компания</span></div><p class="rv-text">Размещали руководство на протяжении квартала. Апартаменты на уровне — сотрудники отмечают комфорт и автономность. Документооборот прозрачный, бронирование моментальное. Рекомендуем.</p></div></div>
+<div class="rv-card"><div class="rv-top"><div class="rv-author-name">Елена М.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">HR-директор, производственный холдинг</span></div><p class="rv-text">Перевели всех командировочных сюда после пробного размещения. Сотрудники сами просят бронировать именно НОРТ. Завтраки хорошие.</p></div></div>
+<div class="rv-card"><div class="rv-top"><div class="rv-author-name">Дмитрий В.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Финансовый директор, строительная группа</span></div><p class="rv-text">Отличный формат для длительных командировок. Кухня, рабочая зона, тишина — всё, что нужно. Корпоративные условия выгоднее, чем в классических отелях города.</p></div></div>
+<div class="rv-card"><div class="rv-top"><div class="rv-author-name">Ольга С.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Руководитель АХО, фармацевтическая компания</span></div><p class="rv-text">Для нас важна скорость заселения — сотрудники прилетают поздно, ждать на ресепшене некогда. Здесь бесконтактный заезд за минуту, администратор отвечает быстро. Полный пакет закрывающих документов приходит на почту без напоминаний. За полгода — ни одного сбоя.</p></div></div>
+<div class="rv-card"><div class="rv-top"><div class="rv-author-name">Игорь Н.</div><div class="rv-stars-date"><span class="rv-stars">★★★★★</span><span class="rv-date">Коммерческий директор, инжиниринговая группа</span></div><p class="rv-text">Наши инженеры живут в командировках по 2–3 недели. В обычном отеле за это время сходишь с ума, а тут полноценная квартира — кухня, стиральная машина, рабочий стол. Ребята стали продуктивнее, а компания экономит: завтрак включён, корпоративная цена. Плюс программа лояльности — баллы копятся и идут в дело.</p></div></div>
+</div>
+<div class="rv-dots" id="rvDots"></div>
 </div>
 </section>
 
-<!-- ============ CTA + ФОРМА ============ -->
+<!-- CTA + ФОРМА -->
 <section class="section sec-white" id="cta">
 <div class="cta reveal">
 <h2>Начнём сотрудничество?</h2>
 <p>Заполните форму — мы подготовим индивидуальное коммерческое предложение и свяжемся с вами в течение рабочего дня.</p>
+
 <form class="cta-form" id="ctaForm">
-  <div class="form-grid">
-    <div class="form-group"><label for="cf-name">Имя</label><input type="text" id="cf-name" name="name" placeholder="Как к вам обращаться" required></div>
-    <div class="form-group"><label for="cf-company">Компания</label><input type="text" id="cf-company" name="company" placeholder="Название компании" required></div>
-    <div class="form-group"><label for="cf-phone">Телефон</label><input type="tel" id="cf-phone" name="phone" placeholder="+7 (___) ___-__-__" required></div>
-    <div class="form-group"><label for="cf-email">Почта</label><input type="email" id="cf-email" name="email" placeholder="email@company.ru"></div>
-  </div>
-  <div class="form-group form-group-full"><label for="cf-msg">Сообщение</label><textarea id="cf-msg" name="message" placeholder="Количество сотрудников, даты, пожелания…"></textarea></div>
-  <div class="form-actions">
-    <button type="submit" class="btn btn-sand">Отправить заявку</button>
-    <a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&adults=2" target="_blank" class="btn btn-ghost">Забронировать апартаменты</a>
-  </div>
+<div class="form-grid">
+<div class="form-group"><label for="cf-name">Имя</label><input type="text" id="cf-name" name="name" placeholder="Как к вам обращаться" required></div>
+<div class="form-group"><label for="cf-company">Компания</label><input type="text" id="cf-company" name="company" placeholder="Название компании" required></div>
+<div class="form-group"><label for="cf-phone">Телефон</label><input type="tel" id="cf-phone" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+<div class="form-group"><label for="cf-email">E-mail</label><input type="email" id="cf-email" name="email" placeholder="mail@company.ru"></div>
+</div>
+<div class="form-group form-group-full"><label for="cf-msg">Сообщение</label><textarea id="cf-msg" name="message" placeholder="Расскажите о задачах: количество сотрудников, сроки, пожелания…"></textarea></div>
+<div class="form-actions">
+<button type="submit" class="btn btn-sand" id="ctaBtn">Отправить заявку</button>
+<a href="https://apart-nn.ru" target="_blank" class="btn btn-ghost">Забронировать на сайте →</a>
+</div>
 </form>
-<div class="cta-thankyou" id="ctaThankyou" style="display:none">
-  <div class="ty-icon">✓</div>
-  <h3>Спасибо!</h3>
-  <p>Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>
+
+<div class="cta-thankyou" id="ctaThankyou">
+<div class="ty-icon">✓</div>
+<h3>Спасибо!</h3>
+<p>Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>
 </div>
 </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- FOOTER -->
 <footer class="footer">
-<div class="footer-logo">НОРТ</div>
-<p class="footer-text">Апарт-отель «9 ночей – НОРТ» · Нижний Новгород · Корпоративное размещение</p>
-<a href="https://reservationsteps.ru/rooms/index/d0ce239f-df14-4aa8-8ccf-83036c8cbb01?lang=ru&scroll_to_rooms=1&is_auto_search=1&adults=2" target="_blank" class="btn btn-brown" style="margin-top:24px">Забронировать апартаменты</a>
+<div class="footer-logo">9 НОЧЕЙ – НОРТ</div>
+<p class="footer-text">Нижний Новгород · Корпоративное размещение<br>© 2025 Апарт-отель «9 ночей – НОРТ»</p>
 </footer>
 
-<!-- ============ SCRIPTS ============ -->
 <script>
-document.getElementById('ctaForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-  btn.textContent = 'Отправка…';
-  btn.disabled = true;
+/* ===== REVEAL ON SCROLL ===== */
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+})();
 
-  const body = {
-    name:    this.querySelector('[name="name"]').value,
-    company: this.querySelector('[name="company"]').value,
-    phone:   this.querySelector('[name="phone"]').value,
-    email:   this.querySelector('[name="email"]').value,
-    message: this.querySelector('[name="message"]') ? this.querySelector('[name="message"]').value : ''
-  };
-
-  try {
-    const res = await fetch(
-      'https://script.google.com/macros/s/AKfycbwB8hioRMIjqdUDRwX0dEa7DTwK99tq3PQeQgo7BW-QXi4w7W7-R3jIEmrp_NplzhP_aw/exec',
-      {
-        method: 'POST',
-        body: JSON.stringify(body)
-      }
-    );
-    if (res.ok) {
-      document.getElementById('ctaForm').style.display = 'none';
-      document.getElementById('ctaThankyou').style.display = 'block';
-    } else {
-      throw new Error('Ответ сервера: ' + res.status);
-    }
-  } catch (err) {
-    console.error('Ошибка отправки:', err);
-    alert('Ошибка при отправке. Попробуйте ещё раз.');
-    btn.textContent = original;
-    btn.disabled = false;
+/* ===== REVIEWS CAROUSEL ===== */
+(function(){
+  var track = document.getElementById('rvTrack');
+  var left  = document.getElementById('rvLeft');
+  var right = document.getElementById('rvRight');
+  var dots  = document.getElementById('rvDots');
+  if(!track) return;
+  var cards = track.querySelectorAll('.rv-card');
+  cards.forEach(function(_,i){
+    var d = document.createElement('span');
+    d.className = 'rv-dot' + (i===0?' active':'');
+    d.addEventListener('click',function(){ track.scrollTo({left:i*350,behavior:'smooth'}); });
+    dots.appendChild(d);
+  });
+  function updateDots(){
+    var idx = Math.round(track.scrollLeft / 350);
+    dots.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('active',i===idx); });
   }
-});
+  track.addEventListener('scroll', updateDots);
+  left.addEventListener('click',function(){ track.scrollBy({left:-350,behavior:'smooth'}); });
+  right.addEventListener('click',function(){ track.scrollBy({left:350,behavior:'smooth'}); });
+})();
+
+/* ===== FORM → GOOGLE APPS SCRIPT → TELEGRAM ===== */
+(function(){
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwB8hioRMIjqdUDRwX0dEa7DTwK99tq3PQeQgo7BW-QXi4w7W7-R3jIEmrp_NplzhP_aw/exec';
+
+  var form    = document.getElementById('ctaForm');
+  var thanky  = document.getElementById('ctaThankyou');
+  var btn     = document.getElementById('ctaBtn');
+  if(!form) return;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Отправка…';
+
+    var payload = {
+      name:    document.getElementById('cf-name').value.trim(),
+      company: document.getElementById('cf-company').value.trim(),
+      phone:   document.getElementById('cf-phone').value.trim(),
+      email:   document.getElementById('cf-email').value.trim(),
+      message: document.getElementById('cf-msg').value.trim()
+    };
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload),
+      redirect: 'follow'
+    })
+    .then(function(res){ return res.text(); })
+    .then(function(){
+      form.style.display    = 'none';
+      thanky.style.display   = 'block';
+    })
+    .catch(function(err){
+      console.error('Form error:', err);
+      alert('Ошибка отправки. Попробуйте ещё раз или позвоните нам.');
+      btn.disabled    = false;
+      btn.textContent = 'Отправить заявку';
+    });
+  });
+})();
 </script>
 </body>
 </html>
