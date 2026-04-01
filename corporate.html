@@ -457,73 +457,42 @@ a.type-item{color:inherit;text-decoration:none;display:block}
 
 <!-- ============ SCRIPTS ============ -->
 <script>
-/* reveal */
-const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-/* smooth anchors */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
-
-/* reviews carousel */
-const track=document.getElementById('rvTrack');
-const left=document.getElementById('rvLeft');
-const right=document.getElementById('rvRight');
-const dots=document.getElementById('rvDots');
-if(track&&left&&right){
-  const cards=track.querySelectorAll('.rv-card');
-  cards.forEach((_,i)=>{const d=document.createElement('span');d.className='rv-dot'+(i===0?' active':'');d.dataset.i=i;dots.appendChild(d)});
-  const allDots=dots.querySelectorAll('.rv-dot');
-  const scrollTo=i=>{cards[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'})};
-  allDots.forEach(d=>d.addEventListener('click',()=>scrollTo(+d.dataset.i)));
-  left.addEventListener('click',()=>track.scrollBy({left:-350,behavior:'smooth'}));
-  right.addEventListener('click',()=>track.scrollBy({left:350,behavior:'smooth'}));
-  track.addEventListener('scroll',()=>{let idx=0;cards.forEach((c,i)=>{if(c.offsetLeft-track.scrollLeft<180)idx=i});allDots.forEach((d,i)=>d.classList.toggle('active',i===idx))});
-}
-
-/* form submit → Cloudflare Worker → Telegram */
-const form=document.getElementById('ctaForm');
-if(form){form.addEventListener('submit',async function(e){
+document.getElementById('ctaForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const btn=form.querySelector('button[type="submit"]');
-  const orig=btn.textContent;
-  btn.textContent='Отправка…';
-  btn.disabled=true;
+  const btn = this.querySelector('button[type="submit"]');
+  const original = btn.textContent;
+  btn.textContent = 'Отправка…';
+  btn.disabled = true;
 
-  const data={
-    name:    form.querySelector('[name="name"]').value.trim(),
-    company: form.querySelector('[name="company"]').value.trim(),
-    phone:   form.querySelector('[name="phone"]').value.trim(),
-    email:   form.querySelector('[name="email"]').value.trim(),
-    message: form.querySelector('[name="message"]').value.trim()
+  const body = {
+    name:    this.querySelector('[name="name"]').value,
+    company: this.querySelector('[name="company"]').value,
+    phone:   this.querySelector('[name="phone"]').value,
+    email:   this.querySelector('[name="email"]').value,
+    message: this.querySelector('[name="message"]') ? this.querySelector('[name="message"]').value : ''
   };
 
-  const controller=new AbortController();
-  const timeout=setTimeout(()=>controller.abort(),10000);
-
-  try{
-    const res=await fetch('https://nort-form.sokolovilyasmm.workers.dev',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(data),
-      signal:controller.signal
-    });
-    clearTimeout(timeout);
-    const result=await res.json();
-
-    if(result.ok){
-      form.style.display='none';
-      document.getElementById('ctaThankyou').style.display='block';
-    }else{
-      throw new Error('TG error');
+  try {
+    const res = await fetch(
+      'https://script.google.com/macros/s/AKfycbwB8hioRMIjqdUDRwX0dEa7DTwK99tq3PQeQgo7BW-QXi4w7W7-R3jIEmrp_NplzhP_aw/exec',
+      {
+        method: 'POST',
+        body: JSON.stringify(body)
+      }
+    );
+    if (res.ok) {
+      document.getElementById('ctaForm').style.display = 'none';
+      document.getElementById('ctaThankyou').style.display = 'block';
+    } else {
+      throw new Error('Ответ сервера: ' + res.status);
     }
-  }catch(err){
-    clearTimeout(timeout);
-    console.error('Form error:',err);
-    btn.textContent='Ошибка, попробуйте снова';
-    btn.disabled=false;
-    setTimeout(()=>{btn.textContent=orig;},3000);
+  } catch (err) {
+    console.error('Ошибка отправки:', err);
+    alert('Ошибка при отправке. Попробуйте ещё раз.');
+    btn.textContent = original;
+    btn.disabled = false;
   }
-});}
+});
 </script>
 </body>
 </html>
