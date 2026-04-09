@@ -97,11 +97,13 @@
   .tl-img { width:100%; max-height:220px; object-fit:cover; border-radius:12px; margin-top:10px; }
 
   /* WHY GRID */
-  .why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center; }
-  .why-item { padding:24px 12px; }
-  .why-icon { font-size:2.2rem; margin-bottom:8px; }
-  .why-item h4 { font-size:.95rem; margin-bottom:4px; }
-  .why-item p { font-size:.82rem; color:var(--text-muted); }
+  .why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .why-card { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 1px 10px rgba(0,0,0,.04); text-align:center; transition:.3s; }
+  .why-card:hover { transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,.08); }
+  .why-card img { width:100%; height:140px; object-fit:cover; }
+  .why-card-body { padding:16px 12px; }
+  .why-card-body h4 { font-size:.95rem; margin-bottom:4px; }
+  .why-card-body p { font-size:.82rem; color:var(--text-muted); }
 
   /* BOAT section */
   .boat-hero {
@@ -142,12 +144,14 @@
   .footer-cta h2 { font-size:2.2rem; font-weight:800; margin-bottom:10px; }
   .footer-cta p { opacity:.8; margin-bottom:28px; font-size:1.05rem; }
 
-  /* HOW TO GET */
+  /* TRANSPORT */
   .transport-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  .transport-card { background:#fff; border-radius:14px; padding:24px; text-align:center; box-shadow:0 1px 10px rgba(0,0,0,.04); }
-  .transport-card .tr-icon { font-size:2rem; margin-bottom:8px; }
-  .transport-card h4 { font-size:1rem; margin-bottom:4px; }
-  .transport-card p { font-size:.85rem; color:var(--text-muted); }
+  .transport-card { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 1px 10px rgba(0,0,0,.04); transition:.3s; }
+  .transport-card:hover { transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,.08); }
+  .transport-card img { width:100%; height:160px; object-fit:cover; }
+  .transport-card-body { padding:20px; text-align:center; }
+  .transport-card-body h4 { font-size:1rem; margin-bottom:4px; }
+  .transport-card-body p { font-size:.85rem; color:var(--text-muted); }
 
   /* scroll horizontal */
   .hscroll { display:flex; gap:20px; overflow-x:auto; padding-bottom:12px; scroll-snap-type:x mandatory; }
@@ -205,25 +209,33 @@
   <h2 class="section-title">5 причин приехать в мае</h2>
   <p class="section-sub">Нижний в мае — это совсем другой город. Вот почему:</p>
   <div class="why-grid">
-    <div class="why-item">
-      <div class="why-icon">☀️</div>
-      <h4>Тёплая погода</h4>
-      <p>+15…+22 °C, долгие вечера и свежая зелень парков</p>
+    <div class="why-card">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="Тёплая погода">
+      <div class="why-card-body">
+        <h4>☀️ Тёплая погода</h4>
+        <p>+15…+22 °C, долгие вечера и свежая зелень парков</p>
+      </div>
     </div>
-    <div class="why-item">
-      <div class="why-icon">🎆</div>
-      <h4>Салют 9 мая</h4>
-      <p>Лучший вид — с набережной Федоровского и со Стрелки</p>
+    <div class="why-card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="Салют 9 мая">
+      <div class="why-card-body">
+        <h4>🎆 Салют 9 мая</h4>
+        <p>Лучший вид — с набережной Федоровского и со Стрелки</p>
+      </div>
     </div>
-    <div class="why-item">
-      <div class="why-icon">🚢</div>
-      <h4>Навигация открыта</h4>
-      <p>Часовые прогулки по Волге, круизы в Городец и Макарьев</p>
+    <div class="why-card">
+      <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=400&q=80" alt="Навигация">
+      <div class="why-card-body">
+        <h4>🚢 Навигация открыта</h4>
+        <p>Часовые прогулки по Волге, круизы в Городец и Макарьев</p>
+      </div>
     </div>
-    <div class="why-item">
-      <div class="why-icon">🎶</div>
-      <h4>Фестивали</h4>
-      <p>Концерты, фуд-фесты, медиа-арт INTERVALS и стрит-арт</p>
+    <div class="why-card">
+      <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80" alt="Фестивали">
+      <div class="why-card-body">
+        <h4>🎶 Фестивали</h4>
+        <p>Концерты, фуд-фесты, медиа-арт INTERVALS и стрит-арт</p>
+      </div>
     </div>
   </div>
 </section>
@@ -331,7 +343,7 @@
           <div class="tl-dot"></div>
           <div class="tl-time">15:00</div>
           <div class="tl-title">Поздний завтрак в Ministry of Breakfast</div>
-          <div class="tl-desc"><a href="https://ministryofbreakfast.ru/" target="_blank">Завтраки весь день</a> · <a href="https://yandex.ru/maps/org/ministry_of_breakfast/229aborte924617/" target="_blank">На карте</a></div>
+          <div class="tl-desc"><a href="https://ministryofbreakfast.ru/" target="_blank">Завтраки весь день</a> · <a href="https://yandex.ru/maps/?text=Ministry+of+Breakfast+Нижний+Новгород" target="_blank">На карте</a></div>
           <img class="tl-img" src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&q=80" alt="Ministry of Breakfast">
         </div>
         <div class="tl-item">
@@ -339,7 +351,7 @@
           <div class="tl-time">16:30</div>
           <div class="tl-title">Прогулка по Большой Покровской</div>
           <div class="tl-desc">Пешеходная улица с архитектурой, стрит-артом и уютными кофейнями.</div>
-          <img class="tl-img" src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=500&q=80" alt="Большая Покровская">
+          <img class="tl-img" src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=500&q=80" alt="Большая Покровская">
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
@@ -353,6 +365,7 @@
           <div class="tl-time">19:00</div>
           <div class="tl-title">Смотровая площадка</div>
           <div class="tl-desc">Верхне-Волжская набережная — золотой час и закат над Волгой.</div>
+          <img class="tl-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="Смотровая">
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
@@ -425,7 +438,6 @@
   <p class="section-sub">Проверенные рестораны и кофейни на каждый приём пищи</p>
 
   <div class="grid3">
-    <!-- Ministry of Breakfast -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=400&q=80" alt="Ministry of Breakfast">
       <div class="card-body">
@@ -437,7 +449,6 @@
         <a class="card-link" href="https://yandex.ru/maps/?rtext=~56.326,43.936&text=Ministry+of+Breakfast+Нижний+Новгород" target="_blank">Маршрут</a>
       </div>
     </div>
-    <!-- Coffee Cake -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80" alt="Coffee Cake">
       <div class="card-body">
@@ -446,33 +457,30 @@
         <p>Specialty кофе и десерты. Большая Покровская, 2.</p>
         <a class="card-link" href="https://coffeecake-cafe.ru/" target="_blank">Сайт</a> ·
         <a class="card-link" href="https://yandex.ru/maps/?text=Coffee+Cake+Большая+Покровская+Нижний+Новгород" target="_blank">Карта</a> ·
-        <a class="card-link" href="https://yandex.ru/maps/?rtext=~56.3269,43.9368&text=Coffee+Cake+Нижний+Новгород" target="_blank">Маршрут</a>
+        <a class="card-link" href="https://yandex.ru/maps/?rtext=~56.3269,43.9368" target="_blank">Маршрут</a>
       </div>
     </div>
-    <!-- Escape -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=400&q=80" alt="Escape">
       <div class="card-body">
         <span class="card-tag">Бранч</span> <span class="card-tag">Бар</span>
         <h3>Escape</h3>
-        <p>Верхне-Волжская наб., 8. Пн-Чт 7:30–00:00, Пт-Сб до 03:00.</p>
+        <p>Верхне-Волжская наб., 8. Пн–Чт 7:30–00:00, Пт–Сб до 03:00. Средний чек 1 500–2 500 ₽.</p>
         <a class="card-link" href="https://escape.rest/" target="_blank">Сайт</a> ·
         <a class="card-link" href="https://yandex.ru/maps/org/escape/88710825084/" target="_blank">Карта</a> ·
         <a class="card-link" href="https://yandex.ru/maps/?rtext=~56.3293,43.9678" target="_blank">Маршрут</a>
       </div>
     </div>
-    <!-- Yale -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" alt="Yale">
       <div class="card-body">
         <span class="card-tag">Ужин</span> <span class="card-tag">Европейская</span>
         <h3>Yale</h3>
-        <p>Рождественская, 30. Европейская кухня, терраса с видом.</p>
+        <p>Рождественская, 30. Европейская кухня, терраса с видом на реку.</p>
         <a class="card-link" href="https://yandex.ru/maps/?text=Yale+ресторан+Рождественская+30+Нижний+Новгород" target="_blank">Карта</a> ·
         <a class="card-link" href="https://yandex.ru/maps/?rtext=~56.3284,43.9765" target="_blank">Маршрут</a>
       </div>
     </div>
-    <!-- Red Wall -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80" alt="Red Wall">
       <div class="card-body">
@@ -484,7 +492,6 @@
         <a class="card-link" href="https://yandex.ru/maps/?rtext=~56.3273,43.9696" target="_blank">Маршрут</a>
       </div>
     </div>
-    <!-- Park Kultury -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&q=80" alt="Park Kultury">
       <div class="card-body">
@@ -503,9 +510,20 @@
 <section class="panel panel-alt" id="places">
   <span class="section-tag">Фото-точки</span>
   <h2 class="section-title">Места, где «вау»</h2>
-  <p class="section-sub">Горизонтальная лента — листайте</p>
+  <p class="section-sub">Листайте →</p>
 
   <div class="hscroll">
+    <!-- 1 — Набережная Федоровского ПЕРВАЯ -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=500&q=80" alt="Набережная Федоровского">
+      <div class="card-body">
+        <span class="card-tag hot">Салют 9 мая</span>
+        <h3>Набережная Федоровского</h3>
+        <p>Лучшая панорамная точка города. Вид на Стрелку, ярмарку, Канавинский мост и закат.</p>
+        <a class="card-link" href="https://yandex.ru/maps/org/naberezhnaya_fedorovskogo/168377510223/" target="_blank">На карте →</a>
+      </div>
+    </div>
+    <!-- 2 — Кремль -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1568010567842-14b627202e78?w=500&q=80" alt="Кремль">
       <div class="card-body">
@@ -514,6 +532,7 @@
         <a class="card-link" href="https://yandex.ru/maps/org/nizhegorodskiy_kreml/1071296582/" target="_blank">На карте →</a>
       </div>
     </div>
+    <!-- 3 — Чкаловская лестница -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&q=80" alt="Чкаловская лестница">
       <div class="card-body">
@@ -522,37 +541,31 @@
         <a class="card-link" href="https://yandex.ru/maps/org/chkalovskaya_lestnitsa/175894733311/" target="_blank">На карте →</a>
       </div>
     </div>
+    <!-- 4 — Стрелка -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=500&q=80" alt="Стрелка">
       <div class="card-body">
         <h3>Стрелка</h3>
-        <p>Слияние Оки и Волги, Пакгаузы, собор.</p>
+        <p>Слияние Оки и Волги, Пакгаузы, собор Александра Невского.</p>
         <a class="card-link" href="https://yandex.ru/maps/org/strelka/197781664449/" target="_blank">На карте →</a>
       </div>
     </div>
+    <!-- 5 — Верхне-Волжская набережная -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Верхне-Волжская набережная">
       <div class="card-body">
         <h3>Верхне-Волжская набережная</h3>
-        <p>Исторические усадьбы, золотые закаты.</p>
+        <p>Исторические усадьбы, золотые закаты, лавочки над обрывом.</p>
         <a class="card-link" href="https://yandex.ru/maps/47/nizhny-novgorod/geo/verhne_volzhskaya_naberezhnaya/8003277/" target="_blank">На карте →</a>
       </div>
     </div>
+    <!-- 6 — Нижне-Волжская набережная -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&q=80" alt="Нижне-Волжская набережная">
       <div class="card-body">
         <h3>Нижне-Волжская набережная</h3>
-        <p>Современная набережная у самой воды, велодорожки и арт-объекты.</p>
+        <p>Современная набережная у воды, велодорожки и арт-объекты.</p>
         <a class="card-link" href="https://yandex.ru/maps/47/nizhny-novgorod/geo/nizhne_volzhskaya_naberezhnaya/8003513/" target="_blank">На карте →</a>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=500&q=80" alt="Набережная Федоровского">
-      <div class="card-body">
-        <span class="card-tag hot">Салют 9 мая</span>
-        <h3>Набережная Федоровского</h3>
-        <p>Лучшая панорамная точка города. Вид на Стрелку, ярмарку и мост.</p>
-        <a class="card-link" href="https://yandex.ru/maps/org/naberezhnaya_fedorovskogo/168377510223/" target="_blank">На карте →</a>
       </div>
     </div>
   </div>
@@ -592,13 +605,13 @@
     <div class="card">
       <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80" alt="Круизы">
       <div class="card-body">
-        <h3>Длинные круизы</h3>
-        <p>В Городец (10–13 часов, от 550 ₽) и Макарьевский монастырь. Полноценное путешествие по Волге.</p>
+        <h3>В Городец / Макарьев</h3>
+        <p>10–13 часов по Волге, от 550 ₽. Полноценное путешествие с экскурсией.</p>
         <a class="card-link" href="https://nn.ticketstour.ru/vodnye" target="_blank">Экскурсии →</a>
       </div>
     </div>
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="Закат">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="Закат на Волге">
       <div class="card-body">
         <h3>Вечерний рейс</h3>
         <p>Прогулка на закате — романтика и фотогеничные виды. Отправление около 19:00.</p>
@@ -609,7 +622,7 @@
       <img src="https://images.unsplash.com/photo-1473186505569-9c61870c11f9?w=400&q=80" alt="Многодневный круиз">
       <div class="card-body">
         <h3>Многодневный круиз</h3>
-        <p>Пароходом до Астрахани и обратно: 10–16 дней, от 62 192 ₽. Навигация открыта!</p>
+        <p>Пароходом до Астрахани: 10–16 дней, от 62 192 ₽. Навигация уже открыта!</p>
         <a class="card-link" href="https://vodohod.com/cruises/cities/cruises-from-niznij-novgorod/" target="_blank">Варианты →</a>
       </div>
     </div>
@@ -637,7 +650,7 @@
       <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Канатная дорога">
       <div class="rc-body">
         <h3>Канатная дорога</h3>
-        <p>Из Нижнего в Бор через Волгу — 12,5 минут полёта с панорамой города и реки.</p>
+        <p>Из Нижнего в Бор через Волгу — 12,5 минут полёта с панорамой города и реки. Работает ежедневно.</p>
         <a class="card-link" href="https://yandex.ru/maps/?text=канатная+дорога+Нижний+Новгород" target="_blank">На карте →</a>
       </div>
     </div>
@@ -647,21 +660,21 @@
     <h3 style="font-size:1.05rem; margin-bottom:14px;">Что ещё попробовать</h3>
     <div class="grid3">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=400&q=80" alt="SUP">
+        <img src="https://images.unsplash.com/photo-1526188717906-ab4a2f949f48?w=400&q=80" alt="SUP-бординг">
         <div class="card-body">
           <h3>SUP-бординг</h3>
-          <p>По Волге и Оке — аренда досок на набережных, от мая до сентября.</p>
+          <p>По Волге и Оке — аренда досок на набережных, с мая по сентябрь.</p>
         </div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="Самокаты">
+        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&q=80" alt="Электросамокаты">
         <div class="card-body">
           <h3>Самокаты по набережным</h3>
           <p>Whoosh, Яндекс Go — удобно объехать все набережные за пару часов.</p>
         </div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400&q=80" alt="Океанис аквапарк">
+        <img src="https://images.unsplash.com/photo-1560090995-01632a28895b?w=400&q=80" alt="Океанис аквапарк">
         <div class="card-body">
           <h3>Аквапарк Океанис</h3>
           <p>40 000 м², 17 горок (9 взрослых, 8 детских). Идеально, если приехали с детьми.</p>
@@ -680,19 +693,25 @@
 
   <div class="transport-grid">
     <div class="transport-card">
-      <div class="tr-icon">🚄</div>
-      <h4>Поезд из Москвы</h4>
-      <p>«Ласточка» или «Стриж» — 3,5–4 часа. Комфортно, быстро, без пробок.</p>
+      <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&q=80" alt="Поезд">
+      <div class="transport-card-body">
+        <h4>🚄 Поезд из Москвы</h4>
+        <p>«Ласточка» или «Стриж» — 3,5–4 часа. Комфортно, быстро, без пробок.</p>
+      </div>
     </div>
     <div class="transport-card">
-      <div class="tr-icon">🚗</div>
-      <h4>На машине</h4>
-      <p>~400 км по трассе М-7. В пути ≈ 5–6 часов. Удобно, если хотите съездить в Городец или Болдино.</p>
+      <img src="https://images.unsplash.com/photo-1449965408869-ebd3fee7b519?w=400&q=80" alt="Машина">
+      <div class="transport-card-body">
+        <h4>🚗 На машине</h4>
+        <p>~400 км по трассе М-7. В пути ≈ 5–6 часов. Удобно для поездок в Городец или Болдино.</p>
+      </div>
     </div>
     <div class="transport-card">
-      <div class="tr-icon">✈️</div>
-      <h4>Самолёт</h4>
-      <p>Аэропорт Стригино. Прямые рейсы из Москвы (~1,5 ч), Санкт-Петербурга, Казани, Сочи.</p>
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=400&q=80" alt="Самолёт">
+      <div class="transport-card-body">
+        <h4>✈️ Самолёт</h4>
+        <p>Аэропорт Стригино. Прямые рейсы из Москвы (~1,5 ч), СПб, Казани, Сочи.</p>
+      </div>
     </div>
   </div>
 </section>
