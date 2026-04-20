@@ -88,22 +88,44 @@ body{
 }
 
 /* WINDOW FRAME */
-.window-wrap{position:relative;width:320px;height:460px;margin:0 auto 36px;}
+.window-wrap{
+  position:relative;width:320px;height:460px;margin:0 auto 36px;
+  /* Enough side space for open shutters */
+}
 
-/* SVG FRAME (arch + sill + carved details) */
+/* SVG FRAME */
 .window-svg{position:absolute;inset:-20px -24px -16px -24px;z-index:5;pointer-events:none;}
 
 /* SHUTTERS */
-.shutter-wrap{position:absolute;inset:0;z-index:4;perspective:1000px;overflow:visible;}
-.shutter{
-  position:absolute;top:0;width:50%;height:100%;
-  transition:transform 2.2s cubic-bezier(.23,1,.32,1);
-  backface-visibility:hidden;
+.shutter-wrap{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  perspective:1200px;
+  overflow:visible;
 }
-.shutter-left{left:0;transform-origin:left center;}
-.shutter-right{right:0;transform-origin:right center;}
-.shutter-left.open{transform:rotateY(-150deg);}
-.shutter-right.open{transform:rotateY(150deg);}
+.shutter{
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  transition:transform 2.2s cubic-bezier(.23,1,.32,1);
+  cursor:pointer;
+}
+.shutter-left{
+  left:0;
+  transform-origin:left center;
+}
+.shutter-right{
+  right:0;
+  transform-origin:right center;
+}
+.shutter-left.open{
+  transform:rotateY(-130deg);
+}
+.shutter-right.open{
+  transform:rotateY(130deg);
+}
 .shutter svg{width:100%;height:100%;display:block;}
 
 /* PHOTO */
@@ -271,7 +293,7 @@ body{
 .rv-d3{transition-delay:.45s;}
 .rv-d4{transition-delay:.6s;}
 
-/* ===== POMEGRANATE DECORATION ===== */
+/* ===== POMEGRANATE DECO ===== */
 .pomegranate-deco{
   text-align:center;padding:20px 0;
   font-size:2.4rem;color:var(--red);opacity:.35;
@@ -291,7 +313,6 @@ body{
   .window-wrap{width:220px;height:320px;}
   .hero-names{font-size:1.6rem;}
   .invite-date{font-size:2rem;}
-  .tl-item{flex-direction:column;}
 }
 </style>
 </head>
@@ -308,24 +329,19 @@ body{
     <p class="hero-invite rv">Отвори двери<br>в сказку</p>
 
     <div class="window-wrap rv rv-d1">
-      <!-- SVG frame: arch + ornaments -->
+      <!-- SVG frame -->
       <svg class="window-svg" viewBox="0 0 380 510" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer frame -->
         <rect x="10" y="30" width="360" height="464" rx="4" stroke="#A52A2A" stroke-width="3" fill="none"/>
-        <!-- Arch top -->
         <path d="M10 80 Q190 -10 370 80" stroke="#A52A2A" stroke-width="3" fill="var(--cream)"/>
         <path d="M30 75 Q190 5 350 75" stroke="#A52A2A" stroke-width="2" fill="none"/>
-        <!-- Sun ornament top center -->
         <circle cx="190" cy="28" r="16" fill="var(--cream)" stroke="#A52A2A" stroke-width="2"/>
         <circle cx="190" cy="28" r="8" fill="#A52A2A"/>
-        <!-- Sun rays -->
         <g stroke="#A52A2A" stroke-width="1.5">
           <line x1="190" y1="8" x2="190" y2="2"/><line x1="174" y1="14" x2="170" y2="8"/>
           <line x1="206" y1="14" x2="210" y2="8"/><line x1="170" y1="28" x2="164" y2="28"/>
           <line x1="210" y1="28" x2="216" y2="28"/><line x1="174" y1="42" x2="170" y2="48"/>
           <line x1="206" y1="42" x2="210" y2="48"/>
         </g>
-        <!-- Leaf ornaments on arch -->
         <g fill="#A52A2A">
           <path d="M60 58 Q70 48 80 58 Q70 68 60 58Z"/>
           <path d="M100 44 Q110 34 120 44 Q110 54 100 44Z"/>
@@ -334,15 +350,12 @@ body{
           <path d="M140 36 Q148 28 156 36 Q148 44 140 36Z"/>
           <path d="M224 36 Q232 28 240 36 Q232 44 224 36Z"/>
         </g>
-        <!-- Sill bottom -->
         <rect x="0" y="488" width="380" height="14" rx="3" fill="#A52A2A"/>
         <rect x="6" y="484" width="368" height="6" rx="2" fill="var(--cream)" stroke="#A52A2A" stroke-width="1.5"/>
-        <!-- Corner flowers -->
         <g fill="#A52A2A">
           <circle cx="28" cy="90" r="5"/><circle cx="22" cy="84" r="3"/><circle cx="34" cy="84" r="3"/>
           <circle cx="352" cy="90" r="5"/><circle cx="346" cy="84" r="3"/><circle cx="358" cy="84" r="3"/>
         </g>
-        <!-- Side arrows/tulips -->
         <g stroke="#A52A2A" stroke-width="1.5" fill="none">
           <path d="M16 200 L16 280"/><path d="M10 200 L16 188 L22 200"/>
           <path d="M10 280 L16 292 L22 280"/>
@@ -357,36 +370,29 @@ body{
           <svg viewBox="0 0 160 460" xmlns="http://www.w3.org/2000/svg">
             <rect width="160" height="460" fill="#A52A2A"/>
             <rect x="6" y="6" width="148" height="448" rx="2" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".3"/>
-            <!-- Top panel -->
             <rect x="16" y="16" width="128" height="130" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
             <rect x="30" y="30" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
             <rect x="86" y="30" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
-            <!-- Bird ornament -->
             <g transform="translate(50,95)" fill="#FDF8F0" opacity=".5">
               <ellipse cx="30" cy="12" rx="22" ry="10"/>
               <circle cx="44" cy="6" r="6"/>
               <path d="M8 12 Q0 8 2 18 Q6 14 8 12Z"/>
               <path d="M52 4 Q60 0 56 10 Q52 8 52 4Z"/>
             </g>
-            <!-- Middle panels -->
             <rect x="16" y="160" width="128" height="140" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
-            <!-- Flower rosette -->
             <g transform="translate(80,230)" fill="#FDF8F0" opacity=".4">
-              <circle r="10" /><circle cx="-14" cy="-6" r="6"/><circle cx="14" cy="-6" r="6"/>
+              <circle r="10"/><circle cx="-14" cy="-6" r="6"/><circle cx="14" cy="-6" r="6"/>
               <circle cx="-14" cy="6" r="6"/><circle cx="14" cy="6" r="6"/>
               <circle cx="0" cy="-14" r="6"/><circle cx="0" cy="14" r="6"/>
             </g>
-            <!-- Bottom panels -->
             <rect x="16" y="314" width="128" height="130" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
             <rect x="30" y="328" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
             <rect x="86" y="328" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
-            <!-- Bottom flower -->
             <g transform="translate(80,420)" fill="#FDF8F0" opacity=".4">
               <path d="M0 -10 Q6 -4 0 2 Q-6 -4 0 -10Z"/>
               <path d="M-8 -4 Q-2 2 -8 8 Q-14 2 -8 -4Z"/>
               <path d="M8 -4 Q14 2 8 8 Q2 2 8 -4Z"/>
             </g>
-            <!-- Handle -->
             <circle cx="148" cy="230" r="6" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".5"/>
             <circle cx="148" cy="230" r="2.5" fill="#FDF8F0" opacity=".5"/>
           </svg>
@@ -682,22 +688,34 @@ body{
 
 <!-- ===== SCRIPTS ===== -->
 <script>
-/* Reveal */
+/* Reveal on scroll */
 var rvs=document.querySelectorAll('.rv');
 var obs=new IntersectionObserver(function(ee){
-  ee.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+  ee.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}
+  });
 },{threshold:.15});
 rvs.forEach(function(el){obs.observe(el);});
 
-/* Shutters */
-var done=false;
+/* Shutters — open on click or auto, STAY VISIBLE */
+var sL=document.getElementById('shutterL');
+var sR=document.getElementById('shutterR');
+var shutterDone=false;
+
+function openShutters(){
+  if(!shutterDone){
+    sL.classList.add('open');
+    sR.classList.add('open');
+    shutterDone=true;
+  }
+}
+
+sL.addEventListener('click',openShutters);
+sR.addEventListener('click',openShutters);
+
 var hObs=new IntersectionObserver(function(ee){
-  if(ee[0].isIntersecting&&!done){
-    setTimeout(function(){
-      document.getElementById('shutterL').classList.add('open');
-      document.getElementById('shutterR').classList.add('open');
-      done=true;
-    },600);
+  if(ee[0].isIntersecting){
+    setTimeout(openShutters,800);
   }
 },{threshold:.3});
 hObs.observe(document.getElementById('hero'));
@@ -710,13 +728,13 @@ mb.addEventListener('click',function(){
   pl=!pl;
 });
 
-/* Plus field */
+/* Plus field toggle */
 var pR=document.getElementById('plusR'),pD=document.getElementById('plusD');
 document.querySelectorAll('input[name="attend"]').forEach(function(r){
   r.addEventListener('change',function(){pD.style.display=pR.checked?'block':'none';});
 });
 
-/* Form */
+/* Form submit */
 document.getElementById('rsvpForm').addEventListener('submit',function(e){
   e.preventDefault();
   var d=new FormData(this);
