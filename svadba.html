@@ -4,659 +4,724 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Анна и Константин — Свадебное приглашение</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Bad+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display+SC:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Bad+Script&family=Neucha&display=swap" rel="stylesheet">
 <style>
 :root{
-  --burgundy:#7B2D3B;
-  --burgundy-dark:#5C1A28;
-  --burgundy-light:#9E4A5A;
-  --ivory:#FAF5EF;
-  --ivory-dark:#F0E6D6;
+  --red:#A52A2A;
+  --red-dark:#7B1F1F;
+  --red-deep:#5C1515;
+  --cream:#FDF8F0;
+  --cream-dark:#F5EDE0;
   --gold:#C4A55A;
-  --gold-light:#D4B96A;
-  --text:#3A2A2A;
-  --text-light:#6B5555;
+  --white:#FFFFFF;
+  --text:#3A2020;
+  --text-light:#6B4444;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;
-  background:var(--ivory);
-  color:var(--text);
-  line-height:1.7;
-  overflow-x:hidden;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  background:var(--cream);color:var(--text);
+  line-height:1.7;overflow-x:hidden;
 }
-
-/* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar{width:8px;}
-::-webkit-scrollbar-track{background:var(--ivory-dark);}
-::-webkit-scrollbar-thumb{background:var(--burgundy-light);border-radius:4px;}
+::-webkit-scrollbar-track{background:var(--cream-dark);}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:4px;}
 
-/* ===== MUSIC BUTTON ===== */
+/* ===== MUSIC ===== */
 .music-btn{
   position:fixed;top:20px;right:20px;z-index:1000;
-  width:48px;height:48px;border-radius:50%;
-  background:var(--burgundy);border:2px solid var(--gold);
-  color:var(--ivory);font-size:1.2rem;cursor:pointer;
+  width:46px;height:46px;border-radius:50%;
+  background:var(--red);border:2px solid var(--red-dark);
+  color:var(--white);font-size:1.1rem;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  transition:.3s;box-shadow:0 4px 16px rgba(0,0,0,.2);
+  transition:.3s;box-shadow:0 3px 12px rgba(0,0,0,.15);
 }
-.music-btn:hover{background:var(--burgundy-dark);transform:scale(1.1);}
-.music-btn.playing{animation:pulse-music 1.5s infinite;}
-@keyframes pulse-music{
-  0%,100%{box-shadow:0 4px 16px rgba(0,0,0,.2);}
-  50%{box-shadow:0 4px 24px rgba(123,45,59,.5);}
-}
+.music-btn:hover{background:var(--red-dark);transform:scale(1.1);}
+.music-btn.playing{animation:pulse-m 1.5s infinite;}
+@keyframes pulse-m{0%,100%{box-shadow:0 3px 12px rgba(0,0,0,.15);}50%{box-shadow:0 3px 20px rgba(165,42,42,.4);}}
 
-/* ===== LACE DIVIDER ===== */
-.lace-divider{
-  width:100%;height:60px;
-  background:repeating-linear-gradient(
-    90deg,
-    transparent,transparent 8px,
-    rgba(123,45,59,.08) 8px,rgba(123,45,59,.08) 10px
-  );
-  position:relative;overflow:hidden;
+/* ===== LACE BORDER ===== */
+.lace{
+  width:100%;height:32px;position:relative;overflow:hidden;
+  background:var(--cream);
 }
-.lace-divider::before,.lace-divider::after{
-  content:'';position:absolute;left:0;right:0;height:2px;
-  background:repeating-linear-gradient(90deg,var(--gold),var(--gold) 12px,transparent 12px,transparent 24px);
-}
-.lace-divider::before{top:0;}
-.lace-divider::after{bottom:0;}
+.lace svg{display:block;width:100%;height:100%;}
 
 /* ===== ORNAMENT ===== */
-.ornament{
-  text-align:center;padding:20px 0;font-size:1.8rem;
-  color:var(--gold);letter-spacing:12px;
-  opacity:.6;
-}
+.orn{text-align:center;padding:14px 0;font-size:1.4rem;color:var(--red);opacity:.5;letter-spacing:8px;}
 
-/* ===== SECTION BASE ===== */
+/* ===== SECTIONS ===== */
 .section{
   min-height:100vh;display:flex;align-items:center;justify-content:center;
   padding:80px 20px;position:relative;overflow:hidden;
 }
-.section-half{min-height:auto;padding:60px 20px;}
-.section-inner{
-  max-width:800px;width:100%;text-align:center;
-  position:relative;z-index:2;
-}
+.section-sm{min-height:auto;padding:60px 20px;}
+.section-inner{max-width:760px;width:100%;text-align:center;position:relative;z-index:2;}
 
-/* ===== BACKGROUNDS ===== */
-.bg-ivory{background:var(--ivory);}
-.bg-burgundy{background:var(--burgundy);color:var(--ivory);}
-.bg-photo{background-size:cover;background-position:center;background-attachment:fixed;}
-.bg-overlay::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(160deg,rgba(90,26,40,.75),rgba(60,20,30,.6));
-  z-index:1;
-}
+.bg-cream{background:var(--cream);}
+.bg-red{background:var(--red-dark);color:var(--cream);}
 
-/* ===== HERO (Block 1) ===== */
+/* ===== TITLES ===== */
+.s-tag{
+  font-size:.75rem;font-weight:700;letter-spacing:4px;
+  text-transform:uppercase;color:var(--red);margin-bottom:8px;
+}
+.s-tag-light{color:rgba(253,248,240,.6);}
+.s-title{
+  font-family:'Playfair Display SC',serif;
+  font-size:2.2rem;font-weight:700;color:var(--red-dark);
+  margin-bottom:10px;letter-spacing:2px;
+}
+.s-title-light{color:var(--cream);}
+.s-sub{color:var(--text-light);font-size:1rem;margin-bottom:28px;}
+
+/* ========== BLOCK 1 — HERO ========== */
 .hero{
-  min-height:100vh;
-  background:url('/assets/images/wedding/foto1.jpg') center/cover no-repeat;
-  background-attachment:fixed;
-  position:relative;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(250,245,239,.15),rgba(60,20,30,.7));
-  z-index:1;
-}
-.hero-inner{position:relative;z-index:2;color:var(--ivory);max-width:700px;text-align:center;}
-.hero-pretitle{
-  font-family:'Bad Script',cursive;
-  font-size:1.3rem;letter-spacing:3px;opacity:.85;margin-bottom:20px;
+  min-height:100vh;background:var(--cream);
+  flex-direction:column;
 }
 .hero-invite{
-  font-family:'Playfair Display',serif;
-  font-size:1.6rem;font-weight:400;font-style:italic;
-  letter-spacing:2px;margin-bottom:40px;opacity:.9;
-  line-height:1.5;
+  font-family:'Playfair Display SC',serif;
+  font-size:1.8rem;font-weight:700;color:var(--red);
+  margin-bottom:32px;line-height:1.4;letter-spacing:1px;
 }
 
-/* ===== WINDOW / SHUTTERS ===== */
-.window-frame{
-  position:relative;width:340px;height:420px;margin:0 auto 40px;
-  perspective:1200px;
-}
+/* WINDOW FRAME */
+.window-wrap{position:relative;width:320px;height:460px;margin:0 auto 36px;}
+
+/* SVG FRAME (arch + sill + carved details) */
+.window-svg{position:absolute;inset:-20px -24px -16px -24px;z-index:5;pointer-events:none;}
+
+/* SHUTTERS */
+.shutter-wrap{position:absolute;inset:0;z-index:4;perspective:1000px;overflow:visible;}
 .shutter{
   position:absolute;top:0;width:50%;height:100%;
-  background:linear-gradient(135deg,var(--burgundy-dark),var(--burgundy));
-  border:3px solid var(--gold);
-  z-index:3;
-  transition:transform 2s cubic-bezier(.25,.46,.45,.94);
-  transform-origin:left center;
-  box-shadow:inset 0 0 30px rgba(0,0,0,.3);
-  overflow:hidden;
-}
-.shutter::before{
-  content:'';position:absolute;inset:8px;
-  border:1px solid var(--gold-light);border-radius:2px;
-  opacity:.4;
-}
-.shutter::after{
-  content:'❧';position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);font-size:2.5rem;
-  color:var(--gold);opacity:.5;
+  transition:transform 2.2s cubic-bezier(.23,1,.32,1);
+  backface-visibility:hidden;
 }
 .shutter-left{left:0;transform-origin:left center;}
-.shutter-right{right:0;left:auto;transform-origin:right center;}
-.shutter-left.open{transform:rotateY(-140deg);}
-.shutter-right.open{transform:rotateY(140deg);}
+.shutter-right{right:0;transform-origin:right center;}
+.shutter-left.open{transform:rotateY(-150deg);}
+.shutter-right.open{transform:rotateY(150deg);}
+.shutter svg{width:100%;height:100%;display:block;}
 
+/* PHOTO */
 .window-photo{
-  position:absolute;inset:0;
-  border:4px solid var(--gold);border-radius:6px;
-  overflow:hidden;z-index:1;
-  box-shadow:0 8px 40px rgba(0,0,0,.4);
+  position:absolute;inset:4px;border-radius:4px;overflow:hidden;z-index:1;
 }
 .window-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-.window-arch{
-  position:absolute;top:-3px;left:50%;transform:translateX(-50%);
-  width:calc(100% + 6px);height:30px;
-  background:var(--gold);
-  border-radius:50% 50% 0 0;
-  z-index:4;
-  box-shadow:0 4px 12px rgba(0,0,0,.2);
-}
-.window-sill{
-  position:absolute;bottom:-12px;left:-10px;right:-10px;
-  height:16px;background:var(--gold);border-radius:0 0 4px 4px;
-  z-index:4;box-shadow:0 4px 12px rgba(0,0,0,.2);
-}
 
+/* NAMES */
 .hero-names{
-  font-family:'Playfair Display',serif;
-  font-size:3.2rem;font-weight:900;
-  letter-spacing:6px;color:var(--ivory);
-  text-shadow:0 4px 20px rgba(0,0,0,.4);
+  font-family:'Playfair Display SC',serif;
+  font-size:2.8rem;font-weight:900;color:var(--red-dark);
+  letter-spacing:4px;
 }
-.hero-names span{color:var(--gold-light);}
-.hero-ampersand{
+.hero-amp{
   font-family:'Bad Script',cursive;
-  font-size:2rem;color:var(--gold);
-  margin:0 12px;vertical-align:middle;
+  font-size:2rem;color:var(--red);margin:0 10px;
+  vertical-align:middle;
 }
 
-/* ===== BLOCK 2 — INVITATION ===== */
-.invite-section{
-  background:url('/assets/images/wedding/foto2.jpg') center/cover no-repeat fixed;
-  position:relative;
-}
+/* ========== BLOCK 2 — INVITE ========== */
+.invite-section{background:var(--cream);}
 .invite-text{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.35rem;font-style:italic;
-  line-height:1.9;color:var(--ivory);
-  max-width:620px;margin:0 auto 40px;
-  text-shadow:0 2px 8px rgba(0,0,0,.3);
+  font-size:1.3rem;font-style:italic;line-height:2;
+  max-width:600px;margin:0 auto 36px;color:var(--text);
 }
 .invite-date{
-  font-family:'Playfair Display',serif;
-  font-size:4rem;font-weight:900;letter-spacing:8px;
-  color:var(--gold-light);
-  text-shadow:0 4px 20px rgba(0,0,0,.4);
-  border-top:2px solid rgba(196,165,90,.4);
-  border-bottom:2px solid rgba(196,165,90,.4);
-  padding:20px 0;display:inline-block;
+  font-family:'Playfair Display SC',serif;
+  font-size:3.6rem;font-weight:900;color:var(--red);
+  letter-spacing:6px;display:inline-block;padding:16px 0;
 }
 
-/* ===== BLOCK 3 — PROGRAM ===== */
-.program-section{background:var(--ivory);}
-.timeline-fairy{max-width:500px;margin:0 auto;text-align:left;}
-.tl-fairy-item{
-  display:flex;gap:20px;align-items:flex-start;
-  margin-bottom:32px;position:relative;
-  padding-left:20px;
+/* ========== BLOCK 3 — PROGRAM ========== */
+.program-section{background:var(--cream);}
+.tl{max-width:420px;margin:0 auto;text-align:left;position:relative;padding-left:24px;}
+.tl::before{
+  content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--red),rgba(165,42,42,.2));
 }
-.tl-fairy-item::before{
-  content:'';position:absolute;left:0;top:12px;
-  width:10px;height:10px;border-radius:50%;
-  background:var(--gold);border:2px solid var(--burgundy);
+.tl-item{position:relative;margin-bottom:28px;padding-left:24px;}
+.tl-item::before{
+  content:'';position:absolute;left:-24px;top:8px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--red);border:3px solid var(--cream);
 }
-.tl-fairy-time{
-  font-family:'Playfair Display',serif;
-  font-size:1.6rem;font-weight:700;color:var(--burgundy);
-  min-width:80px;
+.tl-time{
+  font-family:'Playfair Display SC',serif;
+  font-size:1.5rem;font-weight:700;color:var(--red);margin-bottom:2px;
 }
-.tl-fairy-text{
-  font-size:1.15rem;color:var(--text);padding-top:4px;
-}
+.tl-text{font-size:1.1rem;color:var(--text);}
 
-/* ===== BLOCK 4 — VENUE ===== */
-.venue-section{
-  background:var(--burgundy);color:var(--ivory);
-}
-.venue-img{
-  width:100%;max-width:700px;border-radius:12px;
-  border:3px solid var(--gold);
-  box-shadow:0 8px 40px rgba(0,0,0,.3);
-  margin-bottom:24px;object-fit:cover;
-  max-height:400px;
-}
-.venue-name{
-  font-family:'Playfair Display',serif;
-  font-size:1.8rem;font-weight:700;margin-bottom:8px;
-}
-.venue-address{font-size:1.1rem;opacity:.8;margin-bottom:20px;}
-.venue-map-link{
-  display:inline-block;padding:12px 32px;
-  border:2px solid var(--gold);border-radius:50px;
-  color:var(--gold);text-decoration:none;
-  font-size:1rem;font-weight:600;transition:.3s;
-}
-.venue-map-link:hover{background:var(--gold);color:var(--burgundy-dark);}
-
-/* ===== BLOCK 5 — GIFTS ===== */
-.gifts-section{background:var(--ivory);}
-.gift-item{
-  max-width:600px;margin:0 auto 28px;
-  padding:24px 28px;
-  background:rgba(123,45,59,.04);
-  border:1px solid rgba(123,45,59,.1);
-  border-radius:14px;font-size:1.1rem;
-  line-height:1.8;text-align:left;
-  position:relative;padding-left:48px;
-}
-.gift-item::before{
-  content:'❧';position:absolute;left:18px;top:22px;
-  font-size:1.4rem;color:var(--gold);
-}
-
-/* ===== BLOCK 6 — WISHES ===== */
-.wishes-section{
-  background:url('/assets/images/wedding/foto3.jpg') center/cover no-repeat fixed;
+/* ========== BLOCK 4 — VENUE ========== */
+.venue-section{background:var(--red-dark);color:var(--cream);position:relative;}
+.venue-badge{
+  max-width:520px;margin:0 auto 24px;
+  background:var(--red-dark);border:3px solid var(--red);
+  border-radius:20px 20px 6px 6px;overflow:hidden;
   position:relative;
 }
+.venue-badge::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:60%;height:4px;background:var(--cream);border-radius:0 0 4px 4px;
+  opacity:.3;
+}
+.venue-badge-top{
+  padding:32px 28px 20px;text-align:center;
+  background:linear-gradient(135deg,var(--red-dark),var(--red-deep));
+}
+.venue-badge h3{
+  font-family:'Playfair Display SC',serif;
+  font-size:1.8rem;margin-bottom:12px;color:var(--cream);
+}
+.venue-badge p{font-size:1.05rem;opacity:.85;margin-bottom:6px;}
+.venue-img{
+  width:100%;max-width:520px;border-radius:10px;
+  border:3px solid rgba(253,248,240,.2);
+  margin-bottom:20px;object-fit:cover;max-height:340px;
+}
+.venue-map{
+  display:inline-block;padding:10px 28px;
+  border:2px solid var(--cream);border-radius:40px;
+  color:var(--cream);text-decoration:none;font-size:.95rem;
+  font-weight:600;transition:.3s;
+}
+.venue-map:hover{background:var(--cream);color:var(--red-dark);}
+
+/* ========== BLOCK 5 — GIFTS ========== */
+.gifts-section{background:var(--cream);}
+.gift-card{
+  max-width:580px;margin:0 auto 22px;padding:22px 26px 22px 52px;
+  background:rgba(165,42,42,.04);border:1px solid rgba(165,42,42,.12);
+  border-radius:12px;font-size:1.08rem;line-height:1.8;text-align:left;
+  position:relative;
+}
+.gift-card::before{
+  content:'✾';position:absolute;left:20px;top:20px;
+  font-size:1.2rem;color:var(--red);
+}
+
+/* ========== BLOCK 6 — WISHES ========== */
+.wishes-section{background:var(--cream-dark);}
 .wish-card{
-  max-width:620px;margin:0 auto 24px;
-  padding:28px 32px;
-  background:rgba(250,245,239,.92);
-  border-radius:14px;
-  border:1px solid rgba(196,165,90,.3);
-  font-size:1.1rem;line-height:1.8;
-  color:var(--text);text-align:left;
-  backdrop-filter:blur(10px);
+  max-width:600px;margin:0 auto 20px;padding:24px 28px;
+  background:var(--white);border-radius:12px;
+  border:1px solid rgba(165,42,42,.1);
+  font-size:1.08rem;line-height:1.8;text-align:left;
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
 }
 
-/* ===== BLOCK 7 — RSVP ===== */
-.rsvp-section{background:var(--ivory);}
-.rsvp-form{
-  max-width:560px;margin:0 auto;text-align:left;
+/* ========== BLOCK 7 — RSVP ========== */
+.rsvp-section{background:var(--cream);}
+.rsvp-form{max-width:520px;margin:0 auto;text-align:left;}
+.fg{margin-bottom:24px;}
+.fl{
+  display:block;font-size:1.02rem;font-weight:600;
+  color:var(--red-dark);margin-bottom:6px;
+  font-family:'Playfair Display SC',serif;
 }
-.form-group{margin-bottom:28px;}
-.form-label{
-  display:block;font-size:1.05rem;font-weight:600;
-  color:var(--burgundy);margin-bottom:8px;
-  font-family:'Playfair Display',serif;
+.fi,.fta{
+  width:100%;padding:12px 16px;
+  border:2px solid rgba(165,42,42,.18);border-radius:8px;
+  background:var(--white);font-family:'Cormorant Garamond',serif;
+  font-size:1.02rem;color:var(--text);transition:.3s;outline:none;
 }
-.form-input,.form-textarea{
-  width:100%;padding:14px 18px;
-  border:2px solid rgba(123,45,59,.2);
-  border-radius:10px;background:rgba(255,255,255,.6);
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.05rem;color:var(--text);
-  transition:.3s;outline:none;
+.fi:focus,.fta:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(165,42,42,.08);}
+.fta{resize:vertical;min-height:70px;}
+.rg,.cg{display:flex;flex-direction:column;gap:8px;}
+.ri,.ci{display:flex;align-items:center;gap:8px;font-size:1.02rem;cursor:pointer;}
+.ri input,.ci input{accent-color:var(--red);width:17px;height:17px;cursor:pointer;}
+.f-submit{
+  display:block;width:100%;padding:15px;
+  background:var(--red);color:var(--cream);
+  border:none;border-radius:40px;
+  font-family:'Playfair Display SC',serif;
+  font-size:1.1rem;font-weight:700;letter-spacing:2px;
+  cursor:pointer;transition:.3s;
 }
-.form-input:focus,.form-textarea:focus{
-  border-color:var(--burgundy);
-  box-shadow:0 0 0 3px rgba(123,45,59,.1);
-}
-.form-textarea{resize:vertical;min-height:80px;}
+.f-submit:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(165,42,42,.25);}
 
-.radio-group,.check-group{display:flex;flex-direction:column;gap:10px;}
-.radio-item,.check-item{
-  display:flex;align-items:center;gap:10px;
-  font-size:1.05rem;cursor:pointer;
-}
-.radio-item input,.check-item input{
-  accent-color:var(--burgundy);
-  width:18px;height:18px;cursor:pointer;
-}
-
-.form-submit{
-  display:block;width:100%;padding:16px;
-  background:var(--burgundy);color:var(--ivory);
-  border:2px solid var(--gold);border-radius:50px;
-  font-family:'Playfair Display',serif;
-  font-size:1.15rem;font-weight:700;
-  letter-spacing:2px;cursor:pointer;transition:.3s;
-}
-.form-submit:hover{background:var(--burgundy-dark);transform:translateY(-2px);box-shadow:0 6px 24px rgba(123,45,59,.3);}
-
-/* ===== BLOCK 8 — CHAT ===== */
-.chat-section{background:var(--burgundy);color:var(--ivory);}
-.chat-text{
-  font-size:1.1rem;line-height:1.8;
-  max-width:560px;margin:0 auto 32px;opacity:.9;
-}
+/* ========== BLOCK 8 — CHAT ========== */
+.chat-section{background:var(--red-dark);color:var(--cream);}
+.chat-text{font-size:1.08rem;line-height:1.8;max-width:520px;margin:0 auto 28px;opacity:.9;}
 .chat-btn{
   display:inline-flex;align-items:center;gap:10px;
-  padding:16px 40px;
-  background:transparent;border:2px solid var(--gold);
-  border-radius:50px;color:var(--gold);
-  font-family:'Playfair Display',serif;
-  font-size:1.1rem;font-weight:700;
-  text-decoration:none;transition:.3s;letter-spacing:1px;
+  padding:14px 36px;border:2px solid var(--cream);border-radius:40px;
+  color:var(--cream);text-decoration:none;
+  font-family:'Playfair Display SC',serif;
+  font-size:1.05rem;font-weight:700;transition:.3s;
 }
-.chat-btn:hover{background:var(--gold);color:var(--burgundy-dark);}
-.chat-btn svg{width:22px;height:22px;fill:currentColor;}
+.chat-btn:hover{background:var(--cream);color:var(--red-dark);}
+.chat-btn svg{width:20px;height:20px;fill:currentColor;}
 
-/* ===== BLOCK 9 — FINALE ===== */
-.finale-section{
-  background:url('/assets/images/wedding/foto1.jpg') center/cover no-repeat fixed;
-  position:relative;min-height:60vh;
-}
+/* ========== BLOCK 9 — FINALE ========== */
+.finale-section{background:var(--cream);min-height:50vh;}
 .finale-text{
-  font-family:'Playfair Display',serif;
-  font-size:2.4rem;font-weight:700;font-style:italic;
-  color:var(--ivory);text-shadow:0 4px 20px rgba(0,0,0,.4);
-  line-height:1.4;
+  font-family:'Playfair Display SC',serif;
+  font-size:2.2rem;font-weight:700;color:var(--red-dark);line-height:1.5;
 }
 
-/* ===== SECTION TITLES ===== */
-.s-title{
-  font-family:'Playfair Display',serif;
-  font-size:2.2rem;font-weight:700;
-  color:var(--burgundy);margin-bottom:12px;
-  letter-spacing:2px;
-}
-.s-title-light{color:var(--ivory);}
-.s-subtitle{
-  font-size:1rem;color:var(--gold);
-  letter-spacing:4px;text-transform:uppercase;
-  margin-bottom:32px;font-weight:600;
-}
+/* ===== REVEAL ===== */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease;}
+.rv.vis{opacity:1;transform:translateY(0);}
+.rv-d1{transition-delay:.15s;}
+.rv-d2{transition-delay:.3s;}
+.rv-d3{transition-delay:.45s;}
+.rv-d4{transition-delay:.6s;}
 
-/* ===== REVEAL ANIMATION ===== */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-delay-1{transition-delay:.15s;}
-.reveal-delay-2{transition-delay:.3s;}
-.reveal-delay-3{transition-delay:.45s;}
-.reveal-delay-4{transition-delay:.6s;}
+/* ===== POMEGRANATE DECORATION ===== */
+.pomegranate-deco{
+  text-align:center;padding:20px 0;
+  font-size:2.4rem;color:var(--red);opacity:.35;
+}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-  .hero-names{font-size:2.2rem;letter-spacing:3px;}
-  .hero-invite{font-size:1.2rem;}
-  .invite-date{font-size:2.8rem;letter-spacing:4px;}
-  .window-frame{width:260px;height:330px;}
+  .hero-invite{font-size:1.4rem;}
+  .hero-names{font-size:2rem;letter-spacing:2px;}
+  .window-wrap{width:260px;height:380px;}
+  .invite-date{font-size:2.6rem;letter-spacing:4px;}
   .s-title{font-size:1.7rem;}
   .finale-text{font-size:1.6rem;}
   .section{padding:60px 16px;}
-  .bg-photo{background-attachment:scroll;}
-  .invite-section,.wishes-section,.finale-section,.hero{background-attachment:scroll;}
 }
 @media(max-width:480px){
-  .window-frame{width:220px;height:280px;}
-  .hero-names{font-size:1.8rem;}
-  .invite-date{font-size:2.2rem;}
-  .tl-fairy-item{flex-direction:column;gap:4px;}
-  .tl-fairy-time{min-width:auto;}
+  .window-wrap{width:220px;height:320px;}
+  .hero-names{font-size:1.6rem;}
+  .invite-date{font-size:2rem;}
+  .tl-item{flex-direction:column;}
 }
 </style>
 </head>
 <body>
 
-<!-- MUSIC -->
 <button class="music-btn" id="musicBtn" title="Включить музыку">♪</button>
 <audio id="bgMusic" loop preload="auto">
   <source src="/assets/audio/visit_to_the_sun.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ============ BLOCK 1 — HERO ============ -->
+<!-- ===== BLOCK 1 — HERO ===== -->
 <section class="section hero" id="hero">
-  <div class="hero-inner">
-    <div class="hero-pretitle reveal">✦ Свадебное приглашение ✦</div>
-    <p class="hero-invite reveal reveal-delay-1">Приглашаем тебя<br>в Сказку о Любви</p>
+  <div class="section-inner">
+    <p class="hero-invite rv">Отвори двери<br>в сказку</p>
 
-    <div class="window-frame reveal reveal-delay-2">
-      <div class="window-arch"></div>
-      <div class="shutter shutter-left" id="shutterL"></div>
-      <div class="shutter shutter-right" id="shutterR"></div>
+    <div class="window-wrap rv rv-d1">
+      <!-- SVG frame: arch + ornaments -->
+      <svg class="window-svg" viewBox="0 0 380 510" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer frame -->
+        <rect x="10" y="30" width="360" height="464" rx="4" stroke="#A52A2A" stroke-width="3" fill="none"/>
+        <!-- Arch top -->
+        <path d="M10 80 Q190 -10 370 80" stroke="#A52A2A" stroke-width="3" fill="var(--cream)"/>
+        <path d="M30 75 Q190 5 350 75" stroke="#A52A2A" stroke-width="2" fill="none"/>
+        <!-- Sun ornament top center -->
+        <circle cx="190" cy="28" r="16" fill="var(--cream)" stroke="#A52A2A" stroke-width="2"/>
+        <circle cx="190" cy="28" r="8" fill="#A52A2A"/>
+        <!-- Sun rays -->
+        <g stroke="#A52A2A" stroke-width="1.5">
+          <line x1="190" y1="8" x2="190" y2="2"/><line x1="174" y1="14" x2="170" y2="8"/>
+          <line x1="206" y1="14" x2="210" y2="8"/><line x1="170" y1="28" x2="164" y2="28"/>
+          <line x1="210" y1="28" x2="216" y2="28"/><line x1="174" y1="42" x2="170" y2="48"/>
+          <line x1="206" y1="42" x2="210" y2="48"/>
+        </g>
+        <!-- Leaf ornaments on arch -->
+        <g fill="#A52A2A">
+          <path d="M60 58 Q70 48 80 58 Q70 68 60 58Z"/>
+          <path d="M100 44 Q110 34 120 44 Q110 54 100 44Z"/>
+          <path d="M260 44 Q270 34 280 44 Q270 54 260 44Z"/>
+          <path d="M300 58 Q310 48 320 58 Q310 68 300 58Z"/>
+          <path d="M140 36 Q148 28 156 36 Q148 44 140 36Z"/>
+          <path d="M224 36 Q232 28 240 36 Q232 44 224 36Z"/>
+        </g>
+        <!-- Sill bottom -->
+        <rect x="0" y="488" width="380" height="14" rx="3" fill="#A52A2A"/>
+        <rect x="6" y="484" width="368" height="6" rx="2" fill="var(--cream)" stroke="#A52A2A" stroke-width="1.5"/>
+        <!-- Corner flowers -->
+        <g fill="#A52A2A">
+          <circle cx="28" cy="90" r="5"/><circle cx="22" cy="84" r="3"/><circle cx="34" cy="84" r="3"/>
+          <circle cx="352" cy="90" r="5"/><circle cx="346" cy="84" r="3"/><circle cx="358" cy="84" r="3"/>
+        </g>
+        <!-- Side arrows/tulips -->
+        <g stroke="#A52A2A" stroke-width="1.5" fill="none">
+          <path d="M16 200 L16 280"/><path d="M10 200 L16 188 L22 200"/>
+          <path d="M10 280 L16 292 L22 280"/>
+          <path d="M364 200 L364 280"/><path d="M358 200 L364 188 L370 200"/>
+          <path d="M358 280 L364 292 L370 280"/>
+        </g>
+      </svg>
+
+      <!-- Shutters -->
+      <div class="shutter-wrap">
+        <div class="shutter shutter-left" id="shutterL">
+          <svg viewBox="0 0 160 460" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="460" fill="#A52A2A"/>
+            <rect x="6" y="6" width="148" height="448" rx="2" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".3"/>
+            <!-- Top panel -->
+            <rect x="16" y="16" width="128" height="130" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
+            <rect x="30" y="30" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
+            <rect x="86" y="30" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
+            <!-- Bird ornament -->
+            <g transform="translate(50,95)" fill="#FDF8F0" opacity=".5">
+              <ellipse cx="30" cy="12" rx="22" ry="10"/>
+              <circle cx="44" cy="6" r="6"/>
+              <path d="M8 12 Q0 8 2 18 Q6 14 8 12Z"/>
+              <path d="M52 4 Q60 0 56 10 Q52 8 52 4Z"/>
+            </g>
+            <!-- Middle panels -->
+            <rect x="16" y="160" width="128" height="140" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
+            <!-- Flower rosette -->
+            <g transform="translate(80,230)" fill="#FDF8F0" opacity=".4">
+              <circle r="10" /><circle cx="-14" cy="-6" r="6"/><circle cx="14" cy="-6" r="6"/>
+              <circle cx="-14" cy="6" r="6"/><circle cx="14" cy="6" r="6"/>
+              <circle cx="0" cy="-14" r="6"/><circle cx="0" cy="14" r="6"/>
+            </g>
+            <!-- Bottom panels -->
+            <rect x="16" y="314" width="128" height="130" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
+            <rect x="30" y="328" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
+            <rect x="86" y="328" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
+            <!-- Bottom flower -->
+            <g transform="translate(80,420)" fill="#FDF8F0" opacity=".4">
+              <path d="M0 -10 Q6 -4 0 2 Q-6 -4 0 -10Z"/>
+              <path d="M-8 -4 Q-2 2 -8 8 Q-14 2 -8 -4Z"/>
+              <path d="M8 -4 Q14 2 8 8 Q2 2 8 -4Z"/>
+            </g>
+            <!-- Handle -->
+            <circle cx="148" cy="230" r="6" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".5"/>
+            <circle cx="148" cy="230" r="2.5" fill="#FDF8F0" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="shutter shutter-right" id="shutterR">
+          <svg viewBox="0 0 160 460" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="460" fill="#A52A2A"/>
+            <rect x="6" y="6" width="148" height="448" rx="2" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".3"/>
+            <rect x="16" y="16" width="128" height="130" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
+            <rect x="30" y="30" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
+            <rect x="86" y="30" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
+            <g transform="translate(50,95) scale(-1,1) translate(-60,0)" fill="#FDF8F0" opacity=".5">
+              <ellipse cx="30" cy="12" rx="22" ry="10"/>
+              <circle cx="44" cy="6" r="6"/>
+              <path d="M8 12 Q0 8 2 18 Q6 14 8 12Z"/>
+              <path d="M52 4 Q60 0 56 10 Q52 8 52 4Z"/>
+            </g>
+            <rect x="16" y="160" width="128" height="140" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
+            <g transform="translate(80,230)" fill="#FDF8F0" opacity=".4">
+              <circle r="10"/><circle cx="-14" cy="-6" r="6"/><circle cx="14" cy="-6" r="6"/>
+              <circle cx="-14" cy="6" r="6"/><circle cx="14" cy="6" r="6"/>
+              <circle cx="0" cy="-14" r="6"/><circle cx="0" cy="14" r="6"/>
+            </g>
+            <rect x="16" y="314" width="128" height="130" rx="3" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".4"/>
+            <rect x="30" y="328" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
+            <rect x="86" y="328" width="44" height="50" rx="2" fill="rgba(253,248,240,.12)" stroke="#FDF8F0" stroke-width="1"/>
+            <g transform="translate(80,420)" fill="#FDF8F0" opacity=".4">
+              <path d="M0 -10 Q6 -4 0 2 Q-6 -4 0 -10Z"/>
+              <path d="M-8 -4 Q-2 2 -8 8 Q-14 2 -8 -4Z"/>
+              <path d="M8 -4 Q14 2 8 8 Q2 2 8 -4Z"/>
+            </g>
+            <circle cx="12" cy="230" r="6" fill="none" stroke="#FDF8F0" stroke-width="1.5" opacity=".5"/>
+            <circle cx="12" cy="230" r="2.5" fill="#FDF8F0" opacity=".5"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Photo behind shutters -->
       <div class="window-photo">
         <img src="/assets/images/wedding/foto4.jpg" alt="Анна и Константин">
       </div>
-      <div class="window-sill"></div>
     </div>
 
-    <div class="hero-names reveal reveal-delay-3">
-      <span>Анна</span>
-      <span class="hero-ampersand">&</span>
-      <span>Константин</span>
+    <div class="hero-names rv rv-d3">
+      Анна <span class="hero-amp">&</span> Константин
     </div>
   </div>
 </section>
 
-<div class="lace-divider"></div>
+<!-- Lace border -->
+<div class="lace">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#A52A2A">
+      <rect y="0" width="1200" height="2"/><rect y="30" width="1200" height="2"/>
+      <g id="lp"><path d="M0 16 Q6 4 12 16 Q18 28 24 16" stroke="#A52A2A" stroke-width="1.5" fill="none"/><circle cx="12" cy="10" r="2.5"/></g>
+      <use href="#lp" x="24"/><use href="#lp" x="48"/><use href="#lp" x="72"/><use href="#lp" x="96"/>
+      <use href="#lp" x="120"/><use href="#lp" x="144"/><use href="#lp" x="168"/><use href="#lp" x="192"/>
+      <use href="#lp" x="216"/><use href="#lp" x="240"/><use href="#lp" x="264"/><use href="#lp" x="288"/>
+      <use href="#lp" x="312"/><use href="#lp" x="336"/><use href="#lp" x="360"/><use href="#lp" x="384"/>
+      <use href="#lp" x="408"/><use href="#lp" x="432"/><use href="#lp" x="456"/><use href="#lp" x="480"/>
+      <use href="#lp" x="504"/><use href="#lp" x="528"/><use href="#lp" x="552"/><use href="#lp" x="576"/>
+      <use href="#lp" x="600"/><use href="#lp" x="624"/><use href="#lp" x="648"/><use href="#lp" x="672"/>
+      <use href="#lp" x="696"/><use href="#lp" x="720"/><use href="#lp" x="744"/><use href="#lp" x="768"/>
+      <use href="#lp" x="792"/><use href="#lp" x="816"/><use href="#lp" x="840"/><use href="#lp" x="864"/>
+      <use href="#lp" x="888"/><use href="#lp" x="912"/><use href="#lp" x="936"/><use href="#lp" x="960"/>
+      <use href="#lp" x="984"/><use href="#lp" x="1008"/><use href="#lp" x="1032"/><use href="#lp" x="1056"/>
+      <use href="#lp" x="1080"/><use href="#lp" x="1104"/><use href="#lp" x="1128"/><use href="#lp" x="1152"/>
+      <use href="#lp" x="1176"/>
+    </g>
+  </svg>
+</div>
 
-<!-- ============ BLOCK 2 — INVITATION ============ -->
-<section class="section invite-section bg-overlay" id="invite">
+<!-- ===== BLOCK 2 — INVITATION ===== -->
+<section class="section section-sm invite-section" id="invite">
   <div class="section-inner">
-    <h2 class="s-title s-title-light reveal">Родные и близкие!</h2>
-    <div class="ornament reveal">❧ ❦ ❧</div>
-    <p class="invite-text reveal reveal-delay-1">
+    <h2 class="s-title rv">Родные и близкие!</h2>
+    <div class="orn rv">✾ ❦ ✾</div>
+    <p class="invite-text rv rv-d1">
       С большой радостью и невероятным трепетом приглашаем вас разделить с нами важный день в нашей жизни — день, когда мы станем семьёй!
     </p>
-    <div class="invite-date reveal reveal-delay-2">02.08.2026</div>
+    <div class="invite-date rv rv-d2">02.08.2026</div>
   </div>
 </section>
 
-<div class="lace-divider"></div>
+<div class="pomegranate-deco rv">🍎 🌿 🍎</div>
 
-<!-- ============ BLOCK 3 — PROGRAM ============ -->
-<section class="section section-half program-section" id="program">
+<!-- ===== BLOCK 3 — PROGRAM ===== -->
+<section class="section section-sm program-section" id="program">
   <div class="section-inner">
-    <div class="s-subtitle reveal">Тайминг торжества</div>
-    <h2 class="s-title reveal">Программа дня</h2>
-    <div class="ornament reveal">❧ ❦ ❧</div>
-
-    <div class="timeline-fairy">
-      <div class="tl-fairy-item reveal">
-        <div class="tl-fairy-time">15:00</div>
-        <div class="tl-fairy-text">Сбор гостей званных</div>
-      </div>
-      <div class="tl-fairy-item reveal reveal-delay-1">
-        <div class="tl-fairy-time">15:30</div>
-        <div class="tl-fairy-text">Сказочная церемония</div>
-      </div>
-      <div class="tl-fairy-item reveal reveal-delay-2">
-        <div class="tl-fairy-time">16:00</div>
-        <div class="tl-fairy-text">Пир на весь мир</div>
-      </div>
-      <div class="tl-fairy-item reveal reveal-delay-3">
-        <div class="tl-fairy-time">22:00</div>
-        <div class="tl-fairy-text">Концовка вечера</div>
-      </div>
+    <div class="s-tag rv">Тайминг торжества</div>
+    <h2 class="s-title rv">Программа дня</h2>
+    <div class="orn rv">✾</div>
+    <div class="tl">
+      <div class="tl-item rv"><div class="tl-time">15:00</div><div class="tl-text">Сбор гостей званных</div></div>
+      <div class="tl-item rv rv-d1"><div class="tl-time">15:30</div><div class="tl-text">Сказочная церемония</div></div>
+      <div class="tl-item rv rv-d2"><div class="tl-time">16:00</div><div class="tl-text">Пир на весь мир</div></div>
+      <div class="tl-item rv rv-d3"><div class="tl-time">22:00</div><div class="tl-text">Концовка вечера</div></div>
     </div>
   </div>
 </section>
 
-<div class="lace-divider"></div>
+<div class="lace">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#A52A2A">
+      <rect y="0" width="1200" height="2"/><rect y="30" width="1200" height="2"/>
+      <use href="#lp"/><use href="#lp" x="24"/><use href="#lp" x="48"/><use href="#lp" x="72"/><use href="#lp" x="96"/>
+      <use href="#lp" x="120"/><use href="#lp" x="144"/><use href="#lp" x="168"/><use href="#lp" x="192"/>
+      <use href="#lp" x="216"/><use href="#lp" x="240"/><use href="#lp" x="264"/><use href="#lp" x="288"/>
+      <use href="#lp" x="312"/><use href="#lp" x="336"/><use href="#lp" x="360"/><use href="#lp" x="384"/>
+      <use href="#lp" x="408"/><use href="#lp" x="432"/><use href="#lp" x="456"/><use href="#lp" x="480"/>
+      <use href="#lp" x="504"/><use href="#lp" x="528"/><use href="#lp" x="552"/><use href="#lp" x="576"/>
+      <use href="#lp" x="600"/><use href="#lp" x="624"/><use href="#lp" x="648"/><use href="#lp" x="672"/>
+      <use href="#lp" x="696"/><use href="#lp" x="720"/><use href="#lp" x="744"/><use href="#lp" x="768"/>
+      <use href="#lp" x="792"/><use href="#lp" x="816"/><use href="#lp" x="840"/><use href="#lp" x="864"/>
+      <use href="#lp" x="888"/><use href="#lp" x="912"/><use href="#lp" x="936"/><use href="#lp" x="960"/>
+      <use href="#lp" x="984"/><use href="#lp" x="1008"/><use href="#lp" x="1032"/><use href="#lp" x="1056"/>
+      <use href="#lp" x="1080"/><use href="#lp" x="1104"/><use href="#lp" x="1128"/><use href="#lp" x="1152"/>
+      <use href="#lp" x="1176"/>
+    </g>
+  </svg>
+</div>
 
-<!-- ============ BLOCK 4 — VENUE ============ -->
+<!-- ===== BLOCK 4 — VENUE ===== -->
 <section class="section venue-section" id="venue">
   <div class="section-inner">
-    <div class="s-subtitle reveal" style="color:var(--gold);">Где состоится торжество</div>
-    <h2 class="s-title s-title-light reveal">Место проведения</h2>
-    <div class="ornament reveal">❧ ❦ ❧</div>
-    <img class="venue-img reveal reveal-delay-1" src="/assets/images/wedding/foto5.jpg" alt="Пространство Hide">
-    <div class="venue-name reveal reveal-delay-2">Пространство Hide</div>
-    <div class="venue-address reveal reveal-delay-2">Нижний Новгород, ул. Рождественская, д. 40А</div>
-    <a class="venue-map-link reveal reveal-delay-3" href="https://yandex.ru/maps/?text=Пространство+Hide+Рождественская+40А+Нижний+Новгород" target="_blank">Открыть на карте</a>
+    <div class="venue-badge rv">
+      <div class="venue-badge-top">
+        <h3>Пир на весь мир!</h3>
+        <p><strong>Пространство Hide</strong></p>
+        <p>г. Нижний Новгород,<br>ул. Рождественская, д. 40А</p>
+      </div>
+    </div>
+    <img class="venue-img rv rv-d1" src="/assets/images/wedding/foto5.jpg" alt="Пространство Hide">
+    <br>
+    <a class="venue-map rv rv-d2" href="https://yandex.ru/maps/?text=Пространство+Hide+Рождественская+40А+Нижний+Новгород" target="_blank">На карту</a>
   </div>
 </section>
 
-<div class="lace-divider"></div>
+<div class="lace">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#A52A2A">
+      <rect y="0" width="1200" height="2"/><rect y="30" width="1200" height="2"/>
+      <use href="#lp"/><use href="#lp" x="24"/><use href="#lp" x="48"/><use href="#lp" x="72"/><use href="#lp" x="96"/>
+      <use href="#lp" x="120"/><use href="#lp" x="144"/><use href="#lp" x="168"/><use href="#lp" x="192"/>
+      <use href="#lp" x="216"/><use href="#lp" x="240"/><use href="#lp" x="264"/><use href="#lp" x="288"/>
+      <use href="#lp" x="312"/><use href="#lp" x="336"/><use href="#lp" x="360"/><use href="#lp" x="384"/>
+      <use href="#lp" x="408"/><use href="#lp" x="432"/><use href="#lp" x="456"/><use href="#lp" x="480"/>
+      <use href="#lp" x="504"/><use href="#lp" x="528"/><use href="#lp" x="552"/><use href="#lp" x="576"/>
+      <use href="#lp" x="600"/><use href="#lp" x="624"/><use href="#lp" x="648"/><use href="#lp" x="672"/>
+      <use href="#lp" x="696"/><use href="#lp" x="720"/><use href="#lp" x="744"/><use href="#lp" x="768"/>
+      <use href="#lp" x="792"/><use href="#lp" x="816"/><use href="#lp" x="840"/><use href="#lp" x="864"/>
+      <use href="#lp" x="888"/><use href="#lp" x="912"/><use href="#lp" x="936"/><use href="#lp" x="960"/>
+      <use href="#lp" x="984"/><use href="#lp" x="1008"/><use href="#lp" x="1032"/><use href="#lp" x="1056"/>
+      <use href="#lp" x="1080"/><use href="#lp" x="1104"/><use href="#lp" x="1128"/><use href="#lp" x="1152"/>
+      <use href="#lp" x="1176"/>
+    </g>
+  </svg>
+</div>
 
-<!-- ============ BLOCK 5 — GIFTS ============ -->
-<section class="section section-half gifts-section" id="gifts">
+<!-- ===== BLOCK 5 — GIFTS ===== -->
+<section class="section section-sm gifts-section" id="gifts">
   <div class="section-inner">
-    <div class="s-subtitle reveal">Вместо подарков</div>
-    <h2 class="s-title reveal">Дары</h2>
-    <div class="ornament reveal">❧ ❦ ❧</div>
-
-    <div class="gift-item reveal reveal-delay-1">
+    <div class="s-tag rv">Вместо подарков</div>
+    <h2 class="s-title rv">Дары</h2>
+    <div class="orn rv">✾</div>
+    <div class="gift-card rv rv-d1">
       Милые гости, не утруждайте себя выбором букетов. Вместо этого мы будем рады получить открытки, сделанные своими руками — красивые иль смешные, но памятные.
     </div>
-    <div class="gift-item reveal reveal-delay-2">
+    <div class="gift-card rv rv-d2">
       Не ищите заморских подарков. Есть дар, который все желания исполняет — золотомонетный вклад в конвертах, чтобы дом — полной чашей!
     </div>
   </div>
 </section>
 
-<div class="lace-divider"></div>
+<div class="pomegranate-deco rv">🍎 🌿 🍎</div>
 
-<!-- ============ BLOCK 6 — WISHES ============ -->
-<section class="section wishes-section bg-overlay" id="wishes">
+<!-- ===== BLOCK 6 — WISHES ===== -->
+<section class="section section-sm wishes-section" id="wishes">
   <div class="section-inner">
-    <h2 class="s-title s-title-light reveal">Пожелания</h2>
-    <div class="ornament reveal">❧ ❦ ❧</div>
-
-    <div class="wish-card reveal reveal-delay-1">
+    <h2 class="s-title rv">Пожелания</h2>
+    <div class="orn rv">✾</div>
+    <div class="wish-card rv rv-d1">
       Дресс-код вечерний, свободный. Приходите нарядные и счастливые!
     </div>
-    <div class="wish-card reveal reveal-delay-2">
+    <div class="wish-card rv rv-d2">
       Дорогие гости, у нас не будет традиционных поздравлений с микрофонами. Если Вы захотите поздравить нас оригинально — сообщите об этом ведущему ближе к торжеству.
     </div>
   </div>
 </section>
 
-<div class="lace-divider"></div>
+<div class="lace">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#A52A2A">
+      <rect y="0" width="1200" height="2"/><rect y="30" width="1200" height="2"/>
+      <use href="#lp"/><use href="#lp" x="24"/><use href="#lp" x="48"/><use href="#lp" x="72"/><use href="#lp" x="96"/>
+      <use href="#lp" x="120"/><use href="#lp" x="144"/><use href="#lp" x="168"/><use href="#lp" x="192"/>
+      <use href="#lp" x="216"/><use href="#lp" x="240"/><use href="#lp" x="264"/><use href="#lp" x="288"/>
+      <use href="#lp" x="312"/><use href="#lp" x="336"/><use href="#lp" x="360"/><use href="#lp" x="384"/>
+      <use href="#lp" x="408"/><use href="#lp" x="432"/><use href="#lp" x="456"/><use href="#lp" x="480"/>
+      <use href="#lp" x="504"/><use href="#lp" x="528"/><use href="#lp" x="552"/><use href="#lp" x="576"/>
+      <use href="#lp" x="600"/><use href="#lp" x="624"/><use href="#lp" x="648"/><use href="#lp" x="672"/>
+      <use href="#lp" x="696"/><use href="#lp" x="720"/><use href="#lp" x="744"/><use href="#lp" x="768"/>
+      <use href="#lp" x="792"/><use href="#lp" x="816"/><use href="#lp" x="840"/><use href="#lp" x="864"/>
+      <use href="#lp" x="888"/><use href="#lp" x="912"/><use href="#lp" x="936"/><use href="#lp" x="960"/>
+      <use href="#lp" x="984"/><use href="#lp" x="1008"/><use href="#lp" x="1032"/><use href="#lp" x="1056"/>
+      <use href="#lp" x="1080"/><use href="#lp" x="1104"/><use href="#lp" x="1128"/><use href="#lp" x="1152"/>
+      <use href="#lp" x="1176"/>
+    </g>
+  </svg>
+</div>
 
-<!-- ============ BLOCK 7 — RSVP ============ -->
-<section class="section section-half rsvp-section" id="rsvp">
+<!-- ===== BLOCK 7 — RSVP ===== -->
+<section class="section section-sm rsvp-section" id="rsvp">
   <div class="section-inner">
-    <div class="s-subtitle reveal">Дайте весточку</div>
-    <h2 class="s-title reveal">Опрос дорогих гостей</h2>
-    <div class="ornament reveal">❧ ❦ ❧</div>
-
+    <div class="s-tag rv">Дайте весточку</div>
+    <h2 class="s-title rv">Опрос дорогих гостей</h2>
+    <div class="orn rv">✾</div>
     <form class="rsvp-form" id="rsvpForm">
-
-      <div class="form-group reveal">
-        <label class="form-label">Ваше ФИО</label>
-        <input type="text" class="form-input" name="name" required placeholder="Иванов Иван Иванович">
+      <div class="fg rv">
+        <label class="fl">Ваше ФИО</label>
+        <input type="text" class="fi" name="name" required placeholder="Иванов Иван Иванович">
       </div>
-
-      <div class="form-group reveal reveal-delay-1">
-        <label class="form-label">Сможете ли Вы присутствовать на торжестве?</label>
-        <div class="radio-group">
-          <label class="radio-item">
-            <input type="radio" name="attendance" value="yes" required>
-            Обязательно приду
-          </label>
-          <label class="radio-item">
-            <input type="radio" name="attendance" value="no">
-            Не смогу
-          </label>
-          <label class="radio-item">
-            <input type="radio" name="attendance" value="plus" id="plusRadio">
-            Да, буду со второй половинкой / детьми:
-          </label>
+      <div class="fg rv rv-d1">
+        <label class="fl">Сможете ли Вы присутствовать на торжестве?</label>
+        <div class="rg">
+          <label class="ri"><input type="radio" name="attend" value="yes" required> Обязательно приду</label>
+          <label class="ri"><input type="radio" name="attend" value="no"> Не смогу</label>
+          <label class="ri"><input type="radio" name="attend" value="plus" id="plusR"> Да, буду со второй половинкой / детьми:</label>
         </div>
-        <input type="text" class="form-input" name="plus_details" id="plusDetails" placeholder="Укажите кто с вами" style="margin-top:10px;display:none;">
+        <input type="text" class="fi" name="plus" id="plusD" placeholder="Укажите кто с вами" style="margin-top:8px;display:none;">
       </div>
-
-      <div class="form-group reveal reveal-delay-2">
-        <label class="form-label">Какой алкоголь Вы предпочитаете?</label>
-        <div class="check-group">
-          <label class="check-item"><input type="checkbox" name="drink" value="champagne"> Шампанское</label>
-          <label class="check-item"><input type="checkbox" name="drink" value="red_wine"> Вино красное</label>
-          <label class="check-item"><input type="checkbox" name="drink" value="white_wine"> Вино белое</label>
-          <label class="check-item"><input type="checkbox" name="drink" value="whiskey"> Виски-кола</label>
-          <label class="check-item"><input type="checkbox" name="drink" value="cognac"> Коньяк</label>
-          <label class="check-item"><input type="checkbox" name="drink" value="vodka"> Водка</label>
-          <label class="check-item"><input type="checkbox" name="drink" value="none"> Не пью алкоголь</label>
+      <div class="fg rv rv-d2">
+        <label class="fl">Какой алкоголь Вы предпочитаете?</label>
+        <div class="cg">
+          <label class="ci"><input type="checkbox" name="drink" value="champagne"> Шампанское</label>
+          <label class="ci"><input type="checkbox" name="drink" value="red_wine"> Вино красное</label>
+          <label class="ci"><input type="checkbox" name="drink" value="white_wine"> Вино белое</label>
+          <label class="ci"><input type="checkbox" name="drink" value="whiskey"> Виски-кола</label>
+          <label class="ci"><input type="checkbox" name="drink" value="cognac"> Коньяк</label>
+          <label class="ci"><input type="checkbox" name="drink" value="vodka"> Водка</label>
+          <label class="ci"><input type="checkbox" name="drink" value="none"> Не пью алкоголь</label>
         </div>
       </div>
-
-      <button type="submit" class="form-submit reveal reveal-delay-3">Отправить весточку</button>
+      <button type="submit" class="f-submit rv rv-d3">Отправить весточку</button>
     </form>
   </div>
 </section>
 
-<div class="lace-divider"></div>
+<div class="lace">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#A52A2A">
+      <rect y="0" width="1200" height="2"/><rect y="30" width="1200" height="2"/>
+      <use href="#lp"/><use href="#lp" x="24"/><use href="#lp" x="48"/><use href="#lp" x="72"/><use href="#lp" x="96"/>
+      <use href="#lp" x="120"/><use href="#lp" x="144"/><use href="#lp" x="168"/><use href="#lp" x="192"/>
+      <use href="#lp" x="216"/><use href="#lp" x="240"/><use href="#lp" x="264"/><use href="#lp" x="288"/>
+      <use href="#lp" x="312"/><use href="#lp" x="336"/><use href="#lp" x="360"/><use href="#lp" x="384"/>
+      <use href="#lp" x="408"/><use href="#lp" x="432"/><use href="#lp" x="456"/><use href="#lp" x="480"/>
+      <use href="#lp" x="504"/><use href="#lp" x="528"/><use href="#lp" x="552"/><use href="#lp" x="576"/>
+      <use href="#lp" x="600"/><use href="#lp" x="624"/><use href="#lp" x="648"/><use href="#lp" x="672"/>
+      <use href="#lp" x="696"/><use href="#lp" x="720"/><use href="#lp" x="744"/><use href="#lp" x="768"/>
+      <use href="#lp" x="792"/><use href="#lp" x="816"/><use href="#lp" x="840"/><use href="#lp" x="864"/>
+      <use href="#lp" x="888"/><use href="#lp" x="912"/><use href="#lp" x="936"/><use href="#lp" x="960"/>
+      <use href="#lp" x="984"/><use href="#lp" x="1008"/><use href="#lp" x="1032"/><use href="#lp" x="1056"/>
+      <use href="#lp" x="1080"/><use href="#lp" x="1104"/><use href="#lp" x="1128"/><use href="#lp" x="1152"/>
+      <use href="#lp" x="1176"/>
+    </g>
+  </svg>
+</div>
 
-<!-- ============ BLOCK 8 — CHAT ============ -->
-<section class="section section-half chat-section" id="chat">
+<!-- ===== BLOCK 8 — CHAT ===== -->
+<section class="section section-sm chat-section" id="chat">
   <div class="section-inner">
-    <h2 class="s-title s-title-light reveal">Чат гостей</h2>
-    <div class="ornament reveal">❧ ❦ ❧</div>
-    <p class="chat-text reveal reveal-delay-1">
+    <h2 class="s-title s-title-light rv">Чат гостей</h2>
+    <div class="orn rv" style="color:var(--cream);opacity:.3;">✾</div>
+    <p class="chat-text rv rv-d1">
       Мы создали чат, где вы сможете узнать дополнительную информацию, обмениваться фото и видео, а также связаться с ведущим и координатором ближе к торжеству.
     </p>
-    <a class="chat-btn reveal reveal-delay-2" href="https://t.me/ВСТАВЬТЕ_ССЫЛКУ" target="_blank">
+    <a class="chat-btn rv rv-d2" href="https://t.me/ВСТАВЬТЕ_ССЫЛКУ" target="_blank">
       <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.94 8.13l-1.97 9.28c-.15.67-.54.83-1.09.52l-3.01-2.22-1.45 1.4c-.16.16-.3.3-.61.3l.22-3.05 5.56-5.02c.24-.22-.05-.33-.37-.13L8.55 13.4l-2.95-.92c-.64-.2-.66-.64.13-.95l11.54-4.45c.53-.2 1 .13.82.95h-.15z"/></svg>
       Вступить в чат
     </a>
   </div>
 </section>
 
-<div class="lace-divider"></div>
-
-<!-- ============ BLOCK 9 — FINALE ============ -->
-<section class="section finale-section bg-overlay" id="finale">
+<!-- ===== BLOCK 9 — FINALE ===== -->
+<section class="section finale-section" id="finale">
   <div class="section-inner">
-    <div class="ornament reveal" style="color:var(--ivory);opacity:.4;">❧ ❦ ❧</div>
-    <p class="finale-text reveal reveal-delay-1">Приходите,<br>да станет сказка явью!</p>
-    <div class="ornament reveal reveal-delay-2" style="color:var(--ivory);opacity:.4;">❧ ❦ ❧</div>
+    <div class="orn rv" style="opacity:.3;">✾ ❦ ✾</div>
+    <p class="finale-text rv rv-d1">Приходите,<br>да станет сказка явью!</p>
+    <div class="orn rv rv-d2" style="opacity:.3;">✾ ❦ ✾</div>
   </div>
 </section>
 
-<!-- ============ SCRIPTS ============ -->
+<!-- ===== SCRIPTS ===== -->
 <script>
-/* ----- Reveal on scroll ----- */
-var reveals=document.querySelectorAll('.reveal');
-var observer=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
-  });
+/* Reveal */
+var rvs=document.querySelectorAll('.rv');
+var obs=new IntersectionObserver(function(ee){
+  ee.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
 },{threshold:.15});
-reveals.forEach(function(el){observer.observe(el);});
+rvs.forEach(function(el){obs.observe(el);});
 
-/* ----- Shutters open on scroll ----- */
-var shutterDone=false;
-var heroObs=new IntersectionObserver(function(entries){
-  if(entries[0].isIntersecting&&!shutterDone){
+/* Shutters */
+var done=false;
+var hObs=new IntersectionObserver(function(ee){
+  if(ee[0].isIntersecting&&!done){
     setTimeout(function(){
       document.getElementById('shutterL').classList.add('open');
       document.getElementById('shutterR').classList.add('open');
-      shutterDone=true;
-    },800);
+      done=true;
+    },600);
   }
-},{threshold:.4});
-heroObs.observe(document.getElementById('hero'));
+},{threshold:.3});
+hObs.observe(document.getElementById('hero'));
 
-/* ----- Music toggle ----- */
-var musicBtn=document.getElementById('musicBtn');
-var audio=document.getElementById('bgMusic');
-var playing=false;
-musicBtn.addEventListener('click',function(){
-  if(playing){audio.pause();musicBtn.textContent='♪';musicBtn.classList.remove('playing');}
-  else{audio.play();musicBtn.textContent='❚❚';musicBtn.classList.add('playing');}
-  playing=!playing;
+/* Music */
+var mb=document.getElementById('musicBtn'),au=document.getElementById('bgMusic'),pl=false;
+mb.addEventListener('click',function(){
+  if(pl){au.pause();mb.textContent='♪';mb.classList.remove('playing');}
+  else{au.play();mb.textContent='❚❚';mb.classList.add('playing');}
+  pl=!pl;
 });
 
-/* ----- Plus details field ----- */
-var plusRadio=document.getElementById('plusRadio');
-var plusDetails=document.getElementById('plusDetails');
-document.querySelectorAll('input[name="attendance"]').forEach(function(r){
-  r.addEventListener('change',function(){
-    plusDetails.style.display=plusRadio.checked?'block':'none';
-  });
+/* Plus field */
+var pR=document.getElementById('plusR'),pD=document.getElementById('plusD');
+document.querySelectorAll('input[name="attend"]').forEach(function(r){
+  r.addEventListener('change',function(){pD.style.display=pR.checked?'block':'none';});
 });
 
-/* ----- Form submit (placeholder) ----- */
+/* Form */
 document.getElementById('rsvpForm').addEventListener('submit',function(e){
   e.preventDefault();
-  var data=new FormData(this);
-  var msg='Спасибо, '+data.get('name')+'! Ваша весточка получена ❤';
-  alert(msg);
-  this.reset();
-  plusDetails.style.display='none';
+  var d=new FormData(this);
+  alert('Спасибо, '+d.get('name')+'! Ваша весточка получена ❤');
+  this.reset();pD.style.display='none';
 });
 </script>
 
