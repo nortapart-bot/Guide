@@ -27,9 +27,6 @@ body{
   overflow-x:hidden;
 }
 
-/* =============================================
-   HERO — белый фон, дверь в центре
-   ============================================= */
 #hero{
   width:100%;min-height:100vh;
   display:flex;flex-direction:column;
@@ -37,7 +34,6 @@ body{
   background:var(--white);
   position:relative;padding:40px 20px;
 }
-
 .door-title{
   font-family:'Marck Script',cursive;
   color:var(--red);
@@ -46,448 +42,191 @@ body{
   opacity:1;transition:opacity .8s ease;
 }
 .door-title.hidden{opacity:0;pointer-events:none;}
-
-/* Контейнер двери */
-.door-wrap{
-  position:relative;
-  width:340px;max-width:90vw;
-}
-
-/* SVG рама (наличник) — всегда видна */
+.door-wrap{position:relative;width:340px;max-width:90vw;}
 .door-frame-svg{display:block;width:100%;height:auto;}
-
-/* Зона створок (внутри рамы) */
 .door-panels-area{
   position:absolute;
   top:38.5%;left:13.5%;width:73%;height:52%;
   perspective:1400px;overflow:visible;
 }
-
-/* Фото за створками */
 .door-photo{
-  position:absolute;
-  inset:0;z-index:0;overflow:hidden;
+  position:absolute;inset:0;z-index:0;overflow:hidden;
   border:2px solid var(--red);
 }
 .door-photo img{width:100%;height:100%;object-fit:cover;}
-
-/* Створка */
 .door-panel{
   position:absolute;top:0;width:50%;height:100%;
   cursor:pointer;
   transition:transform 2.2s cubic-bezier(.23,1,.32,1);
-  transform-style:preserve-3d;
-  z-index:2;
+  transform-style:preserve-3d;z-index:2;
 }
 .door-panel-left{left:0;transform-origin:left center;}
 .door-panel-right{right:0;transform-origin:right center;}
 .door-panel-left.open{transform:rotateY(-145deg);}
 .door-panel-right.open{transform:rotateY(145deg);}
-
-.panel-face{
-  position:absolute;inset:0;
-  backface-visibility:hidden;
-}
+.panel-face{position:absolute;inset:0;backface-visibility:hidden;}
 .panel-face svg{width:100%;height:100%;display:block;}
 .panel-back{
-  position:absolute;inset:0;
-  backface-visibility:hidden;
-  transform:rotateY(180deg);
-  background:var(--red-dark);
+  position:absolute;inset:0;backface-visibility:hidden;
+  transform:rotateY(180deg);background:var(--red-dark);
 }
 
-/* Кнопка музыки (появляется после открытия) */
 .music-btn{
   position:fixed;top:20px;left:50%;transform:translateX(-50%);
   z-index:100;width:44px;height:44px;border-radius:50%;
   background:var(--red);color:#fff;border:2px solid var(--red-dark);
   font-size:18px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;
-  transition:opacity .5s ease;
+  opacity:0;pointer-events:none;transition:opacity .5s ease;
   box-shadow:0 2px 10px rgba(178,34,34,.3);
 }
 .music-btn.visible{opacity:1;pointer-events:auto;}
 .music-btn:hover{background:var(--red-dark);}
 
-/* =============================================
-   ОРНАМЕНТНАЯ ПОЛОСКА (вышивка)
-   ============================================= */
 .ornament-strip{
   width:100%;height:28px;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='28' viewBox='0 0 40 28'%3E%3Crect width='40' height='28' fill='%23B22222'/%3E%3Cpath d='M0 14 L10 4 L20 14 L10 24Z' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3Cpath d='M20 14 L30 4 L40 14 L30 24Z' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='14' r='2' fill='%23fff'/%3E%3Ccircle cx='30' cy='14' r='2' fill='%23fff'/%3E%3C/svg%3E") repeat-x;
   background-size:40px 28px;
 }
 
-/* =============================================
-   СЕКЦИИ ОБЩИЕ
-   ============================================= */
-.section{
-  padding:60px 20px;max-width:700px;
-  margin:0 auto;text-align:center;
-}
+.section{padding:60px 20px;max-width:700px;margin:0 auto;text-align:center;}
 .section-title{
   font-family:'Marck Script',cursive;
   font-size:clamp(1.6rem,5vw,2.4rem);
   color:var(--red);margin-bottom:25px;
 }
-.section-text{
-  font-size:clamp(1rem,2.5vw,1.15rem);
-  line-height:1.8;color:var(--text-light);
-}
-
-/* Буквица */
+.section-text{font-size:clamp(1rem,2.5vw,1.15rem);line-height:1.8;color:var(--text-light);}
 .dropcap{
-  float:left;
-  font-size:4rem;line-height:.8;
-  color:var(--red);
-  font-family:'Playfair Display',serif;
-  font-weight:700;font-style:italic;
-  margin:0 10px 5px 0;
-  padding-top:5px;
+  float:left;font-size:4rem;line-height:.8;color:var(--red);
+  font-family:'Playfair Display',serif;font-weight:700;font-style:italic;
+  margin:0 10px 5px 0;padding-top:5px;
 }
 
-/* =============================================
-   ПРИВЕТСТВИЕ — с буквицей М
-   ============================================= */
 #greeting{
   padding:50px 20px;max-width:650px;margin:0 auto;
-  display:flex;gap:15px;align-items:flex-start;
-  text-align:left;
+  display:flex;gap:15px;align-items:flex-start;text-align:left;
 }
 #greeting .dropcap-wrap{flex-shrink:0;width:80px;}
 #greeting .dropcap-wrap svg{width:100%;height:auto;}
 #greeting .greeting-text{font-size:1.05rem;line-height:1.7;}
 
-/* =============================================
-   КАЛЕНДАРЬ
-   ============================================= */
-.calendar-section{
-  text-align:center;padding:40px 20px;
-}
-.calendar-header{
-  display:flex;align-items:baseline;justify-content:center;gap:15px;
-  margin-bottom:20px;
-}
-.calendar-month{
-  font-family:'Marck Script',cursive;
-  font-size:1.3rem;color:var(--red);
-  text-transform:uppercase;letter-spacing:2px;
-}
-.calendar-day-big{
-  font-family:'Playfair Display',serif;
-  font-size:3.5rem;font-weight:700;
-  color:var(--text);line-height:1;
-}
-.calendar-year{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.1rem;color:var(--text-light);letter-spacing:2px;
-}
-.calendar-grid{
-  display:grid;grid-template-columns:repeat(7,1fr);
-  gap:2px;max-width:320px;margin:0 auto;
-  font-size:.9rem;color:var(--text-light);
-}
-.calendar-grid .day-name{
-  font-weight:700;color:var(--red);
-  padding:6px 0;font-size:.8rem;
-  text-transform:uppercase;letter-spacing:1px;
-}
+.calendar-section{text-align:center;padding:40px 20px;}
+.calendar-header{display:flex;align-items:baseline;justify-content:center;gap:15px;margin-bottom:20px;}
+.calendar-month{font-family:'Marck Script',cursive;font-size:1.3rem;color:var(--red);text-transform:uppercase;letter-spacing:2px;}
+.calendar-day-big{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:var(--text);line-height:1;}
+.calendar-year{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text-light);letter-spacing:2px;}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;max-width:320px;margin:0 auto;font-size:.9rem;color:var(--text-light);}
+.calendar-grid .day-name{font-weight:700;color:var(--red);padding:6px 0;font-size:.8rem;text-transform:uppercase;letter-spacing:1px;}
 .calendar-grid .day{padding:5px 0;}
-.calendar-grid .day.highlight{
-  color:var(--red);font-weight:700;
-  position:relative;
-}
-.calendar-grid .day.highlight::after{
-  content:'';position:absolute;
-  left:50%;top:50%;transform:translate(-50%,-50%);
-  width:28px;height:28px;border-radius:50%;
-  border:2px solid var(--red);
-}
+.calendar-grid .day.highlight{color:var(--red);font-weight:700;position:relative;}
+.calendar-grid .day.highlight::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;border:2px solid var(--red);}
 
-/* =============================================
-   ИМЕНА
-   ============================================= */
-.names-section{
-  padding:40px 20px;text-align:center;
-}
-.name-groom,.name-bride{
-  font-family:'Marck Script',cursive;
-  font-size:clamp(2.2rem,7vw,3.5rem);
-  color:var(--red);line-height:1.2;
-}
+.names-section{padding:40px 20px;text-align:center;}
+.name-groom,.name-bride{font-family:'Marck Script',cursive;font-size:clamp(2.2rem,7vw,3.5rem);color:var(--red);line-height:1.2;}
 .name-bride{margin-top:10px;}
-.names-and{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.2rem;color:var(--text-light);
-  font-style:italic;margin:10px 0;
-}
+.names-and{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--text-light);font-style:italic;margin:10px 0;}
 
-/* =============================================
-   КРАСНЫЙ БЛОК (история / пожелания)
-   ============================================= */
-.red-block{
-  background:var(--red);color:#fff;
-  padding:60px 20px;text-align:left;
-  position:relative;
-}
+.red-block{background:var(--red);color:#fff;padding:60px 20px;text-align:left;position:relative;}
 .red-block .section-text{color:rgba(255,255,255,.9);}
 .red-block .dropcap{color:#fff;}
 .red-block-content{max-width:600px;margin:0 auto;}
 
-/* =============================================
-   МЕСТО — ФИГУРНАЯ ПЛАШКА
-   ============================================= */
-.venue-badge{
-  max-width:350px;margin:0 auto;
-  background:var(--red-dark);color:#fff;
-  border-radius:20px;
-  padding:30px 25px 20px;text-align:center;
-  position:relative;
-}
-.venue-badge::before,.venue-badge::after{
-  content:'';position:absolute;
-  left:50%;width:80%;height:15px;
-  transform:translateX(-50%);
-}
-.venue-badge::before{
-  top:-8px;
-  border-top:3px solid var(--red);
-  border-radius:0 0 50% 50%;
-}
-.venue-badge .venue-title{
-  font-family:'Marck Script',cursive;
-  font-size:1.6rem;margin-bottom:8px;
-}
-.venue-badge .venue-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1rem;letter-spacing:3px;text-transform:uppercase;
-  margin-bottom:10px;opacity:.8;
-}
-.venue-badge .venue-addr{
-  font-size:.95rem;line-height:1.5;margin-bottom:15px;
-}
-.btn-map{
-  display:inline-block;padding:8px 24px;
-  border:1.5px solid #fff;color:#fff;
-  text-decoration:none;font-family:'Cormorant Garamond',serif;
-  font-size:.95rem;border-radius:4px;transition:all .3s;
-  letter-spacing:1px;
-}
+.venue-badge{max-width:350px;margin:0 auto;background:var(--red-dark);color:#fff;border-radius:20px;padding:30px 25px 20px;text-align:center;position:relative;}
+.venue-badge .venue-title{font-family:'Marck Script',cursive;font-size:1.6rem;margin-bottom:8px;}
+.venue-badge .venue-name{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;opacity:.8;}
+.venue-badge .venue-addr{font-size:.95rem;line-height:1.5;margin-bottom:15px;}
+.btn-map{display:inline-block;padding:8px 24px;border:1.5px solid #fff;color:#fff;text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:.95rem;border-radius:4px;transition:all .3s;letter-spacing:1px;}
 .btn-map:hover{background:#fff;color:var(--red-dark);}
 
 /* =============================================
-   ТАЙМЛАЙН — ИЗОГНУТАЯ ЛИНИЯ С ЯБЛОКОМ
+   ТАЙМЛАЙН — ШИРОКАЯ ВОЛНА С КАТЯЩИМСЯ ЯБЛОКОМ
    ============================================= */
 .timeline-section{
   position:relative;
   padding:60px 20px 80px;
   max-width:700px;margin:0 auto;
-  min-height:800px;
+  min-height:900px;
 }
-
-/* SVG кривая линия */
 .timeline-path-svg{
   position:absolute;
   left:50%;top:0;transform:translateX(-50%);
-  width:200px;height:100%;
+  width:350px;  /* ШИРИНА УВЕЛИЧЕНА */
+  height:100%;
   pointer-events:none;
 }
-
-/* Яблоко, которое двигается по линии */
 .apple-moving{
   position:absolute;
-  width:36px;height:36px;
+  width:40px;height:40px;
   z-index:5;
   pointer-events:none;
-  /* начальная позиция задаётся JS */
+  transition:none;
 }
+.apple-moving svg{
+  width:100%;height:100%;display:block;
+}
+.tl-item{position:relative;margin-bottom:70px;text-align:left;width:42%;}
+.tl-item:nth-child(odd){margin-left:3%;}
+.tl-item:nth-child(even){margin-left:55%;}
+.tl-time{font-family:'Marck Script',cursive;font-size:1.8rem;color:var(--red);}
+.tl-desc{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.4;}
 
-/* Пункты таймлайна */
-.tl-item{
-  position:relative;
-  margin-bottom:60px;
-  text-align:left;
-  width:45%;
-}
-.tl-item:nth-child(odd){margin-left:5%;}
-.tl-item:nth-child(even){margin-left:50%;}
-.tl-time{
-  font-family:'Marck Script',cursive;
-  font-size:1.8rem;color:var(--red);
-}
-.tl-desc{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.05rem;font-weight:700;
-  color:var(--text);line-height:1.4;
-}
-
-/* Яблоко-маркер (статичное) */
-.tl-apple{
-  width:32px;height:32px;margin:8px 0;
-}
-
-/* =============================================
-   ДРЕСС-КОД
-   ============================================= */
 .dresscode-section{padding:50px 20px;text-align:center}
-.dresscode-title{
-  font-family:'Marck Script',cursive;
-  font-size:clamp(1.5rem,5vw,2.2rem);
-  color:var(--red);margin-bottom:5px;
-}
-.dresscode-sub{
-  font-size:1rem;color:var(--text-light);
-  font-style:italic;margin-bottom:30px;
-}
-.dresscode-grid{
-  display:flex;gap:40px;justify-content:center;
-  flex-wrap:wrap;max-width:600px;margin:0 auto;
-}
+.dresscode-title{font-family:'Marck Script',cursive;font-size:clamp(1.5rem,5vw,2.2rem);color:var(--red);margin-bottom:5px;}
+.dresscode-sub{font-size:1rem;color:var(--text-light);font-style:italic;margin-bottom:30px;}
+.dresscode-grid{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;max-width:600px;margin:0 auto;}
 .dresscode-group{text-align:center;flex:1;min-width:200px;}
-.dresscode-group h4{
-  font-family:'Marck Script',cursive;
-  font-size:1.1rem;color:var(--text);margin-bottom:8px;
-}
-
-/* Цветные кружки */
+.dresscode-group h4{font-family:'Marck Script',cursive;font-size:1.1rem;color:var(--text);margin-bottom:8px;}
 .colors{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px;}
 .clr{width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,0,0,.08);}
 
-/* =============================================
-   ПОЖЕЛАНИЯ (красный блок с иконками)
-   ============================================= */
-.wishes-block{
-  background:var(--red);color:#fff;padding:50px 20px;
-  position:relative;
-}
+.wishes-block{background:var(--red);color:#fff;padding:50px 20px;position:relative;}
 .wishes-block .section-title{color:#fff;}
-.wish-item{
-  display:flex;gap:15px;align-items:flex-start;
-  max-width:550px;margin:0 auto 30px;text-align:left;
-}
+.wish-item{display:flex;gap:15px;align-items:flex-start;max-width:550px;margin:0 auto 30px;text-align:left;}
 .wish-icon{flex-shrink:0;width:60px;height:60px;opacity:.8;}
 .wish-icon svg{width:100%;height:100%;fill:#fff;}
 .wish-text{font-size:1rem;color:rgba(255,255,255,.9);line-height:1.6;}
-.btn-styled{
-  display:inline-block;padding:10px 28px;
-  border:1.5px solid #fff;color:#fff;
-  text-decoration:none;font-family:'Cormorant Garamond',serif;
-  font-size:1rem;border-radius:4px;transition:all .3s;
-  margin-top:10px;
-}
+.btn-styled{display:inline-block;padding:10px 28px;border:1.5px solid #fff;color:#fff;text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:1rem;border-radius:4px;transition:all .3s;margin-top:10px;}
 .btn-styled:hover{background:#fff;color:var(--red);}
 
-/* =============================================
-   ПТИЦА-ЖАР
-   ============================================= */
-.firebird-section{
-  padding:60px 20px;text-align:center;
-}
-.firebird-svg{
-  width:200px;height:auto;margin:0 auto;display:block;
-}
+.firebird-section{padding:60px 20px;text-align:center;}
 
-/* =============================================
-   RSVP — в рамке с узором
-   ============================================= */
-.rsvp-section{
-  padding:50px 20px;text-align:center;
-}
-.rsvp-frame{
-  max-width:500px;margin:0 auto;
-  border:3px dashed var(--red);
-  border-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='none'/%3E%3Ccircle cx='10' cy='10' r='3' fill='%23B22222' opacity='.3'/%3E%3C/svg%3E") 10 round;
-  padding:40px 25px;
-  border-radius:8px;
-}
+.rsvp-section{padding:50px 20px;text-align:center;}
+.rsvp-frame{max-width:500px;margin:0 auto;border:3px dashed var(--red);padding:40px 25px;border-radius:8px;}
 .rsvp-frame .section-title{color:var(--red);margin-bottom:20px;}
 .rsvp-form{text-align:left;}
-.rsvp-form label{
-  display:block;font-size:.95rem;color:var(--red);
-  margin-bottom:5px;margin-top:16px;font-weight:600;
-}
-.rsvp-form input[type="text"],
-.rsvp-form select,
-.rsvp-form textarea{
-  width:100%;padding:10px 14px;
-  border:1.5px solid #ddd;border-radius:6px;
-  font-family:'Cormorant Garamond',serif;font-size:1rem;
-  background:#fff;color:var(--text);transition:border .3s;
-}
-.rsvp-form input:focus,.rsvp-form select:focus,.rsvp-form textarea:focus{
-  outline:none;border-color:var(--red-light);
-}
+.rsvp-form label{display:block;font-size:.95rem;color:var(--red);margin-bottom:5px;margin-top:16px;font-weight:600;}
+.rsvp-form input[type="text"],.rsvp-form select,.rsvp-form textarea{width:100%;padding:10px 14px;border:1.5px solid #ddd;border-radius:6px;font-family:'Cormorant Garamond',serif;font-size:1rem;background:#fff;color:var(--text);transition:border .3s;}
+.rsvp-form input:focus,.rsvp-form select:focus,.rsvp-form textarea:focus{outline:none;border-color:var(--red-light);}
 .rsvp-form textarea{resize:vertical;min-height:70px}
 .radio-group{display:flex;gap:16px;margin-top:6px}
-.radio-group label{
-  display:flex;align-items:center;gap:5px;
-  cursor:pointer;font-weight:400;margin:0;
-}
+.radio-group label{display:flex;align-items:center;gap:5px;cursor:pointer;font-weight:400;margin:0;}
 .radio-group input[type="radio"]{accent-color:var(--red);width:16px;height:16px}
-.btn-submit{
-  display:inline-block;margin-top:22px;padding:12px 40px;
-  background:transparent;color:var(--red);
-  border:2px solid var(--red);border-radius:4px;
-  font-family:'Cormorant Garamond',serif;font-size:1.1rem;
-  font-weight:600;cursor:pointer;transition:all .3s;
-  letter-spacing:1px;
-}
+.btn-submit{display:inline-block;margin-top:22px;padding:12px 40px;background:transparent;color:var(--red);border:2px solid var(--red);border-radius:4px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;letter-spacing:1px;}
 .btn-submit:hover{background:var(--red);color:#fff;}
 
-/* =============================================
-   НИЖНЕЕ ФОТО в рамке
-   ============================================= */
-.photo-frame-section{
-  padding:40px 20px;text-align:center;
-}
-.photo-doodle-frame{
-  position:relative;display:inline-block;
-  padding:30px;
-}
-.photo-doodle-frame img{
-  width:280px;max-width:80vw;
-  height:auto;display:block;
-  border-radius:4px;
-}
+.photo-frame-section{padding:40px 20px;text-align:center;}
+.photo-doodle-frame{position:relative;display:inline-block;padding:30px;}
+.photo-doodle-frame img{width:280px;max-width:80vw;height:auto;display:block;border-radius:4px;}
 
-/* =============================================
-   COUNTDOWN
-   ============================================= */
-.countdown-wrap{
-  padding:50px 20px;
-  background:var(--red);text-align:center;color:#fff;
-}
-.countdown-label{
-  font-family:'Marck Script',cursive;
-  font-size:clamp(1.3rem,4vw,1.8rem);
-  margin-bottom:20px;
-}
+.countdown-wrap{padding:50px 20px;background:var(--red);text-align:center;color:#fff;}
+.countdown-label{font-family:'Marck Script',cursive;font-size:clamp(1.3rem,4vw,1.8rem);margin-bottom:20px;}
 .countdown{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .cd-item{min-width:60px}
-.cd-num{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,6vw,3rem);font-weight:700;line-height:1;
-}
+.cd-num{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3rem);font-weight:700;line-height:1;}
 .cd-unit{font-size:.8rem;opacity:.7;margin-top:4px;text-transform:uppercase;letter-spacing:2px}
 
-/* FOOTER */
-.footer-strip{
-  height:6px;background:var(--red);
-}
-
-/* Fade */
+.footer-strip{height:6px;background:var(--red);}
 .fade-up{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
 
-/* Адаптив */
 @media(max-width:480px){
   .door-wrap{width:280px}
   #greeting{flex-direction:column;align-items:center;text-align:center}
   #greeting .dropcap-wrap{width:60px}
   .tl-item{width:60%}
-  .tl-item:nth-child(odd){margin-left:5%}
-  .tl-item:nth-child(even){margin-left:35%}
+  .tl-item:nth-child(odd){margin-left:3%}
+  .tl-item:nth-child(even){margin-left:37%}
+  .timeline-path-svg{width:280px;}
 }
 </style>
 </head>
@@ -497,187 +236,94 @@ body{
   <source src="assets/audio/visit_to_the_sun.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Кнопка музыки -->
 <button class="music-btn" id="musicBtn" aria-label="Музыка">
   <span id="musicIcon">&#9654;</span>
 </button>
 
-<!-- =========================================
-     HERO — ДВЕРЬ
-     ========================================= -->
+<!-- ========== HERO ========== -->
 <section id="hero">
-
   <div class="door-title" id="doorTitle">Отвори двери<br>в сказку</div>
-
   <div class="door-wrap">
-
-    <!-- SVG НАЛИЧНИК -->
     <svg class="door-frame-svg" viewBox="0 0 400 620" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <!-- АРКА -->
       <path d="M50 170 Q200 60 350 170" stroke="#B22222" stroke-width="3"/>
       <path d="M60 170 Q200 75 340 170" stroke="#B22222" stroke-width="2"/>
-      <!-- Солнце в арке -->
       <circle cx="200" cy="120" r="20" stroke="#B22222" stroke-width="2"/>
       <circle cx="200" cy="120" r="9" fill="#B22222" opacity=".3"/>
       <g stroke="#B22222" stroke-width="1.5">
-        <line x1="200" y1="94" x2="200" y2="85"/>
-        <line x1="218" y1="103" x2="224" y2="96"/>
-        <line x1="224" y1="120" x2="233" y2="120"/>
-        <line x1="218" y1="137" x2="224" y2="144"/>
-        <line x1="182" y1="103" x2="176" y2="96"/>
-        <line x1="176" y1="120" x2="167" y2="120"/>
+        <line x1="200" y1="94" x2="200" y2="85"/><line x1="218" y1="103" x2="224" y2="96"/>
+        <line x1="224" y1="120" x2="233" y2="120"/><line x1="218" y1="137" x2="224" y2="144"/>
+        <line x1="182" y1="103" x2="176" y2="96"/><line x1="176" y1="120" x2="167" y2="120"/>
         <line x1="182" y1="137" x2="176" y2="144"/>
       </g>
-      <!-- Листья в арке -->
       <g fill="#B22222" opacity=".5">
         <path d="M100 145 Q112 128 124 145 Q112 138 100 145Z"/>
         <path d="M140 132 Q152 115 164 132 Q152 125 140 132Z"/>
         <path d="M236 132 Q248 115 260 132 Q248 125 236 132Z"/>
         <path d="M276 145 Q288 128 300 145 Q288 138 276 145Z"/>
       </g>
-
-      <!-- КАРНИЗ -->
       <rect x="30" y="165" width="340" height="14" fill="#B22222" rx="2"/>
       <rect x="26" y="162" width="348" height="4" fill="#B22222" rx="1"/>
-      <!-- Зубчики -->
       <g fill="#B22222" opacity=".5">
-        <rect x="50" y="152" width="3" height="11" rx="1"/>
-        <rect x="68" y="152" width="3" height="11" rx="1"/>
-        <rect x="86" y="152" width="3" height="11" rx="1"/>
-        <rect x="104" y="152" width="3" height="11" rx="1"/>
-        <rect x="122" y="152" width="3" height="11" rx="1"/>
-        <rect x="140" y="152" width="3" height="11" rx="1"/>
-        <rect x="158" y="152" width="3" height="11" rx="1"/>
-        <rect x="176" y="152" width="3" height="11" rx="1"/>
-        <rect x="194" y="152" width="3" height="11" rx="1"/>
-        <rect x="212" y="152" width="3" height="11" rx="1"/>
-        <rect x="230" y="152" width="3" height="11" rx="1"/>
-        <rect x="248" y="152" width="3" height="11" rx="1"/>
-        <rect x="266" y="152" width="3" height="11" rx="1"/>
-        <rect x="284" y="152" width="3" height="11" rx="1"/>
-        <rect x="302" y="152" width="3" height="11" rx="1"/>
-        <rect x="320" y="152" width="3" height="11" rx="1"/>
+        <rect x="50" y="152" width="3" height="11" rx="1"/><rect x="68" y="152" width="3" height="11" rx="1"/>
+        <rect x="86" y="152" width="3" height="11" rx="1"/><rect x="104" y="152" width="3" height="11" rx="1"/>
+        <rect x="122" y="152" width="3" height="11" rx="1"/><rect x="140" y="152" width="3" height="11" rx="1"/>
+        <rect x="158" y="152" width="3" height="11" rx="1"/><rect x="176" y="152" width="3" height="11" rx="1"/>
+        <rect x="194" y="152" width="3" height="11" rx="1"/><rect x="212" y="152" width="3" height="11" rx="1"/>
+        <rect x="230" y="152" width="3" height="11" rx="1"/><rect x="248" y="152" width="3" height="11" rx="1"/>
+        <rect x="266" y="152" width="3" height="11" rx="1"/><rect x="284" y="152" width="3" height="11" rx="1"/>
+        <rect x="302" y="152" width="3" height="11" rx="1"/><rect x="320" y="152" width="3" height="11" rx="1"/>
         <rect x="338" y="152" width="3" height="11" rx="1"/>
       </g>
-
-      <!-- ВЕРХНИЕ ПАНЕЛИ (над дверью) — птицы -->
       <rect x="48" y="182" width="140" height="52" stroke="#B22222" stroke-width="1.5" rx="2"/>
       <rect x="212" y="182" width="140" height="52" stroke="#B22222" stroke-width="1.5" rx="2"/>
       <g fill="#B22222" opacity=".4">
-        <!-- Левая птица -->
-        <g transform="translate(88,195) scale(.55)">
-          <path d="M0 35 Q8 0 35 12 L30 18 Q12 10 10 30Z"/>
-          <circle cx="30" cy="10" r="4"/>
-          <path d="M35 12 L52 6 L46 15Z"/>
-        </g>
-        <!-- Правая птица -->
-        <g transform="translate(312,195) scale(-.55,.55)">
-          <path d="M0 35 Q8 0 35 12 L30 18 Q12 10 10 30Z"/>
-          <circle cx="30" cy="10" r="4"/>
-          <path d="M35 12 L52 6 L46 15Z"/>
-        </g>
+        <g transform="translate(88,195) scale(.55)"><path d="M0 35 Q8 0 35 12 L30 18 Q12 10 10 30Z"/><circle cx="30" cy="10" r="4"/><path d="M35 12 L52 6 L46 15Z"/></g>
+        <g transform="translate(312,195) scale(-.55,.55)"><path d="M0 35 Q8 0 35 12 L30 18 Q12 10 10 30Z"/><circle cx="30" cy="10" r="4"/><path d="M35 12 L52 6 L46 15Z"/></g>
       </g>
-
-      <!-- БОКОВЫЕ СТОЛБЫ -->
       <rect x="36" y="179" width="14" height="420" fill="#B22222"/>
       <rect x="350" y="179" width="14" height="420" fill="#B22222"/>
-      <!-- Декор на столбах — стрелки вниз -->
       <g fill="#B22222" opacity=".45">
-        <polygon points="43,250 36,238 50,238"/>
-        <polygon points="43,290 36,278 50,278"/>
-        <polygon points="43,330 36,318 50,318"/>
-        <polygon points="43,370 36,358 50,358"/>
-        <polygon points="43,410 36,398 50,398"/>
-        <polygon points="43,450 36,438 50,438"/>
-        <polygon points="43,490 36,478 50,478"/>
-        <polygon points="43,530 36,518 50,518"/>
+        <polygon points="43,250 36,238 50,238"/><polygon points="43,290 36,278 50,278"/>
+        <polygon points="43,330 36,318 50,318"/><polygon points="43,370 36,358 50,358"/>
+        <polygon points="43,410 36,398 50,398"/><polygon points="43,450 36,438 50,438"/>
+        <polygon points="43,490 36,478 50,478"/><polygon points="43,530 36,518 50,518"/>
         <polygon points="43,570 36,558 50,558"/>
-        <polygon points="357,250 350,238 364,238"/>
-        <polygon points="357,290 350,278 364,278"/>
-        <polygon points="357,330 350,318 364,318"/>
-        <polygon points="357,370 350,358 364,358"/>
-        <polygon points="357,410 350,398 364,398"/>
-        <polygon points="357,450 350,438 364,438"/>
-        <polygon points="357,490 350,478 364,478"/>
-        <polygon points="357,530 350,518 364,518"/>
+        <polygon points="357,250 350,238 364,238"/><polygon points="357,290 350,278 364,278"/>
+        <polygon points="357,330 350,318 364,318"/><polygon points="357,370 350,358 364,358"/>
+        <polygon points="357,410 350,398 364,398"/><polygon points="357,450 350,438 364,438"/>
+        <polygon points="357,490 350,478 364,478"/><polygon points="357,530 350,518 364,518"/>
         <polygon points="357,570 350,558 364,558"/>
       </g>
-
-      <!-- РАМКА ДВЕРИ -->
       <rect x="50" y="240" width="300" height="355" stroke="#B22222" stroke-width="2.5"/>
       <line x1="200" y1="240" x2="200" y2="595" stroke="#B22222" stroke-width="2"/>
-
-      <!-- РУЧКИ -->
-      <circle cx="192" cy="420" r="7" stroke="#B22222" stroke-width="2"/>
-      <circle cx="192" cy="420" r="3" fill="#B22222"/>
-      <circle cx="208" cy="420" r="7" stroke="#B22222" stroke-width="2"/>
-      <circle cx="208" cy="420" r="3" fill="#B22222"/>
-
-      <!-- НИЖНИЙ ПОРОГ -->
+      <circle cx="192" cy="420" r="7" stroke="#B22222" stroke-width="2"/><circle cx="192" cy="420" r="3" fill="#B22222"/>
+      <circle cx="208" cy="420" r="7" stroke="#B22222" stroke-width="2"/><circle cx="208" cy="420" r="3" fill="#B22222"/>
       <rect x="30" y="595" width="340" height="10" fill="#B22222" rx="2"/>
-      <!-- Нижние стрелки-ёлочки -->
       <g fill="#B22222" opacity=".4">
-        <polygon points="80,612 74,622 86,622"/>
-        <polygon points="110,612 104,622 116,622"/>
-        <polygon points="140,612 134,622 146,622"/>
-        <polygon points="200,616 194,626 206,626"/>
-        <polygon points="260,612 254,622 266,622"/>
-        <polygon points="290,612 284,622 296,622"/>
+        <polygon points="80,612 74,622 86,622"/><polygon points="110,612 104,622 116,622"/>
+        <polygon points="140,612 134,622 146,622"/><polygon points="200,616 194,626 206,626"/>
+        <polygon points="260,612 254,622 266,622"/><polygon points="290,612 284,622 296,622"/>
         <polygon points="320,612 314,622 326,622"/>
       </g>
-      <!-- Нижние боковые круги -->
       <circle cx="43" cy="610" r="8" fill="#B22222" opacity=".6"/>
       <circle cx="357" cy="610" r="8" fill="#B22222" opacity=".6"/>
-      <!-- Стрелки вверх нижние -->
-      <g fill="#B22222" opacity=".35">
-        <polygon points="357,600 353,595 361,595"/>
-        <polygon points="43,600 39,595 47,595"/>
-      </g>
     </svg>
-
-    <!-- Фото ЗА дверью -->
-    <div class="door-photo">
-      <img src="assets/images/foto4.jpg" alt="Анна и Константин">
-    </div>
-
-    <!-- СТВОРКИ -->
+    <div class="door-photo"><img src="assets/images/foto4.jpg" alt="Анна и Константин"></div>
     <div class="door-panels-area">
-      <!-- Левая створка -->
       <div class="door-panel door-panel-left" id="doorL">
         <div class="panel-face">
           <svg viewBox="0 0 150 340" xmlns="http://www.w3.org/2000/svg">
             <rect width="150" height="340" fill="#B22222"/>
-            <!-- 3 панели -->
             <rect x="10" y="10" width="130" height="85" rx="3" fill="none" stroke="#fff" stroke-width="1.5" opacity=".4"/>
             <rect x="10" y="105" width="130" height="100" rx="3" fill="none" stroke="#fff" stroke-width="1.5" opacity=".4"/>
             <rect x="10" y="215" width="130" height="115" rx="3" fill="none" stroke="#fff" stroke-width="1.5" opacity=".4"/>
-            <!-- Цветок -->
-            <g transform="translate(75,52)" stroke="#fff" fill="none" opacity=".5" stroke-width="1.2">
-              <circle r="15"/><circle r="6" fill="#fff" opacity=".15"/>
-              <ellipse cx="0" cy="-18" rx="5" ry="11"/>
-              <ellipse cx="0" cy="18" rx="5" ry="11"/>
-              <ellipse cx="-18" cy="0" rx="11" ry="5"/>
-              <ellipse cx="18" cy="0" rx="11" ry="5"/>
-            </g>
-            <!-- Олень -->
-            <g transform="translate(35,130) scale(.85)" stroke="#fff" fill="none" opacity=".4" stroke-width="1.5">
-              <ellipse cx="45" cy="32" rx="24" ry="15"/>
-              <path d="M60 22 Q64 10 58 2 M60 22 Q68 12 72 4"/>
-              <line x1="30" y1="47" x2="25" y2="72"/>
-              <line x1="58" y1="47" x2="63" y2="72"/>
-            </g>
-            <!-- Розетка -->
-            <g transform="translate(75,272)" stroke="#fff" fill="none" opacity=".4" stroke-width="1.2">
-              <circle r="20"/>
-              <path d="M-14,0 Q0,-18 14,0 Q0,18 -14,0Z"/>
-              <circle r="6" fill="#fff" opacity=".1"/>
-            </g>
+            <g transform="translate(75,52)" stroke="#fff" fill="none" opacity=".5" stroke-width="1.2"><circle r="15"/><circle r="6" fill="#fff" opacity=".15"/><ellipse cx="0" cy="-18" rx="5" ry="11"/><ellipse cx="0" cy="18" rx="5" ry="11"/><ellipse cx="-18" cy="0" rx="11" ry="5"/><ellipse cx="18" cy="0" rx="11" ry="5"/></g>
+            <g transform="translate(35,130) scale(.85)" stroke="#fff" fill="none" opacity=".4" stroke-width="1.5"><ellipse cx="45" cy="32" rx="24" ry="15"/><path d="M60 22 Q64 10 58 2 M60 22 Q68 12 72 4"/><line x1="30" y1="47" x2="25" y2="72"/><line x1="58" y1="47" x2="63" y2="72"/></g>
+            <g transform="translate(75,272)" stroke="#fff" fill="none" opacity=".4" stroke-width="1.2"><circle r="20"/><path d="M-14,0 Q0,-18 14,0 Q0,18 -14,0Z"/><circle r="6" fill="#fff" opacity=".1"/></g>
           </svg>
         </div>
         <div class="panel-back"></div>
       </div>
-
-      <!-- Правая створка (зеркальная) -->
       <div class="door-panel door-panel-right" id="doorR">
         <div class="panel-face">
           <svg viewBox="0 0 150 340" xmlns="http://www.w3.org/2000/svg">
@@ -685,56 +331,30 @@ body{
             <rect x="10" y="10" width="130" height="85" rx="3" fill="none" stroke="#fff" stroke-width="1.5" opacity=".4"/>
             <rect x="10" y="105" width="130" height="100" rx="3" fill="none" stroke="#fff" stroke-width="1.5" opacity=".4"/>
             <rect x="10" y="215" width="130" height="115" rx="3" fill="none" stroke="#fff" stroke-width="1.5" opacity=".4"/>
-            <g transform="translate(75,52)" stroke="#fff" fill="none" opacity=".5" stroke-width="1.2">
-              <circle r="15"/><circle r="6" fill="#fff" opacity=".15"/>
-              <ellipse cx="0" cy="-18" rx="5" ry="11"/>
-              <ellipse cx="0" cy="18" rx="5" ry="11"/>
-              <ellipse cx="-18" cy="0" rx="11" ry="5"/>
-              <ellipse cx="18" cy="0" rx="11" ry="5"/>
-            </g>
-            <g transform="translate(115,130) scale(-.85,.85)" stroke="#fff" fill="none" opacity=".4" stroke-width="1.5">
-              <ellipse cx="45" cy="32" rx="24" ry="15"/>
-              <path d="M60 22 Q64 10 58 2 M60 22 Q68 12 72 4"/>
-              <line x1="30" y1="47" x2="25" y2="72"/>
-              <line x1="58" y1="47" x2="63" y2="72"/>
-            </g>
-            <g transform="translate(75,272)" stroke="#fff" fill="none" opacity=".4" stroke-width="1.2">
-              <circle r="20"/>
-              <path d="M-14,0 Q0,-18 14,0 Q0,18 -14,0Z"/>
-              <circle r="6" fill="#fff" opacity=".1"/>
-            </g>
+            <g transform="translate(75,52)" stroke="#fff" fill="none" opacity=".5" stroke-width="1.2"><circle r="15"/><circle r="6" fill="#fff" opacity=".15"/><ellipse cx="0" cy="-18" rx="5" ry="11"/><ellipse cx="0" cy="18" rx="5" ry="11"/><ellipse cx="-18" cy="0" rx="11" ry="5"/><ellipse cx="18" cy="0" rx="11" ry="5"/></g>
+            <g transform="translate(115,130) scale(-.85,.85)" stroke="#fff" fill="none" opacity=".4" stroke-width="1.5"><ellipse cx="45" cy="32" rx="24" ry="15"/><path d="M60 22 Q64 10 58 2 M60 22 Q68 12 72 4"/><line x1="30" y1="47" x2="25" y2="72"/><line x1="58" y1="47" x2="63" y2="72"/></g>
+            <g transform="translate(75,272)" stroke="#fff" fill="none" opacity=".4" stroke-width="1.2"><circle r="20"/><path d="M-14,0 Q0,-18 14,0 Q0,18 -14,0Z"/><circle r="6" fill="#fff" opacity=".1"/></g>
           </svg>
         </div>
         <div class="panel-back"></div>
       </div>
     </div>
-
-  </div><!-- /door-wrap -->
+  </div>
 </section>
 
-<!-- =========================================
-     ПРИВЕТСТВИЕ С БУКВИЦЕЙ
-     ========================================= -->
+<!-- ========== ПРИВЕТСТВИЕ ========== -->
 <div id="greeting" class="fade-up">
   <div class="dropcap-wrap">
-    <!-- Буквица М (красная, декоративная) -->
     <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
       <rect x="5" y="5" width="90" height="100" fill="none" stroke="#B22222" stroke-width="2" rx="4"/>
       <text x="50" y="82" text-anchor="middle" font-family="'Playfair Display',serif" font-size="72" font-weight="700" font-style="italic" fill="#B22222">М</text>
-      <g stroke="#B22222" stroke-width="1" opacity=".3">
-        <path d="M12 12 Q50 2 88 12" fill="none"/>
-        <path d="M12 98 Q50 108 88 98" fill="none"/>
-      </g>
+      <g stroke="#B22222" stroke-width="1" opacity=".3"><path d="M12 12 Q50 2 88 12" fill="none"/><path d="M12 98 Q50 108 88 98" fill="none"/></g>
     </svg>
   </div>
-  <p class="greeting-text">
-    ы очень хотим сделать этот день особенным, поэтому приглашаем вас разделить с нами торжество, посвящённое дню нашей свадьбы!
-  </p>
+  <p class="greeting-text">ы очень хотим сделать этот день особенным, поэтому приглашаем вас разделить с нами торжество, посвящённое дню нашей свадьбы!</p>
 </div>
 
-<!-- =========================================
-     КАЛЕНДАРЬ
-     ========================================= -->
+<!-- ========== КАЛЕНДАРЬ ========== -->
 <div class="calendar-section fade-up">
   <div class="calendar-header">
     <span class="calendar-month">августа</span>
@@ -752,37 +372,25 @@ body{
   </div>
 </div>
 
-<!-- =========================================
-     ИМЕНА
-     ========================================= -->
+<!-- ========== ИМЕНА ========== -->
 <div class="names-section fade-up">
   <div class="name-groom">Константин</div>
   <div class="names-and">и</div>
   <div class="name-bride">Анна</div>
 </div>
 
-<!-- =========================================
-     ИСТОРИЯ (красный блок)
-     ========================================= -->
+<!-- ========== ИСТОРИЯ ========== -->
 <div class="ornament-strip"></div>
 <div class="red-block fade-up">
   <div class="red-block-content">
-    <p class="section-text" style="margin-bottom:20px;">
-      <span class="dropcap">Н</span>е за тридевять земель, а здесь, в славном Нижнем Новгороде, жил да был добрый молодец Константин.
-    </p>
-    <p class="section-text" style="margin-bottom:30px;">
-      Долго коротал он свои дни — и понял: пора жениться. Но суженую надобно было сыскать не простую, а самую что ни на есть очаровательную. И повстречал Константин свою Анну: она — светлая, нежная, как весенний рассвет, а он рядом с ней — как тёплый летний вечер. С той самой встречи их сердца сплелись в одну судьбу крепко-накрепко.
-    </p>
-    <p class="section-text">
-      <span class="dropcap">И</span> вот настал день долгожданный — собрать гостей честных, да друзей сердечных, отметить пир во славу любви великой, что сильна, как в русских сказах, а счастье — как пир длится вечно.
-    </p>
+    <p class="section-text" style="margin-bottom:20px;"><span class="dropcap">Н</span>е за тридевять земель, а здесь, в славном Нижнем Новгороде, жил да был добрый молодец Константин.</p>
+    <p class="section-text" style="margin-bottom:30px;">Долго коротал он свои дни — и понял: пора жениться. Но суженую надобно было сыскать не простую, а самую что ни на есть очаровательную. И повстречал Константин свою Анну: она — светлая, нежная, как весенний рассвет, а он рядом с ней — как тёплый летний вечер. С той самой встречи их сердца сплелись в одну судьбу крепко-накрепко.</p>
+    <p class="section-text"><span class="dropcap">И</span> вот настал день долгожданный — собрать гостей честных, да друзей сердечных, отметить пир во славу любви великой, что сильна, как в русских сказах, а счастье — как пир длится вечно.</p>
   </div>
 </div>
 <div class="ornament-strip"></div>
 
-<!-- =========================================
-     МЕСТО ПРОВЕДЕНИЯ
-     ========================================= -->
+<!-- ========== МЕСТО ========== -->
 <section class="section fade-up" id="venue" style="padding-bottom:10px;">
   <div class="venue-badge">
     <div class="venue-title">Пир на весь мир!</div>
@@ -792,24 +400,26 @@ body{
   </div>
 </section>
 
-<!-- =========================================
-     ТАЙМЛАЙН С ЯБЛОКОМ
-     ========================================= -->
+<!-- ========== ТАЙМЛАЙН С КАТЯЩИМСЯ ЯБЛОКОМ ========== -->
 <div class="timeline-section fade-up" id="timelineSection">
 
-  <!-- SVG кривая линия -->
-  <svg class="timeline-path-svg" viewBox="0 0 200 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path id="tlPath" d="M100 0 C60 100 140 200 100 300 C60 400 140 500 100 600 C80 700 120 750 100 800" fill="none" stroke="#B22222" stroke-width="1.5" opacity=".5"/>
+  <!-- SVG — ШИРОКАЯ волнистая линия -->
+  <svg class="timeline-path-svg" viewBox="0 0 350 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path id="tlPath" d="M175 0 C50 120 300 220 175 340 C50 460 300 560 175 680 C100 780 250 850 175 900" fill="none" stroke="#B22222" stroke-width="1.5" opacity=".5"/>
   </svg>
 
-  <!-- Яблоко (двигается по кривой) -->
+  <!-- ЯБЛОКО — катится (вращается) по линии -->
   <div class="apple-moving" id="appleMoving">
-    <svg viewBox="0 0 40 44" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 4 Q22 0 24 2" stroke="#3a6b35" stroke-width="1.5" fill="none"/>
-      <ellipse cx="20" cy="26" rx="16" ry="16" fill="#B22222"/>
-      <ellipse cx="14" cy="20" rx="4" ry="6" fill="#D44040" opacity=".4"/>
-      <path d="M20 10 Q15 12 18 16" stroke="#3a6b35" stroke-width="1" fill="none"/>
-      <ellipse cx="22" cy="9" rx="5" ry="3" fill="#3a6b35" opacity=".6" transform="rotate(-20 22 9)"/>
+    <svg viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg">
+      <!-- Веточка -->
+      <path d="M22 6 Q24 2 26 4" stroke="#3a6b35" stroke-width="1.5" fill="none"/>
+      <ellipse cx="25" cy="5" rx="5" ry="3" fill="#3a6b35" opacity=".6" transform="rotate(-15 25 5)"/>
+      <!-- Яблоко -->
+      <ellipse cx="22" cy="28" rx="17" ry="17" fill="#B22222"/>
+      <!-- Блик -->
+      <ellipse cx="15" cy="22" rx="5" ry="7" fill="#D44040" opacity=".4"/>
+      <!-- Нижняя ямка -->
+      <path d="M18 43 Q22 46 26 43" stroke="#8B0000" stroke-width="1" fill="none" opacity=".5"/>
     </svg>
   </div>
 
@@ -817,26 +427,21 @@ body{
     <div class="tl-time">15:00</div>
     <div class="tl-desc">Сбор гостей</div>
   </div>
-
   <div class="tl-item">
     <div class="tl-time">15:30</div>
     <div class="tl-desc">Сказочная церемония</div>
   </div>
-
   <div class="tl-item">
     <div class="tl-time">16:00</div>
     <div class="tl-desc">Хлебосольный ужин, яркие танцы и развлечения</div>
   </div>
-
   <div class="tl-item">
     <div class="tl-time">22:00</div>
     <div class="tl-desc">Заключение праздника</div>
   </div>
 </div>
 
-<!-- =========================================
-     ДРЕСС-КОД
-     ========================================= -->
+<!-- ========== ДРЕСС-КОД ========== -->
 <div class="dresscode-section fade-up">
   <div class="dresscode-title">Сказка станет явью</div>
   <p class="dresscode-sub">если вы, как добрые гости, поддержите наряд вечерний</p>
@@ -864,114 +469,53 @@ body{
   </div>
 </div>
 
-<!-- =========================================
-     ПОЖЕЛАНИЯ (красный блок)
-     ========================================= -->
+<!-- ========== ПОЖЕЛАНИЯ ========== -->
 <div class="ornament-strip"></div>
 <div class="wishes-block fade-up">
   <p class="section-title" style="text-align:center;margin-bottom:30px;">Пожелания</p>
-
   <div class="wish-item">
-    <div class="wish-icon">
-      <svg viewBox="0 0 60 60"><rect x="10" y="15" width="40" height="30" rx="3" stroke="#fff" stroke-width="2" fill="none"/><path d="M15 20 L30 35 L45 20" stroke="#fff" stroke-width="1.5" fill="none"/></svg>
-    </div>
-    <div class="wish-text">
-      Не утруждайте себя, дорогие гости, выбором даров заморских.<br><br>
-      Есть дар один, что неприхотлив, сердце радует, да любые желания исполняет — так то <strong>золотомонетный вклад</strong>.
-    </div>
+    <div class="wish-icon"><svg viewBox="0 0 60 60"><rect x="10" y="15" width="40" height="30" rx="3" stroke="#fff" stroke-width="2" fill="none"/><path d="M15 20 L30 35 L45 20" stroke="#fff" stroke-width="1.5" fill="none"/></svg></div>
+    <div class="wish-text">Не утруждайте себя, дорогие гости, выбором даров заморских.<br><br>Есть дар один, что неприхотлив, сердце радует, да любые желания исполняет — так то <strong>золотомонетный вклад</strong>.</div>
   </div>
-
   <div class="wish-item">
-    <div class="wish-icon">
-      <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="20" stroke="#fff" stroke-width="2" fill="none"/><path d="M22 30 Q30 18 38 30 Q30 42 22 30Z" stroke="#fff" stroke-width="1.5" fill="none"/></svg>
-    </div>
-    <div class="wish-text">
-      В каждой сказке свои детали, суженых ждёт путешествие сразу после свадебного пира.<br><br>
-      Ваши букеты будут радовать круглый год, если вы вместо цветов оставите <strong>открытку от сердца</strong>.
-    </div>
+    <div class="wish-icon"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="20" stroke="#fff" stroke-width="2" fill="none"/><path d="M22 30 Q30 18 38 30 Q30 42 22 30Z" stroke="#fff" stroke-width="1.5" fill="none"/></svg></div>
+    <div class="wish-text">В каждой сказке свои детали, суженых ждёт путешествие сразу после свадебного пира.<br><br>Ваши букеты будут радовать круглый год, если вы вместо цветов оставите <strong>открытку от сердца</strong>.</div>
   </div>
-
   <div class="wish-item">
-    <div class="wish-icon">
-      <svg viewBox="0 0 60 60"><path d="M15 45 L30 15 L45 45Z" stroke="#fff" stroke-width="2" fill="none"/><circle cx="30" cy="35" r="5" stroke="#fff" stroke-width="1.5" fill="none"/></svg>
-    </div>
-    <div class="wish-text">
-      А ежели будут у вас вопросы да думы разные — заглядывайте в наш волшебный терем-канал в Телеграме.<br><br>
-      Там ответ найдётся на всякую загадку, и фотокарточки свои туда направляйте.
-      <br><br>
-      <a href="https://t.me/YOUR_CHAT" target="_blank" rel="noopener" class="btn-styled">Вступить</a>
-    </div>
+    <div class="wish-icon"><svg viewBox="0 0 60 60"><path d="M15 45 L30 15 L45 45Z" stroke="#fff" stroke-width="2" fill="none"/><circle cx="30" cy="35" r="5" stroke="#fff" stroke-width="1.5" fill="none"/></svg></div>
+    <div class="wish-text">А ежели будут у вас вопросы да думы разные — заглядывайте в наш волшебный терем-канал в Телеграме.<br><br><a href="https://t.me/YOUR_CHAT" target="_blank" rel="noopener" class="btn-styled">Вступить</a></div>
   </div>
 </div>
 <div class="ornament-strip"></div>
 
-<!-- =========================================
-     ЖАР-ПТИЦА
-     ========================================= -->
+<!-- ========== КАРТИНКА ВМЕСТО ПТИЦЫ ========== -->
 <div class="firebird-section fade-up">
-  <svg class="firebird-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" fill="#B22222">
-    <!-- Тело -->
-    <ellipse cx="100" cy="140" rx="30" ry="20" opacity=".8"/>
-    <!-- Голова -->
-    <circle cx="100" cy="105" r="12"/>
-    <!-- Хохолок -->
-    <path d="M95 95 Q90 80 85 70" stroke="#B22222" stroke-width="2" fill="none"/>
-    <path d="M100 93 Q100 75 100 65" stroke="#B22222" stroke-width="2" fill="none"/>
-    <path d="M105 95 Q110 80 115 70" stroke="#B22222" stroke-width="2" fill="none"/>
-    <circle cx="85" cy="68" r="3"/><circle cx="100" cy="63" r="3"/><circle cx="115" cy="68" r="3"/>
-    <!-- Глаз -->
-    <circle cx="96" cy="103" r="2" fill="#fff"/>
-    <!-- Клюв -->
-    <path d="M112 105 L122 102 L112 108Z"/>
-    <!-- Крылья -->
-    <path d="M70 140 Q40 110 20 130 Q40 120 60 135Z" opacity=".6"/>
-    <path d="M65 135 Q30 100 15 120 Q35 110 55 130Z" opacity=".5"/>
-    <path d="M60 130 Q25 90 10 110 Q30 100 50 125Z" opacity=".4"/>
-    <path d="M130 140 Q160 110 180 130 Q160 120 140 135Z" opacity=".6"/>
-    <path d="M135 135 Q170 100 185 120 Q165 110 145 130Z" opacity=".5"/>
-    <path d="M140 130 Q175 90 190 110 Q170 100 150 125Z" opacity=".4"/>
-    <!-- Хвост -->
-    <path d="M90 158 Q70 180 50 200 Q75 185 80 195 Q85 180 90 190 Q95 175 100 185 Q105 175 110 190 Q115 180 120 195 Q125 185 150 200 Q130 180 110 158" opacity=".5"/>
-    <!-- Завитки -->
-    <path d="M60 190 Q50 200 55 210 Q60 205 65 210" stroke="#B22222" stroke-width="1.5" fill="none" opacity=".4"/>
-    <path d="M140 190 Q150 200 145 210 Q140 205 135 210" stroke="#B22222" stroke-width="1.5" fill="none" opacity=".4"/>
-    <!-- Цветочки рядом -->
-    <circle cx="45" cy="205" r="4" opacity=".3"/>
-    <circle cx="155" cy="205" r="4" opacity=".3"/>
-  </svg>
+  <img src="assets/images/firebird.png.jpg" alt="Жар-птица" style="width:220px;max-width:60vw;height:auto;display:block;margin:0 auto;">
 </div>
 
-<!-- =========================================
-     RSVP
-     ========================================= -->
+<!-- ========== RSVP ========== -->
 <div class="rsvp-section fade-up" id="rsvp">
   <div class="rsvp-frame">
     <p class="section-title">Опрос дорогих гостей</p>
-    <p style="font-size:.95rem;color:var(--text-light);margin-bottom:20px;">
-      Дайте весточку до 1 июля,<br>дабы всё было по уму и с размахом!
-    </p>
+    <p style="font-size:.95rem;color:var(--text-light);margin-bottom:20px;">Дайте весточку до 1 июля,<br>дабы всё было по уму и с размахом!</p>
     <form class="rsvp-form" id="rsvpForm">
       <label for="gN">Ваше имя</label>
       <input type="text" id="gN" name="name" required placeholder="Иван Иванов">
-
-      <label>Будете ли присутствовать?</label>
+      <label>Присутствие</label>
       <div class="radio-group">
         <label><input type="radio" name="attend" value="yes" required> С радостью!</label>
         <label><input type="radio" name="attend" value="no"> К сожалению, нет</label>
       </div>
-
       <label>С партнёром?</label>
       <div class="radio-group">
         <label><input type="radio" name="partner" value="yes"> Да</label>
         <label><input type="radio" name="partner" value="no"> Нет</label>
       </div>
-
       <label>Дети?</label>
       <div class="radio-group">
         <label><input type="radio" name="kids" value="yes"> Да</label>
         <label><input type="radio" name="kids" value="no"> Нет</label>
       </div>
-
       <label for="drk">Предпочтения</label>
       <select id="drk" name="drink">
         <option value="">Выберите…</option>
@@ -981,7 +525,6 @@ body{
         <option value="beer">Пиво</option>
         <option value="soft">Безалкогольные</option>
       </select>
-
       <div style="text-align:center;">
         <button type="submit" class="btn-submit">Отправить</button>
       </div>
@@ -989,18 +532,14 @@ body{
   </div>
 </div>
 
-<!-- =========================================
-     НИЖНЕЕ ФОТО
-     ========================================= -->
+<!-- ========== НИЖНЕЕ ФОТО ========== -->
 <div class="photo-frame-section fade-up">
   <div class="photo-doodle-frame">
     <img src="assets/images/foto4.jpg" alt="Анна и Константин">
   </div>
 </div>
 
-<!-- =========================================
-     COUNTDOWN
-     ========================================= -->
+<!-- ========== COUNTDOWN ========== -->
 <div class="countdown-wrap fade-up">
   <div class="countdown-label">До нашего торжества…</div>
   <div class="countdown">
@@ -1024,11 +563,12 @@ ym(100756378,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/100756378" style="position:absolute;left:-9999px" alt=""/></div></noscript>
 
+<!-- ========== СКРИПТЫ ========== -->
 <script>
 (function(){
   'use strict';
 
-  /* ==== ДВЕРИ ==== */
+  /* === ДВЕРИ === */
   var dL=document.getElementById('doorL');
   var dR=document.getElementById('doorR');
   var doorTitle=document.getElementById('doorTitle');
@@ -1043,74 +583,75 @@ ym(100756378,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
     dL.classList.add('open');
     dR.classList.add('open');
     doorTitle.classList.add('hidden');
-    // Показать кнопку музыки
     musicBtn.classList.add('visible');
-    // Запустить музыку
-    music.play().then(function(){
-      playing=true;
-      musicIcon.innerHTML='&#10074;&#10074;';
-    }).catch(function(){
-      musicIcon.innerHTML='&#9654;';
-    });
+    music.play().then(function(){playing=true;musicIcon.innerHTML='&#10074;&#10074;';}).catch(function(){musicIcon.innerHTML='&#9654;';});
   }
-
-  // Только по клику — створки НЕ открываются автоматически
   dL.addEventListener('click',openDoors);
   dR.addEventListener('click',openDoors);
 
-  // Музыка кнопка
   musicBtn.addEventListener('click',function(){
-    if(playing){
-      music.pause();playing=false;
-      musicIcon.innerHTML='&#9654;';
-    }else{
-      music.play().then(function(){
-        playing=true;
-        musicIcon.innerHTML='&#10074;&#10074;';
-      }).catch(function(){});
-    }
+    if(playing){music.pause();playing=false;musicIcon.innerHTML='&#9654;';}
+    else{music.play().then(function(){playing=true;musicIcon.innerHTML='&#10074;&#10074;';}).catch(function(){});}
   });
 
-  /* ==== FADE-UP ==== */
+  /* === FADE === */
   var fadeEls=document.querySelectorAll('.fade-up');
   var fObs=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){en.target.classList.add('visible');fObs.unobserve(en.target);}
-    });
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');fObs.unobserve(en.target);}});
   },{threshold:.12,rootMargin:'0px 0px -30px 0px'});
   fadeEls.forEach(function(el){fObs.observe(el);});
 
-  /* ==== ЯБЛОКО ПО КРИВОЙ ==== */
+  /* === ЯБЛОКО — КАТИТСЯ ПО ШИРОКОЙ ВОЛНЕ === */
   var tlSection=document.getElementById('timelineSection');
   var apple=document.getElementById('appleMoving');
   var pathEl=document.getElementById('tlPath');
+  var pathLen=0;
+  var prevProgress=0;
+  var totalRotation=0;
 
   if(pathEl && apple && tlSection){
-    var pathLen=pathEl.getTotalLength();
+    pathLen=pathEl.getTotalLength();
 
     function moveApple(){
       var rect=tlSection.getBoundingClientRect();
       var wh=window.innerHeight;
-      // Прогресс: 0 когда секция входит снизу, 1 когда уходит сверху
-      var progress=1-(rect.bottom/(rect.height+wh));
-      progress=Math.max(0,Math.min(1,progress));
+      // Прогресс скролла через секцию (0..1)
+      var progress=(wh - rect.top) / (rect.height + wh);
+      progress=Math.max(0, Math.min(1, progress));
 
-      var point=pathEl.getPointAtLength(progress*pathLen);
-      // Позиция SVG внутри секции
-      var svgRect=pathEl.closest('svg').getBoundingClientRect();
-      var offX=svgRect.left-rect.left+point.x-18;
-      var offY=svgRect.top-rect.top+point.y-18;
+      // Позиция на кривой
+      var point=pathEl.getPointAtLength(progress * pathLen);
 
-      apple.style.left=offX+'px';
-      apple.style.top=offY+'px';
+      // Вычисляем позицию яблока в координатах секции
+      var svgEl=pathEl.closest('svg');
+      var svgRect=svgEl.getBoundingClientRect();
+      var scaleX=svgRect.width / 350; // viewBox width
+      var scaleY=svgRect.height / 900; // viewBox height
+
+      var offX=(svgRect.left - rect.left) + point.x * scaleX - 20;
+      var offY=(svgRect.top - rect.top) + point.y * scaleY - 20;
+
+      // Вращение — яблоко катится (зависит от пройденного пути)
+      // Окружность яблока ≈ 2*PI*17 ≈ 107px, при каждом пройденном 107px = 360°
+      var distanceTraveled = progress * pathLen * ((scaleX+scaleY)/2);
+      var appleCircumference = 2 * Math.PI * 17; // радиус яблока в SVG ≈ 17
+      totalRotation = (distanceTraveled / appleCircumference) * 360;
+
+      apple.style.left = offX + 'px';
+      apple.style.top = offY + 'px';
+      apple.style.transform = 'rotate(' + totalRotation + 'deg)';
+
+      prevProgress=progress;
     }
 
-    window.addEventListener('scroll',moveApple,{passive:true});
-    window.addEventListener('resize',moveApple);
+    window.addEventListener('scroll', moveApple, {passive:true});
+    window.addEventListener('resize', moveApple);
+    // Начальная позиция
+    setTimeout(moveApple, 100);
     moveApple();
   }
 
-  /* ==== COUNTDOWN ==== */
+  /* === COUNTDOWN === */
   var wd=new Date('2026-08-02T15:00:00+03:00').getTime();
   function tick(){
     var diff=wd-Date.now();
@@ -1122,7 +663,7 @@ ym(100756378,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
   }
   tick();setInterval(tick,1000);
 
-  /* ==== RSVP ==== */
+  /* === RSVP === */
   document.getElementById('rsvpForm').addEventListener('submit',function(e){
     e.preventDefault();
     alert('Спасибо за весточку! Ваш ответ получен.');
