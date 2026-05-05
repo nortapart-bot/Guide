@@ -150,7 +150,7 @@ body{
 .timeline-path-svg{
   position:absolute;
   left:50%;top:0;transform:translateX(-50%);
-  width:350px;  /* ШИРИНА УВЕЛИЧЕНА */
+  width:350px;
   height:100%;
   pointer-events:none;
 }
@@ -488,9 +488,9 @@ body{
 </div>
 <div class="ornament-strip"></div>
 
-<!-- ========== КАРТИНКА ВМЕСТО ПТИЦЫ ========== -->
+<!-- ========== ЖАР-ПТИЦА (ИСПРАВЛЕННЫЙ ПУТЬ) ========== -->
 <div class="firebird-section fade-up">
-  <img src="assets/images/firebird.png.jpg" alt="Жар-птица" style="width:220px;max-width:60vw;height:auto;display:block;margin:0 auto;">
+  <img src="firebird.png.jpg" alt="Жар-птица" style="width:220px;max-width:60vw;height:auto;display:block;margin:0 auto;">
 </div>
 
 <!-- ========== RSVP ========== -->
@@ -606,7 +606,6 @@ ym(100756378,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
   var apple=document.getElementById('appleMoving');
   var pathEl=document.getElementById('tlPath');
   var pathLen=0;
-  var prevProgress=0;
   var totalRotation=0;
 
   if(pathEl && apple && tlSection){
@@ -615,38 +614,30 @@ ym(100756378,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
     function moveApple(){
       var rect=tlSection.getBoundingClientRect();
       var wh=window.innerHeight;
-      // Прогресс скролла через секцию (0..1)
       var progress=(wh - rect.top) / (rect.height + wh);
       progress=Math.max(0, Math.min(1, progress));
 
-      // Позиция на кривой
       var point=pathEl.getPointAtLength(progress * pathLen);
 
-      // Вычисляем позицию яблока в координатах секции
       var svgEl=pathEl.closest('svg');
       var svgRect=svgEl.getBoundingClientRect();
-      var scaleX=svgRect.width / 350; // viewBox width
-      var scaleY=svgRect.height / 900; // viewBox height
+      var scaleX=svgRect.width / 350;
+      var scaleY=svgRect.height / 900;
 
       var offX=(svgRect.left - rect.left) + point.x * scaleX - 20;
       var offY=(svgRect.top - rect.top) + point.y * scaleY - 20;
 
-      // Вращение — яблоко катится (зависит от пройденного пути)
-      // Окружность яблока ≈ 2*PI*17 ≈ 107px, при каждом пройденном 107px = 360°
       var distanceTraveled = progress * pathLen * ((scaleX+scaleY)/2);
-      var appleCircumference = 2 * Math.PI * 17; // радиус яблока в SVG ≈ 17
+      var appleCircumference = 2 * Math.PI * 17;
       totalRotation = (distanceTraveled / appleCircumference) * 360;
 
       apple.style.left = offX + 'px';
       apple.style.top = offY + 'px';
       apple.style.transform = 'rotate(' + totalRotation + 'deg)';
-
-      prevProgress=progress;
     }
 
     window.addEventListener('scroll', moveApple, {passive:true});
     window.addEventListener('resize', moveApple);
-    // Начальная позиция
     setTimeout(moveApple, 100);
     moveApple();
   }
